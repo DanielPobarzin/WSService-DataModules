@@ -32,12 +32,14 @@ namespace Communications.UoW
 			this.configuration = configuration;
 			db = new NotificationsDbContext(configuration);
 		}
-		public async void GetAllNotifications(CancellationToken cancellationToken)
+		public void GetAllNotifications(CancellationToken cancellationToken)
 		{
+			
 			while (!cancellationToken.IsCancellationRequested)
 			{
-				this.NotificationsList = Notifications.GetAllList();
-				await Task.Delay(Convert.ToInt32(1000));
+				var notifications = Notifications.GetAllList();
+				Thread.Sleep(Convert.ToInt32(1000));
+				NotificationsList = notifications;
 			}
 			if (cancellationToken.IsCancellationRequested)
 			{

@@ -84,3 +84,4 @@ C:\All\NotificationsExchange\Server\Communications\obj\Debug\net8.0\refint\Commu
 C:\All\NotificationsExchange\Server\Communications\obj\Debug\net8.0\Communications.pdb
 C:\All\NotificationsExchange\Server\Communications\obj\Debug\net8.0\Communications.genruntimeconfig.cache
 C:\All\NotificationsExchange\Server\Communications\obj\Debug\net8.0\ref\Communications.dll
+C:\All\NotificationsExchange\Server\Communications\obj\Debug\net8.0\Communications.sourcelink.json

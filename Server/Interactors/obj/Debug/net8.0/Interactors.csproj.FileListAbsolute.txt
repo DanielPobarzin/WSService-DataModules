@@ -28,3 +28,4 @@ C:\All\NotificationsExchange\Server\Interactors\obj\Debug\net8.0\Interactors.dll
 C:\All\NotificationsExchange\Server\Interactors\obj\Debug\net8.0\refint\Interactors.dll
 C:\All\NotificationsExchange\Server\Interactors\obj\Debug\net8.0\Interactors.pdb
 C:\All\NotificationsExchange\Server\Interactors\obj\Debug\net8.0\ref\Interactors.dll
+C:\All\NotificationsExchange\Server\Interactors\obj\Debug\net8.0\Interactors.sourcelink.json

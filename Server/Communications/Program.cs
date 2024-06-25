@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -24,9 +25,12 @@ namespace Communications
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
 		private static UnitOfWorkGetNotifications unitOfWork;
 		private static CheckHashHalper checkHashHalper;
+		private static UnitOfWorkRealTime realTime;
 		private static CancellationTokenSource cancellationTokenSource;
 		private static Thread UoWThread;
+		private static Thread RTThread;
 		private static Thread hostThread;
+		private static bool hostApplicationStarted;
 		static object locker = new();
 		public static IHost host;
 		public static void Main(string[] args)
@@ -67,6 +71,7 @@ namespace Communications
 
 			//--------------- Initialize get configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
+			unitOfWork = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
 			checkHashHalper = new CheckHashHalper();
 
 			//--------------- Starting the host -----------------//
@@ -77,6 +82,9 @@ namespace Communications
 			UoWThread = new Thread(StartListenNotifications);
 			UoWThread.Start();
 
+			//--------------- Start sending data to clients -----------------//
+			RTThread = new Thread(StartSendingNotifications);
+			
 			//--------------- Defining actions when changing the configuration -----------------//
 			GetEventChangeConfiguration();
 
@@ -92,10 +100,21 @@ namespace Communications
 				CancellationToken cancellationToken = cancellationTokenSource.Token;
 
 				//--------------- Determining the connection and starting to receive data -----------------//
-				unitOfWork = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
 				unitOfWork.GetAllNotifications(cancellationToken);
-
 			}
+		}
+
+		public static void StartSendingNotifications()
+		{
+				cancellationTokenSource = new CancellationTokenSource();
+				CancellationToken cancellationToken = cancellationTokenSource.Token;
+				
+				var hubContext = host.Services.GetService<IHubContext<NotificationHub>>();
+				var hubClientCaller = host.Services.GetService<IHubCallerClients<NotificationHub>>();
+
+			//--------------- Determining the connection and starting to receive data -----------------//
+				realTime = new UnitOfWorkRealTime(hubContext, hubClientCaller, unitOfWork.NotificationsList, unitOfWorkConfig.Configuration);
+				realTime.RealTimeNotify(cancellationToken);
 		}
 
 		public static async void GetEventChangeConfiguration()
@@ -144,7 +163,9 @@ namespace Communications
 				   //--------------- Connections -----------------//
 				   services.AddSingleton(typeof(Connections<NotificationHub>));
 
-				   //--------------- Data Conversion -----------------//
+				   //--------------- RealTime Notify -----------------//
+
+
 				   //--------------- CORS -----------------//
 				   services.AddCors(options =>
 				   {
@@ -176,8 +197,6 @@ namespace Communications
 			   {
 				   app.UseRouting();
 				   app.UseCors("CorsPolicy");
-				  
-
 				   app.UseEndpoints(endpoints =>
 				   {
 					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:Route"], options =>
@@ -189,6 +208,11 @@ namespace Communications
 				   });
 			   });
 		   }).Build();
+			host.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStarted.Register(() =>
+			{
+				RTThread.Start();
+				hostApplicationStarted = true;
+			});
 			host.Run();
 		}	
 	}

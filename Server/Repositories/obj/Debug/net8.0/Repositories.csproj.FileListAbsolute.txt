@@ -32,3 +32,4 @@ C:\All\NotificationsExchange\Server\Repositories\obj\Debug\net8.0\Repositories.d
 C:\All\NotificationsExchange\Server\Repositories\obj\Debug\net8.0\refint\Repositories.dll
 C:\All\NotificationsExchange\Server\Repositories\obj\Debug\net8.0\Repositories.pdb
 C:\All\NotificationsExchange\Server\Repositories\obj\Debug\net8.0\ref\Repositories.dll
+C:\All\NotificationsExchange\Server\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json
