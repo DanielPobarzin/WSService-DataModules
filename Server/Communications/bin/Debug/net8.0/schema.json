@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "DbConnection": {
+      "type": "object",
+      "properties": {
+        "DataBase": {
+          "type": "string"
+        },
+        "ConnectionString": {
+          "type": "string"
+        }
+      },
+      "required": [ "DataBase", "ConnectionString" ]
+    },
+    "NotificationsHubSettings": {
+      "type": "object",
+      "properties": {
+        "DelayMilliseconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ServerId": {
+          "type": "string"
+        },
+        "UseCompareLists": {
+          "type": "boolean"
+        },
+        "HubMethod": {
+          "type": "string"
+        },
+        "TargetClients": {
+          "type": "string"
+        }
+      },
+      "required": [ "DelayMilliseconds", "ServerId", "UseCompareLists", "HubMethod", "TargetClients" ]
+    },
+    "HostSettings": {
+      "type": "object",
+      "properties": {
+        "EnableDetailedErrors": {
+          "type": "boolean"
+        },
+        "PolicyName": {
+          "type": "string"
+        },
+        "AllowedHeaders": {
+          "type": "string"
+        },
+        "AllowedMethods": {
+          "type": "string"
+        },
+        "AllowedOrigins": {
+          "type": "string"
+        },
+        "UseCorsName": {
+          "type": "string"
+        },
+        "Route": {
+          "type": "string"
+        },
+        "Transports": {
+          "type": "string"
+        },
+        "CloseTimeout": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "EnableDetailedErrors",
+        "PolicyName",
+        "AllowedHeaders",
+        "AllowedMethods",
+        "AllowedOrigins",
+        "UseCorsName",
+        "Route",
+        "Transports",
+        "CloseTimeout"
+      ]
+    }
+  },
+  "required": [
+    "DbConnection",
+    "NotificationsHubSettings",
+    "HostSettings"
+  ]
+}

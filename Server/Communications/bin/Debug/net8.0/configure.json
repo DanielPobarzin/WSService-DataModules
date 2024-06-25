@@ -1,0 +1,28 @@
+{
+  "DbConnection": {
+    "DataBase": "PostgreSQL",
+    "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
+  },
+  "NotificationsHubSettings": {
+    "DelayMilliseconds": 1000,
+    "ServerId": "6142dfeb-00e2-43cb-a70f-f55ac8847757",
+    "UseCompareLists": true,
+    "HubMethod": "ReceiveMessageHandler",
+    "TargetClients": "ContextClient"
+  },
+  "HostSettings": {
+    "KeepAliveInterval": "00:02:00",
+    "EnableDetailedErrors": true,
+    "PolicyName": "Security",
+    "AllowedHeaders": "*",
+    "AllowedMethods": "GET;POST",
+    "AllowedOrigins": "http://localhost:22660;http://localhost:5196;https://localhost:7114",
+    "UseCorsName": "Security",
+    "Route": "/notificationhub",
+    "TransportMaxBufferSize": 64,
+    "Transports": "WebSockets",
+    "CloseTimeout": "00:00:10"
+  }
+}
+
+
