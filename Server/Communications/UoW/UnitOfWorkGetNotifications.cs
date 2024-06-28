@@ -13,7 +13,7 @@ namespace Communications.UoW
 {
 	public class UnitOfWorkGetNotifications : IDisposable
 	{
-		public IEnumerable<Notification> NotificationsList;
+		public List<Notification> ReceivedNotificationsList;
 
 		private IConfiguration configuration;
 		private NotificationsDbContext db;
@@ -34,12 +34,19 @@ namespace Communications.UoW
 		}
 		public void GetAllNotifications(CancellationToken cancellationToken)
 		{
-			
+			ReceivedNotificationsList = new List<Notification>();
+
 			while (!cancellationToken.IsCancellationRequested)
 			{
 				var notifications = Notifications.GetAllList();
+				foreach(var notification in notifications)
+				{
+					if (!ReceivedNotificationsList.Contains(notification))
+					{
+						ReceivedNotificationsList.Add(notification);
+					}
+				}
 				Thread.Sleep(Convert.ToInt32(1000));
-				NotificationsList = notifications;
 			}
 			if (cancellationToken.IsCancellationRequested)
 			{

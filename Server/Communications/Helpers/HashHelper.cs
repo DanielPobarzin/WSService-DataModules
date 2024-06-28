@@ -26,7 +26,6 @@ namespace Communications.Helpers
 					if (!match.Success)
 					{
 						Log.Error("The required section was not found in the configuration file. The hash is undefined.");
-						throw new ArgumentException();
 					}
 
 					string sectionJson = match.Value;

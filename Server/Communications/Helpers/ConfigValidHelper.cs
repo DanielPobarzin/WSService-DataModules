@@ -24,7 +24,6 @@ namespace Communications.Helpers
 				Log.Warning("The configuration file was not found or it is incorrect. The default configuration is used.");
 				return false;
 			}
-			Log.Information("The provided configuration is used.");
 			return true;
 		}
 	}

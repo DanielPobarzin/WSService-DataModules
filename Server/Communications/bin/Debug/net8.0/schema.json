@@ -41,6 +41,13 @@
         "EnableDetailedErrors": {
           "type": "boolean"
         },
+        "Port": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "urls": {
+          "type": "string"
+        },
         "PolicyName": {
           "type": "string"
         },
@@ -68,6 +75,7 @@
       },
       "required": [
         "EnableDetailedErrors",
+        "Port",
         "PolicyName",
         "AllowedHeaders",
         "AllowedMethods",

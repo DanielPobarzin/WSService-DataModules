@@ -6,7 +6,11 @@ using Communications.UoW;
 using Entities.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,12 +29,9 @@ namespace Communications
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
 		private static UnitOfWorkGetNotifications unitOfWork;
 		private static CheckHashHalper checkHashHalper;
-		private static UnitOfWorkRealTime realTime;
 		private static CancellationTokenSource cancellationTokenSource;
 		private static Thread UoWThread;
-		private static Thread RTThread;
 		private static Thread hostThread;
-		private static bool hostApplicationStarted;
 		static object locker = new();
 		public static IHost host;
 		public static void Main(string[] args)
@@ -48,6 +49,7 @@ namespace Communications
 				.Enrich.WithDemystifiedStackTraces()
 				.Enrich.WithRequestUserId()
 				.WriteTo.Console(theme: SystemConsoleTheme.Colored, restrictedToMinimumLevel: LogEventLevel.Information)
+				.WriteTo.Console(theme: SystemConsoleTheme.Colored, restrictedToMinimumLevel: LogEventLevel.Error)
 				.WriteTo.File(AppContext.BaseDirectory + @"\Log\[VERBOSE]_NotificationExchange_Log_.log",
 						rollingInterval: RollingInterval.Day,
 						rollOnFileSizeLimit: true,
@@ -69,9 +71,8 @@ namespace Communications
 				.CreateLogger();
 			}
 
-			//--------------- Initialize get configuration -----------------//
+			//--------------- Initialize get and check configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
-			unitOfWork = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
 			checkHashHalper = new CheckHashHalper();
 
 			//--------------- Starting the host -----------------//
@@ -81,9 +82,6 @@ namespace Communications
 			//--------------- Start requesting data from the database -----------------//
 			UoWThread = new Thread(StartListenNotifications);
 			UoWThread.Start();
-
-			//--------------- Start sending data to clients -----------------//
-			RTThread = new Thread(StartSendingNotifications);
 			
 			//--------------- Defining actions when changing the configuration -----------------//
 			GetEventChangeConfiguration();
@@ -100,71 +98,69 @@ namespace Communications
 				CancellationToken cancellationToken = cancellationTokenSource.Token;
 
 				//--------------- Determining the connection and starting to receive data -----------------//
+				unitOfWork = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
 				unitOfWork.GetAllNotifications(cancellationToken);
 			}
-		}
-
-		public static void StartSendingNotifications()
-		{
-				cancellationTokenSource = new CancellationTokenSource();
-				CancellationToken cancellationToken = cancellationTokenSource.Token;
-				
-				var hubContext = host.Services.GetService<IHubContext<NotificationHub>>();
-				var hubClientCaller = host.Services.GetService<IHubCallerClients<NotificationHub>>();
-
-			//--------------- Determining the connection and starting to receive data -----------------//
-				realTime = new UnitOfWorkRealTime(hubContext, hubClientCaller, unitOfWork.NotificationsList, unitOfWorkConfig.Configuration);
-				realTime.RealTimeNotify(cancellationToken);
 		}
 
 		public static async void GetEventChangeConfiguration()
 		{
 			await foreach (var hashConfigs in checkHashHalper.CompareHashConfiguration(unitOfWorkConfig.sectionHashes))
-				foreach (var hashConfig in hashConfigs.Keys)
+			{
+				if (hashConfigs.ContainsKey("DbConnection") ||
+					hashConfigs.ContainsKey("NotificationsHubSettings"))
 				{
-					switch (hashConfig)
-					{
-						case "DbConnection":
-							Log.Information("Changing the database. Reboot ... ");
+					var comment = (hashConfigs.ContainsKey("DbConnection")) ? 
+						((hashConfigs.ContainsKey("NotificationsHubSettings")) ? 
+						"database & notify hub": "database") 
+						: "Notify Hub";
 
-
-							break;
-						case "HostSettings":
-							Log.Information("Changing the host configuration. Reboot ... ");
-							await host.StopAsync();
-							hostThread.Join();
-							Thread newHostThread = new Thread(CreateAndRunHostServer);
-							newHostThread.Start();
-							hostThread = newHostThread;
-							break;
-
-						case "NotificationsHubSettings":
-							Log.Information("Changing the configuration hub. Continue with the new configuration ... ");
-							cancellationTokenSource.Cancel();
-							UoWThread.Join();
-							Thread newUoWThread = new Thread(StartListenNotifications);
-							newUoWThread.Start();
-							UoWThread = newUoWThread;
-							break;
-					}
+					Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
+					cancellationTokenSource.Cancel();
+					UoWThread.Join();
+					Thread newUoWThread = new Thread(StartListenNotifications);
+					newUoWThread.Start();
+					UoWThread = newUoWThread;
 				}
+			
+				if (hashConfigs.ContainsKey("HostSettings"))
+				{
+					Log.Information("Changing the host configuration. Reboot ... ");
+					await host.StopAsync();
+					hostThread.Join();
+					Thread newHostThread = new Thread(CreateAndRunHostServer);
+					newHostThread.Start();
+					hostThread = newHostThread;
+				}
+			}
 		}
 
 		//------------- Hosting ------------------------------------------------------------------------//
 		public static void CreateAndRunHostServer()    
 		{
-			CancellationToken cancellationToken = cancellationTokenSource.Token;
 			host = Host.CreateDefaultBuilder()
 		   .ConfigureWebHostDefaults(webBuilder =>
 		   {
+			   webBuilder.UseUrls(unitOfWorkConfig.Configuration["HostSettings:urls"].Split(";"));
 			   webBuilder.ConfigureServices(services =>
 			   {
 				   services.AddMemoryCache();
 				   //--------------- Connections -----------------//
 				   services.AddSingleton(typeof(Connections<NotificationHub>));
 
-				   //--------------- RealTime Notify -----------------//
+				   //services.AddScoped<UnitOfWorkRealTime>();
 
+				   //--------------- Сonfiguration provider  -----------------//
+				   services.AddSingleton(provider =>
+				   {
+					   return unitOfWorkConfig.Configuration;
+				   });
+
+				   //--------------- Notification provider  -----------------//
+				   services.AddSingleton(provider =>
+				   {
+					   return unitOfWork.ReceivedNotificationsList;
+				   });
 
 				   //--------------- CORS -----------------//
 				   services.AddCors(options =>
@@ -198,7 +194,7 @@ namespace Communications
 				   app.UseRouting();
 				   app.UseCors("CorsPolicy");
 				   app.UseEndpoints(endpoints =>
-				   {
+				   {				
 					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:Route"], options =>
 					   {
 						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
@@ -207,13 +203,18 @@ namespace Communications
 					   });
 				   });
 			   });
+
 		   }).Build();
 			host.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStarted.Register(() =>
 			{
-				RTThread.Start();
-				hostApplicationStarted = true;
+				var serverAddressesFeature = host.Services.GetService<IServer>().Features.Get<IServerAddressesFeature>();
+				if (serverAddressesFeature != null)
+				{
+					Log.Information($"Host started. Listening on: {string.Join(", ", serverAddressesFeature.Addresses)}");
+				}
 			});
 			host.Run();
-		}	
+		}
 	}
 }
+

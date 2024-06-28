@@ -10,6 +10,6 @@ namespace Communications.Connections
 {
 	public class Connections<T> where T : Hub
 	{
-		public ConcurrentDictionary<string, HubCallerContext> All { get; } = new();
+		public ConcurrentDictionary<string, CancellationTokenSource> All { get; } = new();
 	}
 }
