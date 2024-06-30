@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\Client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\communications.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|..\\Entities\\Entities.csproj|c:\\all\\notificationsexchange\\entities\\entities\\recievedbyclientnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|..\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Communications",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\Communications.csproj",
+              "RelativeDocumentMoniker": "..\\Communications\\Communications.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\Communications.csproj",
+              "RelativeToolTip": "..\\Communications\\Communications.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-30T10:31:00.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CheckHashHalper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\CheckHashHalper.cs",
+              "RelativeDocumentMoniker": "..\\Communications\\Helpers\\CheckHashHalper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\CheckHashHalper.cs",
+              "RelativeToolTip": "..\\Communications\\Helpers\\CheckHashHalper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:30:39.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConfigValidHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\ConfigValidHelper.cs",
+              "RelativeDocumentMoniker": "..\\Communications\\Helpers\\ConfigValidHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\ConfigValidHelper.cs",
+              "RelativeToolTip": "..\\Communications\\Helpers\\ConfigValidHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:30:38.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HashHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\HashHelper.cs",
+              "RelativeDocumentMoniker": "..\\Communications\\Helpers\\HashHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\HashHelper.cs",
+              "RelativeToolTip": "..\\Communications\\Helpers\\HashHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:24:09.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransformToDTOHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeDocumentMoniker": "..\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeToolTip": "..\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:24:00.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\Program.cs",
+              "RelativeDocumentMoniker": "..\\Communications\\Program.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\Program.cs",
+              "RelativeToolTip": "..\\Communications\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGMAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:14:30.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RecievedByClientNotification.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Entities\\Entities\\RecievedByClientNotification.cs",
+              "RelativeDocumentMoniker": "..\\Entities\\Entities\\RecievedByClientNotification.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Entities\\Entities\\RecievedByClientNotification.cs",
+              "RelativeToolTip": "..\\Entities\\Entities\\RecievedByClientNotification.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:28:34.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MessageServerDTO.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Communications\\DTO\\MessageServerDTO.cs",
+              "RelativeDocumentMoniker": "..\\Communications\\DTO\\MessageServerDTO.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Communications\\DTO\\MessageServerDTO.cs",
+              "RelativeToolTip": "..\\Communications\\DTO\\MessageServerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:26:28.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
