@@ -30,10 +30,11 @@ namespace Communications.UoW
 			filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "configure.json");
 			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 			sectionHashes = new Dictionary<string, string>();
-			LoadConfigFile();
-			ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
+
+			LoadConfigFile();	
+		ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
 			{
-				if (isInitialized)
+			if (isInitialized)
 				{ LoadConfigFile();} else 	{isInitialized = true;}
 			});
 		}

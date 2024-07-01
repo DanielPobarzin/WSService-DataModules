@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M/I2LkDEfFdUkOWB3mNxfWMtiu+zLARB64KFudMpfOgMv63/iop+Wqn0ydzO1TWuMrtD1W/ACVOQrBMj4lXfgQ==",
+  "dgSpecHash": "1x+D+aZ+z2R/YRvGTU1X8KIX1TtOpCu9VJrfkOCChcvH1/+O/J92nyzPXGh3nASPax3mnWj02jTLKnliDmpL3g==",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

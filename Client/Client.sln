@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositorie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Communications", "Communications", "{D683524A-228D-4D9A-81D0-0648E75A91F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\Entities\Entities.csproj", "{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Client\Entities\Entities.csproj", "{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactors", "..\Interactors\Interactors.csproj", "{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interactors", "Client\Interactors\Interactors.csproj", "{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "..\Repositories\Repositories.csproj", "{E7F75363-E549-4784-93FF-4187D3EA32FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Client\Repositories\Repositories.csproj", "{E7F75363-E549-4784-93FF-4187D3EA32FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communications", "..\Communications\Communications.csproj", "{CCD41583-DA7E-4850-AD20-40D7C22215BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communications", "Client\Communications\Communications.csproj", "{CCD41583-DA7E-4850-AD20-40D7C22215BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

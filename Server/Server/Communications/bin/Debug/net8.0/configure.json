@@ -13,7 +13,7 @@
   "HostSettings": {
     "Port": 5000,
     "urls": "http://*.5000;https://*.6000",
-    "KeepAliveInterval": "00:01:00",
+    "KeepAliveInterval": "00:02:00",
     "EnableDetailedErrors": true,
     "PolicyName": "Security",
     "AllowedHeaders": "*",
@@ -23,7 +23,7 @@
     "Route": "/notification",
     "TransportMaxBufferSize": 64,
     "Transports": "WebSockets",
-    "CloseTimeout": "00:00:10"
+    "CloseTimeout": "00:00:20"
   }
 }
 

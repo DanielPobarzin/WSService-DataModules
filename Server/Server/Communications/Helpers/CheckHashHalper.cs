@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Newtonsoft.Json.Linq;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +15,24 @@ namespace Communications.Helpers
 
 		public async IAsyncEnumerable<Dictionary<string, string>> CompareHashConfiguration(Dictionary<string, string> sectionHashes)
 		{
+			await Task.Yield();
 			while (true)
 			{
 				var d3 = SectionHashes.Any() ?
 					 sectionHashes
 					.Where(entry => SectionHashes.ContainsKey(entry.Key) && SectionHashes[entry.Key] != entry.Value)
 					.ToDictionary(entry => entry.Key, entry => entry.Value)
-					: sectionHashes;
-				if (!d3.Equals(sectionHashes))
+					: new();
+
+				if (d3.Count > 0)
 				{
 					yield return d3;
 				}
-
-				foreach (var entry in d3)
+					
+				foreach (var entry in sectionHashes)
+				{
 					SectionHashes[entry.Key] = entry.Value;
+				}
 				await Task.Delay(100);
 			}
 		}

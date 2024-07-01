@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yhGgVivUQP8NyqwUgS4GFSPpew8F3nFZLkXDog9crjOekFQmcGy8ksS03B1NSxuwqUxNs+W94FsCG+KOl/tPWA==",
+  "dgSpecHash": "aucolE5wA3DTrX6MhIZBLWpFMqWxVBVMZ+/f0LC1I5eJAJfrjeMl5XVLqb+Hz8/WaoZdn5A3U6b/filHvPfErw==",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj",
+  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

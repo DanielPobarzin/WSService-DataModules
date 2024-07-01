@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\All\\NotificationsExchange\\Communications\\Communications.csproj": {}
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj": {}
   },
   "projects": {
-    "C:\\All\\NotificationsExchange\\Communications\\Communications.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Communications\\Communications.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
         "projectName": "Communications",
-        "projectPath": "C:\\All\\NotificationsExchange\\Communications\\Communications.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Communications\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,14 +34,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               },
-              "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj"
               },
-              "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -61,6 +61,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.1.34, )"
+            },
             "Microsoft.AspNetCore.SignalR.Client": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -68,6 +80,10 @@
             "Microsoft.AspNetCore.SignalR.Common": {
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.0-preview.5.24306.7, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -84,6 +100,10 @@
             "Serilog.Enrichers.Demystifier": {
               "target": "Package",
               "version": "[1.0.2, )"
+            },
+            "Serilog.Enrichers.ExceptionData": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Serilog.Enrichers.Thread": {
               "target": "Package",
@@ -118,6 +138,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -126,14 +149,14 @@
         }
       }
     },
-    "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Entities\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -192,14 +215,14 @@
         }
       }
     },
-    "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
         "projectName": "Interactors",
-        "projectPath": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Interactors\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -222,8 +245,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               }
             }
           }
@@ -262,14 +285,14 @@
         }
       }
     },
-    "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Repositories\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -292,11 +315,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               },
-              "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj"
               }
             }
           }

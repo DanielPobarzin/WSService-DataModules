@@ -82,10 +82,11 @@ namespace Communications
 			//--------------- Start requesting data from the database -----------------//
 			UoWThread = new Thread(StartListenNotifications);
 			UoWThread.Start();
-			
-			//--------------- Defining actions when changing the configuration -----------------//
-			GetEventChangeConfiguration();
 
+			//--------------- Defining actions when changing the configuration -----------------//
+				
+			GetEventChangeConfiguration();
+		
 			Task.Delay(Timeout.Infinite).Wait();
 			Log.CloseAndFlush();
 
@@ -96,7 +97,7 @@ namespace Communications
 			{
 				cancellationTokenSource = new CancellationTokenSource();
 				CancellationToken cancellationToken = cancellationTokenSource.Token;
-
+				
 				//--------------- Determining the connection and starting to receive data -----------------//
 				unitOfWork = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
 				unitOfWork.GetAllNotifications(cancellationToken);
@@ -107,31 +108,34 @@ namespace Communications
 		{
 			await foreach (var hashConfigs in checkHashHalper.CompareHashConfiguration(unitOfWorkConfig.sectionHashes))
 			{
-				if (hashConfigs.ContainsKey("DbConnection") ||
-					hashConfigs.ContainsKey("NotificationsHubSettings"))
-				{
-					var comment = (hashConfigs.ContainsKey("DbConnection")) ? 
-						((hashConfigs.ContainsKey("NotificationsHubSettings")) ? 
-						"database & notify hub": "database") 
-						: "Notify Hub";
+					if (hashConfigs.ContainsKey("HostSettings"))
+					{
+						await host.StopAsync();
+						Log.Information("Changing the host configuration. Reboot ... ");
+						hostThread.Join();
+						Thread newHostThread = new Thread(CreateAndRunHostServer);
+						newHostThread.Start();
+						hostThread = newHostThread;
+					} 
 
-					Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
-					cancellationTokenSource.Cancel();
-					UoWThread.Join();
-					Thread newUoWThread = new Thread(StartListenNotifications);
-					newUoWThread.Start();
-					UoWThread = newUoWThread;
-				}
-			
-				if (hashConfigs.ContainsKey("HostSettings"))
-				{
-					Log.Information("Changing the host configuration. Reboot ... ");
-					await host.StopAsync();
-					hostThread.Join();
-					Thread newHostThread = new Thread(CreateAndRunHostServer);
-					newHostThread.Start();
-					hostThread = newHostThread;
-				}
+					if (hashConfigs.ContainsKey("DbConnection") ||
+						hashConfigs.ContainsKey("NotificationsHubSettings"))
+					{
+						var comment = (hashConfigs.ContainsKey("DbConnection")) ?
+							((hashConfigs.ContainsKey("NotificationsHubSettings")) ?
+							"database & notify hub" : "database")
+							: "Notify Hub";
+
+						Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
+						cancellationTokenSource.Cancel();
+						Console.WriteLine(UoWThread.ThreadState);
+						UoWThread.Join();
+						Console.WriteLine(UoWThread.ThreadState);
+						Thread newUoWThread = new Thread(StartListenNotifications);
+						newUoWThread.Start();
+						UoWThread = newUoWThread;
+						Console.WriteLine(UoWThread.ThreadState);
+				    }
 			}
 		}
 
@@ -213,7 +217,8 @@ namespace Communications
 					Log.Information($"Host started. Listening on: {string.Join(", ", serverAddressesFeature.Addresses)}");
 				}
 			});
-			host.Run();
+			host.Start();
+			host.WaitForShutdown();
 		}
 	}
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj": {}
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {}
   },
   "projects": {
-    "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Entities\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
         "projectName": "Interactors",
-        "projectPath": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Interactors\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -100,8 +100,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               }
             }
           }
@@ -140,14 +140,14 @@
         }
       }
     },
-    "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\All\\NotificationsExchange\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "C:\\All\\NotificationsExchange\\Repositories\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -170,11 +170,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               },
-              "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\Interactors\\Interactors.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj"
               }
             }
           }
