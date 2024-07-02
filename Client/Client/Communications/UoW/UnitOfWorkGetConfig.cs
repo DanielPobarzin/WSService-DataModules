@@ -11,11 +11,11 @@ using System.Runtime;
 using System.Threading;
 using Serilog;
 using Newtonsoft.Json.Linq;
-using Communications.Helpers;
+using Communications.Common.Helpers;
 
 namespace Communications.UoW
 {
-	public class UnitOfWorkGetConfig
+    public class UnitOfWorkGetConfig
 	{
 		public IConfiguration Configuration;
 		public Dictionary<string, string> sectionHashes;

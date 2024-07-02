@@ -1,14 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Communications.Helpers
+﻿namespace Communications.Helpers
 {
-
 	public class CheckHashHalper
 	{
 		private static Dictionary<string, string> SectionHashes = new Dictionary<string, string>();

@@ -60,9 +60,6 @@
         "AllowedOrigins": {
           "type": "string"
         },
-        "UseCorsName": {
-          "type": "string"
-        },
         "Route": {
           "type": "string"
         },
@@ -80,7 +77,6 @@
         "AllowedHeaders",
         "AllowedMethods",
         "AllowedOrigins",
-        "UseCorsName",
         "Route",
         "Transports",
         "CloseTimeout"

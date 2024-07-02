@@ -1,15 +1,26 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Communications.Connections
 {
 	public class Connections<T> where T : Hub
 	{
-		public ConcurrentDictionary<string, CancellationTokenSource> All { get; } = new();
+		private readonly ConcurrentDictionary<string, string> _all = new();
+		public void AddConnection(string connectionId, string userId)
+		{
+			_all[connectionId] = userId;
+		}
+
+		public void RemoveConnection(string connectionId)
+		{
+			_all.TryRemove(connectionId, out _);
+		}
+		public string GetConnection(string connectionId) 
+		{
+			var value = (_all.TryGetValue(connectionId, out string connect)) ? connect : null;
+			return value;
+		} 
+		public List<string> GetConnections() => _all.Keys.ToList();
 	}
 }
+

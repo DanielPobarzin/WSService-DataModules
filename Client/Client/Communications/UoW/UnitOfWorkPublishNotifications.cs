@@ -1,5 +1,6 @@
 ﻿using Entities.Entities;
 using Microsoft.Extensions.Configuration;
+using Repositories.DO;
 using Repositories.Notifications;
 using Serilog;
 using System;
@@ -30,7 +31,7 @@ namespace Communications.UoW
 			this.configuration = configuration;
 			db = new RecievedNotificationsDbContext(this.configuration);
 		}
-		public async Task PublishNotifications(RecievedByClientNotification message)
+		public async Task PublishNotifications(DomainObjectNotification message)
 		{
 			await db.Notifications.AddAsync(message);
 			await db.SaveChangesAsync();

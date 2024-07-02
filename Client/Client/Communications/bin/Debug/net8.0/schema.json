@@ -1,95 +1,40 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "DbConnection": {
       "type": "object",
       "properties": {
-        "DataBase": {
-          "type": "string"
-        },
-        "ConnectionString": {
-          "type": "string"
-        }
+        "DataBase": { "type": "string" },
+        "ConnectionString": { "type": "string" }
       },
       "required": [ "DataBase", "ConnectionString" ]
     },
-    "NotificationsHubSettings": {
+    "ClientSettings": {
       "type": "object",
       "properties": {
-        "DelayMilliseconds": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "ServerId": {
-          "type": "string"
-        },
-        "UseCompareLists": {
-          "type": "boolean"
-        },
-        "HubMethod": {
-          "type": "string"
-        },
-        "TargetClients": {
-          "type": "string"
-        }
+        "ClientId": { "type": "string" }
       },
-      "required": [ "DelayMilliseconds", "ServerId", "UseCompareLists", "HubMethod", "TargetClients" ]
+      "required": [ "ClientId" ]
     },
-    "HostSettings": {
+    "ConnectionSettings": {
       "type": "object",
       "properties": {
-        "EnableDetailedErrors": {
-          "type": "boolean"
-        },
-        "Port": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "urls": {
-          "type": "string"
-        },
-        "PolicyName": {
-          "type": "string"
-        },
-        "AllowedHeaders": {
-          "type": "string"
-        },
-        "AllowedMethods": {
-          "type": "string"
-        },
-        "AllowedOrigins": {
-          "type": "string"
-        },
-        "UseCorsName": {
-          "type": "string"
-        },
-        "Route": {
-          "type": "string"
-        },
-        "Transports": {
-          "type": "string"
-        },
         "CloseTimeout": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^\\d{2}:\\d{2}:\\d{2}$"
+        },
+        "Url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "ServerTimeout": {
+          "type": "string",
+          "pattern": "^\\d{2}:\\d{2}:\\d{2}$"
         }
       },
-      "required": [
-        "EnableDetailedErrors",
-        "Port",
-        "PolicyName",
-        "AllowedHeaders",
-        "AllowedMethods",
-        "AllowedOrigins",
-        "UseCorsName",
-        "Route",
-        "Transports",
-        "CloseTimeout"
-      ]
+      "required": [ "CloseTimeout", "Url", "ServerTimeout" ]
     }
   },
-  "required": [
-    "DbConnection",
-    "NotificationsHubSettings",
-    "HostSettings"
-  ]
+  "required": [ "DbConnection", "ClientSettings", "ConnectionSettings" ]
 }

@@ -3,15 +3,10 @@ using Interactors.Common.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositories.Notifications
 {
-    public class NotificationsDbContext : MessagesDbContext
+	public class NotificationsDbContext : MessagesDbContext
     {
 		public DbSet<Notification> Notifications { get; set; }
 		private IConfiguration configuration;

@@ -1,10 +1,11 @@
 ﻿using Entities.Entities;
 using Interactors.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Repositories.DO;
 
 namespace Repositories.Notifications
 {
-    public class RecievedNotificationRepository : IRepository<RecievedByClientNotification>
+    public class RecievedNotificationRepository : IRepository<DomainObjectNotification>
 	{
 		private RecievedNotificationsDbContext db;
 
@@ -12,7 +13,7 @@ namespace Repositories.Notifications
 		{
 			this.db = context;
 		}
-		public async Task<RecievedByClientNotification> PublishMessage(RecievedByClientNotification entity)
+		public async Task<DomainObjectNotification> PublishMessage(DomainObjectNotification entity)
 		{
 			var addedEntity = await db.Notifications.AddAsync(entity);
 			await db.SaveChangesAsync();

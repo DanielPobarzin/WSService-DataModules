@@ -1,25 +1,19 @@
 ﻿using Communications.Connections;
-using Communications.DTO;
 using Communications.Helpers;
 using Communications.Hubs;
 using Communications.UoW;
-using Entities.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Connections;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using System.Collections.Generic;
-using System.Threading;
 
 
 namespace Communications
@@ -36,8 +30,7 @@ namespace Communications
 		public static IHost host;
 		public static void Main(string[] args)
 		{
-			//---------- Logging ---------------//
-			{
+			#region Logging 
 				Log.Logger = new LoggerConfiguration()
 				.MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
 				.Enrich.FromLogContext()
@@ -69,7 +62,7 @@ namespace Communications
 						shared: true,
 						restrictedToMinimumLevel: LogEventLevel.Information)
 				.CreateLogger();
-			}
+			#endregion
 
 			//--------------- Initialize get and check configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
@@ -165,6 +158,9 @@ namespace Communications
 				   {
 					   return unitOfWork.ReceivedNotificationsList;
 				   });
+				   //--------------- Helpers provider  -----------------//
+				   services.AddScoped<TransformToDTOHelper>();
+				   services.AddScoped<JsonCacheHelper>();
 
 				   //--------------- CORS -----------------//
 				   services.AddCors(options =>
@@ -187,10 +183,15 @@ namespace Communications
 				   {
 					   configure.KeepAliveInterval = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:KeepAliveInterval"]);
 					   configure.EnableDetailedErrors = bool.Parse(unitOfWorkConfig.Configuration["HostSettings:EnableDetailedErrors"]);
+					   configure.MaximumReceiveMessageSize = 65_536;
+					   configure.HandshakeTimeout = TimeSpan.FromSeconds(10);
+					   configure.MaximumParallelInvocationsPerClient = 5;
+
 				   })
 				   .AddJsonProtocol(options =>
 				   {
-					   options.PayloadSerializerOptions.PropertyNamingPolicy = null;
+					   options.PayloadSerializerOptions.DefaultBufferSize = 65_536;
+					   options.PayloadSerializerOptions.WriteIndented = true;
 				   });
 			   })
 			   .Configure(app =>
@@ -202,8 +203,13 @@ namespace Communications
 					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:Route"], options =>
 					   {
 						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
-						   options.Transports = HttpTransportType.WebSockets;
+						   options.Transports = HttpTransportType.WebSockets | HttpTransportType.LongPolling;
 						   options.WebSockets.CloseTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
+						   options.LongPolling.PollTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
+						   options.CloseOnAuthenticationExpiration = false;
+						   options.TransportSendTimeout = TimeSpan.FromSeconds(15);
+						   options.ApplicationMaxBufferSize = 131_072;
+						   options.TransportMaxBufferSize = 131_072;
 					   });
 				   });
 			   });
@@ -222,4 +228,7 @@ namespace Communications
 		}
 	}
 }
+
+
+
 

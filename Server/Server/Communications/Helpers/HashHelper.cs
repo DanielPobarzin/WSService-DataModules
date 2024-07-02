@@ -1,12 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Serilog;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Communications.Helpers
 {

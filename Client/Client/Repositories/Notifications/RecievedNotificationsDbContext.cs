@@ -2,6 +2,7 @@
 using Interactors.Common.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Repositories.DO;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Repositories.Notifications
 {
     public class RecievedNotificationsDbContext : DbContext
     {
-		public DbSet<RecievedByClientNotification> Notifications { get; set; }
+		public DbSet<DomainObjectNotification> Notifications { get; set; }
 		private IConfiguration configuration;
 		private string connectionString;
 		public RecievedNotificationsDbContext(IConfiguration configuration)
@@ -34,31 +35,38 @@ namespace Repositories.Notifications
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
-			builder.Entity<RecievedByClientNotification>(entity =>
+			builder.Entity<DomainObjectNotification>(entity =>
 			{
 				entity.ToTable("notificationsclient");
-				entity.Property(e => e.Notification.Id)
-					  .ValueGeneratedNever()
-				      .HasColumnName("id");
+				
 				entity.Property(e => e.ClientId).HasColumnName("clientid");
 				entity.Property(e => e.ServerId).HasColumnName("serverid");
-				entity.Property(e => e.Notification.Content).HasColumnName("content");
-				entity.Property(e => e.Notification.CreationDateTime)
-					  .ValueGeneratedNever()
-					  .HasColumnType("timestamp without time zone")
-					  .HasColumnName("creationdate");
-				entity.Property(e => e.Notification.Quality)
-					  .HasMaxLength(1)
-					  .HasColumnName("quality");
-				entity.Property(e => e.Notification.Value).HasColumnName("value");
+			
 				entity.Property(e => e.DateAndTimeSendDataByServer)
 				      .ValueGeneratedNever()
 					  .HasColumnType("timestamp without time zone")
-					  .HasColumnName("dateandtimesenddatabyserver");
+					  .HasColumnName("date_and_time_send_data_by_server");
 				entity.Property(e => e.DateAndTimeRecievedDataFromServer)
 					  .ValueGeneratedNever()
 					  .HasColumnType("timestamp without time zone")
-					  .HasColumnName("dateandtimerecieveddatabyserver");
+					  .HasColumnName("date_and_time_recieved_data_from_server");
+
+				entity.HasOne(e => e.Notification)
+						.WithOne();
+				builder.Entity<Notification>(notificationEntity =>
+				{
+					notificationEntity.ToTable("notificationsclient");
+					notificationEntity.Property(n => n.Id)
+							 .ValueGeneratedNever()
+								.HasColumnName("id");
+					notificationEntity.Property(n => n.Value).HasColumnName("value");
+					notificationEntity.Property(n => n.Quality).HasColumnName("quality");
+					notificationEntity.Property(n => n.Content).HasColumnName("content");
+					notificationEntity.Property(n => n.CreationDateTime)
+						  .ValueGeneratedNever()
+						  .HasColumnType("timestamp without time zone")
+						  .HasColumnName("creationdate");
+				});
 			});
 		}
 
