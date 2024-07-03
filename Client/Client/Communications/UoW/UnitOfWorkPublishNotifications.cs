@@ -33,9 +33,11 @@ namespace Communications.UoW
 		}
 		public async Task PublishNotifications(DomainObjectNotification message)
 		{
-			await db.Notifications.AddAsync(message);
-			await db.SaveChangesAsync();
-			Dispose();
+			await Notifications.PublishMessage(message);
+		}
+		public void Save()
+		{
+			db.SaveChanges();
 		}
 		public virtual void Dispose(bool disposing)
 		{

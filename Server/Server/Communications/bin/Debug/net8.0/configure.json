@@ -4,7 +4,7 @@
     "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
   },
   "NotificationsHubSettings": {
-    "DelayMilliseconds": 1000,
+    "DelayMilliseconds": 10000,
     "ServerId": "6142dfeb-00e2-43cb-a70f-f55ac8847756",
     "UseCompareLists": true,
     "HubMethod": "ReceiveMessageHandler",
@@ -13,8 +13,8 @@
   "HostSettings": {
     "Port": 5000,
     "urls": "http://*;https://*",
-    "KeepAliveInterval": "00:01:00",
-    "EnableDetailedErrors": true,
+    "KeepAliveInterval": "00:02:00",
+    "EnableDetailedErrors": false,
     "PolicyName": "Security",
     "AllowedHeaders": "*",
     "AllowedMethods": "GET;POST",

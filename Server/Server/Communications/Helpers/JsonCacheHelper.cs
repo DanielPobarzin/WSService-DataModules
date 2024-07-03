@@ -40,7 +40,7 @@ namespace Communications.Helpers
 			Task.Run(async () =>
 			{
 				//await Task.Delay(TimeSpan.FromDays(31));
-				await Task.Delay(TimeSpan.FromSeconds(10));
+				await Task.Delay(TimeSpan.FromSeconds(1));
 				File.Delete(filePath);
 			});
 		}

@@ -46,11 +46,11 @@ namespace Communications.Hubs
 		public async Task Send(Guid clientId)
 		{
 			var cacheNotification = await jsonCacheHelper.ReadFromFileCache(clientId);
-			if (cacheNotification.Any())
-			{ 
-				foreach (var notification in cacheNotification)
-						memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
-			}
+			//if (cacheNotification.Any())
+			//{ 
+			//	foreach (var notification in cacheNotification)
+			//			memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
+			//}
 
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
@@ -66,7 +66,7 @@ namespace Communications.Hubs
 														Guid.Parse(_configuration["NotificationsHubSettings:ServerId"]));
 
 							await Clients.Client(Context.ConnectionId).SendAsync("ReceiveNotification", notificationDTO);
-							memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
+							//memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
 							Log.Information($"The notification {notificationDTO.Notification.Id} with message <<{notificationDTO.Notification.Content}>> " +
 											$"has been sent to client {clientId} by server {notificationDTO.ServerId}. ");
 						}

@@ -1,13 +1,13 @@
 {
   "DbConnection": {
     "DataBase": "PostgreSQL",
-    "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
+    "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchangeClients;Username=postgres;Password=19346jaidj"
   },
   "ClientSettings": {
     "ClientId": "56069fbc-14e9-4d0c-aa4c-cfcf5246a133"
   },
   "ConnectionSettings": {
-    "CloseTimeout": "00:00:30",
+    "CloseTimeout": "00:00:20",
     "Url": "https://localhost:443/notification",
     "ServerTimeout": "00:02:00"
   }

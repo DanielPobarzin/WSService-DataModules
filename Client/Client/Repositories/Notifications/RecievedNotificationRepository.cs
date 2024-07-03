@@ -13,11 +13,9 @@ namespace Repositories.Notifications
 		{
 			this.db = context;
 		}
-		public async Task<DomainObjectNotification> PublishMessage(DomainObjectNotification entity)
+		public async Task PublishMessage(DomainObjectNotification entity)
 		{
-			var addedEntity = await db.Notifications.AddAsync(entity);
-			await db.SaveChangesAsync();
-			return addedEntity.Entity;
+			await db.Notifications.AddAsync(entity);
 		}
 	}
 }

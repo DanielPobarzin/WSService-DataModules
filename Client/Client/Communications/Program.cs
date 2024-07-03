@@ -1,32 +1,23 @@
-﻿using Communications.UoW;
+﻿using Communications.Common.Helpers;
+using Communications.DTO;
+using Communications.UoW;
+using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
-using Microsoft.Extensions.Hosting;
+using Repositories.DO;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Connections;
-using Communications.DTO;
-using Entities.Entities;
-using Microsoft.Extensions.Options;
-using Repositories.DO;
 using System.Net;
-using Microsoft.AspNetCore.Connections;
-using Communications.Common.Helpers;
-using Communications.Common.Handlers;
-using Newtonsoft.Json;
 
 namespace Client
 {
-    internal class Program
+	internal class Program
 	{
 		private static HubConnection connection;
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
 		private static UnitOfWorkPublishNotifications unitOfWorkPublishNotifications;
 		private static CheckHashHalper checkHashHalper;
-		private static CancellationTokenSource cancellationTokenSource;
-		private static Thread UoWThread;
-		private static Thread connectThread;
+		private static Thread notificationExchangeThread;
 		private static void Main(string[] args)
 		{
 			//---------- Logging ---------------//
@@ -62,68 +53,31 @@ namespace Client
 
 			//--------------- Initialize get and check configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
-			unitOfWorkPublishNotifications = new UnitOfWorkPublishNotifications(unitOfWorkConfig.Configuration);
 			checkHashHalper = new CheckHashHalper();
 
-			//--------------- Buid connection with configuration -----------------//
-			ConnectionСonfigurationAndStart();
+			//--------------- Initialize publish method notification -----------------//
+			unitOfWorkPublishNotifications = new UnitOfWorkPublishNotifications(unitOfWorkConfig.Configuration);
 
-
-			try
-			{
-				connection.InvokeAsync("Send", Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]));
-			}
-			catch (Exception ex) 
-			{
-				Log.Error($"An error occurred when calling the method on the server: {ex.Message}");
-			}
-			connection.On<MessageServerDTO>("ReceiveNotification", (message) =>
-			{
-				DomainObjectNotification notification = new DomainObjectNotification
-				{
-					ClientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]),
-					ServerId = message.ServerId,
-					Notification = message.Notification,
-					DateAndTimeSendDataByServer = message.DateAndTimeSendDataByServer,
-					DateAndTimeRecievedDataFromServer = DateTime.Now
-				};
-				Log.Information($"The notification {notification.Notification.Id} with message <<{notification.Notification.Content}>> " +
-												   $"has been received by client {notification.ClientId} from server {notification.ServerId}. ");
-
-
-				unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
-			});
-
-			connection.Closed += async (error) =>
-			{
-				Log.Information($"Connection closed. Message: {error}");
-
-				await Task.Delay(new Random().Next(0, 5) * 1000);
-				Log.Information($"Starting a new connection.");
-				ConnectionСonfigurationAndStart();
-			};
-			connection.Reconnecting += (error) =>
-			{
-				Log.Information($"Connection lost : {error.Message}. Reconnecting...");
-				return Task.CompletedTask;
-			};
-
-			connection.Reconnected += connectionId =>
-			{
-				connection.InvokeAsync("Send", unitOfWorkConfig.Configuration["ClientSettings:ClientId"]).Wait();
-				Log.Information($"Reconnected. New connection id: {connectionId}");
-				return Task.CompletedTask;
-			};
+			//--------------- Мain thread of the client's work -----------------//
+			notificationExchangeThread = new Thread(ExchangeBetweenServerAndClient);
+			notificationExchangeThread.Start();
+			
 			//--------------- Defining actions when changing the configuration -----------------//
-
 			GetEventChangeConfiguration();
 
 			Task.Delay(Timeout.Infinite).Wait();
 			Log.CloseAndFlush();
-
 		}
 
-		public static void ConnectionСonfigurationAndStart()
+
+		public static void ExchangeBetweenServerAndClient()
+		{
+			ConnectionСonfiguration(); //---- Setting the connection configuration ------//
+			StartHubConnectionAsync(); //---- Start Hub Connection ----//
+			GetHubMessages(); //--- Try get messages ----//
+			EventWithConnectionHandler(); //--- Connection Event Triggers -----//
+		}
+		public static void ConnectionСonfiguration()
 		{
 			connection = new HubConnectionBuilder()
 									.WithUrl(unitOfWorkConfig.Configuration["ConnectionSettings:Url"], options =>
@@ -141,20 +95,71 @@ namespace Client
 									.WithAutomaticReconnect()
 									.Build();
 			connection.ServerTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["ConnectionSettings:ServerTimeout"]);
-			connection.StartAsync().Wait();
-			//ContinueWith(Task =>
-			//{
-			//	Log.Information($"Try connect to server with url: {connection.State}" + $"\nConnection id: {connection.ConnectionId}");
+		}
 
-			//	if (!Task.IsFaulted)
-			//	{
-			//		Log.Error($"There was an error opening the connection:{Task.Exception.Message}");
-			//	}
-			//	else
-			//	{
-			//		Log.Information($"Connected: {connection.State}" + $"\nConnection id: {connection.ConnectionId}");
-			//	}
-			//})
+		public static void EventWithConnectionHandler()
+		{
+			connection.Closed += (error) =>
+			{
+				var messageError = (error != null) ? $"An exception has occurred :{error.Message}" : "";
+				Log.Information($"Connection closed." + $"{messageError}");
+				return Task.CompletedTask;
+			};
+			connection.Reconnecting += (error) =>
+			{
+				Log.Information($"Connection lost : {error.Message}. Reconnecting...");
+				return Task.CompletedTask;
+			};
+
+			connection.Reconnected += async (connectionId) =>
+			{
+				Log.Information($"Reconnected. New connection id: {connectionId}");
+				try
+				{
+					await connection.InvokeAsync("Send", unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
+				}
+				catch (Exception ex) { Log.Error($"An error occurred when calling the method on the server : {ex.Message}");}
+			};
+		}
+
+		public static async void StartHubConnectionAsync()
+		{
+			Log.Information($"Attempt to connect to the server by url: {unitOfWorkConfig.Configuration["ConnectionSettings:Url"]}");
+				try
+				{
+					await connection.StartAsync().ContinueWith(async task =>
+					{
+						if (task.IsCompletedSuccessfully)
+						{
+							Log.Information($"Connection id: {connection.ConnectionId}");
+							await connection.InvokeAsync("Send", Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]));
+						}
+					});
+				}
+				catch (Exception ex) { Log.Error($"Connection error: {ex.Message}"); }
+		}
+		public static void GetHubMessages()
+		{
+			connection.On<MessageServerDTO>("ReceiveNotification", (message) =>
+			{
+				DomainObjectNotification notification = new DomainObjectNotification
+				{
+					ClientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]),
+					ServerId = message.ServerId,
+					MessageId = message.Notification.Id,
+					Notification = message.Notification,
+					DateAndTimeSendDataByServer = message.DateAndTimeSendDataByServer,
+					DateAndTimeRecievedDataFromServer = DateTime.Now
+				};
+				Log.Information($"The notification {notification.Notification.Id} with message <<{notification.Notification.Content}>> " +
+														   $"has been received by client {notification.ClientId} from server {notification.ServerId}. ");
+				try
+				{
+					unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
+					unitOfWorkPublishNotifications.Save();
+				}
+				catch (Exception ex) { Log.Error($"error working with the database : {ex.Message}"); }
+			});
 		}
 
 		public static async void GetEventChangeConfiguration()
@@ -163,8 +168,12 @@ namespace Client
 			{
 				if (hashConfigs.ContainsKey("ConnectionSettings"))
 				{
-					Log.Information("Changing the host configuration. Reconnecting ... ");
+					Log.Information("Changing the connection configuration. Reconnecting ... ");
 					await connection.StopAsync();
+					notificationExchangeThread.Join();
+					Thread newWork = new Thread(ExchangeBetweenServerAndClient);
+					newWork.Start();
+					notificationExchangeThread = newWork;
 				}
 
 				if (hashConfigs.ContainsKey("DbConnection") ||
@@ -181,4 +190,3 @@ namespace Client
 		}
 	}
 }
-

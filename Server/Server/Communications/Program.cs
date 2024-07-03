@@ -121,14 +121,11 @@ namespace Communications
 
 						Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
 						cancellationTokenSource.Cancel();
-						Console.WriteLine(UoWThread.ThreadState);
 						UoWThread.Join();
-						Console.WriteLine(UoWThread.ThreadState);
 						Thread newUoWThread = new Thread(StartListenNotifications);
 						newUoWThread.Start();
 						UoWThread = newUoWThread;
-						Console.WriteLine(UoWThread.ThreadState);
-				    }
+					}
 			}
 		}
 
