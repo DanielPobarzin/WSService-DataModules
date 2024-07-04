@@ -20,7 +20,7 @@ namespace Repositories.Notifications
 			switch (configuration["DbConnection:DataBase"])
 			{
 				case ("PostgreSQL"): 
-					connectionString = configuration["DbConnection:ConnectionString"];
+					connectionString = configuration["DbConnection:Notify:ConnectionString"];
 					optionsBuilder.UseNpgsql(connectionString);
 					break;
 					default: Log.Error("The database is not defined."); throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);

@@ -3,89 +3,85 @@
   "properties": {
     "DbConnection": {
       "type": "object",
+      "required": [ "DataBase", "Alarm", "Notify" ],
       "properties": {
-        "DataBase": {
-          "type": "string"
+        "DataBase": { "type": "string" },
+        "Alarm": {
+          "type": "object",
+          "required": [ "ConnectionString" ],
+          "properties": {
+            "ConnectionString": { "type": "string" }
+          }
         },
-        "ConnectionString": {
-          "type": "string"
+        "Notify": {
+          "type": "object",
+          "required": [ "ConnectionString" ],
+          "properties": {
+            "ConnectionString": { "type": "string" }
+          }
         }
-      },
-      "required": [ "DataBase", "ConnectionString" ]
+      }
     },
-    "NotificationsHubSettings": {
+    "HubSettings": {
       "type": "object",
+      "required": [ "ServerId", "Notify", "Alarm" ],
       "properties": {
-        "DelayMilliseconds": {
-          "type": "integer",
-          "minimum": 0
+        "ServerId": { "type": "string" },
+        "Notify": {
+          "type": "object",
+          "required": [ "UseCache", "HubMethod", "TargetClients" ],
+          "properties": {
+            "DelayMilliseconds": { "type": "integer" },
+            "UseCache": { "type": "boolean" },
+            "HubMethod": { "type": "string" },
+            "TargetClients": { "type": "string" }
+          }
         },
-        "ServerId": {
-          "type": "string"
-        },
-        "UseCompareLists": {
-          "type": "boolean"
-        },
-        "HubMethod": {
-          "type": "string"
-        },
-        "TargetClients": {
-          "type": "string"
+        "Alarm": {
+          "type": "object",
+          "required": [ "UseCache", "HubMethod", "TargetClients" ],
+          "properties": {
+            "DelayMilliseconds": { "type": "integer" },
+            "UseCache": { "type": "boolean" },
+            "HubMethod": { "type": "string" },
+            "TargetClients": { "type": "string" }
+          }
         }
-      },
-      "required": [ "DelayMilliseconds", "ServerId", "UseCompareLists", "HubMethod", "TargetClients" ]
+      }
     },
     "HostSettings": {
       "type": "object",
-      "properties": {
-        "EnableDetailedErrors": {
-          "type": "boolean"
-        },
-        "Port": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "urls": {
-          "type": "string"
-        },
-        "PolicyName": {
-          "type": "string"
-        },
-        "AllowedHeaders": {
-          "type": "string"
-        },
-        "AllowedMethods": {
-          "type": "string"
-        },
-        "AllowedOrigins": {
-          "type": "string"
-        },
-        "Route": {
-          "type": "string"
-        },
-        "Transports": {
-          "type": "string"
-        },
-        "CloseTimeout": {
-          "type": "string"
-        }
-      },
       "required": [
-        "EnableDetailedErrors",
         "Port",
+        "urls",
+        "KeepAliveInterval",
+        "EnableDetailedErrors",
         "PolicyName",
         "AllowedHeaders",
         "AllowedMethods",
         "AllowedOrigins",
-        "Route",
+        "RouteNotify",
+        "RouteAlarm",
+        "TransportMaxBufferSize",
         "Transports",
         "CloseTimeout"
-      ]
+      ],
+      "properties": {
+        "Port": { "type": "integer" },
+        "urls": { "type": "string" },
+        "KeepAliveInterval": { "type": "string" },
+        "EnableDetailedErrors": { "type": "boolean" },
+        "PolicyName": { "type": "string" },
+        "AllowedHeaders": { "type": "string" },
+        "AllowedMethods": { "type": "string" },
+        "AllowedOrigins": { "type": "string" },
+        "RouteNotify": { "type": "string" },
+        "RouteAlarm": { "type": "string" },
+        "TransportMaxBufferSize": { "type": "integer"},
+        "Transports": { "type": "string" },
+        "CloseTimeout": { "type": "string" }
+      }
     }
   },
-  "required": [
-    "DbConnection",
-    "NotificationsHubSettings",
-    "HostSettings"
-  ]
+  "required": [ "DbConnection", "HubSettings", "HostSettings" ]
 }

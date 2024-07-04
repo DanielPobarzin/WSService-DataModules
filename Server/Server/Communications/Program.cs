@@ -7,10 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Connections;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -21,10 +19,13 @@ namespace Communications
 	public class Program
 	{
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
-		private static UnitOfWorkGetNotifications unitOfWork;
+		private static UnitOfWorkGetNotifications unitOfWorkNotify;
+		private static UnitOfWorkGetAlarms unitOfWorkAlarm;
 		private static CheckHashHalper checkHashHalper;
-		private static CancellationTokenSource cancellationTokenSource;
-		private static Thread UoWThread;
+		private static CancellationTokenSource cancellationTokenNotifySource;
+		private static CancellationTokenSource cancellationTokenAlarmSource;
+		private static Thread UoWNotifyThread;
+		private static Thread UoWAlarmThread;
 		private static Thread hostThread;
 		static object locker = new();
 		public static IHost host;
@@ -73,11 +74,15 @@ namespace Communications
 			hostThread.Start();
 
 			//--------------- Start requesting data from the database -----------------//
-			UoWThread = new Thread(StartListenNotifications);
-			UoWThread.Start();
+			UoWNotifyThread = new Thread(StartListenNotifications);
+			UoWNotifyThread.Start();
+
+			//--------------- Start requesting data from the database -----------------//
+			//UoWAlarmThread = new Thread(StartListenAlarms);
+			//UoWAlarmThread.Start();
 
 			//--------------- Defining actions when changing the configuration -----------------//
-				
+
 			GetEventChangeConfiguration();
 		
 			Task.Delay(Timeout.Infinite).Wait();
@@ -88,13 +93,23 @@ namespace Communications
 		{
 			lock (locker)
 			{
-				cancellationTokenSource = new CancellationTokenSource();
-				CancellationToken cancellationToken = cancellationTokenSource.Token;
-				
+				cancellationTokenNotifySource = new CancellationTokenSource();
+				CancellationToken cancellationToken = cancellationTokenNotifySource.Token;
+
 				//--------------- Determining the connection and starting to receive data -----------------//
-				unitOfWork = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
-				unitOfWork.GetAllNotifications(cancellationToken);
+				unitOfWorkNotify = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
+				unitOfWorkNotify.GetAllNotifications(cancellationToken);
 			}
+		}
+
+		public static void StartListenAlarms()
+		{
+			cancellationTokenAlarmSource = new CancellationTokenSource();
+			CancellationToken cancellationToken = cancellationTokenAlarmSource.Token;
+
+			//--------------- Determining the connection and starting to receive data -----------------//
+			unitOfWorkAlarm = new UnitOfWorkGetAlarms(unitOfWorkConfig.Configuration);
+			unitOfWorkAlarm.GetAllAlarms(cancellationToken);
 		}
 
 		public static async void GetEventChangeConfiguration()
@@ -112,20 +127,25 @@ namespace Communications
 					} 
 
 					if (hashConfigs.ContainsKey("DbConnection") ||
-						hashConfigs.ContainsKey("NotificationsHubSettings"))
+						hashConfigs.ContainsKey("HubSettings"))
 					{
 						var comment = (hashConfigs.ContainsKey("DbConnection")) ?
-							((hashConfigs.ContainsKey("NotificationsHubSettings")) ?
-							"database & notify hub" : "database")
-							: "Notify Hub";
+							((hashConfigs.ContainsKey("HubSettings")) ?
+							"database & hub" : "database")
+							: "Hub";
 
 						Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
-						cancellationTokenSource.Cancel();
-						UoWThread.Join();
-						Thread newUoWThread = new Thread(StartListenNotifications);
-						newUoWThread.Start();
-						UoWThread = newUoWThread;
-					}
+						cancellationTokenNotifySource.Cancel();
+						//cancellationTokenAlarmSource.Cancel();
+						UoWNotifyThread.Join();
+						//UoWAlarmThread.Join();
+						Thread newUoWNotifyThread = new Thread(StartListenNotifications);
+						//Thread newUoWAlarmThread = new Thread(StartListenAlarms);
+						newUoWNotifyThread.Start();
+						//newUoWAlarmThread.Start();
+						UoWNotifyThread = newUoWNotifyThread;
+						//UoWAlarmThread = newUoWAlarmThread;
+				}
 			}
 		}
 
@@ -153,7 +173,7 @@ namespace Communications
 				   //--------------- Notification provider  -----------------//
 				   services.AddSingleton(provider =>
 				   {
-					   return unitOfWork.ReceivedNotificationsList;
+					   return unitOfWorkNotify.ReceivedNotificationsList;
 				   });
 				   //--------------- Helpers provider  -----------------//
 				   services.AddScoped<TransformToDTOHelper>();
@@ -197,12 +217,21 @@ namespace Communications
 				   app.UseCors("CorsPolicy");
 				   app.UseEndpoints(endpoints =>
 				   {				
-					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:Route"], options =>
+					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:RouteNotify"], options =>
 					   {
 						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
-						   options.Transports = HttpTransportType.WebSockets | HttpTransportType.LongPolling;
+						   options.Transports = HttpTransportType.WebSockets;
 						   options.WebSockets.CloseTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
-						   options.LongPolling.PollTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
+						   options.CloseOnAuthenticationExpiration = false;
+						   options.TransportSendTimeout = TimeSpan.FromSeconds(15);
+						   options.ApplicationMaxBufferSize = 131_072;
+						   options.TransportMaxBufferSize = 131_072;
+					   });
+					   endpoints.MapHub<AlarmHub>(unitOfWorkConfig.Configuration["HostSettings:RouteAlarm"], options =>
+					   {
+						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
+						   options.Transports = HttpTransportType.WebSockets;
+						   options.WebSockets.CloseTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
 						   options.CloseOnAuthenticationExpiration = false;
 						   options.TransportSendTimeout = TimeSpan.FromSeconds(15);
 						   options.ApplicationMaxBufferSize = 131_072;

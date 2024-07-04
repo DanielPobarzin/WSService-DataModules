@@ -116,7 +116,7 @@ namespace Client
 				Log.Information($"Reconnected. New connection id: {connectionId}");
 				try
 				{
-					await connection.InvokeAsync("Send", unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
+					await connection.InvokeAsync("OnReconnectedAsync", Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]));
 				}
 				catch (Exception ex) { Log.Error($"An error occurred when calling the method on the server : {ex.Message}");}
 			};
@@ -140,7 +140,7 @@ namespace Client
 		}
 		public static void GetHubMessages()
 		{
-			connection.On<MessageServerDTO>("ReceiveNotification", (message) =>
+			connection.On<MessageServerDTO>("ReceiveMessageHandler", (message) =>
 			{
 				DomainObjectNotification notification = new DomainObjectNotification
 				{
@@ -151,14 +151,19 @@ namespace Client
 					DateAndTimeSendDataByServer = message.DateAndTimeSendDataByServer,
 					DateAndTimeRecievedDataFromServer = DateTime.Now
 				};
-				Log.Information($"The notification {notification.Notification.Id} with message <<{notification.Notification.Content}>> " +
-														   $"has been received by client {notification.ClientId} from server {notification.ServerId}. ");
-				try
-				{
-					unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
-					unitOfWorkPublishNotifications.Save();
-				}
-				catch (Exception ex) { Log.Error($"error working with the database : {ex.Message}"); }
+				Log.Information($"Notification {notification.MessageId} has been recieved."
+											+ "\nSender:\t\t" + $" Server - {notification.ServerId}"
+											+ "\nRecipient:\t" + $" Client - {notification.ClientId}");
+				//try
+				//{
+				//	unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
+				//	unitOfWorkPublishNotifications.Save();
+				//}
+				//catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
+			});
+			connection.On<string>("Notify", (message) =>
+			{
+				Log.Information($"The message from server: {message}");
 			});
 		}
 
@@ -166,9 +171,8 @@ namespace Client
 		{
 			await foreach (var hashConfigs in checkHashHalper.CompareHashConfiguration(unitOfWorkConfig.sectionHashes))
 			{
-				if (hashConfigs.ContainsKey("ConnectionSettings"))
+				if (hashConfigs.Count > 0)
 				{
-					Log.Information("Changing the connection configuration. Reconnecting ... ");
 					await connection.StopAsync();
 					notificationExchangeThread.Join();
 					Thread newWork = new Thread(ExchangeBetweenServerAndClient);
@@ -176,16 +180,17 @@ namespace Client
 					notificationExchangeThread = newWork;
 				}
 
-				if (hashConfigs.ContainsKey("DbConnection") ||
-					hashConfigs.ContainsKey("NotificationsHubSettings"))
+				if (hashConfigs.ContainsKey("ConnectionSettings"))	Log.Information("Changing the configuration. Reconnecting ... ");
+
+				if (hashConfigs.ContainsKey("DbConnection") ||	hashConfigs.ContainsKey("ClientSettings"))
 				{
 					var comment = (hashConfigs.ContainsKey("DbConnection")) ?
-						((hashConfigs.ContainsKey("NotificationsHubSettings")) ?
-						"database & notify hub" : "database")
-						: "Notify Hub";
+						((hashConfigs.ContainsKey("ClientSettings")) ?
+						"database & client" : "database") : "client";
 
-					Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
+					Log.Information($"Changing the configuration {comment}. Reconnecting ... ");
 				}
+
 			}
 		}
 	}

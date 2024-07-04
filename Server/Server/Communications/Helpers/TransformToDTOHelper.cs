@@ -16,5 +16,17 @@ namespace Communications.Helpers
 
 			return await Task.FromResult(messageServerDTOs);
 		}
+
+		public async Task<AlarmServerDTO> TransformToAlarmDTO(Alarm alarm, Guid serverId)
+		{
+			AlarmServerDTO alarmServerDTOs = new AlarmServerDTO
+			{
+				ServerId = serverId,
+				Signal = alarm,
+				DateAndTimeSendDataByServer = DateTime.Now
+			};
+
+			return await Task.FromResult(alarmServerDTOs);
+		}
 	}
 }

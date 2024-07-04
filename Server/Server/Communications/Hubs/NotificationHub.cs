@@ -1,20 +1,10 @@
 ﻿using Communications.Connections;
-using Communications.DTO;
 using Communications.Helpers;
-using Communications.Hubs;
 using Entities.Entities;
-using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.SignalR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Communications.Hubs
 {
@@ -45,38 +35,56 @@ namespace Communications.Hubs
 
 		public async Task Send(Guid clientId)
 		{
-			var cacheNotification = await jsonCacheHelper.ReadFromFileCache(clientId);
-			//if (cacheNotification.Any())
-			//{ 
-			//	foreach (var notification in cacheNotification)
-			//			memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
-			//}
+			var cacheNotification = await jsonCacheHelper.ReadFromFileCache<Notification>(clientId);
+			if (cacheNotification.Any() && bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
+			{
+				foreach (var notification in cacheNotification)
+					memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
+			}
 
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
 				{
 					foreach (var notification in _notifications)
-					{							
-						memoryCache.TryGetValue($"{Context.ConnectionId}_{notification.Id}", out Notification? cachedNotification);
-						if (cachedNotification == null)
+					{	
+						switch (bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
 						{
-							var notificationDTO = await transformToDTOHelper.
-														TransformToNotificationDTO(notification,
-														Guid.Parse(_configuration["NotificationsHubSettings:ServerId"]));
+							case true:
 
-							await Clients.Client(Context.ConnectionId).SendAsync("ReceiveNotification", notificationDTO);
-							//memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
-							Log.Information($"The notification {notificationDTO.Notification.Id} with message <<{notificationDTO.Notification.Content}>> " +
-											$"has been sent to client {clientId} by server {notificationDTO.ServerId}. ");
-						}
+								var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, Guid.Parse(_configuration["HubSettings:ServerId"]));
+								memoryCache.TryGetValue($"{Context.ConnectionId}_{notification.Id}", out Notification? cachedNotification);
+
+								if (cachedNotification == null)
+								{
+									await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
+
+									memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
+
+									Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
+												+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
+												+ "\nRecipient:\t" + $" Client - {clientId}");
+								}
+							break;
+
+							case false:
+
+								 notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, Guid.Parse(_configuration["HubSettings:ServerId"]));
+
+								await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
+
+								Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
+											+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
+											+ "\nRecipient:\t" + $" Client - {clientId}");
+							break;
+						}	
 					}
 				}
 				catch (Exception ex)
 				{
 					Log.Error($"Exception with data: {ex.Message}");
 				}
-				await Task.Delay(Convert.ToInt32(_configuration["NotificationsHubSettings:DelayMilliseconds"]));
+				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
 			}
 			await jsonCacheHelper.WriteToFileCache(_notifications, clientId);
 		}
@@ -85,9 +93,9 @@ namespace Communications.Hubs
 			connections.AddConnection(Context.ConnectionId, Context.ConnectionId);
 			Log.Information("New connection: {@userId}", Context.ConnectionId);
 			await Groups.AddToGroupAsync(Context.ConnectionId, "Notify");
-			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is connected.");
+			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is connected. Type of message : notification.");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} joined the Notify group.");
-			await Clients.Caller.SendAsync("Notify", $"You have joined the Notify group.");
+			await Clients.Client(Context.ConnectionId).SendAsync("Notify", $"You have joined the Notify group.");
 			await base.OnConnectedAsync();
 		}
 
@@ -96,7 +104,7 @@ namespace Communications.Hubs
 			connections.RemoveConnection(Context.ConnectionId);
 			Log.Information("Disconnecting: {ConnectionId}", Context.ConnectionId);
 			await Groups.RemoveFromGroupAsync(Context.ConnectionId, "User");
-			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected.");
+			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the notify hub.");
 			await base.OnDisconnectedAsync(exception);
 		}
 
@@ -104,6 +112,7 @@ namespace Communications.Hubs
 		{
 			Log.Information($"Reconnecting client {clientId}: {Context.ConnectionId}");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is reconnected.");
+			await Send(clientId);
 		}
 
 	}
