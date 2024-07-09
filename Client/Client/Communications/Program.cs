@@ -154,12 +154,12 @@ namespace Client
 				Log.Information($"Notification {notification.MessageId} has been recieved."
 											+ "\nSender:\t\t" + $" Server - {notification.ServerId}"
 											+ "\nRecipient:\t" + $" Client - {notification.ClientId}");
-				//try
-				//{
-				//	unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
-				//	unitOfWorkPublishNotifications.Save();
-				//}
-				//catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
+				try
+				{
+					unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
+					unitOfWorkPublishNotifications.Save();
+				}
+				catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
 			});
 			connection.On<string>("Notify", (message) =>
 			{

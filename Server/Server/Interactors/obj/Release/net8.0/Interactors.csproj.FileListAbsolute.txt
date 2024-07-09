@@ -1,0 +1,16 @@
+C:\All\NotificationsExchange\Server\Server\Interactors\bin\Release\net8.0\Interactors.deps.json
+C:\All\NotificationsExchange\Server\Server\Interactors\bin\Release\net8.0\Interactors.dll
+C:\All\NotificationsExchange\Server\Server\Interactors\bin\Release\net8.0\Interactors.pdb
+C:\All\NotificationsExchange\Server\Server\Interactors\bin\Release\net8.0\Entities.dll
+C:\All\NotificationsExchange\Server\Server\Interactors\bin\Release\net8.0\Entities.pdb
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.csproj.AssemblyReference.cache
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.GeneratedMSBuildEditorConfig.editorconfig
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.AssemblyInfoInputs.cache
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.AssemblyInfo.cs
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.csproj.CoreCompileInputs.cache
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.sourcelink.json
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interact.572A5067.Up2Date
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.dll
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\refint\Interactors.dll
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\Interactors.pdb
+C:\All\NotificationsExchange\Server\Server\Interactors\obj\Release\net8.0\ref\Interactors.dll

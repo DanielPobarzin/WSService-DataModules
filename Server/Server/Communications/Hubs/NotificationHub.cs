@@ -47,37 +47,32 @@ namespace Communications.Hubs
 				try
 				{
 					foreach (var notification in _notifications)
-					{	
-						switch (bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
+					{
+						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, Guid.Parse(_configuration["HubSettings:ServerId"]));
+
+						if (bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
 						{
-							case true:
+							memoryCache.TryGetValue($"{Context.ConnectionId}_{notification.Id}", out Notification? cachedNotification);
 
-								var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, Guid.Parse(_configuration["HubSettings:ServerId"]));
-								memoryCache.TryGetValue($"{Context.ConnectionId}_{notification.Id}", out Notification? cachedNotification);
-
-								if (cachedNotification == null)
-								{
-									await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
-
-									memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
-
-									Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
-												+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
-												+ "\nRecipient:\t" + $" Client - {clientId}");
-								}
-							break;
-
-							case false:
-
-								 notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, Guid.Parse(_configuration["HubSettings:ServerId"]));
-
+							if (cachedNotification == null)
+							{
 								await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
+
+								memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
 
 								Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
 											+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
 											+ "\nRecipient:\t" + $" Client - {clientId}");
-							break;
-						}	
+							}
+						}
+						else
+						{
+							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
+
+							Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
+										+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
+										+ "\nRecipient:\t" + $" Client - {clientId}");
+						}
 					}
 				}
 				catch (Exception ex)

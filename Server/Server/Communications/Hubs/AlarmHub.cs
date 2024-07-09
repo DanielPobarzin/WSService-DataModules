@@ -46,33 +46,27 @@ namespace Communications.Hubs
 				{
 					foreach (var alarm in _alarms)
 					{
-						switch (bool.Parse(_configuration["HubSettings:Alarm:UseCache"]))
+						var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, Guid.Parse(_configuration["HubSettings:ServerId"]));
+						if (bool.Parse(_configuration["HubSettings:Alarm:UseCache"]))
 						{
-							case true:
+							memoryCache.TryGetValue($"{Context.ConnectionId}_{alarm.Id}", out Alarm? cachedAlarm);
 
-								var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, Guid.Parse(_configuration["HubSettings:ServerId"]));
-								memoryCache.TryGetValue($"{Context.ConnectionId}_{alarm.Id}", out Alarm? cachedAlarm);
-
-								if (cachedAlarm == null)
-								{
-									await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
-									memoryCache.Set($"{Context.ConnectionId}_{alarm.Id}", alarm);
-
-									Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
-												+ "\nSender:\t\t" + $" Server - {alarmDTO.ServerId}"
-												+ "\nRecipient:\t" + $" Client - {clientId}");
-								}
-							break;
-
-							case false:
-
-								alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, Guid.Parse(_configuration["HubSettings:ServerId"]));
+							if (cachedAlarm == null)
+							{
 								await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
+								memoryCache.Set($"{Context.ConnectionId}_{alarm.Id}", alarm);
 
 								Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
 											+ "\nSender:\t\t" + $" Server - {alarmDTO.ServerId}"
 											+ "\nRecipient:\t" + $" Client - {clientId}");
-							break;
+							}
+						}
+						else
+						{
+							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
+							Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
+										+ "\nSender:\t\t" + $" Server - {alarmDTO.ServerId}"
+										+ "\nRecipient:\t" + $" Client - {clientId}");
 						}
 					}
 				}
