@@ -9,10 +9,13 @@ using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
+using System.Reflection;
 
 namespace Communications
 {
@@ -162,8 +165,6 @@ namespace Communications
 				   //--------------- Connections -----------------//
 				   services.AddSingleton(typeof(Connections<NotificationHub>));
 
-				   //services.AddScoped<UnitOfWorkRealTime>();
-
 				   //--------------- Сonfiguration provider  -----------------//
 				   services.AddSingleton(provider =>
 				   {
@@ -175,6 +176,7 @@ namespace Communications
 				   {
 					   return unitOfWorkNotify.ReceivedNotificationsList;
 				   });
+
 				   //--------------- Helpers provider  -----------------//
 				   services.AddScoped<TransformToDTOHelper>();
 				   services.AddScoped<JsonCacheHelper>();
@@ -195,15 +197,38 @@ namespace Communications
 							   .AllowAnyOrigin());
 				   });
 
+				   services.AddMvcCore().AddApiExplorer();
+
+				   //--------------- Swagger -----------------//
+				   services.AddSwaggerGen(c =>
+				   {
+					   var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+					   var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+					   c.IncludeXmlComments(xmlCommentsFullPath);
+
+					   c.SwaggerDoc("v1", new OpenApiInfo { Title = "WSService", Version = "v1", Description = "SelfHost websocket service." });
+					   c.AddSignalRSwaggerGen(opt =>
+					   {
+						   opt.UseHubXmlCommentsSummaryAsTag = true;
+						   opt.UseHubXmlCommentsSummaryAsTagDescription = true;
+						   opt.UseXmlComments(xmlCommentsFullPath);
+					   });
+					  c.CustomOperationIds(apiDescription =>
+						apiDescription.TryGetMethodInfo(out MethodInfo methodInfo)
+						? methodInfo.Name
+						: null);
+				   });
+
+				   services.AddSwaggerGenNewtonsoftSupport();
+
 				   //--------------- SignalR -----------------//
 				   services.AddSignalR(configure =>
 				   {
 					   configure.KeepAliveInterval = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:KeepAliveInterval"]);
 					   configure.EnableDetailedErrors = bool.Parse(unitOfWorkConfig.Configuration["HostSettings:EnableDetailedErrors"]);
 					   configure.MaximumReceiveMessageSize = 65_536;
-					   configure.HandshakeTimeout = TimeSpan.FromSeconds(10);
+					   configure.HandshakeTimeout = TimeSpan.FromSeconds(15);
 					   configure.MaximumParallelInvocationsPerClient = 5;
-
 				   })
 				   .AddJsonProtocol(options =>
 				   {
@@ -213,10 +238,18 @@ namespace Communications
 			   })
 			   .Configure(app =>
 			   {
+				   app.UseSwagger();
+				   app.UseSwaggerUI(c =>
+				   {
+					   c.SwaggerEndpoint("/swagger/v1/swagger.json", "WSService");
+					   c.DocumentTitle = "WebSockets service";
+					   c.DocExpansion(DocExpansion.None);
+				   }
+				   );
 				   app.UseRouting();
-				   app.UseCors("CorsPolicy");
+				   app.UseCors("AllowAll");
 				   app.UseEndpoints(endpoints =>
-				   {				
+				   {
 					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:RouteNotify"], options =>
 					   {
 						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
@@ -238,7 +271,7 @@ namespace Communications
 						   options.TransportMaxBufferSize = 131_072;
 					   });
 				   });
-			   });
+			 });
 
 		   }).Build();
 			host.Services.GetRequiredService<IHostApplicationLifetime>().ApplicationStarted.Register(() =>

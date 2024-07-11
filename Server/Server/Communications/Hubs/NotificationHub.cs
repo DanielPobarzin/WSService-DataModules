@@ -1,13 +1,25 @@
 ﻿using Communications.Connections;
+using Communications.DTO;
 using Communications.Helpers;
 using Entities.Entities;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Serilog;
+using SignalRSwaggerGen.Attributes;
+using NSwag.Annotations;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Communications.Hubs
 {
+	/// <summary>
+	/// WebSocket service for real-time communication.
+	/// </summary>
+	[SignalRHub]
 	public class NotificationHub : Hub
 	{
 		private Connections<NotificationHub> connections;
@@ -33,6 +45,15 @@ namespace Communications.Hubs
 			this.jsonCacheHelper = jsonCacheHelper;
 		}
 
+
+		/// <summary>
+		/// Sends the message with notification to client.
+		/// </summary>
+		/// <param name="clientId">The ID(guid) of the client that accesses the method.</param>
+		/// <returns>Returns MessageServerDTO</returns>
+		[SignalRMethod("Send")]
+		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO))]
+		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
 		public async Task Send(Guid clientId)
 		{
 			var cacheNotification = await jsonCacheHelper.ReadFromFileCache<Notification>(clientId);
@@ -93,7 +114,7 @@ namespace Communications.Hubs
 			await Clients.Client(Context.ConnectionId).SendAsync("Notify", $"You have joined the Notify group.");
 			await base.OnConnectedAsync();
 		}
-
+		[SignalRHidden]
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			connections.RemoveConnection(Context.ConnectionId);
@@ -102,7 +123,7 @@ namespace Communications.Hubs
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the notify hub.");
 			await base.OnDisconnectedAsync(exception);
 		}
-
+		[SignalRHidden]
 		public async Task OnReconnectedAsync(Guid clientId)
 		{
 			Log.Information($"Reconnecting client {clientId}: {Context.ConnectionId}");

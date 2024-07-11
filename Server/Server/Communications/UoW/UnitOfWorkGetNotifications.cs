@@ -46,7 +46,7 @@ namespace Communications.UoW
 						ReceivedNotificationsList.Add(notification);
 					}
 				}
-				Thread.Sleep(Convert.ToInt32(1000));
+				Thread.Sleep(Convert.ToInt32(100));
 			}
 			if (cancellationToken.IsCancellationRequested)
 			{
