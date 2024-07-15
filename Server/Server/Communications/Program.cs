@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Repositories.Connections;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -25,8 +28,10 @@ namespace Communications
 		private static UnitOfWorkGetNotifications unitOfWorkNotify;
 		private static UnitOfWorkGetAlarms unitOfWorkAlarm;
 		private static CheckHashHalper checkHashHalper;
+
 		private static CancellationTokenSource cancellationTokenNotifySource;
 		private static CancellationTokenSource cancellationTokenAlarmSource;
+
 		private static Thread UoWNotifyThread;
 		private static Thread UoWAlarmThread;
 		private static Thread hostThread;
@@ -162,8 +167,6 @@ namespace Communications
 			   webBuilder.ConfigureServices(services =>
 			   {
 				   services.AddMemoryCache();
-				   //--------------- Connections -----------------//
-				   services.AddSingleton(typeof(Connections<NotificationHub>));
 
 				   //--------------- Сonfiguration provider  -----------------//
 				   services.AddSingleton(provider =>
@@ -220,6 +223,10 @@ namespace Communications
 				   });
 
 				   services.AddSwaggerGenNewtonsoftSupport();
+
+				   //--------------- Connections -----------------//
+				   services.AddSingleton<UnitOfWorkConnections>();
+				   services.AddSingleton(typeof(Connections<NotificationHub>));
 
 				   //--------------- SignalR -----------------//
 				   services.AddSignalR(configure =>

@@ -1,18 +1,19 @@
 ﻿using Communications.Connections;
 using Communications.DTO;
 using Communications.Helpers;
+using Communications.UoW;
 using Entities.Entities;
-using Microsoft.AspNetCore.Components;
+using Entities.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
+using NSwag.Annotations;
 using Serilog;
 using SignalRSwaggerGen.Attributes;
-using NSwag.Annotations;
-using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Communications.Hubs
 {
@@ -23,6 +24,7 @@ namespace Communications.Hubs
 	public class NotificationHub : Hub
 	{
 		private Connections<NotificationHub> connections;
+		private UnitOfWorkConnections unitOfWorkConnections;
 		private readonly List<Notification>? _notifications;
 		private readonly IConfiguration _configuration;
 		private IMemoryCache memoryCache;
@@ -35,7 +37,8 @@ namespace Communications.Hubs
 			   TransformToDTOHelper transformToDTOHelper,
 			   JsonCacheHelper jsonCacheHelper,
 			   IConfiguration configuration, 
-			   IMemoryCache memoryCache)
+			   IMemoryCache memoryCache,
+			   UnitOfWorkConnections unitOfWorkConnections)
 		{
 			_configuration = configuration;
 			_notifications = notifications;
@@ -43,6 +46,7 @@ namespace Communications.Hubs
 			this.connections = connections;
 			this.transformToDTOHelper = transformToDTOHelper;
 			this.jsonCacheHelper = jsonCacheHelper;
+			this.unitOfWorkConnections = unitOfWorkConnections;
 		}
 
 
@@ -56,6 +60,11 @@ namespace Communications.Hubs
 		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
 		public async Task Send(Guid clientId)
 		{
+			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
+			var route = _configuration["HostSettings:RouteNotify"];
+
+			await AddContextConnection(clientId, serverid, Context.ConnectionId, route);
+
 			var cacheNotification = await jsonCacheHelper.ReadFromFileCache<Notification>(clientId);
 			if (cacheNotification.Any() && bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
 			{
@@ -69,7 +78,7 @@ namespace Communications.Hubs
 				{
 					foreach (var notification in _notifications)
 					{
-						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, Guid.Parse(_configuration["HubSettings:ServerId"]));
+						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
 
 						if (bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
 						{
@@ -118,6 +127,7 @@ namespace Communications.Hubs
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			connections.RemoveConnection(Context.ConnectionId);
+			await RemoveContextConnection(Context.ConnectionId);
 			Log.Information("Disconnecting: {ConnectionId}", Context.ConnectionId);
 			await Groups.RemoveFromGroupAsync(Context.ConnectionId, "User");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the notify hub.");
@@ -130,7 +140,24 @@ namespace Communications.Hubs
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is reconnected.");
 			await Send(clientId);
 		}
-
+		public async Task AddContextConnection(Guid clientId, Guid serverid, string connectionId, string route)
+		{
+			var connection = new ConnectionContext
+			{
+				ClientId = clientId,
+				ServerId = serverid,
+				ConnectionId = connectionId,
+				StartConnection = DateTime.Now,
+				HubRoute = route
+			};
+			await unitOfWorkConnections.Notifications.AddConnection(connection);
+			unitOfWorkConnections.Save();
+		}
+		public async Task RemoveContextConnection(string connectionId)
+		{
+			await unitOfWorkConnections.Notifications.RemoveConnection(connectionId);
+			unitOfWorkConnections.Save();
+		}
 	}
 }
 

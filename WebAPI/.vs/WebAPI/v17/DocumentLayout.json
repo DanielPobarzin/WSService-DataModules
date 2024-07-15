@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0BB5FD9-1677-4ED8-8632-5526A9A5A992}|WebAPI\\WebAPI.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6A99C694-1CE7-4CB3-BBAF-964E5192584A}|OrderConfirmationService\\OrderConfirmationService.csproj|c:\\all\\notificationsexchange\\webapi\\orderconfirmationservice\\orderconfirmationservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6A99C694-1CE7-4CB3-BBAF-964E5192584A}|OrderConfirmationService\\OrderConfirmationService.csproj|solutionrelative:orderconfirmationservice\\orderconfirmationservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08A01156-7E10-440F-804E-B15E07E22C4E}|Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\WebAPI\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{08A01156-7E10-440F-804E-B15E07E22C4E}|Shared\\Shared.csproj|solutionrelative:shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0BB5FD9-1677-4ED8-8632-5526A9A5A992}|WebAPI\\WebAPI.csproj|c:\\all\\notificationsexchange\\webapi\\webapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0BB5FD9-1677-4ED8-8632-5526A9A5A992}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{A0BB5FD9-1677-4ED8-8632-5526A9A5A992}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A99C694-1CE7-4CB3-BBAF-964E5192584A}|OrderConfirmationService\\OrderConfirmationService.csproj|c:\\all\\notificationsexchange\\webapi\\orderconfirmationservice\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6A99C694-1CE7-4CB3-BBAF-964E5192584A}|OrderConfirmationService\\OrderConfirmationService.csproj|C:\\All\\NotificationsExchange\\WebAPI\\orderconfirmationservice\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A99C694-1CE7-4CB3-BBAF-964E5192584A}|OrderConfirmationService\\OrderConfirmationService.csproj|solutionrelative:orderconfirmationservice\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{08A01156-7E10-440F-804E-B15E07E22C4E}|Shared\\Shared.csproj|solutionrelative:shared\\orderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08A01156-7E10-440F-804E-B15E07E22C4E}|Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\WebAPI\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{08A01156-7E10-440F-804E-B15E07E22C4E}|Shared\\Shared.csproj|solutionrelative:shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A0BB5FD9-1677-4ED8-8632-5526A9A5A992}|WebAPI\\WebAPI.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A0BB5FD9-1677-4ED8-8632-5526A9A5A992}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "OrderConfirmationService",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\OrderConfirmationService\\OrderConfirmationService.csproj",
+              "RelativeDocumentMoniker": "OrderConfirmationService\\OrderConfirmationService.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\OrderConfirmationService\\OrderConfirmationService.csproj",
+              "RelativeToolTip": "OrderConfirmationService\\OrderConfirmationService.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-15T13:13:24.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ConsumerService.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\OrderConfirmationService\\ConsumerService.cs",
               "RelativeDocumentMoniker": "OrderConfirmationService\\ConsumerService.cs",
@@ -62,16 +79,11 @@
               "RelativeToolTip": "OrderConfirmationService\\ConsumerService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T11:43:40.776Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2024-07-05T11:43:40.776Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "WebAPI\\Controllers\\OrderController.cs",
@@ -83,8 +95,12 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\OrderConfirmationService\\Program.cs",
               "RelativeDocumentMoniker": "OrderConfirmationService\\Program.cs",
@@ -96,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Helper.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Shared\\Helper.cs",
               "RelativeDocumentMoniker": "Shared\\Helper.cs",
@@ -108,19 +124,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Shared",
+              "DocumentIndex": 1,
+              "Title": "Shared.csproj",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Shared\\Shared.csproj",
               "RelativeDocumentMoniker": "Shared\\Shared.csproj",
               "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\Shared\\Shared.csproj",
               "RelativeToolTip": "Shared\\Shared.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-05T11:41:01.588Z"
+              "WhenOpened": "2024-07-05T11:41:01.588Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "WebAPI",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI\\WebAPI.csproj",
               "RelativeDocumentMoniker": "WebAPI\\WebAPI.csproj",
@@ -132,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "OrderDetails.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Shared\\OrderDetails.cs",
               "RelativeDocumentMoniker": "Shared\\OrderDetails.cs",
@@ -144,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "WebAPI\\Program.cs",
@@ -152,8 +169,7 @@
               "RelativeToolTip": "WebAPI\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-05T11:18:23.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-05T11:18:23.186Z"
             }
           ]
         }

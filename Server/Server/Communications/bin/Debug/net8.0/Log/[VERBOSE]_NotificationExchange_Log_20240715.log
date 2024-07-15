@@ -1,0 +1,27 @@
+2024-07-15 15:53:42.248 +03:00 [INF] Host started. Listening on: http://localhost:5050, https://localhost:8080
+2024-07-15 15:56:51.005 +03:00 [INF] Host started. Listening on: http://localhost:5050, https://localhost:8080
+2024-07-15 16:04:51.625 +03:00 [INF] Host started. Listening on: http://localhost:5050, https://localhost:8080
+2024-07-15 16:05:31.552 +03:00 [INF] New connection: E3foycujjTBGSAZT0kVz4w
+2024-07-15 16:05:54.773 +03:00 [INF] Disconnecting: E3foycujjTBGSAZT0kVz4w
+2024-07-15 16:06:37.563 +03:00 [INF] Host started. Listening on: http://localhost:5050, https://localhost:8080
+2024-07-15 16:06:49.047 +03:00 [INF] New connection: t1cZvP7TzAPVzk9lCIg-bw
+2024-07-15 16:07:00.852 +03:00 [INF] The file cache for the client a43a9789-35db-495d-b988-60a8e66609f4 was not detected.
+2024-07-15 16:07:00.907 +03:00 [INF] Notification 53abd60c-4559-47a9-a860-e97d091e1a50 has been sent.
+Sender:	 Server - 6142dfeb-00e2-43cb-a70f-f55ac8847756
+Recipient:	 Client - a43a9789-35db-495d-b988-60a8e66609f4
+2024-07-15 16:07:00.911 +03:00 [INF] Notification 2a1c70a6-08db-4462-b314-b1877893567c has been sent.
+Sender:	 Server - 6142dfeb-00e2-43cb-a70f-f55ac8847756
+Recipient:	 Client - a43a9789-35db-495d-b988-60a8e66609f4
+2024-07-15 16:07:00.914 +03:00 [INF] Notification 2a18df53-5995-4dab-afae-02544fc4b41f has been sent.
+Sender:	 Server - 6142dfeb-00e2-43cb-a70f-f55ac8847756
+Recipient:	 Client - a43a9789-35db-495d-b988-60a8e66609f4
+2024-07-15 16:07:00.915 +03:00 [INF] Notification 4039d900-1362-4a01-b137-0e43fce73367 has been sent.
+Sender:	 Server - 6142dfeb-00e2-43cb-a70f-f55ac8847756
+Recipient:	 Client - a43a9789-35db-495d-b988-60a8e66609f4
+2024-07-15 16:07:20.021 +03:00 [INF] Disconnecting: t1cZvP7TzAPVzk9lCIg-bw
+2024-07-15 16:09:05.169 +03:00 [INF] New connection: z-ChxuA8Ly46S1_XhTQvDw
+2024-07-15 16:09:53.290 +03:00 [INF] Disconnecting: z-ChxuA8Ly46S1_XhTQvDw
+2024-07-15 16:10:25.932 +03:00 [INF] New connection: g7ApCvEAcdjyBqQGsoeazw
+2024-07-15 16:11:01.476 +03:00 [INF] Disconnecting: g7ApCvEAcdjyBqQGsoeazw
+2024-07-15 16:11:14.148 +03:00 [INF] New connection: xvDUPPXuoOlYPmbP6YDwgA
+2024-07-15 16:11:16.681 +03:00 [INF] Disconnecting: xvDUPPXuoOlYPmbP6YDwgA

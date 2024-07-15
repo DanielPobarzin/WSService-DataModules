@@ -22,5 +22,6 @@ namespace Communications.Connections
 		} 
 		public List<string> GetConnections() => _all.Keys.ToList();
 	}
+
 }
 
