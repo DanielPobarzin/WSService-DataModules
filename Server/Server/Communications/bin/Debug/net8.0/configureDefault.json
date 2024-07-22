@@ -8,11 +8,6 @@
       "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
     }
   },
-  "DbContextConnection": {
-    "DataBase": "SQLite",
-    "ConnectionString": "Data Source=Connections.Hubs.db"
-  },
-
   "HubSettings": {
     "ServerId": "6142dfeb-00e2-43cb-a70f-f55ac8847756",
     "Notify": {
@@ -21,7 +16,7 @@
       "TargetClients": "ContextClient"
     },
     "Alarm": {
-      "DelayMilliseconds": 10000,
+      "DelayMilliseconds": 1000,
       "HubMethod": "ReceiveAlarmHandler",
       "TargetClients": "ContextClient"
     }

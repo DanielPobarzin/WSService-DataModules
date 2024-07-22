@@ -27,13 +27,13 @@ namespace Communications.Hubs
 		private readonly List<Notification>? _notifications;
 		private readonly IConfiguration _configuration;
 		private TransformToDTOHelper transformToDTOHelper;
-		private JsonCacheHelper jsonCacheHelper;
+		private IMemoryCache memoryCache;
 
 
 		public NotificationHub (List<Notification>? notifications, 
 			   Connections<NotificationHub> connections,
+			   IMemoryCache memoryCache,
 			   TransformToDTOHelper transformToDTOHelper,
-			   JsonCacheHelper jsonCacheHelper,
 			   IConfiguration configuration, 
 			   UnitOfWorkConnections unitOfWorkConnections)
 		{
@@ -41,7 +41,7 @@ namespace Communications.Hubs
 			_notifications = notifications;
 			this.connections = connections;
 			this.transformToDTOHelper = transformToDTOHelper;
-			this.jsonCacheHelper = jsonCacheHelper;
+			this.memoryCache = memoryCache;
 			this.unitOfWorkConnections = unitOfWorkConnections;
 		}
 
@@ -59,20 +59,26 @@ namespace Communications.Hubs
 			var route = _configuration["HostSettings:RouteNotify"];
 
 			await AddContextConnection(clientId, serverid, Context.ConnectionId, route);
-
+			
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
 				{
 					foreach (var notification in _notifications)
 					{
-						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
+						memoryCache.TryGetValue($"{clientId}_{notification.Id}", out Notification? Notification);
+						
+						if (Notification != null)
+						{
+							var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
+							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
 
-						await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
+							Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
+										+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
+										+ "\nRecipient:\t" + $" Client - {clientId}");
 
-						Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
-											+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
-											+ "\nRecipient:\t" + $" Client - {clientId}");	
+							memoryCache.Set($"{clientId}_{notification.Id}", notification);
+						}
 					}
 				}
 				catch (Exception ex)
@@ -81,7 +87,6 @@ namespace Communications.Hubs
 				}
 				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
 			}
-			await jsonCacheHelper.WriteToFileCache(_notifications, clientId);
 		}
 
 		/// <summary>

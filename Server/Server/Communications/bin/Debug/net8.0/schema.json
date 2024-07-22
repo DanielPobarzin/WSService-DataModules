@@ -84,5 +84,5 @@
           }
         }
       },
-  "required": [ "DbConnection", "DbContextConnection", "HubSettings", "HostSettings" ]
+  "required": [ "DbConnection", "HubSettings", "HostSettings" ]
     }
