@@ -37,7 +37,7 @@
             "ServerId": { "type": "string" },
             "Notify": {
               "type": "object",
-              "required": [ "UseCache", "HubMethod", "TargetClients" ],
+              "required": [ "HubMethod", "TargetClients" ],
               "properties": {
                 "DelayMilliseconds": { "type": "integer" },
                 "UseCache": { "type": "boolean" },
@@ -47,7 +47,7 @@
             },
             "Alarm": {
               "type": "object",
-              "required": [ "UseCache", "HubMethod", "TargetClients" ],
+              "required": [ "HubMethod", "TargetClients" ],
               "properties": {
                 "DelayMilliseconds": { "type": "integer" },
                 "UseCache": { "type": "boolean" },
@@ -62,17 +62,10 @@
           "required": [
             "Port",
             "urls",
-            "KeepAliveInterval",
-            "EnableDetailedErrors",
             "PolicyName",
-            "AllowedHeaders",
-            "AllowedMethods",
             "AllowedOrigins",
             "RouteNotify",
-            "RouteAlarm",
-            "TransportMaxBufferSize",
-            "Transports",
-            "CloseTimeout"
+            "RouteAlarm"
           ],
           "properties": {
             "Port": { "type": "integer" },

@@ -1,8 +1,12 @@
 ﻿using Communications.Common.Helpers;
 using Communications.DTO;
+using Communications.Helpers;
 using Communications.UoW;
+using Entities.Entities;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using Repositories.DO;
 using Serilog;
 using Serilog.Events;
@@ -14,10 +18,14 @@ namespace Client
 	internal class Program
 	{
 		private static HubConnection connection;
+		private static Guid clientId;
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
 		private static UnitOfWorkPublishNotifications unitOfWorkPublishNotifications;
 		private static CheckHashHalper checkHashHalper;
 		private static Thread notificationExchangeThread;
+		private static IMemoryCache memoryCache;
+		private static JsonCacheHelper jsonCacheHelper;
+		private static TransformToDOHelper TransformToDOHelper;
 		private static void Main(string[] args)
 		{
 			//---------- Logging ---------------//
@@ -72,6 +80,7 @@ namespace Client
 
 		public static void ExchangeBetweenServerAndClient()
 		{
+			clientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
 			ConnectionСonfiguration(); //---- Setting the connection configuration ------//
 			StartHubConnectionAsync(); //---- Start Hub Connection ----//
 			GetHubMessages(); //--- Try get messages ----//
@@ -85,7 +94,7 @@ namespace Client
 										options.AccessTokenProvider = null; // Required!
 										options.SkipNegotiation = false;
 										options.Cookies = new CookieContainer();
-										options.CloseTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["ConnectionSettings:CloseTimeout"]);
+										options.CloseTimeout = TimeSpan.FromSeconds(15);
 										options.Headers["Notification"] = "Content";
 										options.ClientCertificates = new System.Security.Cryptography.X509Certificates.X509CertificateCollection();
 										options.DefaultTransferFormat = TransferFormat.Text;
@@ -94,7 +103,8 @@ namespace Client
 									})
 									.WithAutomaticReconnect()
 									.Build();
-			connection.ServerTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["ConnectionSettings:ServerTimeout"]);
+			
+			connection.ServerTimeout = TimeSpan.FromMinutes(2);
 		}
 
 		public static void EventWithConnectionHandler()
@@ -116,7 +126,7 @@ namespace Client
 				Log.Information($"Reconnected. New connection id: {connectionId}");
 				try
 				{
-					await connection.InvokeAsync("OnReconnectedAsync", Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]));
+					await connection.InvokeAsync("OnReconnectedAsync", clientId);
 				}
 				catch (Exception ex) { Log.Error($"An error occurred when calling the method on the server : {ex.Message}");}
 			};
@@ -132,34 +142,42 @@ namespace Client
 						if (task.IsCompletedSuccessfully)
 						{
 							Log.Information($"Connection id: {connection.ConnectionId}");
-							await connection.InvokeAsync("Send", Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]));
+							await connection.InvokeAsync("Send", clientId);
 						}
 					});
 				}
 				catch (Exception ex) { Log.Error($"Connection error: {ex.Message}"); }
 		}
-		public static void GetHubMessages()
+		public static async void GetHubMessages()
 		{
-			connection.On<MessageServerDTO>("ReceiveMessageHandler", (message) =>
+			var cacheNotification = await jsonCacheHelper.ReadFromFileCache<Notification>(clientId);
+			if (cacheNotification.Any())
 			{
-				DomainObjectNotification notification = new DomainObjectNotification
+				foreach (var notification in cacheNotification)
+					memoryCache.Set($"{clientId}_{notification.Id}", notification);
+			}
+
+			connection.On<MessageServerDTO>("ReceiveMessageHandler", async (message) =>
+			{
+				var messageNotify = await TransformToDOHelper.TransformToDomainObject(message, clientId);
+				Log.Information($"Notification {messageNotify.Notification.Id} has been recieved."
+									+ "\nSender:\t" + $" Server - {messageNotify.ServerId}"
+									+ "\nRecipient:\t" + $" Client - {clientId}");
+
+				memoryCache.TryGetValue($"{clientId}_{messageNotify.Notification.Id}", out DomainObjectNotification? cachedNotification);
+
+				if (cachedNotification == null)
 				{
-					ClientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]),
-					ServerId = message.ServerId,
-					MessageId = message.Notification.Id,
-					Notification = message.Notification,
-					DateAndTimeSendDataByServer = message.DateAndTimeSendDataByServer,
-					DateAndTimeRecievedDataFromServer = DateTime.Now
-				};
-				Log.Information($"Notification {notification.MessageId} has been recieved."
-											+ "\nSender:\t\t" + $" Server - {notification.ServerId}"
-											+ "\nRecipient:\t" + $" Client - {notification.ClientId}");
-				try
-				{
-					unitOfWorkPublishNotifications.PublishNotifications(notification).Wait();
-					unitOfWorkPublishNotifications.Save();
-				}
-				catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
+					memoryCache.Set($"{clientId}_{messageNotify.Notification.Id}", messageNotify);
+
+					try
+					{
+						unitOfWorkPublishNotifications.PublishNotifications(messageNotify).Wait();
+						unitOfWorkPublishNotifications.Save();
+					}
+					catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
+						
+				}		
 			});
 			connection.On<string>("Notify", (message) =>
 			{

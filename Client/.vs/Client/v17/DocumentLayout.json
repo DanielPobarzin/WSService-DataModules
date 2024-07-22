@@ -7,8 +7,24 @@
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\client\\client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\client\\client\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Client\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\client\\client\\communications\\common\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\common\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\schema.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Client\\Communications\\bin\\Debug\\net8.0\\schema.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\common\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\common\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\common\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\schema.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Client\\Communications\\bin\\Debug\\net8.0\\schema.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,20 +46,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "configure.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "RelativeToolTip": "Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-02T07:29:07.717Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,7 +73,47 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-02T14:33:31.15Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessageServerDTO.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "RelativeToolTip": "Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T06:59:39.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TransformToDTOHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeToolTip": "Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T06:59:24.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JsonCacheHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\JsonCacheHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\JsonCacheHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\JsonCacheHelper.cs",
+              "RelativeToolTip": "Client\\Communications\\Common\\Helpers\\JsonCacheHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T06:48:13.797Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -78,18 +131,14 @@
               "RelativeDocumentMoniker": "Client\\Communications\\Program.cs",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Program.cs",
               "RelativeToolTip": "Client\\Communications\\Program.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwJYAAABHAAAA",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAQwJ0AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-01T09:54:51.435Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ConfigValidHelper.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\ConfigValidHelper.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\ConfigValidHelper.cs",
@@ -101,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "HashHelper.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\HashHelper.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\HashHelper.cs",
@@ -113,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "CheckHashHalper.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\CheckHashHalper.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\CheckHashHalper.cs",

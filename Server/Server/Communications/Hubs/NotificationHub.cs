@@ -13,7 +13,6 @@ using NSwag.Annotations;
 using Serilog;
 using SignalRSwaggerGen.Attributes;
 using System.Net;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Communications.Hubs
 {
@@ -27,7 +26,6 @@ namespace Communications.Hubs
 		private UnitOfWorkConnections unitOfWorkConnections;
 		private readonly List<Notification>? _notifications;
 		private readonly IConfiguration _configuration;
-		private IMemoryCache memoryCache;
 		private TransformToDTOHelper transformToDTOHelper;
 		private JsonCacheHelper jsonCacheHelper;
 
@@ -37,18 +35,15 @@ namespace Communications.Hubs
 			   TransformToDTOHelper transformToDTOHelper,
 			   JsonCacheHelper jsonCacheHelper,
 			   IConfiguration configuration, 
-			   IMemoryCache memoryCache,
 			   UnitOfWorkConnections unitOfWorkConnections)
 		{
 			_configuration = configuration;
 			_notifications = notifications;
-			this.memoryCache = memoryCache;
 			this.connections = connections;
 			this.transformToDTOHelper = transformToDTOHelper;
 			this.jsonCacheHelper = jsonCacheHelper;
 			this.unitOfWorkConnections = unitOfWorkConnections;
 		}
-
 
 		/// <summary>
 		/// Sends the message with notification to client.
@@ -65,13 +60,6 @@ namespace Communications.Hubs
 
 			await AddContextConnection(clientId, serverid, Context.ConnectionId, route);
 
-			var cacheNotification = await jsonCacheHelper.ReadFromFileCache<Notification>(clientId);
-			if (cacheNotification.Any() && bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
-			{
-				foreach (var notification in cacheNotification)
-					memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
-			}
-
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
@@ -80,29 +68,11 @@ namespace Communications.Hubs
 					{
 						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
 
-						if (bool.Parse(_configuration["HubSettings:Notify:UseCache"]))
-						{
-							memoryCache.TryGetValue($"{Context.ConnectionId}_{notification.Id}", out Notification? cachedNotification);
+						await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
 
-							if (cachedNotification == null)
-							{
-								await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
-
-								memoryCache.Set($"{Context.ConnectionId}_{notification.Id}", notification);
-
-								Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
+						Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
 											+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
-											+ "\nRecipient:\t" + $" Client - {clientId}");
-							}
-						}
-						else
-						{
-							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
-
-							Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
-										+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
-										+ "\nRecipient:\t" + $" Client - {clientId}");
-						}
+											+ "\nRecipient:\t" + $" Client - {clientId}");	
 					}
 				}
 				catch (Exception ex)
@@ -112,6 +82,38 @@ namespace Communications.Hubs
 				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
 			}
 			await jsonCacheHelper.WriteToFileCache(_notifications, clientId);
+		}
+
+		/// <summary>
+		/// Sends the message with notification to all clients.
+		/// </summary>
+		/// <returns>Returns MessageServerDTO</returns>
+		[SignalRMethod("SendAll")]
+		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO))]
+		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
+		public async Task SendAll()
+		{
+			while (connections.GetConnections().Any())
+			{
+				var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
+				try
+				{
+					foreach (var notification in _notifications)
+					{
+						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
+
+						await Clients.All.SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
+
+						Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
+											+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}");
+					}
+				}
+				catch (Exception ex)
+				{
+					Log.Error($"Exception with data: {ex.Message}");
+				}
+				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
+			}
 		}
 		public override async Task OnConnectedAsync()
 		{
@@ -123,7 +125,7 @@ namespace Communications.Hubs
 			await Clients.Client(Context.ConnectionId).SendAsync("Notify", $"You have joined the Notify group.");
 			await base.OnConnectedAsync();
 		}
-		[SignalRHidden]
+
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			connections.RemoveConnection(Context.ConnectionId);

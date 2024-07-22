@@ -231,8 +231,8 @@ namespace Communications
 				   //--------------- SignalR -----------------//
 				   services.AddSignalR(configure =>
 				   {
-					   configure.KeepAliveInterval = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:KeepAliveInterval"]);
-					   configure.EnableDetailedErrors = bool.Parse(unitOfWorkConfig.Configuration["HostSettings:EnableDetailedErrors"]);
+					   configure.KeepAliveInterval = TimeSpan.FromMinutes(1);
+					   configure.EnableDetailedErrors = true;
 					   configure.MaximumReceiveMessageSize = 65_536;
 					   configure.HandshakeTimeout = TimeSpan.FromSeconds(15);
 					   configure.MaximumParallelInvocationsPerClient = 5;
@@ -259,9 +259,9 @@ namespace Communications
 				   {
 					   endpoints.MapHub<NotificationHub>(unitOfWorkConfig.Configuration["HostSettings:RouteNotify"], options =>
 					   {
-						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
+						   options.TransportMaxBufferSize =65_365;
 						   options.Transports = HttpTransportType.WebSockets;
-						   options.WebSockets.CloseTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
+						   options.WebSockets.CloseTimeout = TimeSpan.FromSeconds(15);
 						   options.CloseOnAuthenticationExpiration = false;
 						   options.TransportSendTimeout = TimeSpan.FromSeconds(15);
 						   options.ApplicationMaxBufferSize = 131_072;
@@ -269,9 +269,9 @@ namespace Communications
 					   });
 					   endpoints.MapHub<AlarmHub>(unitOfWorkConfig.Configuration["HostSettings:RouteAlarm"], options =>
 					   {
-						   options.TransportMaxBufferSize = long.Parse(unitOfWorkConfig.Configuration["HostSettings:TransportMaxBufferSize"]);
+						   options.TransportMaxBufferSize = 65_365;
 						   options.Transports = HttpTransportType.WebSockets;
-						   options.WebSockets.CloseTimeout = TimeSpan.Parse(unitOfWorkConfig.Configuration["HostSettings:CloseTimeout"]);
+						   options.WebSockets.CloseTimeout = TimeSpan.FromSeconds(15);
 						   options.CloseOnAuthenticationExpiration = false;
 						   options.TransportSendTimeout = TimeSpan.FromSeconds(15);
 						   options.ApplicationMaxBufferSize = 131_072;
