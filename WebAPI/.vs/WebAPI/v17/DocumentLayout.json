@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Application\\WebAPI.Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Application\\WebAPI.Application.csproj|solutionrelative:webapi.application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Application\\Class1.cs",
-              "RelativeDocumentMoniker": "WebAPI.Application\\Class1.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Application\\Class1.cs",
-              "RelativeToolTip": "WebAPI.Application\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAACAAAA",
+              "Title": "DIService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\DIService.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\DIService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\DIService.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\DIService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T14:07:20.548Z",
+              "WhenOpened": "2024-07-22T08:13:30.684Z",
               "EditorCaption": ""
             }
           ]
