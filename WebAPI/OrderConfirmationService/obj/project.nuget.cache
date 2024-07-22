@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "S3vaccrTAw9ytRS3QFdLPHHDh0ZOGpRTisQOy1sUVKBZxqPvMfNPDqx8plKTIYfY4KqXFl4CtqqPxe9SMSS2QA==",
+  "dgSpecHash": "vpURLP+E6iPpwsuXrPAPqfsL2JHzYPYXChG8WcIPeeAMATchqTZ8/768KwwelRJtM4/33ha78h4otAgASGlYuw==",
   "success": true,
   "projectFilePath": "C:\\All\\NotificationsExchange\\WebAPI\\OrderConfirmationService\\OrderConfirmationService.csproj",
   "expectedPackageFiles": [
@@ -38,8 +38,7 @@
     "C:\\Users\\Даниил\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\Даниил\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
-    "C:\\Users\\Даниил\\.nuget\\packages\\yamldotnet\\15.3.0\\yamldotnet.15.3.0.nupkg.sha512"
+    "C:\\Users\\Даниил\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

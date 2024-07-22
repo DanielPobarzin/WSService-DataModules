@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Shared")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("WebAPI.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53f2909891da2443e61fe3e8322ca9d8865ecc41")]
-[assembly: System.Reflection.AssemblyProductAttribute("Shared")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Shared")]
+[assembly: System.Reflection.AssemblyProductAttribute("WebAPI.Domain")]
+[assembly: System.Reflection.AssemblyTitleAttribute("WebAPI.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
