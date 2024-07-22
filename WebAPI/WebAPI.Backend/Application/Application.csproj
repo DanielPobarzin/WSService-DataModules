@@ -8,11 +8,19 @@
 
   <ItemGroup>
     <Folder Include="DTOs\" />
-    <Folder Include="Mappings\" />
+    <Folder Include="Features\Configurations\" />
+    <Folder Include="Features\Connections\Commands\" />
+    <Folder Include="Features\Connections\Queries\GetConnectionDetails\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Wrappers\" />
-    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\WebAPI.Domain.csproj" />
   </ItemGroup>
 
 </Project>
