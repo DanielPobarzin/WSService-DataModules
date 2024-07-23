@@ -6,7 +6,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace WebAPI.Backend.Core.Domain.Entities
+namespace Domain.Entities
 {
     public class Entity : DynamicObject, IXmlSerializable, IDictionary<string, object>
     {

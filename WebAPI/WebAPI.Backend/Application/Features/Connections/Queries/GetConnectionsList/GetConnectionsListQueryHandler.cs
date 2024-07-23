@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using WebAPI.Backend.Core.Application.Interfaces;
-using WebAPI.Backend.Core.Application.Interfaces.Repositories;
-using WebAPI.Backend.Core.Application.Parameters;
-using WebAPI.Backend.Core.Application.Wrappers;
-using WebAPI.Backend.Core.Domain.Entities;
+using Application.Interfaces;
+using Application.Interfaces.Repositories;
+using Application.Parameters;
+using Application.Wrappers;
+using Domain.Entities;
 
-namespace WebAPI.Backend.Core.Application.Features.Connections.Queries.GetConnectionsList
+namespace Application.Features.Connections.Queries.GetConnectionsList
 {
 	public class GetConnectionsListQueryHandler : IRequestHandler<GetConnectionsListQuery, ConnectionResponse<IEnumerable<Entity>>>
 	{
@@ -28,19 +28,14 @@ namespace WebAPI.Backend.Core.Application.Features.Connections.Queries.GetConnec
 		public async Task<ConnectionResponse<IEnumerable<Entity>>> Handle(GetConnectionsListQuery request, CancellationToken cancellationToken)
 		{
 			var validFilter = request;
-			if (!string.IsNullOrEmpty(validFilter.Fields))
-			{
-				validFilter.Fields = _modelHelper.ValidateModelFields<ConnectionListViewModel>(validFilter.Fields);
-			}
-			else
-			{
-				validFilter.Fields = _modelHelper.GetModelFields<ConnectionListViewModel>();
-			}
+			validFilter.Fields = (!string.IsNullOrEmpty(validFilter.Fields))? _modelHelper.ValidateModelFields<ConnectionListViewModel>(validFilter.Fields) 
+																			: _modelHelper.GetModelFields<ConnectionListViewModel>();
+
 			var queryResult = await _connectionsRepository.GetStateConnectionsResponseAsync(validFilter);
 			var context = queryResult.context;
-			ConnectionsCount recordCount = queryResult.connectionCount;
+			ConnectionsCount connectionsCount = queryResult.connectionCount;
 
-			return new ConnectionResponse<IEnumerable<Entity>>(context, recordCount);
+			return new ConnectionResponse<IEnumerable<Entity>>(context, connectionsCount);
 		}
 	}
 }

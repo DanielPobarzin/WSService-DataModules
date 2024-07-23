@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Backend.Core.Application.Enums
+﻿namespace Application.Enums
 {
 	public enum Roles
 	{

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebAPI.Backend.Core.Application.Wrappers
+namespace Application.Wrappers
 {
     public class Response<T>
     {

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using WebAPI.Backend.Core.Application.Mappings;
-using WebAPI.Domain.Entities;
+using Application.Mappings;
+using Domain.Entities;
 
-namespace WebAPI.Backend.Core.Application.Features.Connections.Queries.GetConnectionsList
+namespace Application.Features.Connections.Queries.GetConnectionsList
 {
 	public class ConnectionLookupDTO : IMapWith<Connection>
 	{

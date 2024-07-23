@@ -1,13 +1,8 @@
-﻿using FluentValidation;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using NetCoreWebApiKafka.Application.Behaviours;
-using NetCoreWebApiKafka.Application.Helpers;
-using NetCoreWebApiKafka.Application.Interfaces;
-using NetCoreWebApiKafka.Domain.Entities;
 using System.Reflection;
 
-namespace WebAPI.Backend.Core.Application
+namespace Application
 {
     public static class DIService
     {

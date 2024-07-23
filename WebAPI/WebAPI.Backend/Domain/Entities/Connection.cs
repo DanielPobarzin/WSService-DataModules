@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAPI.Domain.Common;
+using Domain.Common;
 
-namespace WebAPI.Domain.Entities
+namespace Domain.Entities
 {
 	public class Connection
 	{
@@ -17,7 +17,7 @@ namespace WebAPI.Domain.Entities
 		[Required]
 		public string ConnectionId { get; set; }
 		[Required]
-		public ConnectionsStatus Status { get; set; }
+		public ConnectionStatus Status { get; set; }
 		public DateTime TimeStampOpenConnection { get; set; }
 		public DateTime TimeStampCloseConnection { get; set; }
 		public TimeSpan Session { get; set; }

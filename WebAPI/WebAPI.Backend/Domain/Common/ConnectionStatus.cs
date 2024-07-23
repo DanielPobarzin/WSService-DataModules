@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebAPI.Domain.Common
+namespace Domain.Common
 {
-    public enum ConnectionsStatus
+    public enum ConnectionStatus
     {
         Close,
         Open

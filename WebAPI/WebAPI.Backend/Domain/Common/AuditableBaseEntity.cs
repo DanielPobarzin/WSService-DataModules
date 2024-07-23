@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebAPI.Backend.Core.Domain.Common
+namespace Domain.Common
 {
     public abstract class AuditableBaseEntity : BaseEntity
     {

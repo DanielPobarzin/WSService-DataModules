@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAPI.Backend.Core.Application.Interfaces;
+using Application.Interfaces;
 
-namespace WebAPI.Backend.Core.Application.Helpers
+namespace Application.Helpers
 {
 	public class ModelHelper : IModelHelper
 	{

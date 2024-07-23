@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAPI.Backend.Core.Application.Parameters;
-using WebAPI.Backend.Core.Application.Wrappers;
-using WebAPI.Backend.Core.Domain.Entities;
-using WebAPI.Domain.Common;
+using Application.Parameters;
+using Application.Wrappers;
+using Domain.Entities;
+using Domain.Common;
 
-namespace WebAPI.Backend.Core.Application.Features.Connections.Queries.GetConnectionsList
+namespace Application.Features.Connections.Queries.GetConnectionsList
 	{
 	public class GetConnectionsListQuery : QueryParameter, IRequest<ConnectionResponse<IEnumerable<Entity>>>
 	{
-		public ConnectionsStatus Status { get; set; }
+		public ConnectionStatus Status { get; set; }
 	}
 }

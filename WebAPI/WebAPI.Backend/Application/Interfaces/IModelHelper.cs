@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Backend.Core.Application.Interfaces
+﻿namespace Application.Interfaces
 {
     public interface IModelHelper
     {

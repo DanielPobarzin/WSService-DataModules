@@ -34,8 +34,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj": {
-                "projectPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj"
+              "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj"
               }
             }
           }
@@ -84,12 +84,12 @@
         }
       }
     },
-    "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj": {
+    "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj",
-        "projectName": "WebAPI.Domain",
-        "projectPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
         "outputPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",

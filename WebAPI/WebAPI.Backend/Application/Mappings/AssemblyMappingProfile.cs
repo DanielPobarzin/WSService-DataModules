@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebAPI.Backend.Core.Application.Mappings
+namespace Application.Mappings
 {
 	public class AssemblyMappingProfile : Profile
 	{

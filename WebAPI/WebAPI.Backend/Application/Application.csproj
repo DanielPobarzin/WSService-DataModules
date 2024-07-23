@@ -9,8 +9,6 @@
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="Features\Configurations\" />
-    <Folder Include="Features\Connections\Commands\" />
-    <Folder Include="Features\Connections\Queries\GetConnectionDetails\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
 
@@ -20,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\WebAPI.Domain.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

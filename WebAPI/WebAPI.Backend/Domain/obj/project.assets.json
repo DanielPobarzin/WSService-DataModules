@@ -15,9 +15,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj",
-      "projectName": "WebAPI.Domain",
-      "projectPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\WebAPI.Domain.csproj",
+      "projectUniqueName": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj",
+      "projectName": "Domain",
+      "projectPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
       "outputPath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\obj\\",
       "projectStyle": "PackageReference",

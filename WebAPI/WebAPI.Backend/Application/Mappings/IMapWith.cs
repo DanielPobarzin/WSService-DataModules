@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebAPI.Backend.Core.Application.Mappings
+namespace Application.Mappings
 {
 	public interface IMapWith<T>
 	{

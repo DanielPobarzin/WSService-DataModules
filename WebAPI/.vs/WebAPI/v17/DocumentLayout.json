@@ -3,91 +3,111 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\WebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|c:\\all\\notificationsexchange\\webapi\\persistance\\repositories\\connectionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|solutionrelative:persistance\\repositories\\connectionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\wrappers\\connectionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\wrappers\\connectionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\getconnectionslistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\getconnectionslistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|c:\\all\\notificationsexchange\\webapi\\persistance\\dbcontexts\\connectiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|solutionrelative:persistance\\dbcontexts\\connectiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|c:\\all\\notificationsexchange\\webapi\\persistance\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|solutionrelative:persistance\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\interfaces\\repositories\\iconnectionrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\interfaces\\repositories\\iconnectionrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\wrappers\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\wrappers\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\interfaces\\imodelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\interfaces\\imodelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\interfaces\\igenericrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\interfaces\\igenericrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|c:\\all\\notificationsexchange\\webapi\\persistance\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|solutionrelative:persistance\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|c:\\all\\notificationsexchange\\webapi\\persistance\\persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{70420159-8624-4127-9540-3758356E4A17}|Persistance\\Persistance.csproj|solutionrelative:persistance\\persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\getconnectionslistqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\getconnectionslistqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\wrappers\\connectionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\wrappers\\connectionresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\domain\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\domain\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|solutionrelative:webapi.backend\\domain\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\interfaces\\repositories\\iconnectionrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\interfaces\\repositories\\iconnectionrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\getconnectionslistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\getconnectionslistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\wrappers\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\wrappers\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\parameters\\connectionscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\parameters\\connectionscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\parameters\\connectionscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\interfaces\\igenericrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\interfaces\\igenericrepositoryasync.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\connectionlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\connectionlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\connectionlookupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\connectionlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\connectionlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\features\\connections\\queries\\getconnectionslist\\connectionlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\domain\\entities\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\domain\\entities\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|solutionrelative:webapi.backend\\domain\\entities\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\domain\\common\\connectionsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\domain\\common\\connectionsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|solutionrelative:webapi.backend\\domain\\common\\connectionsstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\helpers\\modelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\helpers\\modelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\helpers\\modelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\parameters\\queryparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\parameters\\queryparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\parameters\\queryparameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\mappings\\imapwith.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\mappings\\imapwith.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\mappings\\imapwith.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\interfaces\\imodelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\interfaces\\imodelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\mappings\\assemblymappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\mappings\\assemblymappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\mappings\\assemblymappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\application\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\application\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{123D88DC-2860-4E15-B3C2-988FED4CD57C}|WebAPI.Backend\\Application\\Application.csproj|solutionrelative:webapi.backend\\application\\diservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\domain\\common\\auditablebaseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\domain\\common\\auditablebaseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|solutionrelative:webapi.backend\\domain\\common\\auditablebaseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6315D9C4-DEEC-45BD-AFE6-6092103BADD8}|WebAPI.Backend\\Domain\\WebAPI.Domain.csproj|solutionrelative:webapi.backend\\domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -98,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -109,16 +129,46 @@
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Entity.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Entity.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Entity.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Entity.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Domain\\Entities\\Entity.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAADcAAAA7AAAA",
+              "DocumentIndex": 0,
+              "Title": "ConnectionRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\Repositories\\ConnectionRepository.cs",
+              "RelativeDocumentMoniker": "Persistance\\Repositories\\ConnectionRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\Repositories\\ConnectionRepository.cs",
+              "RelativeToolTip": "Persistance\\Repositories\\ConnectionRepository.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAiwCcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:45:52.49Z",
+              "WhenOpened": "2024-07-23T08:12:06.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IConnectionRepositoryAsync.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAACBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T11:00:21.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IModelHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T15:17:42.407Z",
               "EditorCaption": ""
             },
             {
@@ -136,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Response.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Wrappers\\Response.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Wrappers\\Response.cs",
@@ -149,46 +199,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Application",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Application.csproj",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Application.csproj",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Application.csproj",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Application.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-22T15:32:52.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ConnectionLookupDTO.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T12:08:23.964Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetConnectionsListQueryHandler.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwBEAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T12:41:12.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Persistance\\Repositories\\GenericRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "Persistance\\Repositories\\GenericRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T08:12:06.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConnectionDbContext.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\DbContexts\\ConnectionDbContext.cs",
+              "RelativeDocumentMoniker": "Persistance\\DbContexts\\ConnectionDbContext.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\DbContexts\\ConnectionDbContext.cs",
+              "RelativeToolTip": "Persistance\\DbContexts\\ConnectionDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T08:12:06.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GetConnectionsListQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQuery.cs",
@@ -197,58 +234,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T11:43:49.391Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IConnectionRepositoryAsync.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Interfaces\\Repositories\\IConnectionRepositoryAsync.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T11:00:21.91Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ConnectionsCount.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T11:07:41.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ConnectionListViewModel.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T12:07:19.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Connection.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Connection.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Connection.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Connection.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Domain\\Entities\\Connection.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T10:33:42.253Z",
               "EditorCaption": ""
             },
             {
@@ -266,7 +251,119 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DIService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\DIService.cs",
+              "RelativeDocumentMoniker": "Persistance\\DIService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\DIService.cs",
+              "RelativeToolTip": "Persistance\\DIService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T08:12:05.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Application.csproj",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Application.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Application.csproj",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Application.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-22T15:32:52.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Persistance",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\Persistance.csproj",
+              "RelativeDocumentMoniker": "Persistance\\Persistance.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\Persistance\\Persistance.csproj",
+              "RelativeToolTip": "Persistance\\Persistance.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-23T08:12:05.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "GetConnectionsListQueryHandler.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T12:41:12.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Entity.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Entity.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Entity.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Domain\\Entities\\Entity.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAADcAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T15:45:52.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ConnectionLookupDTO.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T12:08:23.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ConnectionsCount.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Parameters\\ConnectionsCount.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T11:07:41.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ConnectionListViewModel.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T12:07:19.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Connection.cs",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Connection.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Connection.cs",
+              "RelativeToolTip": "WebAPI.Backend\\Domain\\Entities\\Connection.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T10:33:42.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "ConnectionsStatus.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Common\\ConnectionsStatus.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Common\\ConnectionsStatus.cs",
@@ -274,12 +371,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Domain\\Common\\ConnectionsStatus.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:25:22.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T15:25:22.268Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "ModelHelper.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Helpers\\ModelHelper.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Helpers\\ModelHelper.cs",
@@ -287,12 +383,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Application\\Helpers\\ModelHelper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:17:21.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T15:17:21.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "Roles.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Enums\\Roles.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Enums\\Roles.cs",
@@ -300,12 +395,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Application\\Enums\\Roles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:22:27.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T15:22:27.663Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "QueryParameter.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Parameters\\QueryParameter.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Parameters\\QueryParameter.cs",
@@ -313,12 +407,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Application\\Parameters\\QueryParameter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:21:22.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T15:21:22.907Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "IMapWith.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Mappings\\IMapWith.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Mappings\\IMapWith.cs",
@@ -326,25 +419,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Application\\Mappings\\IMapWith.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T12:02:13.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T12:02:13.426Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IModelHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
-              "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
-              "RelativeToolTip": "WebAPI.Backend\\Application\\Interfaces\\IModelHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T15:17:42.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "AssemblyMappingProfile.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Mappings\\AssemblyMappingProfile.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Mappings\\AssemblyMappingProfile.cs",
@@ -352,12 +431,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Application\\Mappings\\AssemblyMappingProfile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T12:02:26.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T12:02:26.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "DIService.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\DIService.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\DIService.cs",
@@ -365,12 +443,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Application\\DIService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T08:13:30.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T08:13:30.684Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "AuditableBaseEntity.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Common\\AuditableBaseEntity.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Common\\AuditableBaseEntity.cs",
@@ -378,12 +455,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Domain\\Common\\AuditableBaseEntity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T10:31:26.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T10:31:26.913Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Common\\BaseEntity.cs",
@@ -391,8 +467,7 @@
               "RelativeToolTip": "WebAPI.Backend\\Domain\\Common\\BaseEntity.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T10:31:24.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-22T10:31:24.749Z"
             }
           ]
         }

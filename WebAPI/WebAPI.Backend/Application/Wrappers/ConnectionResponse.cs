@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebAPI.Backend.Core.Application.Parameters;
+using Application.Parameters;
 
-namespace WebAPI.Backend.Core.Application.Wrappers
+namespace Application.Wrappers
 {
 	public class ConnectionResponse<T> : Response<T>
 	{
-		public int ConnectionsOpen { get; set; }
-		public int ConncetionTotal { get; set; }
+		public int ConnectionsFiltered { get; set; }
+		public int ConnectionTotal { get; set; }
 
 		public ConnectionResponse(T data, ConnectionsCount recordsCount)
 		{
 			this.Data = data;
 			this.Message = null;
-			this.ConnectionsOpen = recordsCount.ActiveConnections;
-			this.ConncetionTotal = recordsCount.TotalConnections;
+			this.ConnectionsFiltered = recordsCount.FilteredConnections;
+			this.ConnectionTotal = recordsCount.TotalConnections;
 			this.Succeeded = true;
 			this.Errors = null;
 		}
