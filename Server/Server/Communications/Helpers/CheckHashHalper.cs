@@ -7,6 +7,7 @@
 		public async IAsyncEnumerable<Dictionary<string, string>> CompareHashConfiguration(Dictionary<string, string> sectionHashes)
 		{
 			await Task.Yield();
+
 			while (true)
 			{
 				var d3 = SectionHashes.Any() ?

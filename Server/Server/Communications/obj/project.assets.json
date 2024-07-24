@@ -214,6 +214,17 @@
           }
         }
       },
+      "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -236,6 +247,39 @@
         "runtime": {
           "lib/net8.0/Microsoft.Data.Sqlite.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Diagnostics.NETCore.Client/0.2.410101": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
+          "Microsoft.Extensions.Logging": "2.1.1"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Diagnostics.NETCore.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Diagnostics.NETCore.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Diagnostics.Runtime/3.1.512801": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Diagnostics.NETCore.Client": "0.2.410101"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Diagnostics.Runtime.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Diagnostics.Runtime.dll": {
+            "related": ".pdb;.xml"
           }
         }
       },
@@ -2201,6 +2245,30 @@
         "microsoft.aspnetcore.webutilities.nuspec"
       ]
     },
+    "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
+      "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Microsoft.CSharp/4.7.0": {
       "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "type": "package",
@@ -2287,6 +2355,40 @@
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
         "microsoft.data.sqlite.core.8.0.4.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
+      ]
+    },
+    "Microsoft.Diagnostics.NETCore.Client/0.2.410101": {
+      "sha512": "I4hMjlbPcM5R+M4ThD2Zt1z58M8uZnWkDbFLXHntOOAajajEucrw4XYNSaoi5rgoqksgxQ3g388Vof4QzUNwdQ==",
+      "type": "package",
+      "path": "microsoft.diagnostics.netcore.client/0.2.410101",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.Diagnostics.NETCore.Client.dll",
+        "lib/net6.0/Microsoft.Diagnostics.NETCore.Client.xml",
+        "lib/netstandard2.0/Microsoft.Diagnostics.NETCore.Client.dll",
+        "lib/netstandard2.0/Microsoft.Diagnostics.NETCore.Client.xml",
+        "microsoft.diagnostics.netcore.client.0.2.410101.nupkg.sha512",
+        "microsoft.diagnostics.netcore.client.nuspec"
+      ]
+    },
+    "Microsoft.Diagnostics.Runtime/3.1.512801": {
+      "sha512": "0lMUDr2oxNZa28D6NH5BuSQEe5T9tZziIkvkD44YkkCGQXPJqvFjLq5ZQq1hYLl3RjQJrY+hR0jFgap+EWPDTw==",
+      "type": "package",
+      "path": "microsoft.diagnostics.runtime/3.1.512801",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.Diagnostics.Runtime.dll",
+        "lib/net6.0/Microsoft.Diagnostics.Runtime.pdb",
+        "lib/net6.0/Microsoft.Diagnostics.Runtime.xml",
+        "lib/netstandard2.0/Microsoft.Diagnostics.Runtime.dll",
+        "lib/netstandard2.0/Microsoft.Diagnostics.Runtime.pdb",
+        "lib/netstandard2.0/Microsoft.Diagnostics.Runtime.xml",
+        "microsoft.diagnostics.runtime.3.1.512801.nupkg.sha512",
+        "microsoft.diagnostics.runtime.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/8.0.4": {
@@ -5304,6 +5406,7 @@
       "Entities >= 1.0.0",
       "Interactors >= 1.0.0",
       "Microsoft.AspNetCore.SignalR.Core >= 1.0.15",
+      "Microsoft.Diagnostics.Runtime >= 3.1.512801",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.Extensions.Configuration.Binder >= 8.0.1",
       "Microsoft.Extensions.Configuration.Json >= 8.0.0",
@@ -5395,6 +5498,10 @@
           "Microsoft.AspNetCore.SignalR.Core": {
             "target": "Package",
             "version": "[1.0.15, )"
+          },
+          "Microsoft.Diagnostics.Runtime": {
+            "target": "Package",
+            "version": "[3.1.512801, )"
           },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",

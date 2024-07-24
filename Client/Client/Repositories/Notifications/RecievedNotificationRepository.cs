@@ -5,11 +5,11 @@ using Repositories.DO;
 
 namespace Repositories.Notifications
 {
-    public class RecievedNotificationRepository : IRepository<DomainObjectNotification>
+    public class RecievedNotificationsRepository : IRepository<DomainObjectNotification>
 	{
 		private RecievedNotificationsDbContext db;
 
-		public RecievedNotificationRepository(RecievedNotificationsDbContext context)
+		public RecievedNotificationsRepository(RecievedNotificationsDbContext context)
 		{
 			this.db = context;
 		}

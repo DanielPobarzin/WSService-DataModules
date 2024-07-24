@@ -3,7 +3,6 @@ using Communications.DTO;
 using Communications.Helpers;
 using Communications.UoW;
 using Entities.Entities;
-using Entities.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SignalR;
@@ -17,13 +16,12 @@ using System.Net;
 namespace Communications.Hubs
 {
 	/// <summary>
-	/// WebSocket service for real-time communication.
+	/// WebSocket Notify hub for real-time communication.
 	/// </summary>
 	[SignalRHub]
 	public class NotificationHub : Hub
 	{
 		private Connections<NotificationHub> connections;
-		private UnitOfWorkConnections unitOfWorkConnections;
 		private readonly List<Notification>? _notifications;
 		private readonly IConfiguration _configuration;
 		private TransformToDTOHelper transformToDTOHelper;
@@ -34,15 +32,13 @@ namespace Communications.Hubs
 			   Connections<NotificationHub> connections,
 			   IMemoryCache memoryCache,
 			   TransformToDTOHelper transformToDTOHelper,
-			   IConfiguration configuration, 
-			   UnitOfWorkConnections unitOfWorkConnections)
+			   IConfiguration configuration)
 		{
 			_configuration = configuration;
 			_notifications = notifications;
 			this.connections = connections;
 			this.transformToDTOHelper = transformToDTOHelper;
 			this.memoryCache = memoryCache;
-			this.unitOfWorkConnections = unitOfWorkConnections;
 		}
 
 		/// <summary>
@@ -57,9 +53,7 @@ namespace Communications.Hubs
 		{
 			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
 			var route = _configuration["HostSettings:RouteNotify"];
-
-			await AddContextConnection(clientId, serverid, Context.ConnectionId, route);
-			
+	
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
@@ -68,7 +62,7 @@ namespace Communications.Hubs
 					{
 						memoryCache.TryGetValue($"{clientId}_{notification.Id}", out Notification? Notification);
 						
-						if (Notification != null)
+						if (Notification == null)
 						{
 							var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
 							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
@@ -134,7 +128,6 @@ namespace Communications.Hubs
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			connections.RemoveConnection(Context.ConnectionId);
-			await RemoveContextConnection(Context.ConnectionId);
 			Log.Information("Disconnecting: {ConnectionId}", Context.ConnectionId);
 			await Groups.RemoveFromGroupAsync(Context.ConnectionId, "User");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the notify hub.");
@@ -146,24 +139,6 @@ namespace Communications.Hubs
 			Log.Information($"Reconnecting client {clientId}: {Context.ConnectionId}");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is reconnected.");
 			await Send(clientId);
-		}
-		public async Task AddContextConnection(Guid clientId, Guid serverid, string connectionId, string route)
-		{
-			var connection = new ConnectionContext
-			{
-				ClientId = clientId,
-				ServerId = serverid,
-				ConnectionId = connectionId,
-				StartConnection = DateTime.Now,
-				HubRoute = route
-			};
-			await unitOfWorkConnections.Notifications.AddConnection(connection);
-			unitOfWorkConnections.Save();
-		}
-		public async Task RemoveContextConnection(string connectionId)
-		{
-			await unitOfWorkConnections.Notifications.RemoveConnection(connectionId);
-			unitOfWorkConnections.Save();
 		}
 	}
 }

@@ -1,14 +1,15 @@
 {
   "DbConnection": {
     "DataBase": "PostgreSQL",
-    "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
+    "NotifyConnectionString": "host=localhost;port=5432;Database=NotificationsExchangeClients;Username=postgres;Password=19346jaidj",
+    "AlarmConnectionString": "host=localhost;port=5432;Database=AlarmsExchangeClients;Username=postgres;Password=19346jaidj"
   },
   "ClientSettings": {
-    "ClientId": "56069fbc-14e9-4d0c-aa4c-cfcf5246a133"
+    "ClientId": "16067fbc-14e9-4d0c-aa4c-cfcf5246a133",
+    "UseCache": true
   },
   "ConnectionSettings": {
-    "CloseTimeout": "00:00:30",
-    "Url": "https://localhost:443/notification",
-    "ServerTimeout": "00:02:00"
+    "NotifyUrl": "https://localhost:8080/hubs/NotificationHub/Send",
+    "AlarmUrl": "https://localhost:8080/hubs/AlarmHub/Send"
   }
 }

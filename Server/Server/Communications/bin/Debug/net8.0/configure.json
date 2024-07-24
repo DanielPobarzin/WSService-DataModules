@@ -9,7 +9,7 @@
     }
   },
   "HubSettings": {
-    "ServerId": "6142dfeb-00e2-43cb-a70f-f55ac8847756",
+    "ServerId": "6146dfeb-13f4-43cb-a70f-f55ac8847756",
     "Notify": {
       "DelayMilliseconds": 100,
       "HubMethod": "ReceiveMessageHandler",
@@ -22,12 +22,12 @@
     }
   },
   "HostSettings": {
-    "Port": 5000,
+    "Port": 5050,
     "urls": "http://localhost:5050;https://localhost:8080",
     "PolicyName": "Security",
     "AllowedOrigins": "http://127.0.0.1:8080;https://127.0.0.1:443;http://127.0.0.1;http://localhost:8080;https://localhost:443;http://192.168.1.100:8080;http://127.0.0.1:5000",
     "RouteNotify": "/hubs/NotificationHub/Send",
-    "RouteAlarm": "/alarms/AlarmHub/Send"
+    "RouteAlarm": "/hubs/AlarmHub/Send"
   }
 }
 

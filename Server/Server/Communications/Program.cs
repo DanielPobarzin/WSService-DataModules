@@ -7,18 +7,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.Diagnostics.Runtime;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Repositories.Connections;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using System;
+using System.Diagnostics;
 using System.Reflection;
+using System.Threading;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Communications
 {
@@ -35,8 +39,10 @@ namespace Communications
 		private static Thread UoWNotifyThread;
 		private static Thread UoWAlarmThread;
 		private static Thread hostThread;
-		static object locker = new();
 		public static IHost host;
+
+		static object locker1 = new();
+		static object locker2 = new();
 		public static void Main(string[] args)
 		{
 			#region Logging 
@@ -86,8 +92,8 @@ namespace Communications
 			UoWNotifyThread.Start();
 
 			//--------------- Start requesting data from the database -----------------//
-			//UoWAlarmThread = new Thread(StartListenAlarms);
-			//UoWAlarmThread.Start();
+			UoWAlarmThread = new Thread(StartListenAlarms);
+			UoWAlarmThread.Start();
 
 			//--------------- Defining actions when changing the configuration -----------------//
 
@@ -99,7 +105,7 @@ namespace Communications
 		}
 		public static void StartListenNotifications()
 		{
-			lock (locker)
+			lock (locker1)
 			{
 				cancellationTokenNotifySource = new CancellationTokenSource();
 				CancellationToken cancellationToken = cancellationTokenNotifySource.Token;
@@ -112,52 +118,64 @@ namespace Communications
 
 		public static void StartListenAlarms()
 		{
-			cancellationTokenAlarmSource = new CancellationTokenSource();
-			CancellationToken cancellationToken = cancellationTokenAlarmSource.Token;
+			lock (locker2)
+			{
+				cancellationTokenAlarmSource = new CancellationTokenSource();
+				CancellationToken cancellationToken = cancellationTokenAlarmSource.Token;
 
-			//--------------- Determining the connection and starting to receive data -----------------//
-			unitOfWorkAlarm = new UnitOfWorkGetAlarms(unitOfWorkConfig.Configuration);
-			unitOfWorkAlarm.GetAllAlarms(cancellationToken);
+				//--------------- Determining the connection and starting to receive data -----------------//
+				unitOfWorkAlarm = new UnitOfWorkGetAlarms(unitOfWorkConfig.Configuration);
+				unitOfWorkAlarm.GetAllAlarms(cancellationToken);
+			}
 		}
-
 		public static async void GetEventChangeConfiguration()
 		{
 			await foreach (var hashConfigs in checkHashHalper.CompareHashConfiguration(unitOfWorkConfig.sectionHashes))
 			{
 					if (hashConfigs.ContainsKey("HostSettings"))
 					{
-						await host.StopAsync();
 						Log.Information("Changing the host configuration. Reboot ... ");
+						await host.StopAsync();
 						hostThread.Join();
 						Thread newHostThread = new Thread(CreateAndRunHostServer);
 						newHostThread.Start();
 						hostThread = newHostThread;
-					} 
+					}
 
-					if (hashConfigs.ContainsKey("DbConnection") ||
-						hashConfigs.ContainsKey("HubSettings"))
+					if (hashConfigs.ContainsKey("HubSettings:ServerId"))
 					{
-						var comment = (hashConfigs.ContainsKey("DbConnection")) ?
-							((hashConfigs.ContainsKey("HubSettings")) ?
-							"database & hub" : "database")
-							: "Hub";
-
+						Log.Information($"Changing the serverId. Continue with the new configuration ... ");
+						RebootThread(cancellationTokenAlarmSource, UoWAlarmThread, StartListenAlarms);
+						RebootThread(cancellationTokenNotifySource, UoWNotifyThread, StartListenNotifications);
+					}
+					else if (hashConfigs.ContainsKey("DbConnection:DataBase") ||
+							hashConfigs.ContainsKey("DbConnection:Alarm") ||
+							hashConfigs.ContainsKey("HubSettings:Alarm"))
+					{
+						var comment = (hashConfigs.ContainsKey("DbConnection:DataBase") ||
+								   hashConfigs.ContainsKey("DbConnection:Alarm")) ?
+								   ((hashConfigs.ContainsKey("HubSettings:Alarm")) ?
+								   "database & AlarmHub" : "database")
+								   : "AlarmHub";
 						Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
-						cancellationTokenNotifySource.Cancel();
-						//cancellationTokenAlarmSource.Cancel();
-						UoWNotifyThread.Join();
-						//UoWAlarmThread.Join();
-						Thread newUoWNotifyThread = new Thread(StartListenNotifications);
-						//Thread newUoWAlarmThread = new Thread(StartListenAlarms);
-						newUoWNotifyThread.Start();
-						//newUoWAlarmThread.Start();
-						UoWNotifyThread = newUoWNotifyThread;
-						//UoWAlarmThread = newUoWAlarmThread;
-				}
+						RebootThread(cancellationTokenAlarmSource, UoWAlarmThread, StartListenAlarms);
+					}
+					else if (hashConfigs.ContainsKey("DbConnection:DataBase") ||
+							hashConfigs.ContainsKey("DbConnection:Notify") ||
+							hashConfigs.ContainsKey("HubSettings:Notify"))
+					{
+						var comment = (hashConfigs.ContainsKey("DbConnection:DataBase") ||
+								   hashConfigs.ContainsKey("DbConnection:Notify")) ?
+								   ((hashConfigs.ContainsKey("HubSettings:Notify")) ?
+								   "database & NotifyHub" : "database")
+								   : "NotifyHub";
+						Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
+						RebootThread(cancellationTokenNotifySource, UoWNotifyThread, StartListenNotifications);
+					}
 			}
 		}
-
-		//------------- Hosting ------------------------------------------------------------------------//
+		
+		//------------- Hosting --------------------------------------------------//
 		public static void CreateAndRunHostServer()    
 		{
 			host = Host.CreateDefaultBuilder()
@@ -178,6 +196,11 @@ namespace Communications
 				   services.AddSingleton(provider =>
 				   {
 					   return unitOfWorkNotify.ReceivedNotificationsList;
+				   });
+				   //--------------- Alarm provider  -----------------//
+				   services.AddSingleton(provider =>
+				   {
+					   return unitOfWorkAlarm.ReceivedAlarmsList;
 				   });
 
 				   //--------------- Helpers provider  -----------------//
@@ -225,8 +248,9 @@ namespace Communications
 				   services.AddSwaggerGenNewtonsoftSupport();
 
 				   //--------------- Connections -----------------//
-				   services.AddSingleton<UnitOfWorkConnections>();
+				   services.AddSingleton(typeof(Connections<AlarmHub>));
 				   services.AddSingleton(typeof(Connections<NotificationHub>));
+
 
 				   //--------------- SignalR -----------------//
 				   services.AddSignalR(configure =>
@@ -291,6 +315,14 @@ namespace Communications
 			});
 			host.Start();
 			host.WaitForShutdown();
+		}
+		private static void RebootThread(CancellationTokenSource cancellationToken, Thread thread, Action action)
+		{
+			cancellationToken.Cancel();
+			thread.Join();
+			Thread newThread = new Thread(new ThreadStart(action));
+			newThread.Start();
+			thread = newThread;
 		}
 	}
 }

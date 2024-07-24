@@ -29,7 +29,7 @@ namespace Repositories.Alarms
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
-			builder.Entity<Notification>(entity =>
+			builder.Entity<Alarm>(entity =>
 			{
 				entity.HasKey(e => e.Id);
 				entity.Property(e => e.Id).HasColumnName("id");

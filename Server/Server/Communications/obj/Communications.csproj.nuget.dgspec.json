@@ -65,6 +65,10 @@
               "target": "Package",
               "version": "[1.0.15, )"
             },
+            "Microsoft.Diagnostics.Runtime": {
+              "target": "Package",
+              "version": "[3.1.512801, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[8.0.0, )"

@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Newtonsoft.Json.Linq;
+using Serilog;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -14,19 +15,19 @@ namespace Communications.Helpers
 				using (StreamReader reader = new StreamReader(fileStream))
 				{
 					string jsonContent = reader.ReadToEnd();
+					var jsonObject = JObject.Parse(jsonContent);
 
-					string pattern = $"\"{Regex.Escape(sectionName)}\"\\s*:\\s*{{[^}}]*}}";
-					Match match = Regex.Match(jsonContent, pattern);
+					string jsonPath = sectionName.Replace(":", ".");
 
-					if (!match.Success)
+					var section = jsonObject.SelectToken(jsonPath);
+
+					if (section == null)
 					{
-						Log.Error("The required section was not found in the configuration file. The hash is undefined.");
+						Log.Error($"The {sectionName} section was not found in the configuration file. The hash is undefined.");
+						section = "";
 					}
-
-					string sectionJson = match.Value;
-
+					string sectionJson = section.ToString();
 					byte[] bytes = Encoding.UTF8.GetBytes(sectionJson);
-
 					using (MD5 md5 = MD5.Create())
 					{
 						byte[] hashBytes = md5.ComputeHash(bytes);
@@ -41,6 +42,6 @@ namespace Communications.Helpers
 				}
 			}
 		}
+
 	}
 }
-

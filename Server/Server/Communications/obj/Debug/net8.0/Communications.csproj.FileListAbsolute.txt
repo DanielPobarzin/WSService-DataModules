@@ -178,3 +178,6 @@ C:\All\NotificationsExchange\Server\Server\Communications\obj\Debug\net8.0\Commu
 C:\All\NotificationsExchange\Server\Server\Communications\obj\Debug\net8.0\Communications.pdb
 C:\All\NotificationsExchange\Server\Server\Communications\obj\Debug\net8.0\Communications.genruntimeconfig.cache
 C:\All\NotificationsExchange\Server\Server\Communications\obj\Debug\net8.0\ref\Communications.dll
+C:\All\NotificationsExchange\Server\Server\Communications\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\All\NotificationsExchange\Server\Server\Communications\bin\Debug\net8.0\Microsoft.Diagnostics.NETCore.Client.dll
+C:\All\NotificationsExchange\Server\Server\Communications\bin\Debug\net8.0\Microsoft.Diagnostics.Runtime.dll

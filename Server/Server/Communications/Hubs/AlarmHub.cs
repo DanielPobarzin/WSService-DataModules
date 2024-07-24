@@ -1,13 +1,22 @@
 ﻿using Communications.Connections;
+using Communications.DTO;
 using Communications.Helpers;
 using Entities.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
+using NSwag.Annotations;
 using Serilog;
+using SignalRSwaggerGen.Attributes;
+using System.Net;
 
 namespace Communications.Hubs
 {
+	/// <summary>
+	/// WebSocket Alarm hub for real-time communication.
+	/// </summary>
+	[SignalRHub]
 	public class AlarmHub : Hub
 	{
 		private Connections<AlarmHub> connections;
@@ -15,12 +24,10 @@ namespace Communications.Hubs
 		private readonly IConfiguration _configuration;
 		private IMemoryCache memoryCache;
 		private TransformToDTOHelper transformToDTOHelper;
-		private JsonCacheHelper jsonCacheHelper;
 
 		public AlarmHub(List<Alarm>? alarms,
 		   Connections<AlarmHub> connections,
 		   TransformToDTOHelper transformToDTOHelper,
-		   JsonCacheHelper jsonCacheHelper,
 		   IConfiguration configuration,
 		   IMemoryCache memoryCache)
 		{
@@ -29,44 +36,39 @@ namespace Communications.Hubs
 			this.memoryCache = memoryCache;
 			this.connections = connections;
 			this.transformToDTOHelper = transformToDTOHelper;
-			this.jsonCacheHelper = jsonCacheHelper;
 		}
 
-		public async Task Send(Guid clientId)
+	/// <summary>
+	/// Sends the message with alarm to client.
+	/// </summary>
+	/// <param name="clientId">The ID(guid) of the client that accesses the method.</param>
+	/// <returns>Returns AlarmServerDTO</returns>
+	[SignalRMethod("Send")]
+	[SwaggerResponse(HttpStatusCode.OK, typeof(AlarmServerDTO))]
+	[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
+	public async Task Send(Guid clientId)
 		{
-			var cacheAlarm = await jsonCacheHelper.ReadFromFileCache<Alarm>(clientId);
-			if (cacheAlarm.Any() && bool.Parse(_configuration["HubSettings:Alarm:UseCache"]))
-			{
-				foreach (var alarm in cacheAlarm)
-					memoryCache.Set($"{Context.ConnectionId}_{alarm.Id}", alarm);
-			}
+			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
+			var route = _configuration["HostSettings:RouteNotify"];
+
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
 				{
 					foreach (var alarm in _alarms)
 					{
-						var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, Guid.Parse(_configuration["HubSettings:ServerId"]));
-						if (bool.Parse(_configuration["HubSettings:Alarm:UseCache"]))
+						memoryCache.TryGetValue($"{clientId}_{alarm.Id}", out Alarm? Alarm);
+			
+						if (Alarm == null)
 						{
-							memoryCache.TryGetValue($"{Context.ConnectionId}_{alarm.Id}", out Alarm? cachedAlarm);
+							var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, Guid.Parse(_configuration["HubSettings:ServerId"]));
 
-							if (cachedAlarm == null)
-							{
-								await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
-								memoryCache.Set($"{Context.ConnectionId}_{alarm.Id}", alarm);
-
-								Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
-											+ "\nSender:\t\t" + $" Server - {alarmDTO.ServerId}"
-											+ "\nRecipient:\t" + $" Client - {clientId}");
-							}
-						}
-						else
-						{
 							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
+
 							Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
-										+ "\nSender:\t\t" + $" Server - {alarmDTO.ServerId}"
-										+ "\nRecipient:\t" + $" Client - {clientId}");
+											+ "\nSender:   " + $" Server - {alarmDTO.ServerId}"
+											+ "\nRecipient:" + $" Client - {clientId}");
+							memoryCache.Set($"{clientId}_{alarm.Id}", alarm);
 						}
 					}
 				}
@@ -76,7 +78,38 @@ namespace Communications.Hubs
 				}
 				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Alarm:DelayMilliseconds"]));
 			}
-			await jsonCacheHelper.WriteToFileCache(_alarms, clientId);
+		}
+
+		/// <summary>
+		/// Sends the message with alarms to all clients.
+		/// </summary>
+		/// <returns>Returns AlarmServerDTO</returns>
+		[SignalRMethod("SendAll")]
+		[SwaggerResponse(HttpStatusCode.OK, typeof(AlarmServerDTO))]
+		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
+		public async Task SendAll()
+		{
+			while (connections.GetConnections().Any())
+			{
+				var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
+				try
+				{
+					foreach (var alarm in _alarms)
+					{
+						var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
+
+						await Clients.All.SendAsync(_configuration["HubSettings:Alarm:HubMethod"], alarmDTO);
+
+						Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
+											+ "\nSender:   " + $" Server - {alarmDTO.ServerId}");
+					}
+				}
+				catch (Exception ex)
+				{
+					Log.Error($"Exception with data: {ex.Message}");
+				}
+				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
+			}
 		}
 		public override async Task OnConnectedAsync()
 		{

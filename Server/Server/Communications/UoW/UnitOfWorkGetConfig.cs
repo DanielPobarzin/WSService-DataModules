@@ -46,13 +46,14 @@ namespace Communications.UoW
 				.Build();
 			if (ConfigValidHelper.ValidateConfigurationJson(schemaPath, filePath))
 			{
-				var sections = configuration.GetChildren();
-				foreach (var section in sections)
-				{
-					var sectionJson = section.Key.ToString();
-					var sectionHash = HashHelper.CalculateJsonSectionMd5(filePath, sectionJson);
-					sectionHashes[section.Key] = sectionHash;
-				}
+				sectionHashes["DbConnection:DataBase"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:DataBase");
+				sectionHashes["DbConnection:Alarm"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:Alarm");
+				sectionHashes["DbConnection:Notify"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:Notify");
+				sectionHashes["HubSettings:ServerId"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:ServerId");
+				sectionHashes["HubSettings:Notify"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:Notify");
+				sectionHashes["HubSettings:Alarm"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:Alarm");
+				sectionHashes["HostSettings"] = HashHelper.CalculateJsonSectionMd5(filePath, "HostSettings");
+
 				this.Configuration = configuration;
 			}
 			else

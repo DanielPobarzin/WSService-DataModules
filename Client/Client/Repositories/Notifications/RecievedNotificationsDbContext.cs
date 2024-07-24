@@ -21,7 +21,7 @@ namespace Repositories.Notifications
 			switch (configuration["DbConnection:DataBase"])
 			{
 				case ("PostgreSQL"): 
-					connectionString = configuration["DbConnection:ConnectionString"];
+					connectionString = configuration["DbConnection:NotifyConnectionString"];
 					optionsBuilder.UseNpgsql(connectionString);
 					break;
 					default: Log.Error("The database is not defined."); throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);
@@ -38,9 +38,9 @@ namespace Repositories.Notifications
 			builder.Entity<DomainObjectNotification>()
 				   .Property(e => e.MessageId).HasColumnName("messageid");
 			builder.Entity<DomainObjectNotification>()
-				   .Property(e => e.ClientId).HasColumnName("clientid");
+				   .Property(e => e.RecipientId).HasColumnName("clientid");
 			builder.Entity<DomainObjectNotification>()
-				   .Property(e => e.ServerId).HasColumnName("serverid");
+				   .Property(e => e.SenderId).HasColumnName("serverid");
 			builder.Entity<DomainObjectNotification>()
 				   .Property(e => e.DateAndTimeSendDataByServer)
 				   .ValueGeneratedNever()

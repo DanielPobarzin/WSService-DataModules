@@ -4,9 +4,27 @@
         <name>Communications</name>
     </assembly>
     <members>
+        <member name="T:Communications.Hubs.AlarmHub">
+            <summary>
+            WebSocket Alarm hub for real-time communication.
+            </summary>
+        </member>
+        <member name="M:Communications.Hubs.AlarmHub.Send(System.Guid)">
+            <summary>
+            Sends the message with alarm to client.
+            </summary>
+            <param name="clientId">The ID(guid) of the client that accesses the method.</param>
+            <returns>Returns AlarmServerDTO</returns>
+        </member>
+        <member name="M:Communications.Hubs.AlarmHub.SendAll">
+            <summary>
+            Sends the message with alarms to all clients.
+            </summary>
+            <returns>Returns AlarmServerDTO</returns>
+        </member>
         <member name="T:Communications.Hubs.NotificationHub">
             <summary>
-            WebSocket service for real-time communication.
+            WebSocket Notify hub for real-time communication.
             </summary>
         </member>
         <member name="M:Communications.Hubs.NotificationHub.Send(System.Guid)">
@@ -14,6 +32,12 @@
             Sends the message with notification to client.
             </summary>
             <param name="clientId">The ID(guid) of the client that accesses the method.</param>
+            <returns>Returns MessageServerDTO</returns>
+        </member>
+        <member name="M:Communications.Hubs.NotificationHub.SendAll">
+            <summary>
+            Sends the message with notification to all clients.
+            </summary>
             <returns>Returns MessageServerDTO</returns>
         </member>
     </members>

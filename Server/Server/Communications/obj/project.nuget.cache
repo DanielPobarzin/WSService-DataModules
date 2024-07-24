@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mVkNHs2xq4zMpvJ8I2TtFK9HxenQNezGkUc/RF2Bwebx6b3OMxfpDEu9uimDV+qlzlNMVg5yveK9L/6ev4yueQ==",
+  "dgSpecHash": "4CF8sxmVQ2dRHwn44e7XH7Dx4UTJiLmQCOLbWjbfPH2fRBBz6mV77bSjixVtH/OM37Dmpb8M+5oahNGvq97Xhg==",
   "success": true,
   "projectFilePath": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Communications.csproj",
   "expectedPackageFiles": [
@@ -16,8 +16,11 @@
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.signalr.core\\1.0.15\\microsoft.aspnetcore.signalr.core.1.0.15.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json\\1.0.4\\microsoft.aspnetcore.signalr.protocols.json.1.0.4.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.4\\microsoft.data.sqlite.core.8.0.4.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.diagnostics.netcore.client\\0.2.410101\\microsoft.diagnostics.netcore.client.0.2.410101.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.diagnostics.runtime\\3.1.512801\\microsoft.diagnostics.runtime.3.1.512801.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.4\\microsoft.entityframeworkcore.8.0.4.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.4\\microsoft.entityframeworkcore.abstractions.8.0.4.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.4\\microsoft.entityframeworkcore.analyzers.8.0.4.nupkg.sha512",

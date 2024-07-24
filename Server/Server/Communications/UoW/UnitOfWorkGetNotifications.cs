@@ -1,13 +1,6 @@
 ﻿using Entities.Entities;
 using Microsoft.Extensions.Configuration;
 using Repositories.Notifications;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Communications.UoW
 {
@@ -46,7 +39,7 @@ namespace Communications.UoW
 						ReceivedNotificationsList.Add(notification);
 					}
 				}
-				Thread.Sleep(Convert.ToInt32(100));
+				Thread.Sleep(Convert.ToInt32(configuration["HubSettings:Notify:DelayMilliseconds"]));
 			}
 			if (cancellationToken.IsCancellationRequested)
 			{

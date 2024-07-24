@@ -1,12 +1,6 @@
 ﻿using Entities.Entities;
 using Microsoft.Extensions.Configuration;
 using Repositories.Alarms;
-using Repositories.Notifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Communications.UoW
 {
@@ -29,7 +23,7 @@ namespace Communications.UoW
 		public UnitOfWorkGetAlarms(IConfiguration configuration)
 		{
 			this.configuration = configuration;
-			db = new AlarmsDbContext(this.configuration);
+			db = new AlarmsDbContext(configuration);
 		}
 		public void GetAllAlarms(CancellationToken cancellationToken)
 		{
@@ -37,15 +31,14 @@ namespace Communications.UoW
 
 			while (!cancellationToken.IsCancellationRequested)
 			{
-				var alarms = Alarms.GetAllList();
-				foreach (var alarm in alarms)
+				foreach (var alarm in Alarms.GetAllList())
 				{
 					if (!ReceivedAlarmsList.Contains(alarm))
 					{
 						ReceivedAlarmsList.Add(alarm);
 					}
 				}
-				Thread.Sleep(Convert.ToInt32(1000));
+				Thread.Sleep(Convert.ToInt32(configuration["HubSettings:Alarm:DelayMilliseconds"]));
 			}
 			if (cancellationToken.IsCancellationRequested)
 			{

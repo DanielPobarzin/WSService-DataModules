@@ -15,14 +15,14 @@ namespace Communications.UoW
 	public class UnitOfWorkPublishNotifications : IDisposable
 	{
 		private RecievedNotificationsDbContext db;
-		private RecievedNotificationRepository notificationRepository;
+		private RecievedNotificationsRepository notificationRepository;
 		private IConfiguration configuration;
 		private bool disposed = false;
-		public RecievedNotificationRepository Notifications
+		public RecievedNotificationsRepository Notifications
 		{
 			get
 			{
-				notificationRepository ??= new RecievedNotificationRepository(db);
+				notificationRepository ??= new RecievedNotificationsRepository(db);
 				return notificationRepository;
 			}
 		}

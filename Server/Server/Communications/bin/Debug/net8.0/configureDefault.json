@@ -11,7 +11,7 @@
   "HubSettings": {
     "ServerId": "6142dfeb-00e2-43cb-a70f-f55ac8847756",
     "Notify": {
-      "DelayMilliseconds": 1000,
+      "DelayMilliseconds": 10,
       "HubMethod": "ReceiveMessageHandler",
       "TargetClients": "ContextClient"
     },
