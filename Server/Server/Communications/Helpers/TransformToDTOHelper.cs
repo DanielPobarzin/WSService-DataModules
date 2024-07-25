@@ -22,7 +22,7 @@ namespace Communications.Helpers
 			AlarmServerDTO alarmServerDTOs = new AlarmServerDTO
 			{
 				ServerId = serverId,
-				Signal = alarm,
+				Alarm = alarm,
 				DateAndTimeSendDataByServer = DateTime.Now
 			};
 

@@ -34,11 +34,8 @@ namespace Communications.UoW
 		}
 		public async Task PublishAlarms(DomainObjectAlarm message)
 		{
-			await Alarms.PublishMessage(message);
-		}
-		public void Save()
-		{
-			db.SaveChanges();
+			if (await Alarms.FetchByIdMessage(message.MessageId) == null)
+				await Alarms.PublishMessage(message);
 		}
 		public virtual void Dispose(bool disposing)
 		{

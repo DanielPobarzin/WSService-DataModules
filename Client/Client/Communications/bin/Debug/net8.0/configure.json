@@ -5,7 +5,7 @@
     "AlarmConnectionString": "host=localhost;port=5432;Database=AlarmsExchangeClients;Username=postgres;Password=19346jaidj"
   },
   "ClientSettings": {
-    "ClientId": "16067fbc-14e9-4d0c-aa4c-cfcf5246a133",
+    "ClientId": "16067fac-14e9-4d0c-aa4c-cfcf5246a133",
     "UseCache": true
   },
   "ConnectionSettings": {

@@ -30,9 +30,8 @@ namespace Repositories.Alarms
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
-			builder.Entity<DomainObjectAlarm>().ToTable("alarms_client");
-
-			builder.Entity<Alarm>().HasKey(n => n.Id);
+			builder.Entity<DomainObjectAlarm>().ToTable("alarmsclient");
+			
 			builder.Entity<DomainObjectAlarm>().HasKey(d => d.MessageId);
 			
 			builder.Entity<DomainObjectAlarm>()
@@ -51,14 +50,13 @@ namespace Repositories.Alarms
 				   .ValueGeneratedNever()
 				   .HasColumnType("timestamp without time zone")
 				   .HasColumnName("date_and_time_recieved_data_from_server");
-
+			builder.Entity<Alarm>().HasKey(n => n.Id);
 			builder.Ignore<Alarm>();
-
 			builder.Entity<DomainObjectAlarm>()
 				   .OwnsOne(e => e.Alarm,
 							owned =>
 								{
-									owned.ToTable("alarms_client");
+									owned.ToTable("alarmsclient");
 									owned.Property(n => n.Id).ValueGeneratedNever().HasColumnName("id");
 									owned.Property(n => n.Value).HasColumnName("value");
 									owned.Property(n => n.Quality).HasColumnName("quality");

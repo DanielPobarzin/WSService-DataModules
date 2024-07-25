@@ -5,17 +5,11 @@ using Repositories.DO;
 
 namespace Repositories.Notifications
 {
-    public class RecievedNotificationsRepository : IRepository<DomainObjectNotification>
+    public class RecievedNotificationsRepository : GenericRepository<DomainObjectNotification, RecievedNotificationsDbContext>, IRepository<DomainObjectNotification>
 	{
-		private RecievedNotificationsDbContext db;
-
-		public RecievedNotificationsRepository(RecievedNotificationsDbContext context)
+		public RecievedNotificationsRepository(RecievedNotificationsDbContext context) : base(context)
 		{
-			this.db = context;
-		}
-		public async Task PublishMessage(DomainObjectNotification entity)
-		{
-			await db.Notifications.AddAsync(entity);
+			DbInitializer<RecievedNotificationsDbContext>.Initialize(context);
 		}
 	}
 }

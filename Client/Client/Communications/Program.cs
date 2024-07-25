@@ -6,7 +6,11 @@ using Interactors.Enums;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Repositories;
 using Repositories.DO;
+using Repositories.Notifications;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
@@ -16,22 +20,20 @@ namespace Client
 {
 	public class Program
 	{
-		private static HubConnection connectionNotify;
-		private static HubConnection connectionAlarm;
+		private static HubConnection connectionNotify { get; set; }
+		private static HubConnection connectionAlarm { get; set; }
 
 		private static Guid clientId;
 
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
-		private static UnitOfWorkPublishNotifications unitOfWorkPublishNotifications;
-		private static UnitOfWorkPublishAlarms unitOfWorkPublishAlarms;
 
 		private static CheckHashHalper checkHashHalper;
 
 		private static Thread notificationExchangeThread;
 		private static Thread alarmExchangeThread;
 
-		private static IMemoryCache memoryCache;
-		private static TransformToDOHelper TransformToDOHelper;
+		private static MemoryCache MemoryCache;
+		
 		private static void Main(string[] args)
 		{
 			//---------- Logging ---------------//
@@ -64,15 +66,15 @@ namespace Client
 						restrictedToMinimumLevel: LogEventLevel.Information)
 				.CreateLogger();
 			}
+			//---------- CacheInMemory ---------------//
+			MemoryCache = new MemoryCache(new MemoryCacheOptions
+			{
+				ExpirationScanFrequency = TimeSpan.FromMinutes(60),	SizeLimit = 1024 * 1024 * 100, CompactionPercentage = 0.4
+			});
+
 			//--------------- Initialize get and check configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
-			checkHashHalper = new CheckHashHalper();
-
-			//--------------- Initialize publish method notification -----------------//
-			unitOfWorkPublishNotifications = new UnitOfWorkPublishNotifications(unitOfWorkConfig.Configuration);
-
-			//--------------- Initialize publish method alarm -----------------//
-			unitOfWorkPublishAlarms = new UnitOfWorkPublishAlarms(unitOfWorkConfig.Configuration);
+			checkHashHalper = new CheckHashHalper();	
 
 			//--------------- Мain threads of the client's work -----------------//
 			notificationExchangeThread = new Thread(ExchangeBetweenServerAndClient);
@@ -89,36 +91,37 @@ namespace Client
 		}
 
 
-		public static void ExchangeBetweenServerAndClient(object? Hub)
+		public static async void ExchangeBetweenServerAndClient(object? Hub)
 		{
 			if (Hub is TypeHub type)
 			{
 				clientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
+				string url = "https://...";
 				switch (type)
 				{
 					//--------------- Notify Hub -----------------//
 					case TypeHub.Notify:
-						string url = unitOfWorkConfig.Configuration["ConnectionSettings:NotifyUrl"];
-						ConnectionСonfiguration(url, connectionNotify); //---- Setting the connection configuration ------// 
-						StartHubConnectionAsync(connectionNotify); //---- Start Hub Connection ----//
-						GetHubMessages("Notification", connectionNotify); //--- Try get messages ----//
+						url = unitOfWorkConfig.Configuration["ConnectionSettings:NotifyUrl"];
+						connectionNotify = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
+						await StartHubConnectionAsync(url, connectionNotify); //---- Start Hub Connection ----//
 						EventWithConnectionHandler(connectionNotify); //--- Connection Event Triggers -----//
+						GetHubMessages(type, connectionNotify); //--- Try get messages ----//
 						break;
 
 					//--------------- Alarm Hub -----------------//
 					case TypeHub.Alarm:
 						url = unitOfWorkConfig.Configuration["ConnectionSettings:AlarmUrl"];
-						ConnectionСonfiguration(url, connectionAlarm); //---- Setting the connection configuration ------// 
-						StartHubConnectionAsync(connectionAlarm); //---- Start Hub Connection ----//
-						GetHubMessages("Notification", connectionAlarm); //--- Try get messages ----//
+						connectionAlarm = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
+						await StartHubConnectionAsync(url, connectionAlarm); //---- Start Hub Connection ----//
 						EventWithConnectionHandler(connectionAlarm); //--- Connection Event Triggers -----//
+						GetHubMessages(type, connectionAlarm); //--- Try get messages ----//
 					break;
 				}
 			}
 		}
-		public static void ConnectionСonfiguration(string Url , HubConnection connection)
-		{	
-			connection = new HubConnectionBuilder()
+		public static HubConnection ConnectionСonfiguration(string Url)
+		{
+			var connection = new HubConnectionBuilder()
 									.WithUrl(Url, options =>
 									{
 										options.AccessTokenProvider = null; // Required!
@@ -135,6 +138,7 @@ namespace Client
 									.Build();
 			
 			connection.ServerTimeout = TimeSpan.FromMinutes(2);
+			return connection;
 		}
 
 		public static void EventWithConnectionHandler(HubConnection connection)
@@ -162,9 +166,9 @@ namespace Client
 			};
 		}
 
-		public static async void StartHubConnectionAsync(HubConnection connection)
+		public static async Task StartHubConnectionAsync(string url, HubConnection connection)
 		{
-			Log.Information($"Attempt to connect to the server by url: {unitOfWorkConfig.Configuration["ConnectionSettings:Url"]}");
+			Log.Information($"Attempt to connect to the server by url: {url}");
 				try
 				{
 					await connection.StartAsync().ContinueWith(async task =>
@@ -178,57 +182,60 @@ namespace Client
 				}
 				catch (Exception ex) { Log.Error($"Connection error: {ex.Message}"); }
 		}
-		public static async void GetHubMessages(string MessageType, HubConnection connection)
+		public static void GetHubMessages(TypeHub type, HubConnection connection)
 		{
-			switch (MessageType)
+			TransformToDOHelper TransformToDOHelper = new();
+			switch (type)
 			{ 
-				case "Notification":
+				case TypeHub.Notify:
 					connection.On<MessageServerDTO>("ReceiveMessageHandler", async (message) =>
 					{
-						var messageNotify = await TransformToDOHelper.TransformToDomainObjectNotification(message, clientId);
-						Log.Information($"{MessageType} {messageNotify.Notification.Id} has been recieved."
-											+ "\nSender:   " + $" Server - {messageNotify.SenderId}"
+						Log.Information($"Notification {message.Notification.Id} has been recieved."
+											+ "\nSender:   " + $" Server - {message.ServerId}"
 											+ "\nRecipient:" + $" Client - {clientId}");
+				
+						var messageNotify = await TransformToDOHelper.TransformToDomainObjectNotification(message, clientId);
 
-						memoryCache.TryGetValue($"{clientId}_{messageNotify.Notification.Id}", out DomainObjectNotification? cachedNotification);
+						MemoryCache.TryGetValue($"{clientId}_{messageNotify.Notification.Id}", out DomainObjectNotification? cachedNotification);
 
 						if (cachedNotification == null)
 						{
-							memoryCache.Set($"{clientId}_{messageNotify.Notification.Id}", messageNotify);
 							try
 							{
-								unitOfWorkPublishNotifications.PublishNotifications(messageNotify).Wait();
-								unitOfWorkPublishNotifications.Save();
+								using (UnitOfWorkPublishNotifications unitOfWorkPublishNotifications = new UnitOfWorkPublishNotifications(unitOfWorkConfig.Configuration))
+								{
+									unitOfWorkPublishNotifications.PublishNotifications(messageNotify).Wait();
+								}
 							}
-							catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
-
+							catch (Exception ex) { Log.Error($"Еrror working with the database: {ex.Message}"); }
+							MemoryCache.Set($"{clientId}_{messageNotify.Notification.Id}", messageNotify);
 						}
 					});
 					break;
-				case "Alarm":
+				case TypeHub.Alarm:
 					connection.On<AlarmServerDTO>("ReceiveMessageHandler", async (message) =>
 					{
-						var messageAlarm = await TransformToDOHelper.TransformToDomainObjectAlarm(message, clientId);
-						Log.Information($"{MessageType} {messageAlarm.Alarm.Id} has been recieved."
-											+ "\nSender:   " + $" Server - {messageAlarm.SenderId}"
+						Log.Information($"Alarm {message.Alarm.Id} has been recieved."
+											+ "\nSender:   " + $" Server - {message.ServerId}"
 											+ "\nRecipient:" + $" Client - {clientId}");
 
-						memoryCache.TryGetValue($"{clientId}_{messageAlarm.Alarm.Id}", out DomainObjectAlarm? cachedAlarm);
+						var messageAlarm = await TransformToDOHelper.TransformToDomainObjectAlarm(message, clientId);
+						MemoryCache.TryGetValue($"{clientId}_{messageAlarm.Alarm.Id}", out DomainObjectAlarm? cachedAlarm);
 
 						if (cachedAlarm == null)
 						{
-							memoryCache.Set($"{clientId}_{messageAlarm.Alarm.Id}", messageAlarm);
 							try
 							{
-								unitOfWorkPublishAlarms.PublishAlarms(messageAlarm).Wait();
-								unitOfWorkPublishAlarms.Save();
+								using (UnitOfWorkPublishAlarms unitOfWorkPublishAlarms = new UnitOfWorkPublishAlarms(unitOfWorkConfig.Configuration))
+								{
+									unitOfWorkPublishAlarms.PublishAlarms(messageAlarm).Wait();
+								}
 							}
 							catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
+							MemoryCache.Set($"{clientId}_{messageAlarm.Alarm.Id}", messageAlarm);
 						}
 					});
 					break;
-
-
 			}
 			connection.On<string>("Notify", (message) =>
 			{
@@ -242,8 +249,8 @@ namespace Client
 				if (hashConfigs.ContainsKey("ClientSettings:ClientId"))
 				{
 					await AllDisconnectAsync();
-					await ReconnectAsync(TypeHub.Notify, notificationExchangeThread);
-					await ReconnectAsync(TypeHub.Alarm, alarmExchangeThread);
+					ReconnectAsync(TypeHub.Notify, notificationExchangeThread);
+					ReconnectAsync(TypeHub.Alarm, alarmExchangeThread);
 					Log.Information($"Changing the ClientId. Reconnect with the new configuration ... ");
 				}
 				if (hashConfigs.ContainsKey("DbConnection:DataBase") ||
@@ -259,7 +266,7 @@ namespace Client
 
 					await connectionNotify.StopAsync();
 					await connectionNotify.DisposeAsync();
-					await ReconnectAsync(TypeHub.Notify, notificationExchangeThread);
+					ReconnectAsync(TypeHub.Notify, notificationExchangeThread);
 				}
 				
 				else if (hashConfigs.ContainsKey("DbConnection:DataBase") ||
@@ -275,7 +282,7 @@ namespace Client
 
 					await connectionAlarm.StopAsync();
 					await connectionAlarm.DisposeAsync();
-					await ReconnectAsync(TypeHub.Alarm, alarmExchangeThread);
+					ReconnectAsync(TypeHub.Alarm, alarmExchangeThread);
 				}
 			}
 		}
@@ -292,7 +299,7 @@ namespace Client
 				await connectionAlarm.DisposeAsync();
 			}
 		}
-		public static async Task ReconnectAsync(TypeHub hub, Thread thread)
+		public static void ReconnectAsync(TypeHub hub, Thread thread)
 		{
 			thread.Join();
 			Thread newThread = new Thread(ExchangeBetweenServerAndClient);

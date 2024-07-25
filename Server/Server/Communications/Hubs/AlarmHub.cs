@@ -61,11 +61,11 @@ namespace Communications.Hubs
 			
 						if (Alarm == null)
 						{
-							var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, Guid.Parse(_configuration["HubSettings:ServerId"]));
+							var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
 
 							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
 
-							Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
+							Log.Information($"Alarm {alarmDTO.Alarm.Id} has been sent."
 											+ "\nSender:   " + $" Server - {alarmDTO.ServerId}"
 											+ "\nRecipient:" + $" Client - {clientId}");
 							memoryCache.Set($"{clientId}_{alarm.Id}", alarm);
@@ -100,7 +100,7 @@ namespace Communications.Hubs
 
 						await Clients.All.SendAsync(_configuration["HubSettings:Alarm:HubMethod"], alarmDTO);
 
-						Log.Information($"Alarm {alarmDTO.Signal.Id} has been sent."
+						Log.Information($"Alarm {alarmDTO.Alarm.Id} has been sent."
 											+ "\nSender:   " + $" Server - {alarmDTO.ServerId}");
 					}
 				}

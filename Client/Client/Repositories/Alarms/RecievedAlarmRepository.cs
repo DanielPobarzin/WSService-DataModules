@@ -2,20 +2,15 @@
 using Interactors.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Repositories.DO;
+using Repositories.Notifications;
 
 namespace Repositories.Alarms
 {
-    public class RecievedAlarmsRepository : IRepository<DomainObjectAlarm>
+    public class RecievedAlarmsRepository : GenericRepository<DomainObjectAlarm, RecievedAlarmsDbContext>, IRepository<DomainObjectAlarm>
 	{
-		private RecievedAlarmsDbContext db;
-
-		public RecievedAlarmsRepository(RecievedAlarmsDbContext context)
+		public RecievedAlarmsRepository(RecievedAlarmsDbContext context) : base(context)
 		{
-			this.db = context;
-		}
-		public async Task PublishMessage(DomainObjectAlarm entity)
-		{
-			await db.Alarms.AddAsync(entity);
+			DbInitializer<RecievedAlarmsDbContext>.Initialize(context);
 		}
 	}
 }
