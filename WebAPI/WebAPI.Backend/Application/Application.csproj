@@ -8,8 +8,9 @@
 
   <ItemGroup>
     <Folder Include="DTOs\" />
-    <Folder Include="Features\Configurations\" />
-    <Folder Include="Exceptions\" />
+    <Folder Include="Features\Configurations\Queries\GetConfigServerList\" />
+    <Folder Include="Features\Connections\Commands\OpenConnection\" />
+    <Folder Include="Features\Connections\Commands\CloseConnection\" />
   </ItemGroup>
 
   <ItemGroup>

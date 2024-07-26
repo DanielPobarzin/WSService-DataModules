@@ -15,6 +15,7 @@ using Application.Interfaces.Repositories;
 using Application.Parameters;
 using Domain.Entities;
 using Domain.Common;
+using Application.Exceptions;
 
 namespace Persistance.Repositories
 {
@@ -27,6 +28,12 @@ namespace Persistance.Repositories
 		{
 			_dbContext = dbContext;
 			_mapper = mapper;
+		}
+		public async Task<Connection> GetByConnectionIdAsync(string connectionId)
+		{
+			var connection = await _dbContext.Connections.FirstOrDefaultAsync(e => e.ConnectionId == connectionId);
+			if (connection == null) { throw new APIException("Connection Not Found."); }
+			return connection;
 		}
 		public async Task<(IEnumerable<Entity> context, ConnectionsCount connectionCount)> GetStateConnectionsResponseAsync(GetConnectionsListQuery requestParameters)
 		{

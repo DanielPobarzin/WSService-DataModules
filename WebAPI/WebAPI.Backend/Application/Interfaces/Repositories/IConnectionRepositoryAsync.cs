@@ -11,6 +11,7 @@ namespace Application.Interfaces.Repositories
 {
 	public interface IConnectionRepositoryAsync : IGenericRepositoryAsync<Connection>
 	{
+		Task<Connection> GetByConnectionIdAsync(string connectionId);
 		Task <(IEnumerable<Entity> context, ConnectionsCount connectionCount)> GetStateConnectionsResponseAsync(GetConnectionsListQuery requestParameters);
 	}
 }

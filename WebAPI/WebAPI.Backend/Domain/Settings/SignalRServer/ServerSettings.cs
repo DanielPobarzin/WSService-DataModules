@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Settings.SignalRServer
 {
-    public class ServerSettings : BaseConfig
-    {
-		public DBSettings DB { get; set; }
-		public HostSettings Host { get; set; }
-        public HubSettings Hub { get; set; }
+	public class ServerSettings : BaseConfig
+	{
+		public DBSettings ServerDB { get; set;}
+		public HostSettings ServerHost { get; set;}
+		public HubSettings ServerHub { get; set;}
 	}
 }

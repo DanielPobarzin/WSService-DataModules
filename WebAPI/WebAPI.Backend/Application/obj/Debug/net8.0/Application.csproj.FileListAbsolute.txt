@@ -1,0 +1,6 @@
+C:\All\NotificationsExchange\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+C:\All\NotificationsExchange\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\All\NotificationsExchange\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\All\NotificationsExchange\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\All\NotificationsExchange\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\All\NotificationsExchange\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.sourcelink.json

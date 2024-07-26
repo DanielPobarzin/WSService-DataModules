@@ -16,4 +16,8 @@
     <ProjectReference Include="..\WebAPI.Backend\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DbContexts\EntityTypeConfiguration\SignalRClientEFC\" />
+  </ItemGroup>
+
 </Project>
