@@ -18,8 +18,8 @@ namespace Domain.Entities
 		public string ConnectionId { get; set; }
 		[Required]
 		public ConnectionStatus Status { get; set; }
-		public DateTime TimeStampOpenConnection { get; set; }
-		public DateTime TimeStampCloseConnection { get; set; }
-		public TimeSpan Session { get; set; }
+		public DateTime? TimeStampOpenConnection { get; set; }
+		public DateTime? TimeStampCloseConnection { get; set; }
+		public TimeSpan? Session { get; set; }
 	}
 }

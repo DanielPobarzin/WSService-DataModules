@@ -7,10 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
+    <Compile Remove="DTOs\**" />
+    <EmbeddedResource Remove="DTOs\**" />
+    <None Remove="DTOs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Features\Configurations\Queries\GetConfigServerList\" />
-    <Folder Include="Features\Connections\Commands\OpenConnection\" />
-    <Folder Include="Features\Connections\Commands\CloseConnection\" />
   </ItemGroup>
 
   <ItemGroup>

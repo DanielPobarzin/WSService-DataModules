@@ -12,9 +12,9 @@ namespace Application.Wrappers
 		public Response()
         {
         }
-        public Response(T data)
+        public Response(T data, bool succeeded)
         {
-            Succeeded = true;
+            Succeeded = succeeded;
             Data = data;
         }
         public Response(string message)
