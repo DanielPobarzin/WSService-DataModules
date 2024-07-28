@@ -26,9 +26,9 @@ namespace Application.Features.Connections.Queries.GetConnectionDetails
 
 		public async Task<Response<ConnectionDetailsViewModel>> Handle(GetConnectionDetalisQuery query, CancellationToken cancellationToken)
 		{
-			var entity = await _repository.GetByIdAsync(query.ConnectionId);
+			var entity = await _repository.GetByConnectionIdAsync(query.ConnectionId);
 			if (entity == null) throw new APIException($"Connection Not Found.");
-			return new Response<ConnectionDetailsViewModel>(_mapper.Map<ConnectionDetailsViewModel>(entity));
+			return new Response<ConnectionDetailsViewModel>(_mapper.Map<ConnectionDetailsViewModel>(entity), true);
 		}
 	}
 }

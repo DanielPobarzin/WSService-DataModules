@@ -26,8 +26,8 @@ namespace Persistance.DbContexts
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 				modelBuilder.ApplyConfiguration(new DbConnectionConfiguration());
-				modelBuilder.ApplyConfiguration(new HubSettingsConfiguration());
 				modelBuilder.ApplyConfiguration(new HostSettingsConfiguration());
+				modelBuilder.ApplyConfiguration(new HubSettingsConfiguration());
 
 				base.OnModelCreating(modelBuilder);
 		}

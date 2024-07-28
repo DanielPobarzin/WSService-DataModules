@@ -39,9 +39,3 @@ namespace Application.Features.Connections.Queries.GetConnectionsList
 		}
 	}
 }
-
-//var connectionsQuery = await _connectionsRepository.GetStateConnectionsResponseAsync(request)
-//				.Where(connection => connection.UserId == request.UserId)
-//				.ProjectTo<NoteLookupDto>(_mapper.ConfigurationProvider)
-//				.ToListAsync(cancellationToken);
-//return new NoteListVm { Notes = notesQuery };
