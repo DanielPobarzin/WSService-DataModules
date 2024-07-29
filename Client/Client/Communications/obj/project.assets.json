@@ -1426,7 +1426,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "Entities": "1.0.0"
+          "Entities": "1.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0-preview.5.24306.7"
         },
         "compile": {
           "bin/placeholder/Interactors.dll": {}

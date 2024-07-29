@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Interactors")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f41496898b5facd70f0b0a308e5eb27549bb367")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50f70f65ce0a4ee8f3420f7a876ecb640d462fc8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Interactors")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Interactors")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
