@@ -29,8 +29,9 @@ namespace Persistance.Repositories
 			_dbContext = dbContext;
 			_mapper = mapper;
 		}
-		public async Task<Connection> GetByConnectionIdAsync(string connectionId)
+		public async Task<Connection?> GetByConnectionIdAsync(string? connectionId)
 		{
+			if (connectionId == null) return null;
 			var connection = await _dbContext.Connections.FirstOrDefaultAsync(e => e.ConnectionId == connectionId);
 			if (connection == null) { throw new APIException("Connection Not Found."); }
 			return connection;
