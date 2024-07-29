@@ -15,7 +15,8 @@
       "type": "object",
       "properties": {
         "ClientId": { "type": "string" },
-        "UseCache": { "type": "boolean" }
+        "UseCache": { "type": "boolean" },
+        "UseCommand": { "type": "boolean" }
       },
       "required": [ "ClientId" ]
     },

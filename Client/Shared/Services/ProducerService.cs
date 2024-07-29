@@ -18,7 +18,7 @@ namespace Shared.Services
     public class ProducerService : IProducerService, IDisposable
     {
 		private readonly IConfiguration _configuration;
-		private readonly IProducer<Null, string> _producer;
+		private readonly IProducer<string, string> _producer;
 		private readonly string _bootstrapServers;
 		private readonly string _topic;
 
@@ -32,12 +32,12 @@ namespace Shared.Services
 			{
 				BootstrapServers = _bootstrapServers
 			};
-			_producer = new ProducerBuilder<Null, string>(producerConfig).Build();
+		    _producer = new ProducerBuilder<string, string>(producerConfig).Build();
 		}
 
-		public async Task PutMessageProducerProcessAsync(string topic, string message)
+		public async Task PutMessageProducerProcessAsync(string topic, string message, string Key)
 		{
-			var kafkaMessage = new Message<Null, string> { Value = message };
+			var kafkaMessage = new Message<string, string> { Value = message, Key = Key };
 			try
 			{
 				var result = await _producer.ProduceAsync(topic, kafkaMessage);

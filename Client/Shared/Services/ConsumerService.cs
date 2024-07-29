@@ -17,7 +17,7 @@ namespace Shared.Services
     public class ConsumerService<T> : BackgroundService, IConsumerService<T>, IDisposable
 		where T : class
     {
-		private readonly IConsumer<Ignore, string> _consumer;
+		private readonly IConsumer<string, string> _consumer;
 		private readonly IConfiguration _configuration;
 
 		private readonly string _bootstrapServers;
@@ -36,7 +36,7 @@ namespace Shared.Services
 				GroupId = _groupId,
 				AutoOffsetReset = AutoOffsetReset.Earliest
 			};
-			_consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
+			_consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
 		}
 		public override Task StartAsync(CancellationToken cancellationToken)
 		{
@@ -57,18 +57,20 @@ namespace Shared.Services
 			try
 			{
 				var consumeResult = _consumer.Consume(cancellationToken);
-				var message = consumeResult.Message.Value;
-				if (message is null)
+				var message = consumeResult.Message;
+				if (message is null) { return null; }
+				
+				if (message.Key == "config")
 				{
-					return null;
+					
 				}
 				try
 				{
-					var entity = JsonConvert.DeserializeObject<T>(message);
+					var entity = JsonConvert.DeserializeObject<T>(message.Value);
 					Log.Information($"Received message type of {typeof(T).Name}: ");
 					if (entity is null)
 					{
-						Log.Warning($"Deserialized object is null for message: {message}");
+						Log.Warning($"Deserialized object is null for message: {message.Value}");
 					}
 					return entity;
 				}
@@ -86,6 +88,7 @@ namespace Shared.Services
 		public override Task StopAsync(CancellationToken cancellationToken)
 		{
 			_consumer.Close();
+			_consumer.Dispose();
 			return Task.CompletedTask;
 		}
 		public override void Dispose()

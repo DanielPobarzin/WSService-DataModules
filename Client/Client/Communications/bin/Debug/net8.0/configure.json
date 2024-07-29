@@ -6,7 +6,8 @@
   },
   "ClientSettings": {
     "ClientId": "16067fac-14e9-4d0c-aa4c-cfcf5246a133",
-    "UseCache": true
+    "UseCache": true,
+    "UseCommand": false
   },
   "ConnectionSettings": {
     "NotifyUrl": "https://localhost:8080/hubs/NotificationHub/Send",

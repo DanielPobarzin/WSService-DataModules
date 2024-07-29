@@ -14,6 +14,7 @@ using Repositories.Notifications;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
+using Shared.Services;
 using System.Net;
 
 namespace Client
@@ -139,6 +140,22 @@ namespace Client
 			
 			connection.ServerTimeout = TimeSpan.FromMinutes(2);
 			return connection;
+		}
+		public static void GetKafkaConfigs()
+		{
+
+		}
+		public static void GetKafkaCommands()
+		{
+
+		}
+		public static void PushKafkaConnectionStatus()
+		{
+
+		}
+		public static void PushKafkaMetrics()
+		{
+
 		}
 
 		public static void EventWithConnectionHandler(HubConnection connection)
