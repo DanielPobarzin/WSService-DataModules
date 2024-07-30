@@ -272,6 +272,14 @@
             "Microsoft.Extensions.Hosting.Abstractions": {
               "target": "Package",
               "version": "[9.0.0-preview.5.24306.7, )"
+            },
+            "Newtonsoft.Json.Schema": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             }
           },
           "imports": [

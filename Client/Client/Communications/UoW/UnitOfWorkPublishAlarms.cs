@@ -1,15 +1,6 @@
-﻿using Entities.Entities;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Repositories.Alarms;
 using Repositories.DO;
-using Repositories.Notifications;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Communications.UoW
 {

@@ -5,9 +5,9 @@
     "AlarmConnectionString": "host=localhost;port=5432;Database=AlarmsExchangeClients;Username=postgres;Password=19346jaidj"
   },
   "ClientSettings": {
-    "ClientId": "16067fac-14e9-4d0c-aa4c-cfcf5246a133",
+    "ClientId": "13146fac-13e9-8d0c-aa4c-cfcf5246a153",
     "UseCache": true,
-    "UseCommand": false
+    "Mode": "Automatic"
   },
   "ConnectionSettings": {
     "NotifyUrl": "https://localhost:8080/hubs/NotificationHub/Send",

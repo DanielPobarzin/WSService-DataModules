@@ -1557,7 +1557,9 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Entities": "1.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0-preview.5.24306.7"
+          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0-preview.5.24306.7",
+          "Newtonsoft.Json.Schema": "4.0.1",
+          "Serilog": "4.0.0"
         },
         "compile": {
           "bin/placeholder/Interactors.dll": {}

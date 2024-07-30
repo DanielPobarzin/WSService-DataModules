@@ -1,21 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
-using System.ComponentModel.DataAnnotations;
+﻿using Interactors.Helpers;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
-using System.Runtime;
-using System.Threading;
-using Serilog;
-using Newtonsoft.Json.Linq;
-using Communications.Common.Helpers;
 
 namespace Communications.UoW
 {
-    public class UnitOfWorkGetConfig
+	public class UnitOfWorkGetConfig
 	{
 		public IConfiguration Configuration;
 		public Dictionary<string, string> sectionHashes;
@@ -50,6 +39,7 @@ namespace Communications.UoW
 				sectionHashes["DbConnection:AlarmConnectionString"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:AlarmConnectionString");
 				sectionHashes["ClientSettings:ClientId"] = HashHelper.CalculateJsonSectionMd5(filePath, "ClientSettings:ClientId");
 				sectionHashes["ClientSettings:UseCache"] = HashHelper.CalculateJsonSectionMd5(filePath, "ClientSettings:UseCache");
+				sectionHashes["ClientSettings:Mode"] = HashHelper.CalculateJsonSectionMd5(filePath, "ClientSettings:Mode");
 				sectionHashes["ConnectionSettings:AlarmUrl"] = HashHelper.CalculateJsonSectionMd5(filePath, "ConnectionSettings:AlarmUrl");
 				sectionHashes["ConnectionSettings:NotifyUrl"] = HashHelper.CalculateJsonSectionMd5(filePath, "ConnectionSettings:NotifyUrl");
 

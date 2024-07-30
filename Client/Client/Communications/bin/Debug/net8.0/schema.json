@@ -16,9 +16,9 @@
       "properties": {
         "ClientId": { "type": "string" },
         "UseCache": { "type": "boolean" },
-        "UseCommand": { "type": "boolean" }
+        "Mode": { "type": "string" }
       },
-      "required": [ "ClientId" ]
+      "required": [ "ClientId", "Mode" ]
     },
     "ConnectionSettings": {
       "type": "object",

@@ -9,6 +9,6 @@ namespace Interactors.Interfaces
 {
 	public interface IConsumerService<T> : IHostedService
 	{
-		T? PullMessageConsumerProcess (CancellationToken stoppingToken);
+		void PullMessageConsumerProcess (CancellationToken stoppingToken);
 	}
 }

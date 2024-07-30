@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\Handlers\**" />
+    <EmbeddedResource Remove="Common\Handlers\**" />
+    <None Remove="Common\Handlers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.1.1" />
@@ -32,10 +38,6 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
     <ProjectReference Include="..\Interactors\Interactors.csproj" />
     <ProjectReference Include="..\Repositories\Repositories.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Common\Handlers\" />
   </ItemGroup>
 
 </Project>

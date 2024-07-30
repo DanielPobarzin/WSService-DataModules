@@ -1,20 +1,17 @@
-﻿using Communications.Common.Helpers;
-using Communications.DTO;
+﻿using Communications.DTO;
 using Communications.Helpers;
 using Communications.UoW;
 using Interactors.Enums;
+using Interactors.Helpers;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Repositories;
+using Newtonsoft.Json;
 using Repositories.DO;
-using Repositories.Notifications;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using Shared.Services;
+using Shared.Common;
 using System.Net;
 
 namespace Client
@@ -34,9 +31,13 @@ namespace Client
 		private static Thread alarmExchangeThread;
 
 		private static MemoryCache MemoryCache;
-		
+
 		private static void Main(string[] args)
 		{
+			//---------- Default ---------------//
+			GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Close;
+			GlobalSingletonParameters.Instance.ConnectionCommandChanged += OnConnectionCommandChanged;
+
 			//---------- Logging ---------------//
 			{
 				Log.Logger = new LoggerConfiguration()
@@ -75,48 +76,63 @@ namespace Client
 
 			//--------------- Initialize get and check configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
-			checkHashHalper = new CheckHashHalper();	
+			checkHashHalper = new CheckHashHalper();
 
 			//--------------- Мain threads of the client's work -----------------//
 			notificationExchangeThread = new Thread(ExchangeBetweenServerAndClient);
 			alarmExchangeThread = new Thread(ExchangeBetweenServerAndClient);
 
+			//--------------- Defining actions when changing the configuration -----------------//
+
 			notificationExchangeThread.Start(TypeHub.Notify);
 			alarmExchangeThread.Start(TypeHub.Alarm);
 
-			//--------------- Defining actions when changing the configuration -----------------//
 			GetEventChangeConfiguration();
 
 			Task.Delay(Timeout.Infinite).Wait();
 			Log.CloseAndFlush();
 		}
 
-
-		public static async void ExchangeBetweenServerAndClient(object? Hub)
+		public static void ExchangeBetweenServerAndClient(object? Hub)
 		{
-			if (Hub is TypeHub type)
-			{
-				clientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
-				string url = "https://...";
-				switch (type)
-				{
-					//--------------- Notify Hub -----------------//
-					case TypeHub.Notify:
-						url = unitOfWorkConfig.Configuration["ConnectionSettings:NotifyUrl"];
-						connectionNotify = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
-						await StartHubConnectionAsync(url, connectionNotify); //---- Start Hub Connection ----//
-						EventWithConnectionHandler(connectionNotify); //--- Connection Event Triggers -----//
-						GetHubMessages(type, connectionNotify); //--- Try get messages ----//
-						break;
+			GlobalSingletonParameters.Instance.ConnectionMode = (ConnectionMode)Enum.
+			Parse(typeof(ConnectionMode), unitOfWorkConfig.Configuration["ClientSettings:Mode"]);
+			clientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
 
-					//--------------- Alarm Hub -----------------//
-					case TypeHub.Alarm:
-						url = unitOfWorkConfig.Configuration["ConnectionSettings:AlarmUrl"];
-						connectionAlarm = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
-						await StartHubConnectionAsync(url, connectionAlarm); //---- Start Hub Connection ----//
-						EventWithConnectionHandler(connectionAlarm); //--- Connection Event Triggers -----//
-						GetHubMessages(type, connectionAlarm); //--- Try get messages ----//
-					break;
+			Log.Information($"Client started. Id: {clientId}");
+			Log.Information($"Mode working by client ({Hub}): {GlobalSingletonParameters.Instance.ConnectionMode}");
+
+			switch (GlobalSingletonParameters.Instance.ConnectionMode)
+			{
+				case ConnectionMode.Automatic:
+					GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Open;
+				break;
+			}
+
+			if (GlobalSingletonParameters.Instance.ConnectionCommand == ConnectionCommand.Open)
+			{
+				if (Hub is TypeHub type)
+				{
+					switch (type)
+					{
+						//--------------- Notify Hub -----------------//
+						case TypeHub.Notify:
+							string url = unitOfWorkConfig.Configuration["ConnectionSettings:NotifyUrl"];
+							connectionNotify = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
+							StartHubConnectionAsync(url, connectionNotify); //---- Start Hub Connection ----//
+							EventWithConnectionHandler(connectionNotify); //--- Connection Event Triggers -----//
+							GetHubMessages(type, connectionNotify); //--- Try get messages ----//
+							break;
+
+						//--------------- Alarm Hub -----------------//
+						case TypeHub.Alarm:
+							url = unitOfWorkConfig.Configuration["ConnectionSettings:AlarmUrl"];
+							connectionAlarm = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
+							StartHubConnectionAsync(url, connectionAlarm); //---- Start Hub Connection ----//
+							EventWithConnectionHandler(connectionAlarm); //--- Connection Event Triggers -----//
+							GetHubMessages(type, connectionAlarm); //--- Try get messages ----//
+							break;
+					}
 				}
 			}
 		}
@@ -141,23 +157,6 @@ namespace Client
 			connection.ServerTimeout = TimeSpan.FromMinutes(2);
 			return connection;
 		}
-		public static void GetKafkaConfigs()
-		{
-
-		}
-		public static void GetKafkaCommands()
-		{
-
-		}
-		public static void PushKafkaConnectionStatus()
-		{
-
-		}
-		public static void PushKafkaMetrics()
-		{
-
-		}
-
 		public static void EventWithConnectionHandler(HubConnection connection)
 		{
 			connection.Closed += (error) =>
@@ -182,10 +181,27 @@ namespace Client
 				catch (Exception ex) { Log.Error($"An error occurred when calling the method on the server : {ex.Message}");}
 			};
 		}
-
-		public static async Task StartHubConnectionAsync(string url, HubConnection connection)
+		private static async void OnConnectionCommandChanged(object? sender, ConnectionCommand newCommand)
 		{
-			Log.Information($"Attempt to connect to the server by url: {url}");
+			if (GlobalSingletonParameters.Instance.ConnectionMode == ConnectionMode.Manual)
+			{
+				switch (newCommand)
+				{
+					case ConnectionCommand.Close:
+						GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Close;
+						await AllDisconnectAsync();
+						break;
+					case ConnectionCommand.Open:
+						GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Open;
+						ConnectAsync(TypeHub.Notify, notificationExchangeThread);
+						ConnectAsync(TypeHub.Alarm, alarmExchangeThread);
+						break;
+				}
+			}	
+		}
+		public static async void StartHubConnectionAsync(string url, HubConnection connection)
+		{
+			Log.Information($"Try to connect to the server by url: {url}");
 				try
 				{
 					await connection.StartAsync().ContinueWith(async task =>
@@ -263,14 +279,15 @@ namespace Client
 		{
 			await foreach (var hashConfigs in checkHashHalper.CompareHashConfiguration(unitOfWorkConfig.sectionHashes))
 			{
-				if (hashConfigs.ContainsKey("ClientSettings:ClientId"))
+				if (hashConfigs.ContainsKey("ClientSettings:ClientId") ||
+					hashConfigs.ContainsKey("ClientSettings:Mode"))
 				{
+					Log.Information($"{clientId}: Changing the settings of client. Reconnect with the new configuration ... ");
 					await AllDisconnectAsync();
 					ReconnectAsync(TypeHub.Notify, notificationExchangeThread);
 					ReconnectAsync(TypeHub.Alarm, alarmExchangeThread);
-					Log.Information($"Changing the ClientId. Reconnect with the new configuration ... ");
 				}
-				if (hashConfigs.ContainsKey("DbConnection:DataBase") ||
+				if(hashConfigs.ContainsKey("DbConnection:DataBase") ||
 							hashConfigs.ContainsKey("DbConnection:NotifyConnectionString") ||
 							hashConfigs.ContainsKey("ConnectionSettings:NotifyUrl"))
 				{
@@ -279,7 +296,7 @@ namespace Client
 								   ((hashConfigs.ContainsKey("ConnectionSettings:NotifyUrl")) ?
 								   "database & connection to NotifyHub" : "database")
 								   : "NotifyHub";
-					Log.Information($"Changing the configuration {comment}. Reconnecting ... ");
+					Log.Information($"{clientId}: Changing the configuration {comment}. Reconnecting ... ");
 
 					await connectionNotify.StopAsync();
 					await connectionNotify.DisposeAsync();
@@ -295,7 +312,7 @@ namespace Client
 								   ((hashConfigs.ContainsKey("ConnectionSettings:AlarmUrl")) ?
 								   "database & connection to AlarmHub" : "database")
 								   : "AlarmHub";
-					Log.Information($"Changing the configuration {comment}. Reconnecting ... ");
+					Log.Information($"{clientId}: Changing the configuration {comment}. Reconnecting ... ");
 
 					await connectionAlarm.StopAsync();
 					await connectionAlarm.DisposeAsync();
@@ -322,6 +339,18 @@ namespace Client
 			Thread newThread = new Thread(ExchangeBetweenServerAndClient);
 			newThread.Start(hub);
 			thread = newThread;
+		}
+		public static void ConnectAsync(TypeHub hub, Thread thread)
+		{
+			if (thread.ThreadState == ThreadState.Unstarted)
+			{
+				Thread newThread = new Thread(ExchangeBetweenServerAndClient);
+				newThread.Start(hub);
+				thread = newThread;
+			} else
+			{
+				ReconnectAsync(hub, thread);
+			}
 		}
 	}
 }
