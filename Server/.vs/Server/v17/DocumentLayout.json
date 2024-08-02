@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Server\\server\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\server\\server\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|c:\\all\\notificationsexchange\\server\\server\\shared\\share\\kafkamessage\\kafkamessagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\share\\kafkamessage\\kafkamessagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\share\\kafkamessage\\kafkamessagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,20 +35,12 @@
       "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Server\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Server\\server\\communications\\uow\\unitofworkgetalarms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -154,7 +154,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 112,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -184,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "configure.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "RelativeDocumentMoniker": "Server\\Communications\\bin\\Debug\\net8.0\\configure.json",
@@ -209,20 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KafkaMessageBase.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
-              "RelativeDocumentMoniker": "Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
-              "RelativeToolTip": "Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T14:00:09.46Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "SerializeHelper.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\SerializeHelper.cs",
               "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\SerializeHelper.cs",
@@ -234,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "KafkaMessageConfig.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
               "RelativeDocumentMoniker": "Server\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
@@ -252,14 +239,56 @@
               "RelativeDocumentMoniker": "Server\\Communications\\Program.cs",
               "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Program.cs",
               "RelativeToolTip": "Server\\Communications\\Program.cs",
-              "ViewState": "AQIAANwAAAAAAAAAAAAAANwAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-24T11:53:52.52Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T13:06:34.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ConsumerService.cs",
+              "RelativeDocumentMoniker": "Server\\Shared\\Services\\ConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ConsumerService.cs",
+              "RelativeToolTip": "Server\\Shared\\Services\\ConsumerService.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwCQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T13:28:55.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "KafkaMessageBase.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "RelativeDocumentMoniker": "Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "RelativeToolTip": "Server\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T14:00:09.46Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "AlarmHub.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Hubs\\AlarmHub.cs",
               "RelativeDocumentMoniker": "Server\\Communications\\Hubs\\AlarmHub.cs",
@@ -271,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "NotificationHub.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Hubs\\NotificationHub.cs",
               "RelativeDocumentMoniker": "Server\\Communications\\Hubs\\NotificationHub.cs",
@@ -283,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "ProducerService.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ProducerService.cs",
               "RelativeDocumentMoniker": "Server\\Shared\\Services\\ProducerService.cs",
@@ -292,18 +321,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-01T13:29:03.419Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ConsumerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ConsumerService.cs",
-              "RelativeDocumentMoniker": "Server\\Shared\\Services\\ConsumerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ConsumerService.cs",
-              "RelativeToolTip": "Server\\Shared\\Services\\ConsumerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAswE0AAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T13:28:55.406Z"
             },
             {
               "$type": "Document",
@@ -316,18 +333,6 @@
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-24T13:22:33.364Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IConsumerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T13:06:34.333Z"
             },
             {
               "$type": "Document",
@@ -520,10 +525,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-24T13:24:44.863Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",

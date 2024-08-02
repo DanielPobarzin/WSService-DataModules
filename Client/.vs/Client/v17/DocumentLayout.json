@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\client\\client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|c:\\all\\notificationsexchange\\client\\client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -249,7 +249,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 112,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
@@ -303,6 +303,10 @@
               "Name": "ST:0:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "KafkaMessageConfig.cs",
@@ -312,8 +316,7 @@
               "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T08:44:25.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T08:44:25.72Z"
             },
             {
               "$type": "Document",
@@ -323,7 +326,7 @@
               "RelativeDocumentMoniker": "Client\\Communications\\Program.cs",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Program.cs",
               "RelativeToolTip": "Client\\Communications\\Program.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAIwBQBAAA3AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHkBAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-01T09:54:51.435Z",
               "EditorCaption": ""
@@ -615,10 +618,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-22T06:59:24.836Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",

@@ -3,7 +3,6 @@ using Communications.Helpers;
 using Communications.Hubs;
 using Communications.UoW;
 using Interactors.Helpers;
-using Interactors.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
@@ -22,7 +21,6 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Reflection;
 using System.Text.Json;
-using System.Threading;
 
 namespace Communications
 {
@@ -34,23 +32,15 @@ namespace Communications
 		private static UnitOfWorkGetAlarms unitOfWorkAlarm;
 		private static CheckHashHalper checkHashHalper;
 		private static ConsumerService consumerService;
-		private static CancellationTokenSource cancellationTokenNotifySource;
-		private static CancellationTokenSource cancellationTokenAlarmSource;
-		private static CancellationTokenSource cancellationToken;
 		private static Thread UoWNotifyThread;
 		private static Thread UoWAlarmThread;
 		private static Thread hostThread;
-		private static Thread kafkaConsumerThread;
-		private static readonly JsonSerializerOptions DefaultOptions = new JsonSerializerOptions
-		{
-			WriteIndented = true
-		};
+		private static Thread kafkaProducerThread;
 
-		public static IHost host;
-
-		static object locker1 = new();
-		static object locker2 = new();
-		public static void Main(string[] args)
+		/// <summary>
+		/// The main method definies work threads, creates instances of work units.
+		/// </summary>
+		public static void Main()
 		{
 			#region Logging 
 				Log.Logger = new LoggerConfiguration()
@@ -86,77 +76,103 @@ namespace Communications
 				.CreateLogger();
 			#endregion
 
-			//--------------- Initialize get and check configuration -----------------//
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
 			checkHashHalper = new CheckHashHalper();
 
-			//--------------- Starting the host -----------------//
 			hostThread = new Thread(CreateAndRunHostServer);
 			
-
-			//--------------- Start requesting data from the database -----------------//
 			UoWNotifyThread = new Thread(StartListenNotifications);
-			
+			kafkaProducerThread = new Thread(StartKafkaProducer);
 
-			//--------------- Start requesting data from the database -----------------//
 			UoWAlarmThread = new Thread(StartListenAlarms);
-			
+
+			producerService = new ProducerService(unitOfWorkConfig.Configuration);
+			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
+
+			consumerService.StartAsync(CancellationToken.None);
+
 			GetEventChangeConfiguration();
-
-			{
-				producerService = new ProducerService(unitOfWorkConfig.Configuration);
-
-				Task.Run(async () => await producerService.PutMessageProducerProcessAsync("current-client-config-topic",
-						 JsonSerializer.Serialize(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config"));
-				Task.Run(async () =>
-				{
-					while (!cancellationToken.Token.IsCancellationRequested)
-					{
-						await producerService.PutMessageProducerProcessAsync("client-metric-topic",
-							JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
-						await Task.Delay(100, cancellationToken.Token);
-					}
-				});
-			}
 
 			hostThread.Start();
 			UoWNotifyThread.Start();
 			UoWAlarmThread.Start();
-			kafkaConsumerThread.Start();
+			kafkaProducerThread.Start();
 
 			Task.Delay(Timeout.Infinite).Wait();
 			Log.CloseAndFlush();
 		}
-		public static void StartKafka()
+		private static CancellationTokenSource cancellationTokenNotifySource;
+		private static CancellationTokenSource cancellationTokenAlarmSource;
+		private static CancellationTokenSource cancellationToken;
+		private static readonly JsonSerializerOptions DefaultOptions = new JsonSerializerOptions
 		{
-			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
-			consumerService.StartAsync(CancellationToken.None);
+			WriteIndented = true
+		};
+
+		/// <summary>
+		/// Starts the Kafka producer to send messages to Kafka.
+		/// </summary>
+		/// <remarks>
+		/// This method creates a new instance of <see cref="CancellationTokenSource"/> and starts an asynchronous task
+		/// that sends messages to the "client-metric-topic" with a delay of 100 milliseconds.
+		/// The task will continue to run until it is canceled using the cancellation token.
+		/// </remarks>
+		public static void StartKafkaProducer()
+		{
+			cancellationToken = new CancellationTokenSource();
+			Task.Run(async () =>
+			{
+				while (!cancellationToken.Token.IsCancellationRequested)
+				{
+					await producerService.PutMessageProducerProcessAsync("client-metric-topic",
+						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
+					await Task.Delay(100, cancellationToken.Token);
+				}
+			});
 		}
+		static object locker1 = new();
+		/// <summary>
+		/// Starts listening for notifications from the database.
+		/// </summary>
+		/// <remarks>
+		/// This method uses a lock to ensure thread safety. 
+		/// It creates a new instance of <see cref="CancellationTokenSource"/> and 
+		/// starts the process of retrieving all notifications using 
+		/// <see cref="UnitOfWorkGetNotifications"/>.
+		/// </remarks>
 		public static void StartListenNotifications()
 		{
 			lock (locker1)
 			{
 				cancellationTokenNotifySource = new CancellationTokenSource();
-				CancellationToken cancellationToken = cancellationTokenNotifySource.Token;
-
-				//--------------- Determining the connection and starting to receive data -----------------//
 				unitOfWorkNotify = new UnitOfWorkGetNotifications(unitOfWorkConfig.Configuration);
-				unitOfWorkNotify.GetAllNotifications(cancellationToken);
+				unitOfWorkNotify.GetAllNotifications(cancellationTokenNotifySource.Token);
 			}
 		}
-
+		static object locker2 = new();
+		/// <summary>
+		/// Starts listening for alarms from the database.
+		/// </summary>
+		/// <remarks>
+		/// This method uses a lock to ensure thread safety. 
+		/// It creates a new instance of <see cref="CancellationTokenSource"/> and 
+		/// starts the process of retrieving all alarms using 
+		/// <see cref="UnitOfWorkGetAlarms"/>.
+		/// </remarks>
 		public static void StartListenAlarms()
 		{
 			lock (locker2)
 			{
 				cancellationTokenAlarmSource = new CancellationTokenSource();
-				CancellationToken cancellationToken = cancellationTokenAlarmSource.Token;
-
-				//--------------- Determining the connection and starting to receive data -----------------//
 				unitOfWorkAlarm = new UnitOfWorkGetAlarms(unitOfWorkConfig.Configuration);
-				unitOfWorkAlarm.GetAllAlarms(cancellationToken);
+				unitOfWorkAlarm.GetAllAlarms(cancellationTokenAlarmSource.Token);
 			}
 		}
+
+		/// <summary>
+		/// A method that always expects to receive any changes in the configuration file. 
+		/// The action is determined depending on which setting has been changed.
+		/// </summary>
 		public static async void GetEventChangeConfiguration()
 		{
 			await foreach (var hashConfigs in checkHashHalper.CompareHashConfiguration(unitOfWorkConfig.sectionHashes))
@@ -205,26 +221,36 @@ namespace Communications
 					{
 						Log.Information($"{unitOfWorkConfig.Configuration["HubSettings:ServerId"]}: " +
 							$"Changing the settings of connecting to kafka broker (role:Producer). ");
-						producerService.Dispose();
-						producerService = new ProducerService(unitOfWorkConfig.Configuration);
+
+						RebootThread(cancellationToken, kafkaProducerThread, StartKafkaProducer);
 					}
 					if (hashConfigs.ContainsKey("Kafka:Consumer"))
 					{
 						Log.Information($"{unitOfWorkConfig.Configuration["HubSettings:ServerId"]}:" +
 							$" Changing the settings of connecting to kafka broker(role:Consumer). ");
 						await consumerService.StopAsync(CancellationToken.None);
-						kafkaConsumerThread.Join();
-						Thread newThread = new Thread(StartKafka);
-						newThread.Start();
-						kafkaConsumerThread = newThread;
+						consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
+						await consumerService.StartAsync(CancellationToken.None);
 					}
 
 				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
 						(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
 			}
 		}
-		
-		//------------- Hosting --------------------------------------------------//
+		public static IHost host;
+		/// <summary>
+		/// Creates and starts a host server with the web application's settings.
+		/// </summary>
+		/// <remarks>
+		/// This method configures the host server, adds necessary services and configurations, including:
+		/// <list type="bullet">
+		/// <item>Configuring CORS to manage access to the API.</item>
+		/// <item>Adding Swagger for API documentation.</item>
+		/// <item>Configuring SignalR for working with WebSockets.</item>
+		/// <item>Registering various providers and stores for notifications and alarms.</item>
+		/// </list>
+		/// The method uses settings from the configuration file, such as host URLs and allowed origins.
+		/// </remarks>
 		public static void CreateAndRunHostServer()    
 		{
 			host = Host.CreateDefaultBuilder()
@@ -368,7 +394,13 @@ namespace Communications
 		private static void RebootThread(CancellationTokenSource cancellationToken, Thread thread, Action action)
 		{
 			cancellationToken.Cancel();
+			cancellationToken.Dispose();
 			thread.Join();
+			if (action == StartKafkaProducer)
+			{
+				producerService.Dispose();
+				producerService = new ProducerService(unitOfWorkConfig.Configuration);
+			}
 			Thread newThread = new Thread(new ThreadStart(action));
 			newThread.Start();
 			thread = newThread;
