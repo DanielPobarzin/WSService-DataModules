@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\**" />
+    <EmbeddedResource Remove="DTOs\**" />
+    <None Remove="DTOs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Configurations\Client\Commands\CreateConfig\" />
+    <Folder Include="Features\Configurations\Client\Commands\DeleteConfig\" />
+    <Folder Include="Features\Configurations\Client\Commands\UpdateConfig\" />
+    <Folder Include="Features\Configurations\Client\Queries\GetConfigClientList\" />
+    <Folder Include="Features\Configurations\Client\Queries\GetConfigClientDetails\" />
+    <Folder Include="Features\Configurations\Server\Commands\CreateConfig\" />
+    <Folder Include="Features\Configurations\Server\Commands\UpdateConfig\" />
+    <Folder Include="Features\Configurations\Server\Commands\DeleteConfig\" />
+    <Folder Include="Features\Configurations\Server\Queries\GetConfigServerList\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>
