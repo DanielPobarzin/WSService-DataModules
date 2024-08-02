@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Communications.DTO
 {
-	public class MessageServerDTO
+	public class MessageServerDTO : ServerDTO
 	{
-		public Guid ServerId { get; set; }
 		public Notification Notification { get; set; }
-		public DateTime DateAndTimeSendDataByServer { get; set; }
 	}
 }

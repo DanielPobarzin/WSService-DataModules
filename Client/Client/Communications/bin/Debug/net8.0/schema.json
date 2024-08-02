@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
+    "ClientId": { "type": "string" },
     "DbConnection": {
       "type": "object",
       "properties": {
@@ -33,7 +34,34 @@
         }
       },
       "required": [ "AlarmUrl", "NotifyUrl" ]
+    },
+    "Kafka": {
+      "type": "object",
+      "properties": {
+        "Producer": {
+          "type": "object",
+          "properties": {
+            "BootstrapServers": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [ "BootstrapServers" ]
+        },
+        "Consumer": {
+          "type": "object",
+          "properties": {
+            "BootstrapServers": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [ "BootstrapServers" ]
+
+        }
+      },
+      "required": [ "Producer", "Consumer" ]
     }
   },
-  "required": [ "DbConnection", "ClientSettings", "ConnectionSettings" ]
+    "required": [ "DbConnection", "ClientSettings", "ConnectionSettings", "Kafka" ]
 }

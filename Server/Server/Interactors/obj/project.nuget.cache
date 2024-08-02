@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "0SslZnl8o0xDOAFgXMSIlESmD9GocSy6q3HorbJuC5zpgJqd7RW4Ys5W9gEqwrbohpz2/QuqK40zfGnnC9LCCQ==",
+  "dgSpecHash": "ZuNx+6HF1hegP1V30tXyLE2izvyXM3/WWo0SXCd1NrjG8il5JQI1G28Odbc71L2PspUTJ3XztYlLquG0yL6QjA==",
   "success": true,
   "projectFilePath": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interactors.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\8.0.0\\microsoft.extensions.diagnostics.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\8.0.0\\microsoft.extensions.hosting.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\newtonsoft.json.schema\\4.0.1\\newtonsoft.json.schema.4.0.1.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\serilog\\4.0.0\\serilog.4.0.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

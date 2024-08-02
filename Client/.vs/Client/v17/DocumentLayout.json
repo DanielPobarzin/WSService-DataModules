@@ -3,124 +3,40 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Shared\\Shared.csproj|solutionrelative:shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Shared\\Shared.csproj|solutionrelative:shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\client\\client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|c:\\all\\notificationsexchange\\client\\client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Client\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Shared\\Shared.csproj|solutionrelative:shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\models\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\models\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\uow\\unitofworkpublishnotifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\uow\\unitofworkpublishnotifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\share\\kafkamessage\\kafkamessagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\uow\\unitofworkpublishalarms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\uow\\unitofworkpublishalarms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\uow\\unitofworkpublishnotifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\uow\\unitofworkpublishnotifications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\notifications\\recievednotificationsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\notifications\\recievednotificationsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\notifications\\recievednotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\notifications\\recievednotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\do\\domainobjectnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\do\\domainobjectnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\do\\domainobjectalarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\do\\domainobjectalarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\do\\domainobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\do\\domainobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\alarms\\recievedalarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\alarms\\recievedalarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\alarms\\recievedalarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\alarms\\recievedalarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\connectioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\connectioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\connectionmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\connectionmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\connectionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\connectionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\typehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\typehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\schema.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -131,20 +47,163 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interactors.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interactors.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Client\\Communications\\bin\\Debug\\net8.0\\configure.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u04301{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|C:\\All\\NotificationsExchange\\Client\\.editorconfig||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u04301{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|solutionrelative:.editorconfig||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\models\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\models\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\typemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\typemessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\typehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\typehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\connectionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\connectionstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\connectionmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\connectionmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\enums\\connectioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\enums\\connectioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\notifications\\recievednotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\notifications\\recievednotificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\notifications\\recievednotificationsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\notifications\\recievednotificationsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\share\\kafkamessage\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\share\\kafkamessage\\kafkamessagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\communications.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\communications.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\dto\\serverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\dto\\serverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\dto\\alarmserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\dto\\alarmserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\dto\\messageserverdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\repositories.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\repositories.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\do\\domainobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\do\\domainobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\do\\domainobjectalarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\do\\domainobjectalarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\do\\domainobjectnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\do\\domainobjectnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\alarms\\recievedalarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\alarms\\recievedalarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Client\\client\\communications\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Client\\client\\repositories\\alarms\\recievedalarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7F75363-E549-4784-93FF-4187D3EA32FB}|Client\\Repositories\\Repositories.csproj|solutionrelative:client\\repositories\\alarms\\recievedalarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Client\\client\\shared\\shared.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\shared.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\interactors.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interactors.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\helpers\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\helpers\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\settings\\clientconfig\\clientsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\settings\\clientconfig\\clientsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Client\\client\\interactors\\settings\\clientconfig\\clientconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\settings\\clientconfig\\clientconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|C:\\All\\NotificationsExchange\\Client\\client\\entities\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|solutionrelative:client\\entities\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|C:\\All\\NotificationsExchange\\Client\\client\\entities\\entities\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -155,8 +214,32 @@
       "RelativeMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|solutionrelative:client\\entities\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|C:\\All\\NotificationsExchange\\Client\\client\\entities\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|solutionrelative:client\\entities\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u04301{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|C:\\All\\NotificationsExchange\\Client\\.editorconfig||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u04301{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}|solutionrelative:.editorconfig||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\all\\notificationsexchange\\client\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\all\\notificationsexchange\\client\\shared\\share\\kafkamessage\\producer\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shared\\share\\kafkamessage\\producer\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\all\\notificationsexchange\\client\\shared\\share\\kafkamessage\\consumer\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shared\\share\\kafkamessage\\consumer\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\all\\notificationsexchange\\client\\shared\\share\\kafkamessage\\consumer\\kafkamessagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shared\\share\\kafkamessage\\consumer\\kafkamessagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\All\\NotificationsExchange\\Client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -165,45 +248,44 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "DockedWidth": 112,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "configure.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "RelativeToolTip": "Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-02T07:29:07.717Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 9,
               "Title": "schema.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\schema.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\schema.json",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\schema.json",
               "RelativeToolTip": "Client\\Communications\\bin\\Debug\\net8.0\\schema.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEEAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-02T14:33:31.15Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 10,
               "Title": "configureDefault.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json",
               "RelativeToolTip": "Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-07-24T16:13:44.058Z",
               "IsPinned": true
@@ -222,136 +304,117 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ConfigValidHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "RelativeToolTip": "Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAASAAAA",
+              "DocumentIndex": 1,
+              "Title": "KafkaMessageConfig.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
+              "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T12:13:10.015Z",
+              "WhenOpened": "2024-08-01T08:44:25.72Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CheckHashHalper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "RelativeToolTip": "Client\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T12:12:50.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Program.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\Program.cs",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Program.cs",
               "RelativeToolTip": "Client\\Communications\\Program.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAswIoAAAAAAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAIwBQBAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-01T09:54:51.435Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HashHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\HashHelper.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\HashHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\HashHelper.cs",
-              "RelativeToolTip": "Client\\Interactors\\Helpers\\HashHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "ConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Services\\ConsumerService.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Services\\ConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Services\\ConsumerService.cs",
+              "RelativeToolTip": "Client\\Shared\\Services\\ConsumerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIsAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T12:14:28.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-31T11:37:47.333Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ConsumerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ConsumerService.cs",
-              "RelativeDocumentMoniker": "Shared\\Services\\ConsumerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ConsumerService.cs",
-              "RelativeToolTip": "Shared\\Services\\ConsumerService.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABAAAAAxAAAA",
+              "DocumentIndex": 4,
+              "Title": "KafkaMessageBase.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T09:45:20.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-01T08:44:46.745Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ProducerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Services\\ProducerService.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Services\\ProducerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Services\\ProducerService.cs",
+              "RelativeToolTip": "Client\\Shared\\Services\\ProducerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T11:45:14.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitOfWorkPublishAlarms.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
+              "RelativeToolTip": "Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:29:05.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UnitOfWorkPublishNotifications.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
+              "RelativeToolTip": "Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwFQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:29:26.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UnitOfWorkGetConfig.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
               "RelativeToolTip": "Client\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "ViewState": "AQIAADEAAAAAAAAAAAAQwFUAAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:30:14.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProducerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ProducerService.cs",
-              "RelativeDocumentMoniker": "Shared\\Services\\ProducerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ProducerService.cs",
-              "RelativeToolTip": "Shared\\Services\\ProducerService.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACUAAABcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T09:45:30.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-24T14:30:14.181Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "JsonCacheHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "RelativeToolTip": "Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
+              "Title": "ConfigValidHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "RelativeToolTip": "Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T12:14:38.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T12:13:10.015Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TransformToDTOHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
-              "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
-              "RelativeToolTip": "Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T06:59:24.836Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GlobalSingletonParameters.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
-              "RelativeDocumentMoniker": "Shared\\Common\\GlobalSingletonParameters.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
-              "RelativeToolTip": "Shared\\Common\\GlobalSingletonParameters.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAC4AAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T11:49:35.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Connection.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Models\\Connection.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Models\\Connection.cs",
@@ -359,216 +422,23 @@
               "RelativeToolTip": "Client\\Interactors\\Models\\Connection.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T12:24:33.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-30T12:24:33.385Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UnitOfWorkPublishNotifications.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
-              "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
-              "RelativeToolTip": "Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "DocumentIndex": 13,
+              "Title": "TypeMessage.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\TypeMessage.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\TypeMessage.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\TypeMessage.cs",
+              "RelativeToolTip": "Client\\Interactors\\Enums\\TypeMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:29:26.104Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UnitOfWorkPublishAlarms.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
-              "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
-              "RelativeToolTip": "Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:29:05.705Z"
+              "WhenOpened": "2024-08-01T10:40:47.838Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\GenericRepository.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\GenericRepository.cs",
-              "RelativeToolTip": "Client\\Repositories\\GenericRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T10:20:29.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DbInitializer.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DbInitializer.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\DbInitializer.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DbInitializer.cs",
-              "RelativeToolTip": "Client\\Repositories\\DbInitializer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T06:11:42.163Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "RecievedNotificationsDbContext.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
-              "RelativeToolTip": "Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:22:54.445Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "RecievedNotificationRepository.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
-              "RelativeToolTip": "Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAClAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:22:32.967Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "DomainObjectNotification.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectNotification.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\DO\\DomainObjectNotification.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectNotification.cs",
-              "RelativeToolTip": "Client\\Repositories\\DO\\DomainObjectNotification.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:19:30.145Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "DomainObjectAlarm.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectAlarm.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\DO\\DomainObjectAlarm.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectAlarm.cs",
-              "RelativeToolTip": "Client\\Repositories\\DO\\DomainObjectAlarm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:19:45.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DomainObject.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObject.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\DO\\DomainObject.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObject.cs",
-              "RelativeToolTip": "Client\\Repositories\\DO\\DomainObject.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:20:00.514Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "RecievedAlarmsDbContext.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
-              "RelativeToolTip": "Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:24:04.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "RecievedAlarmRepository.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
-              "RelativeDocumentMoniker": "Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
-              "RelativeToolTip": "Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:23:56.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IConsumerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IConsumerService.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IConsumerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IConsumerService.cs",
-              "RelativeToolTip": "Client\\Interactors\\Interfaces\\IConsumerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T08:31:55.485Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IProducerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IProducerService.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IProducerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IProducerService.cs",
-              "RelativeToolTip": "Client\\Interactors\\Interfaces\\IProducerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T08:32:05.823Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IRepository.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IRepository.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IRepository.cs",
-              "RelativeToolTip": "Client\\Interactors\\Interfaces\\IRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:19:11.963Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ConnectionCommand.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionCommand.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionCommand.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionCommand.cs",
-              "RelativeToolTip": "Client\\Interactors\\Enums\\ConnectionCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T11:48:55.637Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ConnectionMode.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionMode.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionMode.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionMode.cs",
-              "RelativeToolTip": "Client\\Interactors\\Enums\\ConnectionMode.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T11:49:10.94Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ConnectionStatus.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionStatus.cs",
-              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionStatus.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionStatus.cs",
-              "RelativeToolTip": "Client\\Interactors\\Enums\\ConnectionStatus.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-30T10:37:16.003Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
               "Title": "TypeHub.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\TypeHub.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\TypeHub.cs",
@@ -580,8 +450,371 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ConnectionStatus.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionStatus.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionStatus.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionStatus.cs",
+              "RelativeToolTip": "Client\\Interactors\\Enums\\ConnectionStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T10:37:16.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ConnectionMode.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionMode.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionMode.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionMode.cs",
+              "RelativeToolTip": "Client\\Interactors\\Enums\\ConnectionMode.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T11:49:10.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ConnectionCommand.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionCommand.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionCommand.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Enums\\ConnectionCommand.cs",
+              "RelativeToolTip": "Client\\Interactors\\Enums\\ConnectionCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T11:48:55.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IProducerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IProducerService.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IProducerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IProducerService.cs",
+              "RelativeToolTip": "Client\\Interactors\\Interfaces\\IProducerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T08:32:05.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IConsumerService.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IConsumerService.cs",
+              "RelativeToolTip": "Client\\Interactors\\Interfaces\\IConsumerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T08:31:55.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RecievedNotificationRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
+              "RelativeToolTip": "Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAClAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:22:32.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RecievedNotificationsDbContext.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
+              "RelativeToolTip": "Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:22:54.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\GenericRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "Client\\Repositories\\GenericRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T10:20:29.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "Client\\Interactors\\Interfaces\\IRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:19:11.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "KafkaMessageMetrics.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T11:36:41.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\DbInitializer.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DbInitializer.cs",
+              "RelativeToolTip": "Client\\Repositories\\DbInitializer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T06:11:42.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "KafkaMessageCommand.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageCommand.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageCommand.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageCommand.cs",
+              "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T08:44:27.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "GlobalSingletonParameters.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "RelativeToolTip": "Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB8AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T12:10:22.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "TransformToDTOHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeToolTip": "Client\\Communications\\Common\\Helpers\\TransformToDTOHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T06:59:24.836Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Shared.csproj",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
+              "RelativeDocumentMoniker": "Client\\Shared\\Shared.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
+              "RelativeToolTip": "Client\\Shared\\Shared.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-31T11:09:59.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Communications.csproj",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
+              "RelativeDocumentMoniker": "Client\\Communications\\Communications.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
+              "RelativeToolTip": "Client\\Communications\\Communications.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-31T11:07:08.1Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ServerDTO.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\ServerDTO.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\DTO\\ServerDTO.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\ServerDTO.cs",
+              "RelativeToolTip": "Client\\Communications\\DTO\\ServerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T10:37:12.62Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 32,
-              "Title": "Interactors",
+              "Title": "MessageServerDTO.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "RelativeToolTip": "Client\\Communications\\DTO\\MessageServerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T06:59:39.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AlarmServerDTO.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\AlarmServerDTO.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\DTO\\AlarmServerDTO.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\AlarmServerDTO.cs",
+              "RelativeToolTip": "Client\\Communications\\DTO\\AlarmServerDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T15:17:01.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Repositories",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
+              "RelativeDocumentMoniker": "Client\\Repositories\\Repositories.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
+              "RelativeToolTip": "Client\\Repositories\\Repositories.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-01T10:23:20.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DomainObject.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObject.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\DO\\DomainObject.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObject.cs",
+              "RelativeToolTip": "Client\\Repositories\\DO\\DomainObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:20:00.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "DomainObjectAlarm.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectAlarm.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\DO\\DomainObjectAlarm.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectAlarm.cs",
+              "RelativeToolTip": "Client\\Repositories\\DO\\DomainObjectAlarm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:19:45.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "DomainObjectNotification.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectNotification.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\DO\\DomainObjectNotification.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\DO\\DomainObjectNotification.cs",
+              "RelativeToolTip": "Client\\Repositories\\DO\\DomainObjectNotification.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:19:30.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "RecievedAlarmsDbContext.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
+              "RelativeToolTip": "Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:24:04.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Client\\Communications\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Client\\Communications\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-31T14:18:18.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "RecievedAlarmRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
+              "RelativeDocumentMoniker": "Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
+              "RelativeToolTip": "Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:23:56.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Shared",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
+              "RelativeDocumentMoniker": "Client\\Shared\\Shared.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
+              "RelativeToolTip": "Client\\Shared\\Shared.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-31T11:25:12.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ConsumerService.cs",
+              "RelativeDocumentMoniker": "Shared\\Services\\ConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ConsumerService.cs",
+              "RelativeToolTip": "Shared\\Services\\ConsumerService.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAlwBwAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T09:45:20.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AQIAAEkIAAAAAAAAAAAAAGgIAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-07-31T11:04:23.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ProducerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ProducerService.cs",
+              "RelativeDocumentMoniker": "Shared\\Services\\ProducerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Services\\ProducerService.cs",
+              "RelativeToolTip": "Shared\\Services\\ProducerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-29T09:45:30.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Interactors.csproj",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
               "RelativeDocumentMoniker": "Client\\Interactors\\Interactors.csproj",
               "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
@@ -592,55 +825,127 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": ".editorconfig",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\.editorconfig",
-              "RelativeDocumentMoniker": ".editorconfig",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\.editorconfig",
-              "RelativeToolTip": ".editorconfig",
+              "DocumentIndex": 56,
+              "Title": "KafkaMessageMetrics.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Share\\KafkaMessage\\Producer\\KafkaMessageMetrics.cs",
+              "RelativeDocumentMoniker": "Shared\\Share\\KafkaMessage\\Producer\\KafkaMessageMetrics.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Share\\KafkaMessage\\Producer\\KafkaMessageMetrics.cs",
+              "RelativeToolTip": "Shared\\Share\\KafkaMessage\\Producer\\KafkaMessageMetrics.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T07:06:31.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "KafkaMessageConfig.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageConfig.cs",
+              "RelativeDocumentMoniker": "Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageConfig.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageConfig.cs",
+              "RelativeToolTip": "Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T07:06:30.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "KafkaMessageCommand.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageCommand.cs",
+              "RelativeDocumentMoniker": "Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageCommand.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageCommand.cs",
+              "RelativeToolTip": "Shared\\Share\\KafkaMessage\\Consumer\\KafkaMessageCommand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-07-29T11:00:34.713Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Alarm.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Alarm.cs",
-              "RelativeDocumentMoniker": "Client\\Entities\\Entities\\Alarm.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Alarm.cs",
-              "RelativeToolTip": "Client\\Entities\\Entities\\Alarm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:18:44.838Z"
+              "WhenOpened": "2024-07-31T07:06:01.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "MessageServerDTO.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
-              "RelativeDocumentMoniker": "Client\\Communications\\DTO\\MessageServerDTO.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
-              "RelativeToolTip": "Client\\Communications\\DTO\\MessageServerDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-22T06:59:39.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "AlarmServerDTO.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\AlarmServerDTO.cs",
-              "RelativeDocumentMoniker": "Client\\Communications\\DTO\\AlarmServerDTO.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\DTO\\AlarmServerDTO.cs",
-              "RelativeToolTip": "Client\\Communications\\DTO\\AlarmServerDTO.cs",
+              "DocumentIndex": 44,
+              "Title": "CheckHashHalper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "RelativeToolTip": "Client\\Interactors\\Helpers\\CheckHashHalper.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T15:17:01.198Z"
+              "WhenOpened": "2024-07-30T12:12:50.774Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 45,
+              "Title": "HashHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\HashHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\HashHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\HashHelper.cs",
+              "RelativeToolTip": "Client\\Interactors\\Helpers\\HashHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T12:14:28.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "JsonCacheHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "RelativeToolTip": "Client\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T12:14:38.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "SerializeHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\SerializeHelper.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\SerializeHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Helpers\\SerializeHelper.cs",
+              "RelativeToolTip": "Client\\Interactors\\Helpers\\SerializeHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T07:41:19.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ClientSettings.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Settings\\ClientConfig\\ClientSettings.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Settings\\ClientConfig\\ClientSettings.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Settings\\ClientConfig\\ClientSettings.cs",
+              "RelativeToolTip": "Client\\Interactors\\Settings\\ClientConfig\\ClientSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T07:19:39.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "ClientConfiguration.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Settings\\ClientConfig\\ClientConfiguration.cs",
+              "RelativeDocumentMoniker": "Client\\Interactors\\Settings\\ClientConfig\\ClientConfiguration.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Settings\\ClientConfig\\ClientConfiguration.cs",
+              "RelativeToolTip": "Client\\Interactors\\Settings\\ClientConfig\\ClientConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T07:17:38.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Notification.cs",
+              "RelativeDocumentMoniker": "Client\\Entities\\Entities\\Notification.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Notification.cs",
+              "RelativeToolTip": "Client\\Entities\\Entities\\Notification.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T14:18:55.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Client\\Entities\\Entities\\BaseEntity.cs",
@@ -652,15 +957,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Notification.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Notification.cs",
-              "RelativeDocumentMoniker": "Client\\Entities\\Entities\\Notification.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Notification.cs",
-              "RelativeToolTip": "Client\\Entities\\Entities\\Notification.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "DocumentIndex": 51,
+              "Title": "Alarm.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Alarm.cs",
+              "RelativeDocumentMoniker": "Client\\Entities\\Entities\\Alarm.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities\\Alarm.cs",
+              "RelativeToolTip": "Client\\Entities\\Entities\\Alarm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T14:18:55.987Z"
+              "WhenOpened": "2024-07-24T14:18:44.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "GlobalSingletonParameters.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "RelativeDocumentMoniker": "Shared\\Common\\GlobalSingletonParameters.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "RelativeToolTip": "Shared\\Common\\GlobalSingletonParameters.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAC4AAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T11:49:35.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": ".editorconfig",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Client\\.editorconfig",
+              "RelativeDocumentMoniker": ".editorconfig",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Client\\.editorconfig",
+              "RelativeToolTip": ".editorconfig",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-07-29T11:00:34.713Z"
             }
           ]
         }

@@ -8,8 +8,11 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using NSwag.Annotations;
 using Serilog;
+using Shared.Share.KafkaMessage;
 using SignalRSwaggerGen.Attributes;
 using System.Net;
+using System.Text;
+using System.Text.Json;
 
 namespace Communications.Hubs
 {
@@ -49,26 +52,29 @@ namespace Communications.Hubs
 	public async Task Send(Guid clientId)
 		{
 			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
-			var route = _configuration["HostSettings:RouteNotify"];
-
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
 				{
 					foreach (var alarm in _alarms)
 					{
-						memoryCache.TryGetValue($"{clientId}_{alarm.Id}", out Alarm? Alarm);
-			
-						if (Alarm == null)
+						var CompositKey = $"{clientId}_{alarm.Id}";
+						if (!memoryCache.TryGetValue(CompositKey, out Alarm? Alarm))
 						{
 							var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
+							{
+								KafkaMessageMetrics.Instance.TotalCountMessages += 1;
+								KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(alarmDTO)).Length;
+								KafkaMessageMetrics.Instance.CountAlarms += 1;
+								KafkaMessageMetrics.Instance.Latency = alarmDTO.DateAndTimeSendDataByServer - alarmDTO.Alarm.CreationDateTime;
+							}
 
 							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], alarmDTO);
 
 							Log.Information($"Alarm {alarmDTO.Alarm.Id} has been sent."
 											+ "\nSender:   " + $" Server - {alarmDTO.ServerId}"
 											+ "\nRecipient:" + $" Client - {clientId}");
-							memoryCache.Set($"{clientId}_{alarm.Id}", alarm);
+							memoryCache.Set(CompositKey, alarm);
 						}
 					}
 				}
@@ -97,6 +103,13 @@ namespace Communications.Hubs
 					foreach (var alarm in _alarms)
 					{
 						var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
+
+						{
+							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
+							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(alarmDTO)).Length;
+							KafkaMessageMetrics.Instance.CountAlarms += 1;
+							KafkaMessageMetrics.Instance.Latency = alarmDTO.DateAndTimeSendDataByServer - alarmDTO.Alarm.CreationDateTime;
+						}
 
 						await Clients.All.SendAsync(_configuration["HubSettings:Alarm:HubMethod"], alarmDTO);
 

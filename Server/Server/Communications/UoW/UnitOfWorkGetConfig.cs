@@ -12,6 +12,7 @@ using System.Threading;
 using Serilog;
 using Newtonsoft.Json.Linq;
 using Communications.Helpers;
+using Interactors.Helpers;
 
 namespace Communications.UoW
 {
@@ -31,11 +32,17 @@ namespace Communications.UoW
 			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 			sectionHashes = new Dictionary<string, string>();
 
-			LoadConfigFile();	
-		ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
+			LoadConfigFile();
+			ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
 			{
-			if (isInitialized)
-				{ LoadConfigFile();} else 	{isInitialized = true;}
+				if (isInitialized)
+				{
+					LoadConfigFile();
+				}
+				else
+				{
+					isInitialized = true;
+				}
 			});
 		}
 
@@ -44,7 +51,9 @@ namespace Communications.UoW
 			configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
 				.AddJsonFile("configure.json", optional: false, reloadOnChange: true)
 				.Build();
-			if (ConfigValidHelper.ValidateConfigurationJson(schemaPath, filePath))
+			var schema = File.ReadAllText(schemaPath);
+			var config = File.ReadAllText(filePath);
+			if (ConfigValidHelper.ValidateConfigurationJson(schema, config))
 			{
 				sectionHashes["DbConnection:DataBase"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:DataBase");
 				sectionHashes["DbConnection:Alarm"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:Alarm");
@@ -53,6 +62,8 @@ namespace Communications.UoW
 				sectionHashes["HubSettings:Notify"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:Notify");
 				sectionHashes["HubSettings:Alarm"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:Alarm");
 				sectionHashes["HostSettings"] = HashHelper.CalculateJsonSectionMd5(filePath, "HostSettings");
+				sectionHashes["Kafka:Producer"] = HashHelper.CalculateJsonSectionMd5(filePath, "Kafka:Producer");
+				sectionHashes["Kafka:Consumer"] = HashHelper.CalculateJsonSectionMd5(filePath, "Kafka:Consumer");
 
 				this.Configuration = configuration;
 			}

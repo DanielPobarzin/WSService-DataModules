@@ -10,8 +10,12 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using NSwag.Annotations;
 using Serilog;
+using Shared.Share.KafkaMessage;
 using SignalRSwaggerGen.Attributes;
+using System.Diagnostics;
 using System.Net;
+using System.Text;
+using System.Text.Json;
 
 namespace Communications.Hubs
 {
@@ -52,7 +56,6 @@ namespace Communications.Hubs
 		public async Task Send(Guid clientId)
 		{
 			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
-			var route = _configuration["HostSettings:RouteNotify"];
 	
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
@@ -60,18 +63,26 @@ namespace Communications.Hubs
 				{
 					foreach (var notification in _notifications)
 					{
-						memoryCache.TryGetValue($"{clientId}_{notification.Id}", out Notification? Notification);
+						var CompositKey = $"{clientId}_{notification.Id}";
 						
-						if (Notification == null)
+						if (!memoryCache.TryGetValue(CompositKey, out Notification? Notification))
 						{
 							var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
+
+							{
+								KafkaMessageMetrics.Instance.TotalCountMessages += 1;
+								KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(notificationDTO)).Length;
+								KafkaMessageMetrics.Instance.CountAlarms += 1;
+								KafkaMessageMetrics.Instance.Latency = notificationDTO.DateAndTimeSendDataByServer - notificationDTO.Notification.CreationDateTime;
+							}
+
 							await Clients.Client(Context.ConnectionId).SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
 
 							Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
 										+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}"
 										+ "\nRecipient:\t" + $" Client - {clientId}");
 
-							memoryCache.Set($"{clientId}_{notification.Id}", notification);
+							memoryCache.Set(CompositKey, notification);
 						}
 					}
 				}
@@ -100,7 +111,12 @@ namespace Communications.Hubs
 					foreach (var notification in _notifications)
 					{
 						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
-
+						{
+							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
+							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(notificationDTO)).Length;
+							KafkaMessageMetrics.Instance.CountAlarms += 1;
+							KafkaMessageMetrics.Instance.Latency = notificationDTO.DateAndTimeSendDataByServer - notificationDTO.Notification.CreationDateTime;
+						}
 						await Clients.All.SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
 
 						Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."

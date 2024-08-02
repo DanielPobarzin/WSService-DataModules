@@ -6,10 +6,10 @@ namespace Interactors.Helpers
 {
     public class ConfigValidHelper
     {
-        public static bool ValidateConfigurationJson(string pathSchema, string pathConfig)
+        public static bool ValidateConfigurationJson(string Schema, string Config)
         {
-            JSchema schema = JSchema.Parse(File.ReadAllText(pathSchema));
-            JObject jsonObject = JObject.Parse(File.ReadAllText(pathConfig));
+            JSchema schema = JSchema.Parse(Schema);
+            JObject jsonObject = JObject.Parse(Config);
             if (!jsonObject.IsValid(schema))
             {
                 Log.Warning("The configuration file was not found or it is incorrect. The default configuration is used.");

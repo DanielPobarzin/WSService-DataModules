@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Interactors.Interfaces
 {
-	public interface IConsumerService<T> : IHostedService
+	public interface IConsumerService : IHostedService
 	{
 		void PullMessageConsumerProcess (CancellationToken stoppingToken);
 	}

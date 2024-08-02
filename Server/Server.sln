@@ -21,6 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Server\Repo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Communications", "Communications", "{8FF2199D-5CA5-4F63-B035-CB366FA14160}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Server\Shared\Shared.csproj", "{28E80256-93DA-459B-93AD-314944BA6815}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71B83A32-0295-4E31-BAB8-F677AA89CA6E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +50,10 @@ Global
 		{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E80256-93DA-459B-93AD-314944BA6815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E80256-93DA-459B-93AD-314944BA6815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E80256-93DA-459B-93AD-314944BA6815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E80256-93DA-459B-93AD-314944BA6815}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +67,7 @@ Global
 		{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB} = {CE86057F-9748-435E-B74B-8C9AF6C28353}
 		{1DB99585-042E-4E52-9ECB-423B1FDBB7E7} = {11A75557-2324-412B-BA8B-7A8E0EB66DF7}
 		{8FF2199D-5CA5-4F63-B035-CB366FA14160} = {3AFC2F9A-2724-49C8-8EC6-E498662D54ED}
+		{28E80256-93DA-459B-93AD-314944BA6815} = {8FF2199D-5CA5-4F63-B035-CB366FA14160}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE58C0FE-9A14-4205-A271-070F40B24293}

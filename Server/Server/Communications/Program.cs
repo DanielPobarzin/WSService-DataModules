@@ -2,13 +2,13 @@
 using Communications.Helpers;
 using Communications.Hubs;
 using Communications.UoW;
+using Interactors.Helpers;
+using Interactors.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Connections;
-using Microsoft.Diagnostics.Runtime;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -16,29 +16,36 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
+using Shared.Services;
+using Shared.Share.KafkaMessage;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using System;
-using System.Diagnostics;
 using System.Reflection;
+using System.Text.Json;
 using System.Threading;
-using static System.Collections.Specialized.BitVector32;
 
 namespace Communications
 {
 	public class Program
 	{
+		private static ProducerService producerService;
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
 		private static UnitOfWorkGetNotifications unitOfWorkNotify;
 		private static UnitOfWorkGetAlarms unitOfWorkAlarm;
 		private static CheckHashHalper checkHashHalper;
-
+		private static ConsumerService consumerService;
 		private static CancellationTokenSource cancellationTokenNotifySource;
 		private static CancellationTokenSource cancellationTokenAlarmSource;
-
+		private static CancellationTokenSource cancellationToken;
 		private static Thread UoWNotifyThread;
 		private static Thread UoWAlarmThread;
 		private static Thread hostThread;
+		private static Thread kafkaConsumerThread;
+		private static readonly JsonSerializerOptions DefaultOptions = new JsonSerializerOptions
+		{
+			WriteIndented = true
+		};
+
 		public static IHost host;
 
 		static object locker1 = new();
@@ -85,23 +92,45 @@ namespace Communications
 
 			//--------------- Starting the host -----------------//
 			hostThread = new Thread(CreateAndRunHostServer);
-			hostThread.Start();
+			
 
 			//--------------- Start requesting data from the database -----------------//
 			UoWNotifyThread = new Thread(StartListenNotifications);
-			UoWNotifyThread.Start();
+			
 
 			//--------------- Start requesting data from the database -----------------//
 			UoWAlarmThread = new Thread(StartListenAlarms);
-			UoWAlarmThread.Start();
-
-			//--------------- Defining actions when changing the configuration -----------------//
-
+			
 			GetEventChangeConfiguration();
-		
+
+			{
+				producerService = new ProducerService(unitOfWorkConfig.Configuration);
+
+				Task.Run(async () => await producerService.PutMessageProducerProcessAsync("current-client-config-topic",
+						 JsonSerializer.Serialize(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config"));
+				Task.Run(async () =>
+				{
+					while (!cancellationToken.Token.IsCancellationRequested)
+					{
+						await producerService.PutMessageProducerProcessAsync("client-metric-topic",
+							JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
+						await Task.Delay(100, cancellationToken.Token);
+					}
+				});
+			}
+
+			hostThread.Start();
+			UoWNotifyThread.Start();
+			UoWAlarmThread.Start();
+			kafkaConsumerThread.Start();
+
 			Task.Delay(Timeout.Infinite).Wait();
 			Log.CloseAndFlush();
-
+		}
+		public static void StartKafka()
+		{
+			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
+			consumerService.StartAsync(CancellationToken.None);
 		}
 		public static void StartListenNotifications()
 		{
@@ -172,6 +201,26 @@ namespace Communications
 						Log.Information($"Changing the configuration {comment}. Continue with the new configuration ... ");
 						RebootThread(cancellationTokenNotifySource, UoWNotifyThread, StartListenNotifications);
 					}
+					if (hashConfigs.ContainsKey("Kafka:Producer"))
+					{
+						Log.Information($"{unitOfWorkConfig.Configuration["HubSettings:ServerId"]}: " +
+							$"Changing the settings of connecting to kafka broker (role:Producer). ");
+						producerService.Dispose();
+						producerService = new ProducerService(unitOfWorkConfig.Configuration);
+					}
+					if (hashConfigs.ContainsKey("Kafka:Consumer"))
+					{
+						Log.Information($"{unitOfWorkConfig.Configuration["HubSettings:ServerId"]}:" +
+							$" Changing the settings of connecting to kafka broker(role:Consumer). ");
+						await consumerService.StopAsync(CancellationToken.None);
+						kafkaConsumerThread.Join();
+						Thread newThread = new Thread(StartKafka);
+						newThread.Start();
+						kafkaConsumerThread = newThread;
+					}
+
+				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
+						(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
 			}
 		}
 		

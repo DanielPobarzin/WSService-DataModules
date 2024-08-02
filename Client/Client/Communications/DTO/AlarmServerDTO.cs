@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Communications.DTO
 {
-	public class AlarmServerDTO
+	public class AlarmServerDTO : ServerDTO
 	{
-			public Guid ServerId { get; set; }
 			public Alarm Alarm { get; set; }
-			public DateTime DateAndTimeSendDataByServer { get; set; }
 	}
 }

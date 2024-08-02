@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Client\Repo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Communications", "Client\Communications\Communications.csproj", "{CCD41583-DA7E-4850-AD20-40D7C22215BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Client\Shared\Shared.csproj", "{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D8A1FFD0-B7F5-477A-9555-44BEC1E712FB}"
 	ProjectSection(SolutionItems) = preProject

@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4CF8sxmVQ2dRHwn44e7XH7Dx4UTJiLmQCOLbWjbfPH2fRBBz6mV77bSjixVtH/OM37Dmpb8M+5oahNGvq97Xhg==",
+  "dgSpecHash": "KYZ0dSOlxgPaC2idwXswW1zT6J2TBksz0cLYCZsIC4LUIKJ168C4nLfY/Gxlk7wPtkD2OrIK3irMYJqQLXzhwQ==",
   "success": true,
   "projectFilePath": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Communications.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\ben.demystifier\\0.4.1\\ben.demystifier.0.4.1.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.0\\confluent.kafka.2.5.0.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\librdkafka.redist\\2.5.0\\librdkafka.redist.2.5.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.1.1\\microsoft.aspnetcore.authorization.2.1.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\2.1.2\\microsoft.aspnetcore.connections.abstractions.2.1.2.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",

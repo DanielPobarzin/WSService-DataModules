@@ -8,8 +8,6 @@
     ".NETCoreApp,Version=v8.0": {
       "Communications/1.0.0": {
         "dependencies": {
-          "Entities": "1.0.0",
-          "Interactors": "1.0.0",
           "Microsoft.AspNetCore.Components": "8.0.6",
           "Microsoft.AspNetCore.Hosting": "2.1.1",
           "Microsoft.AspNetCore.Http": "2.1.34",
