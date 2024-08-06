@@ -1,14 +1,11 @@
-﻿using Domain.Entities;
-using Domain.Settings.SignalRServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Settings.SignalRServer;
 
 namespace Application.Interfaces.Repositories
 {
 	public interface IServerConfigRepositoryAsync : IGenericRepositoryAsync<ServerSettings>
 	{
+		Task <DBSettings> GetByIdDataBaseSettingsAsync(Guid id);
+		Task <HostSettings> GetByIdHostSettingsAsync(Guid id);
+		Task <HubSettings> GetByIdHubSettingsAsync(Guid id);
 	}
 }

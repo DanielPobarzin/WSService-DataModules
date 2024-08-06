@@ -18,10 +18,6 @@
     <Folder Include="Features\Configurations\Client\Commands\UpdateConfig\" />
     <Folder Include="Features\Configurations\Client\Queries\GetConfigClientList\" />
     <Folder Include="Features\Configurations\Client\Queries\GetConfigClientDetails\" />
-    <Folder Include="Features\Configurations\Server\Commands\CreateConfig\" />
-    <Folder Include="Features\Configurations\Server\Commands\UpdateConfig\" />
-    <Folder Include="Features\Configurations\Server\Commands\DeleteConfig\" />
-    <Folder Include="Features\Configurations\Server\Queries\GetConfigServerList\" />
   </ItemGroup>
 
   <ItemGroup>

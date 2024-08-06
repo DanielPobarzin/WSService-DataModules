@@ -1,19 +1,9 @@
-﻿using Application.Features.Connections.Queries.GetConnectionsList;
+﻿using Application.Exceptions;
 using Application.Interfaces.Repositories;
-using Application.Parameters;
-using AutoMapper.QueryableExtensions;
 using AutoMapper;
-using Domain.Common;
-using Domain.Entities;
+using Domain.Settings.SignalRServer;
 using Microsoft.EntityFrameworkCore;
 using Persistance.DbContexts;
-using Persistance.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Settings.SignalRServer;
 
 namespace Persistance.Repositories
 {
@@ -25,6 +15,24 @@ namespace Persistance.Repositories
 		{
 			_dbContext = dbContext;
 			_mapper = mapper;
+		}
+		public async Task<DBSettings> GetByIdDataBaseSettingsAsync(Guid Id)
+		{
+			var dbSettings = await _dbContext.DbSettings.FirstOrDefaultAsync(e => e.SystemId == Id);
+			if (dbSettings == null) { throw new APIException("Configure with database parameters Not Found."); }
+			return dbSettings;
+		}
+		public async Task<HostSettings> GetByIdHostSettingsAsync(Guid Id)
+		{
+			var hostSettings = await _dbContext.HostSettings.FirstOrDefaultAsync(e => e.SystemId == Id);
+			if (hostSettings == null) { throw new APIException("Configure with host parameters Not Found."); }
+			return hostSettings;
+		}
+		public async Task<HubSettings> GetByIdHubSettingsAsync(Guid Id)
+		{
+			var hubSettings = await _dbContext.HubSettings.FirstOrDefaultAsync(e => e.SystemId == Id);
+			if (hubSettings == null) { throw new APIException("Configure with hubs parameters Not Found."); }
+			return hubSettings;
 		}
 	}
 }

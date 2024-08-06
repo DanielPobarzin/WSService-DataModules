@@ -1,13 +1,6 @@
 ﻿using Application.Mappings;
-using AutoMapper;
-using Domain.Common;
-using Domain.Entities;
+using AutoMapper; 
 using Domain.Settings.SignalRServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Configurations.Server.Queries.GetConfigServerDetails
 {
