@@ -2,6 +2,7 @@
 using AutoMapper;
 using Domain.Common;
 using Domain.Entities;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,9 @@ namespace Application.Features.Connections.Queries.GetConnectionDetails
 
 			profile.CreateMap<Connection, ConnectionDetailsViewModel>()
 					.ForMember(connectionVm => connectionVm.ClientId,
-							   opt => opt.MapFrom(connection => connection.ClientId))
+							   opt => opt.MapFrom(connection => connection.Client.Id))
 					.ForMember(connectionVm => connectionVm.ServerId,
-							   opt => opt.MapFrom(connection => connection.ServerId))
+							   opt => opt.MapFrom(connection => connection.Server.Id))
 					.ForMember(connectionVm => connectionVm.ConnectionId,
 							   opt => opt.MapFrom(connection => connection.ConnectionId))
 					.ForMember(connectionVm => connectionVm.Session,

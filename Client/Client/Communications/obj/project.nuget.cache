@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X4ocJD/zjIjLHPF3k62g+AQ3EhRSwNqKOy6I8f/rA58v/PRzVYt8cxuTVXCYH8E+4VElqOkC89JkCx/gDOHqUw==",
+  "dgSpecHash": "y9USTi0c4r8=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Communications.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\ben.demystifier\\0.4.1\\ben.demystifier.0.4.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.0\\confluent.kafka.2.5.0.nupkg.sha512",

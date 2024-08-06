@@ -1,39 +1,38 @@
 ﻿using Application.Exceptions;
-using Application.Features.Connections.Commands.DeleteConnection;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
-using Domain.Common;
+using AutoMapper;
 using Domain.Entities;
+using Domain.Enums;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Connections.Commands.AddConnection
 {
 	public class AddConnectionCommandHandler : IRequestHandler<AddConnectionCommand, Response<string>>
 	{
-		private readonly IConnectionRepositoryAsync _repository;
+		private readonly IConnectionRepositoryAsync _repositoryConnection;
+		private readonly IServerRepositoryAsync _repositoryServer;
+		private readonly IClientRepositoryAsync _repositoryClient;
+		private readonly IMapper _mapper;
 
-		public AddConnectionCommandHandler(IConnectionRepositoryAsync repository)
+		public AddConnectionCommandHandler(IConnectionRepositoryAsync repositoryConnection, IServerRepositoryAsync repositoryServer, IClientRepositoryAsync repositoryClient, IMapper mapper)
 		{
-			_repository = repository;
+			_repositoryConnection = repositoryConnection;
+			_repositoryClient = repositoryClient;
+			_repositoryServer = repositoryServer;
+			_mapper = mapper;
 		}
 		public async Task<Response<string>> Handle(AddConnectionCommand command, CancellationToken cancellationToken)
 		{
-			var connection = new Connection
-			{
-				ClientId = command.ClientId,
-				ServerId = command.ServerId,
-				ConnectionId = command.ConnectionId,
-				TimeStampOpenConnection = command.TimeStampOpenConnection,
-				TimeStampCloseConnection = null,
-				Session = null,
-				Status = ConnectionStatus.Open
-			};
-			await _repository.AddAsync(connection);
+			var client = await _repositoryClient.GetByIdAsync(command.ClientId);
+			if (client == null) throw new APIException($"Client Not Found.");
+			var server = await _repositoryServer.GetByIdAsync(command.ServerId);
+			if (server == null) throw new APIException($"Server Not Found.");
+			var currentConnection = await _repositoryConnection.GetByConnectionIdAsync(command.ConnectionId);
+			if (currentConnection != null) throw new APIException($"Connection has already been added.");
+			var connection = _mapper.Map<Connection>(command);
+			
+			await _repositoryConnection.AddAsync(connection);
 			return new Response<string>(connection.ConnectionId, true);
 		}
 	}

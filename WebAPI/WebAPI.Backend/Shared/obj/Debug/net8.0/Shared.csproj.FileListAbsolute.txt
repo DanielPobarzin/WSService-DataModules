@@ -1,0 +1,6 @@
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Shared\obj\Debug\net8.0\Shared.csproj.AssemblyReference.cache
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Shared\obj\Debug\net8.0\Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Shared\obj\Debug\net8.0\Shared.AssemblyInfoInputs.cache
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Shared\obj\Debug\net8.0\Shared.AssemblyInfo.cs
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Shared\obj\Debug\net8.0\Shared.csproj.CoreCompileInputs.cache
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Shared\obj\Debug\net8.0\Shared.sourcelink.json

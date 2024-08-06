@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "GpXmggOyQSzcypgcwb8DcJ3ciZKjhiXx3w/NGPZlub+QiGsCwn05Wv+CfA9yp6OjO0HlwG94+HMaSRQ7siUEyA==",
+  "dgSpecHash": "rO/0WqRO1Io=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\Persistance.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\WebAPI\\WebAPI.Backend\\Persistance\\Persistance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.1\\confluent.kafka.2.5.1.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\librdkafka.redist\\2.5.0\\librdkafka.redist.2.5.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\mediatr\\12.3.0\\mediatr.12.3.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.4\\microsoft.entityframeworkcore.8.0.4.nupkg.sha512",

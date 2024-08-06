@@ -2170,7 +2170,16 @@
           "Entities": "1.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
           "Newtonsoft.Json.Schema": "4.0.1",
-          "Serilog": "4.0.0"
+          "Serilog": "4.0.0",
+          "Serilog.Enrichers.ClientInfo": "2.0.3",
+          "Serilog.Enrichers.Demystifier": "1.0.2",
+          "Serilog.Enrichers.ExceptionData": "1.0.0",
+          "Serilog.Enrichers.Memory": "1.0.4",
+          "Serilog.Enrichers.Process": "3.0.0",
+          "Serilog.Enrichers.RequestUserId": "1.0.0",
+          "Serilog.Enrichers.Thread": "4.0.0",
+          "Serilog.Sinks.Console": "6.0.0",
+          "Serilog.Sinks.File": "5.0.0"
         },
         "compile": {
           "bin/placeholder/Interactors.dll": {}
@@ -5648,50 +5657,48 @@
   },
   "packageFolders": {
     "C:\\Users\\Даниил\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Communications.csproj",
+      "projectUniqueName": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Communications\\Communications.csproj",
       "projectName": "Communications",
-      "projectPath": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Communications.csproj",
+      "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Communications\\Communications.csproj",
       "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-      "outputPath": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\obj\\",
+      "outputPath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Communications\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Entities.csproj"
+            "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Entities\\Entities.csproj"
             },
-            "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interactors.csproj": {
-              "projectPath": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interactors.csproj"
+            "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Interactors\\Interactors.csproj": {
+              "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Interactors\\Interactors.csproj"
             },
-            "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Repositories.csproj": {
-              "projectPath": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Repositories.csproj"
+            "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Repositories\\Repositories.csproj": {
+              "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Repositories\\Repositories.csproj"
             },
-            "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Shared.csproj"
+            "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Shared\\Shared.csproj": {
+              "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Shared\\Shared.csproj"
             }
           }
         }
@@ -5828,7 +5835,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

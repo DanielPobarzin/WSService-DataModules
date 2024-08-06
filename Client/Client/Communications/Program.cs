@@ -29,22 +29,22 @@ namespace Client
 		private static CancellationTokenSource cancellationToken;
 		private static Thread notificationExchangeThread;
 		private static Thread alarmExchangeThread;
-		private static Thread kafkaConsumerThread;
+		private static Thread kafkaProducerThread;
 		private static MemoryCache MemoryCache;
 		private static readonly JsonSerializerOptions DefaultOptions = new JsonSerializerOptions
 		{
 			WriteIndented = true
 		};
+
 		/// <summary>
 		/// The main method defines work threads, creates instances of work units.
 		/// </summary>
 		public static void Main(string[] args)
 		{
-			//---------- Default ---------------//
 			GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Close;
 			GlobalSingletonParameters.Instance.ConnectionCommandChanged += OnConnectionCommandChanged;
 
-			//---------- Logging ---------------//
+			// --- Logging --- //
 			{
 				Log.Logger = new LoggerConfiguration()
 				.MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
@@ -74,43 +74,35 @@ namespace Client
 						restrictedToMinimumLevel: LogEventLevel.Information)
 				.CreateLogger();
 			}
-			//---------- CacheInMemory ---------------//
+			// --- CacheInMemory --- // 
 			MemoryCache = new MemoryCache(new MemoryCacheOptions
 			{
 				ExpirationScanFrequency = TimeSpan.FromMinutes(60),	SizeLimit = 1024 * 1024 * 100, CompactionPercentage = 0.4
 			});
 
-			//--------------- Initialize get and check configuration -----------------//
+			// --- Initialize get and check configuration --- // 
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
 			checkHashHalper = new CheckHashHalper();
 
 			//--------------- Мain threads of the client's work -----------------//
 			notificationExchangeThread = new Thread(ExchangeBetweenServerAndClient);
 			alarmExchangeThread = new Thread(ExchangeBetweenServerAndClient);
-			kafkaConsumerThread = new Thread(StartKafka);
+
+			// --- Initialize Producer & Consumer and run consumer --- //
+			producerService = new ProducerService(unitOfWorkConfig.Configuration);
+			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
+			consumerService.StartAsync(CancellationToken.None);
+
+			// --- Kafka Producer thread --- //
+			kafkaProducerThread = new Thread(StartKafkaProducer);
 
 			//--------------- Defining actions when changing the configuration -----------------//
 			OnConfigurationChanged();
 
-			{
-				producerService = new ProducerService(unitOfWorkConfig.Configuration);
-
-				Task.Run(async () => await producerService.PutMessageProducerProcessAsync("current-client-config-topic", 
-					     JsonSerializer.Serialize(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config"));
-				Task.Run(async () =>
-				{
-					while (!cancellationToken.Token.IsCancellationRequested)
-					{
-						await producerService.PutMessageProducerProcessAsync("client-metric-topic",
-							JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
-						await Task.Delay(100, cancellationToken.Token);
-					}
-				});
-			}
-
+			// --- Start adding threads --- //
 			notificationExchangeThread.Start(TypeHub.Notify);
 			alarmExchangeThread.Start(TypeHub.Alarm);
-			kafkaConsumerThread.Start();
+			kafkaProducerThread.Start();
 
 			Task.Delay(Timeout.Infinite).Wait();
 			Log.CloseAndFlush();
@@ -120,10 +112,18 @@ namespace Client
 		/// <summary>
 		/// Start listening to messages from the kafka broker.
 		/// </summary>
-		public static void StartKafka()
+		public static void StartKafkaProducer()
 		{
-			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);			
-			consumerService.StartAsync(CancellationToken.None);
+			cancellationToken = new CancellationTokenSource();
+			Task.Run(async () =>
+			{
+				while (!cancellationToken.Token.IsCancellationRequested)
+				{
+					await producerService.PutMessageProducerProcessAsync("client-metric-topic",
+						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
+					await Task.Delay(100, cancellationToken.Token);
+				}
+			});
 		}
 
 		private static Guid clientId;
@@ -181,9 +181,9 @@ namespace Client
 				}
 			}
 		}
-
 		private static HubConnection connectionNotify { get; set; }
 		private static HubConnection connectionAlarm { get; set; }
+
 		/// <summary>
 		/// Building a connection object depending on the provided address.
 		/// </summary>
@@ -429,21 +429,17 @@ namespace Client
 				if (hashConfigs.ContainsKey("Kafka:Producer"))
 				{
 					Log.Information($"{clientId}: Changing the settings of connecting to kafka broker (role:Producer). ");
-					producerService.Dispose();
-					producerService = new ProducerService(unitOfWorkConfig.Configuration);
+					RebootThread(cancellationToken, kafkaProducerThread, StartKafkaProducer);
 				}
 				if (hashConfigs.ContainsKey("Kafka:Consumer"))
 				{
 					Log.Information($"{clientId}: Changing the settings of connecting to kafka broker(role:Consumer). ");
 					await consumerService.StopAsync(CancellationToken.None);
-					kafkaConsumerThread.Join();
-					Thread newThread = new Thread(StartKafka);
-					newThread.Start();
-					kafkaConsumerThread = newThread;
+					consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
+					await consumerService.StartAsync(CancellationToken.None);
 				}
-				string kafkaConfigMessage = JsonSerializer.Serialize
-							(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration),	DefaultOptions);
-				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", kafkaConfigMessage, "config");
+				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
+							(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
 			}
 		}
 
@@ -504,6 +500,20 @@ namespace Client
 			{
 				RestartAsync(hub, thread);
 			}
+		}
+		private static void RebootThread(CancellationTokenSource cancellationToken, Thread thread, Action action)
+		{
+			cancellationToken.Cancel();
+			cancellationToken.Dispose();
+			thread.Join();
+			if (action == StartKafkaProducer)
+			{
+				producerService.Dispose();
+				producerService = new ProducerService(unitOfWorkConfig.Configuration);
+			}
+			Thread newThread = new Thread(new ThreadStart(action));
+			newThread.Start();
+			thread = newThread;
 		}
 	}
 }

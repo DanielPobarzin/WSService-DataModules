@@ -44,7 +44,10 @@ namespace Shared.Services
 			try
 			{
 				var result = await _producer.ProduceAsync(topic, kafkaMessage);
-				Log.Information($"Message sent to {result.TopicPartitionOffset}");
+				if (key != "metric")
+				{
+					Log.Information($"Message sent to {result.TopicPartitionOffset}");
+				}
 			}
 			catch (ProduceException<Null, string> e)
 			{

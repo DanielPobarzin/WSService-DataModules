@@ -20,7 +20,8 @@ using System.Text.Json;
 namespace Communications.Hubs
 {
 	/// <summary>
-	/// WebSocket Notify hub for real-time communication.
+	/// WebSocket Notification hub for real-time communication.
+	/// This hub is responsible for sending notifications messages to connected clients.
 	/// </summary>
 	[SignalRHub]
 	public class NotificationHub : Hub
@@ -31,7 +32,14 @@ namespace Communications.Hubs
 		private TransformToDTOHelper transformToDTOHelper;
 		private IMemoryCache memoryCache;
 
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NotificationHub"/> class.
+		/// </summary>
+		/// <param name="notifications">The list of notifications to be monitored.</param>
+		/// <param name="connections">The connection manager for handling client connections.</param>
+		/// <param name="transformToDTOHelper">Helper for transforming notifications to DTOs.</param>
+		/// <param name="configuration">Application configuration settings.</param>
+		/// <param name="memoryCache">Memory cache for storing alarm states.</param>
 		public NotificationHub (List<Notification>? notifications, 
 			   Connections<NotificationHub> connections,
 			   IMemoryCache memoryCache,
@@ -46,13 +54,16 @@ namespace Communications.Hubs
 		}
 
 		/// <summary>
-		/// Sends the message with notification to client.
+		/// Sends the message with notification to the specified client.
+		/// This method continuously checks for new notifications and sends them to the client until the connection is closed.
 		/// </summary>
-		/// <param name="clientId">The ID(guid) of the client that accesses the method.</param>
-		/// <returns>Returns MessageServerDTO</returns>
+		/// <param name="clientId">The ID (GUID) of the client that accesses the method.</param>
+		/// <returns>A task that represents the asynchronous operation. 
+		/// The task result contains an <see cref="MessageServerDTO"/> object.</returns>
 		[SignalRMethod("Send")]
-		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO))]
-		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
+		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO), Description = "The notification was successfully sent to the client.")]
+		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest), Description = "The request was invalid.")]
+		[SwaggerResponse(HttpStatusCode.InternalServerError, typeof(string), Description = "An error occurred while processing the request.")]
 		public async Task Send(Guid clientId)
 		{
 			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
@@ -95,12 +106,13 @@ namespace Communications.Hubs
 		}
 
 		/// <summary>
-		/// Sends the message with notification to all clients.
+		/// Sends the message with notification to all connected clients.
+		/// This method continuously checks for new notification and broadcasts them to all clients until there are no active connections.
 		/// </summary>
-		/// <returns>Returns MessageServerDTO</returns>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		[SignalRMethod("SendAll")]
-		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO))]
-		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest))]
+		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO), Description = "Notifications sent successfully.")]
+		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest), Description = "Invalid request.")]
 		public async Task SendAll()
 		{
 			while (connections.GetConnections().Any())
@@ -130,6 +142,12 @@ namespace Communications.Hubs
 				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
 			}
 		}
+
+		/// <summary>
+		/// Invoked when a new client connects to the hub.
+		/// Adds the connection to the connection manager and notifies other clients.
+		/// </summary>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override async Task OnConnectedAsync()
 		{
 			connections.AddConnection(Context.ConnectionId, Context.ConnectionId);
@@ -141,6 +159,12 @@ namespace Communications.Hubs
 			await base.OnConnectedAsync();
 		}
 
+		/// <summary>
+		/// Invoked when a client disconnects from the hub.
+		/// Removes the connection from the connection manager and notifies other clients.
+		/// </summary>
+		/// <param name="exception">The exception that caused the disconnection, if any.</param>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			connections.RemoveConnection(Context.ConnectionId);
@@ -149,7 +173,13 @@ namespace Communications.Hubs
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the notify hub.");
 			await base.OnDisconnectedAsync(exception);
 		}
-		[SignalRHidden]
+
+		/// <summary>
+		/// Invoked when a client reconnects to the hub.
+		/// Notifies other clients about the reconnection and resends notifications to the reconnected client.
+		/// </summary>
+		/// <param name="clientId">The ID of the client that is reconnecting.</param>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		public async Task OnReconnectedAsync(Guid clientId)
 		{
 			Log.Information($"Reconnecting client {clientId}: {Context.ConnectionId}");

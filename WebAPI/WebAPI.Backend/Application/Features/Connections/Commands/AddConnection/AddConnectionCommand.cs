@@ -1,5 +1,6 @@
 ﻿using Application.Wrappers;
 using Domain.Common;
+using Domain.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Application.Features.Connections.Commands.AddConnection
 		public Guid ServerId { get; set; }
 		public Guid ClientId { get; set; }
 		public string ConnectionId { get; set; }
-		public ConnectionStatus Status { get; set; }
-		public DateTime TimeStampOpenConnection { get; set; }
+		public ConnectionStatus Status { get; private set; } = ConnectionStatus.Opened;
+		public DateTime? TimeStampOpenConnection { get; set; }
 	}
 }

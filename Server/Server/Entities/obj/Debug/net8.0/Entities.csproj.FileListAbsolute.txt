@@ -33,3 +33,15 @@ C:\All\NotificationsExchange\Server\Server\Entities\obj\Debug\net8.0\Entities.dl
 C:\All\NotificationsExchange\Server\Server\Entities\obj\Debug\net8.0\refint\Entities.dll
 C:\All\NotificationsExchange\Server\Server\Entities\obj\Debug\net8.0\Entities.pdb
 C:\All\NotificationsExchange\Server\Server\Entities\obj\Debug\net8.0\ref\Entities.dll
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\bin\Debug\net8.0\Entities.deps.json
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\bin\Debug\net8.0\Entities.dll
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\bin\Debug\net8.0\Entities.pdb
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.AssemblyInfoInputs.cache
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.AssemblyInfo.cs
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.csproj.CoreCompileInputs.cache
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.sourcelink.json
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.dll
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\refint\Entities.dll
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\Entities.pdb
+D:\Develop\App\WSService-DataModules\Server\Server\Entities\obj\Debug\net8.0\ref\Entities.dll

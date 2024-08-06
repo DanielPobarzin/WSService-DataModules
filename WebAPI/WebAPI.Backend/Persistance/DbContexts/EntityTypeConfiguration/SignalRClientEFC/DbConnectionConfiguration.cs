@@ -31,7 +31,6 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 					   .WithMany()
 					   .HasForeignKey(e => e.SystemId)
 					   .OnDelete(DeleteBehavior.Cascade);
-			}
 		}
 	}
 }

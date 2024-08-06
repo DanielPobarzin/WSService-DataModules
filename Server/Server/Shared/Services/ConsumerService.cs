@@ -14,6 +14,10 @@ using System.Threading.Tasks;
 
 namespace Shared.Services
 {
+	/// <summary>
+	/// Represents a background service that consumes messages from Kafka topics.
+	/// Implements <see cref="IConsumerService"/> and <see cref="IDisposable"/>.
+	/// </summary>
 	public class ConsumerService : BackgroundService, IConsumerService, IDisposable
 	{
 		private readonly IConsumer<string, string> _consumer;
@@ -24,6 +28,10 @@ namespace Shared.Services
 		private string filePath;
 		private string schemaPath;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ConsumerService"/> class.
+		/// </summary>
+		/// <param name="configuration">The configuration settings for the consumer.</param>
 		public ConsumerService(IConfiguration configuration)
 		{
 			_configuration = configuration;
@@ -39,11 +47,23 @@ namespace Shared.Services
 			};
 			_consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
 		}
+
+		/// <summary>
+		/// Starts the consumer service and subscribes to the specified Kafka topics.
+		/// </summary>
+		/// <param name="cancellationToken">The cancellation token to monitor for cancellation requests.</param>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override Task StartAsync(CancellationToken cancellationToken)
 		{
 			_consumer.Subscribe(_topicConfig);
 			return Task.CompletedTask;
 		}
+
+		/// <summary>
+		/// Executes the background service logic to pull messages from Kafka.
+		/// </summary>
+		/// <param name="cancellationToken">The cancellation token to monitor for cancellation requests.</param>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		protected override async Task ExecuteAsync(CancellationToken cancellationToken)
 		{
 			while (!cancellationToken.IsCancellationRequested)
@@ -53,6 +73,11 @@ namespace Shared.Services
 			}
 			return;
 		}
+
+		/// <summary>
+		/// Processes messages consumed from Kafka.
+		/// </summary>
+		/// <param name="cancellationToken">The cancellation token to monitor for cancellation requests.</param>
 		public void PullMessageConsumerProcess(CancellationToken cancellationToken)
 		{
 			try
@@ -84,12 +109,22 @@ namespace Shared.Services
 				return;
 			}
 		}
+
+		/// <summary>
+		/// Stops the consumer service and closes the consumer.
+		/// </summary>
+		/// <param name="cancellationToken">The cancellation token to monitor for cancellation requests.</param>
+		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override Task StopAsync(CancellationToken cancellationToken)
 		{
 			_consumer.Close();
 			Dispose();
 			return Task.CompletedTask;
 		}
+
+		/// <summary>
+		/// Disposes of the resources used by the consumer.
+		/// </summary>
 		public override void Dispose()
 		{
 			_consumer?.Dispose();

@@ -1,16 +1,10 @@
-﻿using AutoMapper;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.Parameters;
 using Application.Wrappers;
+using AutoMapper;
 using Domain.Entities;
+using MediatR;
 
 namespace Application.Features.Connections.Queries.GetConnectionsList
 {

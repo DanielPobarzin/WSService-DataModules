@@ -16,9 +16,19 @@ using Interactors.Helpers;
 
 namespace Communications.UoW
 {
+	/// <summary>
+	/// Represents a unit of work for managing application configuration settings.
+	/// </summary>
 	public class UnitOfWorkGetConfig
 	{
+		/// <summary>
+		/// Gets the application configuration.
+		/// </summary>
 		public IConfiguration Configuration;
+
+		/// <summary>
+		/// A dictionary that stores hashes of configuration sections.
+		/// </summary>
 		public Dictionary<string, string> sectionHashes;
 
 		private IConfigurationRoot configuration;
@@ -26,6 +36,10 @@ namespace Communications.UoW
 		private string schemaPath;
 		private bool isInitialized = false;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="UnitOfWorkGetConfig"/> class.
+		/// Loads the configuration from the specified JSON file and sets up change tokens for reloading.
+		/// </summary>
 		public UnitOfWorkGetConfig()
 		{
 			filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "configure.json");
@@ -46,6 +60,10 @@ namespace Communications.UoW
 			});
 		}
 
+		/// <summary>
+		/// Loads the configuration file and validates its contents against a schema.
+		/// If valid, calculates hashes for specific sections; otherwise, loads default configuration.
+		/// </summary>
 		private void LoadConfigFile()
 		{
 			configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)

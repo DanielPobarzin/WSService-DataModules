@@ -1,0 +1,6 @@
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.csproj.AssemblyReference.cache
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.GeneratedMSBuildEditorConfig.editorconfig
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.AssemblyInfoInputs.cache
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.AssemblyInfo.cs
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.csproj.CoreCompileInputs.cache
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.sourcelink.json

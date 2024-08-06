@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1x+D+aZ+z2R/YRvGTU1X8KIX1TtOpCu9VJrfkOCChcvH1/+O/J92nyzPXGh3nASPax3mnWj02jTLKnliDmpL3g==",
+  "dgSpecHash": "yD/bv2KI6Cw=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

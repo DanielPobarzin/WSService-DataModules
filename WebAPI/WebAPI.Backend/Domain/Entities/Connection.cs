@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Common;
 
 namespace Domain.Entities
 {
-	public class Connection
+	public class Connection : Entity
 	{
-		[Required]
-		public Guid ServerId { get; set; }
-		[Required]
-		public Guid ClientId { get; set; }
-		[Required]
-		public string ConnectionId { get; set; }
-		[Required]
+		public Server Server { get; set; }
+		public Client Client { get; set; }
+		public string? ConnectionId { get; set; }
 		public ConnectionStatus Status { get; set; }
 		public DateTime? TimeStampOpenConnection { get; set; }
 		public DateTime? TimeStampCloseConnection { get; set; }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Wrappers;
+using Domain.Enums;
+using MediatR;
 
 namespace Application.Features.Connections.Commands.CloseConnection
 {
-	internal class CloseConnectionCommand
+	public class CloseConnectionCommand :  IRequest<Response<ConnectionCommand>>
 	{
+		public Guid Id { get; set; }
+		public ConnectionCommand Command { get; private set; } = ConnectionCommand.CLose;
+		
 	}
 }

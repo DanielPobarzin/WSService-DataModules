@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3uZoT/i7HSTB2JGX0nclc7NdsoaBzpyVMa3Fn7qlgxElBdWlN4UUzX8a/oOPMAvq5k/Gs0zqrn1AeARqvcA0Rw==",
+  "dgSpecHash": "6pHlxS0bOvU=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Application.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\WebAPI\\WebAPI.Backend\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.1\\confluent.kafka.2.5.1.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
+    "C:\\Users\\Даниил\\.nuget\\packages\\librdkafka.redist\\2.5.0\\librdkafka.redist.2.5.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\mediatr\\12.3.0\\mediatr.12.3.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",

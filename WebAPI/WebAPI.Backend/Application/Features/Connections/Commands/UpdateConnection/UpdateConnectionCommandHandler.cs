@@ -1,23 +1,21 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
+using AutoMapper;
+using Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Application.Features.Connections.Commands.UpdateConnection
 {
 	public class UpdateConnectionCommandHandler : IRequestHandler<UpdateConnectionCommand, Response<string>>
 	{
 		private readonly IConnectionRepositoryAsync _connectionRepository;
+		private readonly IMapper _mapper;
 
-		public UpdateConnectionCommandHandler(IConnectionRepositoryAsync Repository)
+		public UpdateConnectionCommandHandler(IConnectionRepositoryAsync Repository, IMapper mapper)
 		{
 			_connectionRepository = Repository;
+			_mapper = mapper;
 		}
 		public async Task<Response<string>> Handle(UpdateConnectionCommand command, CancellationToken cancellationToken)
 		{
@@ -29,9 +27,7 @@ namespace Application.Features.Connections.Commands.UpdateConnection
 				}
 				else
 				{
-					connection.TimeStampCloseConnection = command.TimeStampCloseConnection;
-					connection.Session = command.Session;
-					connection.Status = command.Status;
+			        connection = _mapper.Map<Connection>(command);
 					await _connectionRepository.UpdateAsync(connection);
 
 					return new Response<string>(connection.ConnectionId, true);

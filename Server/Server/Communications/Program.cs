@@ -13,8 +13,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using Serilog.Events;
-using Serilog.Sinks.SystemConsole.Themes;
 using Shared.Services;
 using Shared.Share.KafkaMessage;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -38,61 +36,42 @@ namespace Communications
 		private static Thread kafkaProducerThread;
 
 		/// <summary>
-		/// The main method definies work threads, creates instances of work units.
+		/// The main method definies work threads, creates instances of work units, etc.
 		/// </summary>
+		/// <remarks>
+		/// <see cref="LoggerSetupHelper"/>
+		/// <see cref="UnitOfWorkGetConfig"/>
+		/// <see cref="UnitOfWorkGetConfig"/>
+		/// <see cref="CheckHashHalper"/>
+		/// </remarks>
 		public static void Main()
 		{
-			#region Logging 
-				Log.Logger = new LoggerConfiguration()
-				.MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
-				.Enrich.FromLogContext()
-				.Enrich.WithClientIp()
-				.Enrich.WithExceptionData()
-				.Enrich.WithMemoryUsage()
-				.Enrich.WithProcessName()
-				.Enrich.WithThreadName()
-				.Enrich.WithDemystifiedStackTraces()
-				.Enrich.WithRequestUserId()
-				.WriteTo.Console(theme: SystemConsoleTheme.Colored, restrictedToMinimumLevel: LogEventLevel.Information)
-				.WriteTo.Console(theme: SystemConsoleTheme.Colored, restrictedToMinimumLevel: LogEventLevel.Error)
-				.WriteTo.File(AppContext.BaseDirectory + @"\Log\[VERBOSE]_NotificationExchange_Log_.log",
-						rollingInterval: RollingInterval.Day,
-						rollOnFileSizeLimit: true,
-						retainedFileCountLimit: 365,
-						shared: true,
-						restrictedToMinimumLevel: LogEventLevel.Verbose)
-				.WriteTo.File(AppContext.BaseDirectory + @"\Log\[ERROR]_NotificationExchange_Log_.log",
-						rollingInterval: RollingInterval.Day,
-						rollOnFileSizeLimit: true,
-						retainedFileCountLimit: 365,
-						shared: true,
-						restrictedToMinimumLevel: LogEventLevel.Error)
-				.WriteTo.File(AppContext.BaseDirectory + @"\Log\[INFO]_NotificationExchange_Log_.log",
-						rollingInterval: RollingInterval.Day,
-						rollOnFileSizeLimit: true,
-						retainedFileCountLimit: 365,
-						shared: true,
-						restrictedToMinimumLevel: LogEventLevel.Information)
-				.CreateLogger();
-			#endregion
+			// --- Logger Build --- //
+			LoggerSetupHelper.ConfigureLogging();
 
+			// --- Initialize get and check configuration --- //
 			unitOfWorkConfig = new UnitOfWorkGetConfig();
 			checkHashHalper = new CheckHashHalper();
 
+			// --- Host thread --- //
 			hostThread = new Thread(CreateAndRunHostServer);
-			
-			UoWNotifyThread = new Thread(StartListenNotifications);
-			kafkaProducerThread = new Thread(StartKafkaProducer);
 
+			// --- Units of Work threads --- //
+			UoWNotifyThread = new Thread(StartListenNotifications);
 			UoWAlarmThread = new Thread(StartListenAlarms);
 
+			// --- Initialize Producer & Consumer and run consumer --- //
 			producerService = new ProducerService(unitOfWorkConfig.Configuration);
 			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
-
 			consumerService.StartAsync(CancellationToken.None);
 
+			// --- Kafka Producer thread --- //
+			kafkaProducerThread = new Thread(StartKafkaProducer);
+
+			// --- On configuration changed --- //
 			GetEventChangeConfiguration();
 
+			// --- Start adding threads --- //
 			hostThread.Start();
 			UoWNotifyThread.Start();
 			UoWAlarmThread.Start();
@@ -124,8 +103,8 @@ namespace Communications
 			{
 				while (!cancellationToken.Token.IsCancellationRequested)
 				{
-					await producerService.PutMessageProducerProcessAsync("client-metric-topic",
-						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
+					await producerService.PutMessageProducerProcessAsync("metric-topic",
+						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "server-metric");
 					await Task.Delay(100, cancellationToken.Token);
 				}
 			});
@@ -233,7 +212,7 @@ namespace Communications
 						await consumerService.StartAsync(CancellationToken.None);
 					}
 
-				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
+				await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonSerializer.Serialize
 						(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
 			}
 		}
@@ -261,28 +240,28 @@ namespace Communications
 			   {
 				   services.AddMemoryCache();
 
-				   //--------------- Сonfiguration provider  -----------------//
+				   // ---  Сonfiguration provider --- //
 				   services.AddSingleton(provider =>
 				   {
 					   return unitOfWorkConfig.Configuration;
 				   });
 
-				   //--------------- Notification provider  -----------------//
+				   // --- Notification provider --- //
 				   services.AddSingleton(provider =>
 				   {
 					   return unitOfWorkNotify.ReceivedNotificationsList;
 				   });
-				   //--------------- Alarm provider  -----------------//
+				   // --- Alarm provider --- //
 				   services.AddSingleton(provider =>
 				   {
 					   return unitOfWorkAlarm.ReceivedAlarmsList;
 				   });
 
-				   //--------------- Helpers provider  -----------------//
+				   // --- Helpers provider  --- //
 				   services.AddScoped<TransformToDTOHelper>();
 				   services.AddScoped<JsonCacheHelper>();
 
-				   //--------------- CORS -----------------//
+				   // --- CORS --- //
 				   services.AddCors(options =>
 				   {
 					   options.AddPolicy("CorsPolicy",
@@ -300,7 +279,7 @@ namespace Communications
 
 				   services.AddMvcCore().AddApiExplorer();
 
-				   //--------------- Swagger -----------------//
+				   // --- Swagger --- //
 				   services.AddSwaggerGen(c =>
 				   {
 					   var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -322,12 +301,12 @@ namespace Communications
 
 				   services.AddSwaggerGenNewtonsoftSupport();
 
-				   //--------------- Connections -----------------//
+				   // --- Connections --- //
 				   services.AddSingleton(typeof(Connections<AlarmHub>));
 				   services.AddSingleton(typeof(Connections<NotificationHub>));
 
 
-				   //--------------- SignalR -----------------//
+				   // --- SignalR --- //
 				   services.AddSignalR(configure =>
 				   {
 					   configure.KeepAliveInterval = TimeSpan.FromMinutes(1);

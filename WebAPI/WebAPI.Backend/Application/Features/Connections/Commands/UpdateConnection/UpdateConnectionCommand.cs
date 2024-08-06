@@ -1,13 +1,6 @@
-﻿using Application.Exceptions;
-using Application.Wrappers;
-using Domain.Common;
+﻿using Application.Wrappers;
+using Domain.Enums;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Application.Features.Connections.Commands.UpdateConnection
 {
@@ -16,6 +9,6 @@ namespace Application.Features.Connections.Commands.UpdateConnection
 		public string ConnectionId { get; set; }
 		public TimeSpan? Session { get; set; }
 		public DateTime? TimeStampCloseConnection { get; set; }
-		public ConnectionStatus Status { get; set; }
+		public ConnectionStatus Status { get; private set; } = ConnectionStatus.Closed;
 	}
 }

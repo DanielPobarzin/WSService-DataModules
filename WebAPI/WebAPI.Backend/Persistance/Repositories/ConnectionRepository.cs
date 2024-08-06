@@ -1,21 +1,13 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using Microsoft.EntityFrameworkCore;
-using Persistance.DbContexts;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Application.Exceptions;
 using Application.Features.Connections.Queries.GetConnectionsList;
-using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.Parameters;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain.Entities;
-using Domain.Common;
-using Application.Exceptions;
+using Domain.Enums;
+using Microsoft.EntityFrameworkCore;
+using Persistance.DbContexts;
 
 namespace Persistance.Repositories
 {
@@ -44,7 +36,7 @@ namespace Persistance.Repositories
 
 			IQueryable<Connection> query = _dbContext.Connections.AsQueryable();
 
-			if (status == ConnectionStatus.Close || status == ConnectionStatus.Open)
+			if (status == ConnectionStatus.Closed || status == ConnectionStatus.Opened)
 			{
 				query = query.Where(e => e.Status == status);
 			}

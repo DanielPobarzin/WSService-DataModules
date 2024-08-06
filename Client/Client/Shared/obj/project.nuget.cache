@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e3e3UEvlvD/2MN7BFrxsBpW7dRxbqQeAayUl99h0C+PFsxSSNDTkYbEiAcSVkmlrkQf6uWqTE6rtZM8rxdyXGg==",
+  "dgSpecHash": "3bXgV3PX4tE=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.0\\confluent.kafka.2.5.0.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\librdkafka.redist\\2.5.0\\librdkafka.redist.2.5.0.nupkg.sha512",

@@ -40,11 +40,11 @@ namespace Persistance.DbContexts
 					   .HasColumnType("text")
 					   .ValueGeneratedNever()
 					   .IsRequired();
-				builder.Property(e => e.ServerId)
+				builder.Property(e => e.Server.Id)
 					   .HasColumnName("server_id")
 					   .HasColumnType("uuid")
 					   .IsRequired();
-				builder.Property(e => e.ClientId)
+				builder.Property(e => e.Client.Id)
 					   .HasColumnName("client_id")
 					   .HasColumnType("uuid")
 					   .IsRequired();

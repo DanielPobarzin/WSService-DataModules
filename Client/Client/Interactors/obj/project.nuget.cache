@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qQ7s46AWeuodzmwpW4mfPl/G7NO9IrSY4T9x3po+BGOLi6HQMxua+XAkkaUz4rWRkzT+J9GVZIovrrL+MFMQ7A==",
+  "dgSpecHash": "ZOLFliYBD6Y=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\8.0.6\\microsoft.aspnetcore.connections.abstractions.8.0.6.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\8.0.6\\microsoft.aspnetcore.signalr.client.core.8.0.6.nupkg.sha512",
