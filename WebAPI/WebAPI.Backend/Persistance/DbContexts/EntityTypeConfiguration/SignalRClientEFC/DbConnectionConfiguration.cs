@@ -18,13 +18,13 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 			builder.Property(e => e.SystemId)
 					.HasColumnName("client_id")
 					.ValueGeneratedOnAdd();
-			builder.Property(e => e.DB)
+			builder.Property(e => e.DataBase)
 					.HasColumnName("database_type")
 					.HasColumnType("varchar(20)");
-			builder.Property(e => e.AlarmDB)
+			builder.Property(e => e.Alarm.ConnectionString)
 					.HasColumnName("alarm_connection_string")
 					.HasColumnType("text");
-			builder.Property(e => e.NotificationDB)
+			builder.Property(e => e.Notify.ConnectionString)
 			.HasColumnName("notify_connection_string")
 					.HasColumnType("text");
 			builder.HasOne<DBSettings>()

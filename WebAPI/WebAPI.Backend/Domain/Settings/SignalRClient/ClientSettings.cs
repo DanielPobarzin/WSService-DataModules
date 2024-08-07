@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Common;
 
 namespace Domain.Settings.SignalRClient
 {
-	public class ClientSettings
+	public class ClientSettings : BaseConfig
 	{
 		public ConnectSettings ConnectSettings { get; set; }
 		public DBSettings DBSettings { get; set; }
-		public OtherSettings OtherSettings { get; set; }
+		public ModeSettings ModeSettings { get; set; }
 	}
 }

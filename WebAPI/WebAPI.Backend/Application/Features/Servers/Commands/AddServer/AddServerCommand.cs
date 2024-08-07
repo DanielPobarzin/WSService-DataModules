@@ -2,7 +2,6 @@
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
-using System.ComponentModel.DataAnnotations;
 
 namespace Application.Features.Servers.Commands.AddServer
 {

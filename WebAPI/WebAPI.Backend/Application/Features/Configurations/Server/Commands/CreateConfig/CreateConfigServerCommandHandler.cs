@@ -2,6 +2,8 @@
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
 using AutoMapper;
+using Domain.Common;
+using Domain.Entities;
 using Domain.Settings.SignalRServer;
 using MediatR;
 
@@ -23,11 +25,19 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 
 			config = new ServerSettings
 			{
+				SystemId = command.SystemId,
+
 				ServerDB = new DBSettings
 				{
 					DB = command.DB,
-					AlarmDB = command.AlarmDB,
-					NotificationDB = command.NotificationDB
+					AlarmDB = new AlarmConnection
+					{
+						ConnectionString = command.AlarmDB
+					},
+					NotificationDB = new NotifyConnection
+					{
+						ConnectionString = command.NotificationDB
+					}
 				},
 
 				ServerHost = new HostSettings
@@ -42,15 +52,24 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 
 				ServerHub = new HubSettings
 				{
-					AlarmDelayMilliseconds = command.AlarmDelayMilliseconds,
-					NotifyDelayMilliseconds = command.NotifyDelayMilliseconds,
-					NotifyHubMethod = command.NotifyHubMethod,
-					AlarmHubMethod = command.NotifyHubMethod,
-					NotifyTargetClients = command.NotifyTargetClients,
-					AlarmTargetClients = command.AlarmTargetClients
+					ServerId = command.SystemId,
 
+					Alarm = new AlarmHubSettings
+					{
+						DelayMilliseconds = command.AlarmDelayMilliseconds,
+						HubMethod = command.AlarmHubMethod,
+						TargetClients = command.AlarmTargetClients
+					},
+
+					Notify = new NotifyHubSettings
+					{
+						DelayMilliseconds = command.NotifyDelayMilliseconds,
+						HubMethod = command.NotifyHubMethod,
+						TargetClients = command.NotifyTargetClients
+					}
 				}
 			};
+
 			//var configDb = await _repository.GetByIdDataBaseSettingsAsync(command.SystemId);
 			//var configDbDto = configDb.AsQueryable().ProjectTo<DBSettings>(_mapper.ConfigurationProvider);
 			//var configHost = await _repository.GetByIdHostSettingsAsync(command.SystemId);
@@ -63,3 +82,4 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 		}
 	}
 }
+

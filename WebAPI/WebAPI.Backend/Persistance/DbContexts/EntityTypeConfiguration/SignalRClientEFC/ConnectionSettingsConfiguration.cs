@@ -19,10 +19,10 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 			builder.Property(e => e.SystemId)
 				   .HasColumnName("client_id")
 				   .HasColumnType("uuid");
-				builder.Property(e => e.AlarmUrl)
+				builder.Property(e => e.Alarm.Url)
 					.HasColumnName("address_to_Alarm")
 					.HasColumnType("text");
-				builder.Property(e => e.NotifyUrl)
+				builder.Property(e => e.Notify.Url)
 					.HasColumnName("address_to_Notify")
 					.HasColumnType("text");
 				builder.HasOne<ConnectSettings>()

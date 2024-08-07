@@ -1,14 +1,8 @@
 ﻿using Application.Exceptions;
-using Application.Features.Connections.Queries.GetConnectionDetails;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Servers.Queries.GetServer.GetDetails
 {

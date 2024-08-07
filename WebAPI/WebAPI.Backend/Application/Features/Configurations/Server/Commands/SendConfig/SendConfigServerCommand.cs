@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Wrappers;
+using MediatR;
 
 namespace Application.Features.Configurations.Server.Commands.SendConfig
 {
-	internal class SendConfigServerCommand
+	public class SendConfigServerCommand : IRequest<Response<Guid>>
 	{
+		public Guid Id { get; set; }
 	}
 }
+

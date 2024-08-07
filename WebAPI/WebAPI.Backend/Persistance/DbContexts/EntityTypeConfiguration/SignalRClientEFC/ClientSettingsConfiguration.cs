@@ -9,9 +9,9 @@ using Domain.Settings.SignalRClient;
 
 namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 {
-	public class ClientSettingsConfiguration : IEntityTypeConfiguration<OtherSettings>
+	public class ClientSettingsConfiguration : IEntityTypeConfiguration<ModeSettings>
 	{
-		public void Configure(EntityTypeBuilder<OtherSettings> builder)
+		public void Configure(EntityTypeBuilder<ModeSettings> builder)
 		{
 			builder.ToTable("client_settings");
 			builder.HasKey(e => e.SystemId);
@@ -21,7 +21,10 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 			builder.Property(e => e.UseCache)
 					.HasColumnName("caching")
 					.HasColumnType("boolean");
-			builder.HasOne<OtherSettings>()
+			builder.Property(e => e.Mode)
+					.HasColumnName("mode")
+					.HasColumnType("varchar(20)");
+			builder.HasOne<ModeSettings>()
 				   .WithMany()
 	               .HasForeignKey(e => e.SystemId)
 	               .OnDelete(DeleteBehavior.Cascade);

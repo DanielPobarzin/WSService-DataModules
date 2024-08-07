@@ -12,9 +12,9 @@ namespace Persistance.DbContexts
 {
 	public class ClientConfigDbContext : DbContext
 	{
-		public DbSet<DbConnection> DbConnections { get; set; }
+		public DbSet<DBSettings> DbSettings { get; set; }
 		public DbSet<ConnectSettings> ConnectSettings { get; set; }
-		public DbSet<OtherSettings> OtherSettings { get; set; }
+		public DbSet<ModeSettings> ModeSettings { get; set; }
 		private string connectionString;
 
 		public ClientConfigDbContext(DbContextOptions<ServerConfigDbContext> options) :

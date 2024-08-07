@@ -42,17 +42,17 @@ namespace Application.Features.Configurations.Server.Queries.GetConfigServerDeta
 					.ForMember(configVm => configVm.RouteAlarm,
 							   opt => opt.MapFrom(config => config.ServerHost.RouteAlarm))
 					.ForMember(configVm => configVm.AlarmDelayMilliseconds,
-							   opt => opt.MapFrom(config => config.ServerHub.AlarmDelayMilliseconds))
+							   opt => opt.MapFrom(config => config.ServerHub.Alarm.DelayMilliseconds))
 					.ForMember(configVm => configVm.NotifyDelayMilliseconds,
-							   opt => opt.MapFrom(config => config.ServerHub.NotifyDelayMilliseconds))
+							   opt => opt.MapFrom(config => config.ServerHub.Notify.DelayMilliseconds))
 					.ForMember(configVm => configVm.NotifyHubMethod,
-							   opt => opt.MapFrom(config => config.ServerHub.NotifyHubMethod))
+							   opt => opt.MapFrom(config => config.ServerHub.Notify.HubMethod))
 					.ForMember(configVm => configVm.AlarmHubMethod,
-							   opt => opt.MapFrom(config => config.ServerHub.AlarmHubMethod))
+							   opt => opt.MapFrom(config => config.ServerHub.Alarm.HubMethod))
 					.ForMember(configVm => configVm.NotifyTargetClients,
-							   opt => opt.MapFrom(config => config.ServerHub.NotifyTargetClients))
+							   opt => opt.MapFrom(config => config.ServerHub.Notify.TargetClients))
 					.ForMember(configVm => configVm.AlarmTargetClients,
-							   opt => opt.MapFrom(config => config.ServerHub.AlarmTargetClients))
+							   opt => opt.MapFrom(config => config.ServerHub.Alarm.TargetClients))
 					.ForMember(configVm => configVm.DB,
 							   opt => opt.MapFrom(config => config.ServerDB.DB))
 					.ForMember(configVm => configVm.AlarmDB,

@@ -19,20 +19,20 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRServerEFC
 			builder.Property(e => e.SystemId)
 				   .HasColumnName("server_id")
 				   .HasColumnType("uuid");
-				builder.Property(e => e.NotifyDelayMilliseconds)
+				builder.Property(e => e.Notify.DelayMilliseconds)
 					.HasColumnName("notify_delay_milliseconds");
-				builder.Property(e => e.NotifyHubMethod)
+				builder.Property(e => e.Notify.HubMethod)
 					.HasColumnName("notify_hub_method")
 					.HasColumnType("varchar(255)");
-				builder.Property(e => e.NotifyTargetClients)
+				builder.Property(e => e.Notify.TargetClients)
 					.HasColumnName("notify_target_clients")
 					.HasColumnType("varchar(255)");
-				builder.Property(e => e.AlarmDelayMilliseconds)
+				builder.Property(e => e.Alarm.DelayMilliseconds)
 					.HasColumnName("alarm_delay_milliseconds");
-				builder.Property(e => e.AlarmHubMethod)
+				builder.Property(e => e.Alarm.HubMethod)
 					.HasColumnName("alarm_hub_method")
 					.HasColumnType("varchar(255)");
-				builder.Property(e => e.AlarmTargetClients)
+				builder.Property(e => e.Alarm.TargetClients)
 					.HasColumnName("alarm_target_clients")
 					.HasColumnType("varchar(255)");
 				builder.HasOne<HubSettings>()
