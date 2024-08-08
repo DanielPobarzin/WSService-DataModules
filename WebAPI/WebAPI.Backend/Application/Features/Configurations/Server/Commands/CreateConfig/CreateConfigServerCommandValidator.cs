@@ -43,13 +43,9 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 			RuleFor(p => p.RouteNotify).NotEmpty().WithMessage("{PropertyName} is required.")
 			.NotNull(); 
 			RuleFor(p => p.SystemId).NotEmpty().WithMessage("{PropertyName} is required.")
-			.Must(BeValidGuid).WithMessage("{PropertyName} must be a valid GUID.")
+			.NotEqual(Guid.Empty).WithMessage("{PropertyName} must be a valid GUID.")
 			.MustAsync(IsUniqueNumber).WithMessage("{PropertyName} already exists.").NotNull();
 
-		}
-		private bool BeValidGuid(Guid configId)
-		{
-			return configId != Guid.Empty;
 		}
 		private async Task<bool> IsUniqueNumber(Guid id, CancellationToken cancellationToken)
 		{

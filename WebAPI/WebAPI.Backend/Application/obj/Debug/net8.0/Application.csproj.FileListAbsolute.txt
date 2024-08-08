@@ -10,3 +10,13 @@ D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.sourcelink.json
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\bin\Debug\net8.0\Application.deps.json
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\bin\Debug\net8.0\Application.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\bin\Debug\net8.0\Application.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\bin\Debug\net8.0\Domain.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\bin\Debug\net8.0\Domain.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\refint\Application.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\Application.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Application\obj\Debug\net8.0\ref\Application.dll

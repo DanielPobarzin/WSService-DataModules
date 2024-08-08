@@ -15,7 +15,7 @@ namespace Application.Features.Servers.Commands.AddServer
 
 			RuleFor(p => p.ServerId)
 				.NotEmpty().WithMessage("{PropertyName} is required.").NotNull()
-				.Must(BeValidGuid).WithMessage("{PropertyName} must be a valid GUID.")
+				.NotEqual(Guid.Empty).WithMessage("{PropertyName} must be a valid GUID.")
 				.MustAsync(IsUniqueNumber).WithMessage("{PropertyName} already exists.");
 
 			RuleFor(p => p.ConnectionStatus)
@@ -25,10 +25,6 @@ namespace Application.Features.Servers.Commands.AddServer
 				.GreaterThanOrEqualTo(0).WithMessage("{PropertyName} must be a non-negative integer.");
 		}
 
-		private bool BeValidGuid(Guid serverId)
-		{
-			return serverId != Guid.Empty; 
-		}
 		private async Task<bool> IsUniqueNumber(Guid id, CancellationToken cancellationToken)
 		{
 			var server = await _repository.GetByIdAsync(id);

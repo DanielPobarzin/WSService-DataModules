@@ -15,17 +15,13 @@ namespace Application.Features.Clients.Commands.AddClient
 
 			RuleFor(p => p.ClientId)
 				.NotEmpty().WithMessage("{PropertyName} is required.").NotNull()
-				.Must(BeValidGuid).WithMessage("{PropertyName} must be a valid GUID.")
+				.NotEqual(Guid.Empty).WithMessage("{PropertyName} must be a valid GUID.")
 				.MustAsync(IsUniqueNumber).WithMessage("{PropertyName} already exists.");
 
 			RuleFor(p => p.ConnectionStatus)
 				.NotEmpty().WithMessage("{PropertyName} is required.").NotNull();
 		}
 
-		private bool BeValidGuid(Guid serverId)
-		{
-			return serverId != Guid.Empty; 
-		}
 		private async Task<bool> IsUniqueNumber(Guid id, CancellationToken cancellationToken)
 		{
 			var server = await _repository.GetByIdAsync(id);

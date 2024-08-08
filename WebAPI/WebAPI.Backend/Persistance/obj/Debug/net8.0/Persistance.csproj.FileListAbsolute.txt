@@ -4,3 +4,15 @@ D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.AssemblyInfo.cs
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.csproj.CoreCompileInputs.cache
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.sourcelink.json
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Persistance.deps.json
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Persistance.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Persistance.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Application.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Domain.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Application.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\bin\Debug\net8.0\Domain.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persista.3F568332.Up2Date
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\refint\Persistance.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\Persistance.pdb
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Persistance\obj\Debug\net8.0\ref\Persistance.dll

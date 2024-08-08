@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,7 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	 <PackageReference Include="Serilog" Version="4.0.0" />
+	 <PackageReference Include="Serilog.Enrichers.Demystifier" Version="1.0.2" />
+	 <PackageReference Include="Serilog.Enrichers.ExceptionData" Version="1.0.0" />
+	 <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+	 <PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+	 <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+	 <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+	 <PackageReference Include="Serilog.Sinks.Trace" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Application.csproj" />
+    <ProjectReference Include="..\..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\..\Persistance\Persistance.csproj" />
+    <ProjectReference Include="..\..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>
