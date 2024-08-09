@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistance.Repositories
 {
-	public class GenericRepositoryAsync<T, TContext> : IGenericRepositoryAsync<T>
+	public class GenericRepositoryAsync<T, TContext> : IGenericRepositoryWithContext<T, TContext>
 	where T : class
 	where TContext : DbContext
 	{
@@ -45,6 +45,10 @@ namespace Persistance.Repositories
 			{
 			    await this.AddAsync(row);
 			}
+		}
+		public TContext GetDbContext()
+		{
+			return _dbContext;
 		}
 
 	}

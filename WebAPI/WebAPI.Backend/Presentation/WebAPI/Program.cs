@@ -6,6 +6,7 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using WebAPI.Extensions;
+using Microsoft.Extensions.Hosting;
 
 try
 {

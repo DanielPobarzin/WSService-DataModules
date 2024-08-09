@@ -29,12 +29,12 @@ namespace Persistance
 
 			#region Repositories
 
-			services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<,>));
+			services.AddTransient(typeof(IGenericRepositoryWithContext<,>), typeof(GenericRepositoryAsync<,>));
 			services.AddTransient<IClientConfigRepositoryAsync, ClientConfigRepository>();
 			services.AddTransient<IServerConfigRepositoryAsync, ServerConfigRepository>();
 			services.AddTransient<IClientRepositoryAsync, ClientRepository>();
 			services.AddTransient<IServerRepositoryAsync, ServerRepository>();
-
+			services.AddTransient<IConnectionRepositoryAsync, ConnectionRepository>();
 			#endregion Repositories
 			return services;
 		}

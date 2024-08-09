@@ -25,15 +25,13 @@ namespace Application.Features.Connections.Commands.OpenConnection
 		private readonly IConnectionRepositoryAsync _repository;
 		private readonly IProducerService _producerService;
 		private readonly IConfiguration _configuration;
-		private readonly CancellationToken _cancellingToken;
 		private readonly IMapper _mapper;
 		private readonly string _topicProduce;
-		public OpenConnectionCommandHandler(IConfiguration configuration, IConnectionRepositoryAsync Repository, IProducerService producerService, CancellationToken cancellationToken)
+		public OpenConnectionCommandHandler(IConfiguration configuration, IConnectionRepositoryAsync Repository, IProducerService producerService)
 		{
 			_repository = Repository;
 			_producerService = producerService;
 			_configuration = configuration;
-			_cancellingToken = cancellationToken;
 			_topicProduce = _configuration["Kafka:Topic"];
 		}
 		public async Task<Response<ConnectionCommand>> Handle(OpenConnectionCommand command, CancellationToken cancellationToken)

@@ -4,6 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<Authors>Daniel</Authors>
+	<RepositoryUrl>https://github.com/DanielPobarzin/WSService-DataModules.git</RepositoryUrl>
+	<RepositoryType>Public</RepositoryType>
+	<Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,10 +22,6 @@
 	 <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
 	 <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
 	 <PackageReference Include="Serilog.Sinks.Trace" Version="4.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>

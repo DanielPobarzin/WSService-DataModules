@@ -16,3 +16,4 @@ namespace Application.Interfaces
 		Task GeneralInsertAsync(IEnumerable<T> entities);
 	}
 }
+

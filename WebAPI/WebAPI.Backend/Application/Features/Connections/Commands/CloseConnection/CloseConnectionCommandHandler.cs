@@ -15,14 +15,12 @@ namespace Application.Features.Connections.Commands.CloseConnection
 		private readonly IConnectionRepositoryAsync _repository;
 		private readonly IProducerService _producerService;
 		private readonly IConfiguration _configuration;
-		private readonly CancellationToken _cancellingToken;
 		private readonly string _topicProduce;
-		public CloseConnectionCommandHandler(IConfiguration configuration, IConnectionRepositoryAsync Repository, IProducerService producerService, CancellationToken cancellationToken)
+		public CloseConnectionCommandHandler(IConfiguration configuration, IConnectionRepositoryAsync Repository, IProducerService producerService)
 		{
 				_repository = Repository;
 				_producerService = producerService;
 				_configuration = configuration;
-				_cancellingToken = cancellationToken;
 				_topicProduce = _configuration["Kafka:Topic"];
 		}
 		public async Task<Response<ConnectionCommand>> Handle(CloseConnectionCommand command, CancellationToken cancellationToken)

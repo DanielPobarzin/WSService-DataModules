@@ -1,4 +1,5 @@
-﻿using WebAPI.Middlewares;
+﻿using Microsoft.AspNetCore.Builder;
+using WebAPI.Middlewares;
 
 namespace WebAPI.Extensions
 {

@@ -14,14 +14,12 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 		private readonly IClientConfigRepositoryAsync _repository;
 		private readonly IProducerService _producer;
 		private readonly IConfiguration _configuration;
-		private readonly CancellationToken _cancellingToken;
 		private readonly string _topicProduce;
-		public SendConfigClientCommandHandler(IClientConfigRepositoryAsync repository, IProducerService producer, IConfiguration configuration, CancellationToken cancellationToken)
+		public SendConfigClientCommandHandler(IClientConfigRepositoryAsync repository, IProducerService producer, IConfiguration configuration)
 		{
 			_repository = repository;
 			_producer = producer;
 			_configuration = configuration;
-			_cancellingToken = cancellationToken;
 			_topicProduce = _configuration["Kafka:Topic"];
 		}
 		public async Task<Response<Guid>> Handle(SendConfigClientCommand command, CancellationToken cancellationToken)

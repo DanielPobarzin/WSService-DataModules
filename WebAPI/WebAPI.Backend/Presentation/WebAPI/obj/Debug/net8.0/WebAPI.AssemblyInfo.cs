@@ -11,13 +11,14 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("WebAPI")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Daniel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+524c01207e6a8c3345af7bbdbe7ffd3957a737bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+828ce4b7798c3588e0ed88f76485429966fda740")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/DanielPobarzin/WSService-DataModules.git")]
 
 // Создано классом WriteCodeFragment MSBuild.
 
