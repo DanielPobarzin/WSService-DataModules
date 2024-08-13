@@ -53,6 +53,18 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 				{
 					UseCache = command.UseCache,
 					Mode = command.Mode
+				},
+
+				KafkaSettings = new KafkaSettings
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = command.ConsumerBootstrapServer
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = command.ProducerBootstrapServer
+					}
 				}
 			};
 			await _repository.AddAsync(config);

@@ -2,66 +2,83 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "ClientId": { "type": "string" },
     "DbConnection": {
       "type": "object",
       "properties": {
         "DataBase": { "type": "string" },
-        "NotifyConnectionString": { "type": "string" },
-        "AlarmConnectionString": { "type": "string" }
-      },
-      "required": [ "DataBase", "NotifyConnectionString", "AlarmConnectionString" ]
-    },
-    "ClientSettings": {
-      "type": "object",
-      "properties": {
-        "ClientId": { "type": "string" },
-        "UseCache": { "type": "boolean" },
-        "Mode": { "type": "string" }
-      },
-      "required": [ "ClientId", "Mode" ]
-    },
-    "ConnectionSettings": {
-      "type": "object",
-      "properties": {
-        "AlarmUrl": {
-          "type": "string",
-          "format": "uri"
+        "Notify": {
+          "type": "object",
+          "properties": {
+            "ConnectionString": { "type": "string" }
+          },
+          "required": [ "ConnectionString" ]
         },
-        "NotifyUrl": {
-          "type": "string",
-          "format": "uri"
+        "Alarm": {
+          "type": "object",
+          "properties": {
+            "ConnectionString": { "type": "string" }
+          },
+          "required": [ "ConnectionString" ]
         }
       },
-      "required": [ "AlarmUrl", "NotifyUrl" ]
-    },
-    "Kafka": {
-      "type": "object",
-      "properties": {
-        "Producer": {
-          "type": "object",
-          "properties": {
-            "BootstrapServers": {
-              "type": "string",
-              "format": "uri"
-            }
-          },
-          "required": [ "BootstrapServers" ]
+      "required": [ "DataBase", "Notify", "Alarm" ]
         },
-        "Consumer": {
+        "ClientSettings": {
           "type": "object",
           "properties": {
-            "BootstrapServers": {
-              "type": "string",
-              "format": "uri"
+            "ClientId": { "type": "string" },
+            "UseCache": { "type": "boolean" },
+            "Mode": { "type": "string" }
+          },
+          "required": [ "ClientId", "Mode" ]
+        },
+        "ConnectionSettings": {
+          "type": "object",
+          "properties": {
+            "Notify": {
+              "type": "object",
+              "properties": {
+                "Url": { "type": "string" }
+              },
+              "required": [ "Url" ]
+            },
+            "Alarm": {
+              "type": "object",
+              "properties": {
+                "Url": { "type": "string" }
+              },
+              "required": [ "Url" ]
             }
           },
-          "required": [ "BootstrapServers" ]
+          "required": [ "Alarm", "Notify" ]
+        },
+        "Kafka": {
+          "type": "object",
+          "properties": {
+            "Producer": {
+              "type": "object",
+              "properties": {
+                "BootstrapServers": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [ "BootstrapServers" ]
+            },
+            "Consumer": {
+              "type": "object",
+              "properties": {
+                "BootstrapServers": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [ "BootstrapServers" ]
 
+            }
+          },
+          "required": [ "Producer", "Consumer" ]
         }
       },
-      "required": [ "Producer", "Consumer" ]
-    }
-  },
     "required": [ "DbConnection", "ClientSettings", "ConnectionSettings", "Kafka" ]
 }

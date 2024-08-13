@@ -71,6 +71,17 @@ namespace Application.Features.Configurations.Server.Commands.SendConfig
 					AllowedOrigins = config.ServerHost.AllowedOrigins,
 					RouteNotify = config.ServerHost.RouteNotify,
 					RouteAlarm = config.ServerHost.RouteAlarm
+				},
+				ServerKafka = new KafkaSettings
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = config.ServerKafka.Consumer.BootstrapServers
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = config.ServerKafka.Producer.BootstrapServers
+					}
 				}
 			};
 			string json = JsonConvert.SerializeObject(configDto, Formatting.Indented);

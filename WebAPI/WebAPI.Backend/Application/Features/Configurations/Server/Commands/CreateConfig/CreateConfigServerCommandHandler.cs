@@ -12,11 +12,9 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 	public class CreateConfigServerCommandHandler : IRequestHandler<CreateConfigServerCommand, Response<Guid>>
 	{
 		private readonly IServerConfigRepositoryAsync _repository;
-		private readonly IMapper _mapper;
-		public CreateConfigServerCommandHandler(IServerConfigRepositoryAsync repository, IMapper mapper)
+		public CreateConfigServerCommandHandler(IServerConfigRepositoryAsync repository)
 		{
 			_repository = repository;
-			_mapper = mapper;
 		}
 		public async Task<Response<Guid>> Handle(CreateConfigServerCommand command, CancellationToken cancellationToken)
 		{
@@ -66,6 +64,17 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 						DelayMilliseconds = command.NotifyDelayMilliseconds,
 						HubMethod = command.NotifyHubMethod,
 						TargetClients = command.NotifyTargetClients
+					}
+				},
+				ServerKafka = new KafkaSettings
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = command.ConsumerBootstrapServer
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = command.ProducerBootstrapServer
 					}
 				}
 			};

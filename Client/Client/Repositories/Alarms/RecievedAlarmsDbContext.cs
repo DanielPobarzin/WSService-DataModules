@@ -21,7 +21,7 @@ namespace Repositories.Alarms
 			switch (configuration["DbConnection:DataBase"])
 			{
 				case ("PostgreSQL"): 
-					connectionString = configuration["DbConnection:AlarmConnectionString"];
+					connectionString = configuration["DbConnection:Alarm:ConnectionString"];
 					optionsBuilder.UseNpgsql(connectionString);
 					break;
 					default: Log.Error("The database is not defined."); throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);

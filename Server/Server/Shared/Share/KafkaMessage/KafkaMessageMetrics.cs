@@ -1,4 +1,5 @@
-﻿using Interactors.Enums;
+﻿using Entities.Enums;
+using Interactors.Enums;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,6 +12,9 @@ namespace Shared.Share.KafkaMessage
     public class KafkaMessageMetrics : KafkaMessageBase
     {
 		private KafkaMessageMetrics() { }
+		private WorkStatus _workStatus;
+		private ConnectionStatus _connectionStatus;
+		private int _countListeners;
 		private long _totalMessagesSize;
 		private int _totalCountMessages;
 		private int _countAlarms;
@@ -23,7 +27,21 @@ namespace Shared.Share.KafkaMessage
 		private static readonly Lazy<KafkaMessageMetrics> lazy =
 		new Lazy<KafkaMessageMetrics>(() => new KafkaMessageMetrics());
 		public static KafkaMessageMetrics Instance { get { return lazy.Value; } }
-
+		public WorkStatus WorkStatus
+		{
+			get { return _workStatus; }
+			set { _workStatus = value; }
+		}
+		public ConnectionStatus ConnectionStatus
+		{
+			get { return _connectionStatus; }
+			set { _connectionStatus = value; }
+		}
+		public int CountListeners
+		{
+			get { return _countListeners; }
+			set { _countListeners = value; }
+		}
 		public long TotalMessagesSize
 		{
 			get { return _totalMessagesSize; }

@@ -14,9 +14,22 @@ namespace Domain.Settings.SignalRServer
 		public AlarmConnection AlarmDB { get; set; }
 		public NotifyConnection NotificationDB { get; set; }
 	}
+	public class KafkaSettings : BaseConfig
+	{
+		public ConsumerConnection Consumer { get; set; }
+		public ProducerConnection Producer { get; set; }
+	}
 	public class AlarmConnection : Entity
 	{
 		public string ConnectionString { get; set; }
+	}
+	public class ConsumerConnection : Entity
+	{
+		public string BootstrapServers { get; set; }
+	}
+	public class ProducerConnection : Entity
+	{
+		public string BootstrapServers { get; set; }
 	}
 
 	public class NotifyConnection : Entity

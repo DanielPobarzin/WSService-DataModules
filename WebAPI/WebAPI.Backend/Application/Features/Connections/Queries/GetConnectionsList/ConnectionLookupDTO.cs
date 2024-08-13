@@ -21,9 +21,9 @@ namespace Application.Features.Connections.Queries.GetConnectionsList
 				.ForMember(connectionDto => connectionDto.ConnectionId,
 					 opt => opt.MapFrom(connection => connection.ConnectionId))
 				.ForMember(connectionDto => connectionDto.ServerId,
-					 opt => opt.MapFrom(connection => connection.Server.Id))
+					 opt => opt.MapFrom(connection => connection.ServerId))
 				.ForMember(connectionDto => connectionDto.ClientId,
-					 opt => opt.MapFrom(connection => connection.Client.Id));
+					 opt => opt.MapFrom(connection => connection.ClientId));
 		}
 	}
 }

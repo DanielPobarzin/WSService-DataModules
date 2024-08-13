@@ -31,6 +31,10 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 			RuleFor(p => p.SystemId).NotEmpty().WithMessage("{PropertyName} is required.")
 			.NotEqual(Guid.Empty).WithMessage("{PropertyName} must be a valid GUID.")
 			.MustAsync(IsUniqueNumber).WithMessage("{PropertyName} already exists.").NotNull();
+			RuleFor(p => p.ConsumerBootstrapServer).NotEmpty().WithMessage("{PropertyName} is required.")
+			.NotNull();
+			RuleFor(p => p.ProducerBootstrapServer).NotEmpty().WithMessage("{PropertyName} is required.")
+			.NotNull();
 		}
 		private async Task<bool> IsUniqueNumber(Guid id, CancellationToken cancellationToken)
 		{

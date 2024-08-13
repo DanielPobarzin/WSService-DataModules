@@ -10,11 +10,9 @@ namespace Application.Features.Configurations.Server.Commands.UpdateConfig
 	public class UpdateConfigServerCommandHandler : IRequestHandler<UpdateConfigServerCommand, Response<Guid>>
 	{
 		private readonly IServerConfigRepositoryAsync _repository;
-		private readonly IMapper _mapper;
-		public UpdateConfigServerCommandHandler(IServerConfigRepositoryAsync repository, IMapper mapper)
+		public UpdateConfigServerCommandHandler(IServerConfigRepositoryAsync repository)
 		{
 			_repository = repository;
-			_mapper = mapper;
 		}
 		public async Task<Response<Guid>> Handle(UpdateConfigServerCommand command, CancellationToken cancellationToken)
 		{
@@ -64,6 +62,18 @@ namespace Application.Features.Configurations.Server.Commands.UpdateConfig
 					TargetClients = command.NotifyTargetClients
 				}
 
+			};
+
+			config.ServerKafka = new KafkaSettings
+			{
+				Consumer = new ConsumerConnection
+				{
+					BootstrapServers = command.ConsumerBootstrapServer
+				},
+				Producer = new ProducerConnection
+				{
+					BootstrapServers = command.ProducerBootstrapServer
+				}
 			};
 
 			await _repository.UpdateAsync(config);

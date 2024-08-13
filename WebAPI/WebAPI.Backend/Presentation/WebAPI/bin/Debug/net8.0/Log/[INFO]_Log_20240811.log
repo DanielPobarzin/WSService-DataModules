@@ -1,0 +1,19 @@
+2024-08-11 16:56:28.020 +03:00 [INF] Application startup services registration
+2024-08-11 16:56:34.275 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-11 16:56:34.655 +03:00 [INF] Application startup middleware registration
+2024-08-11 16:56:35.126 +03:00 [INF] Application Starting
+2024-08-11 16:56:35.504 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-11 16:56:35.505 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-11 16:56:35.507 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-11 16:56:35.509 +03:00 [INF] Hosting environment: Development
+2024-08-11 16:56:35.510 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-11 16:56:36.443 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-11 16:56:38.112 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 1447.1068 ms
+2024-08-11 16:56:38.119 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-11 16:56:38.120 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-11 16:56:38.123 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 1682.6115ms
+2024-08-11 16:56:38.129 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.7007ms
+2024-08-11 16:56:38.184 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.0821ms
+2024-08-11 16:56:38.285 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-11 16:56:38.397 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 104.6192 ms
+2024-08-11 16:56:38.400 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 115.3945ms

@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Interactors\Interactors.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
-
 </Project>

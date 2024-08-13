@@ -1,18 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.Extensions.Primitives;
-using System.Runtime;
-using System.Threading;
-using Serilog;
-using Newtonsoft.Json.Linq;
-using Communications.Helpers;
+﻿using Entities.Settings;
 using Interactors.Helpers;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using Serilog;
 
 namespace Communications.UoW
 {
@@ -42,9 +33,9 @@ namespace Communications.UoW
 		/// </summary>
 		public UnitOfWorkGetConfig()
 		{
-			filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "configure.json");
-			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 			sectionHashes = new Dictionary<string, string>();
+			EnsureConfigurationFile("configure.json");
+			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 
 			LoadConfigFile();
 			ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
@@ -66,36 +57,134 @@ namespace Communications.UoW
 		/// </summary>
 		private void LoadConfigFile()
 		{
-			configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-				.AddJsonFile("configure.json", optional: false, reloadOnChange: true)
-				.Build();
-			var schema = File.ReadAllText(schemaPath);
-			var config = File.ReadAllText(filePath);
-			if (ConfigValidHelper.ValidateConfigurationJson(schema, config))
-			{
-				sectionHashes["DbConnection:DataBase"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:DataBase");
-				sectionHashes["DbConnection:Alarm"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:Alarm");
-				sectionHashes["DbConnection:Notify"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:Notify");
-				sectionHashes["HubSettings:ServerId"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:ServerId");
-				sectionHashes["HubSettings:Notify"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:Notify");
-				sectionHashes["HubSettings:Alarm"] = HashHelper.CalculateJsonSectionMd5(filePath, "HubSettings:Alarm");
-				sectionHashes["HostSettings"] = HashHelper.CalculateJsonSectionMd5(filePath, "HostSettings");
-				sectionHashes["Kafka:Producer"] = HashHelper.CalculateJsonSectionMd5(filePath, "Kafka:Producer");
-				sectionHashes["Kafka:Consumer"] = HashHelper.CalculateJsonSectionMd5(filePath, "Kafka:Consumer");
-
-				this.Configuration = configuration;
-			}
-			else
+			try
 			{
 				configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-					.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
+					.AddJsonFile("configure.json", optional: false, reloadOnChange: true)
 					.Build();
-				this.Configuration = configuration;
+				var schema = File.ReadAllText(schemaPath);
+				var config = File.ReadAllText(filePath);
+
+				if (ConfigValidHelper.ValidateConfigurationJson(schema, config))
+				{
+					var keysToHash = new[]
+					{
+						"DbConnection:DataBase",
+						"DbConnection:Notify",
+						"DbConnection:Alarm",
+						"HubSettings:ServerId",
+						"HubSettings:Notify",
+						"HubSettings:Alarm",
+						"HostSettings",
+						"Kafka:Producer",
+						"Kafka:Consumer"
+				};
+
+					foreach (var key in keysToHash)
+					{
+						sectionHashes[key] = HashHelper.CalculateJsonSectionMd5(filePath, key);
+					}
+					this.Configuration = configuration;
+				}
+				else
+				{
+					LoadDefaultConfiguration();
+				}
+			}
+			catch (Exception ex)
+			{
+				Log.Error($"Exception with configuration: {ex.Message}");
+				LoadDefaultConfiguration();
 			}
 		}
-	}
+		private void EnsureConfigurationFile(string configFile)
+		{
+			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile);
 
+			if (!File.Exists(filePath))
+			{
+				try
+				{
+					using (File.Create(filePath)) { }
+				}
+				catch (Exception ex)
+				{
+					Log.Error($"Exception with creating configuration file: {ex.Message}");
+				}
+			}
+		}
+		private void LoadDefaultConfiguration()
+		{
+			var configuration = new ConfigurationBuilder()
+				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+				.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
+			.Build();
+			var config = new ServerSettings
+			{
+				ServerDB = new DBSettings
+				{
+					DB = configuration["DbConnection:DataBase"],
+					AlarmDB = new AlarmConnection
+					{
+						ConnectionString = configuration["DbConnection:Alarm:ConnectionString"]
+					},
+					NotificationDB = new NotifyConnection
+					{
+						ConnectionString = configuration["DbConnection:Notify:ConnectionString"]
+					}
+				},
+
+				ServerHost = new HostSettings
+				{
+					Port = int.Parse(configuration["HostSettings:Port"]),
+					Urls = configuration["HostSettings:Urls"],
+					PolicyName = configuration["HostSettings:PolicyName"],
+					AllowedOrigins = configuration["HostSettings:AllowedOrigins"],
+					RouteNotify = configuration["HostSettings:RouteNotify"],
+					RouteAlarm = configuration["HostSettings:RouteAlarm"]
+				},
+
+				ServerHub = new HubSettings
+				{
+					ServerId = (Guid.Parse(configuration["HubSettings:ServerId"]) == Guid.Empty) ? Guid.NewGuid() : 
+					Guid.Parse(configuration["HubSettings:ServerId"]),
+					Notify = new NotifyHubSettings
+					{
+						DelayMilliseconds = int.Parse(configuration["HubSettings:Notify:DelayMilliseconds"]),
+						TargetClients = configuration["HubSettings:Notify:TargetClients"],
+						HubMethod = configuration["HubSettings:Notify:HubMethod"],
+					},
+					Alarm = new AlarmHubSettings
+					{
+						DelayMilliseconds = int.Parse(configuration["HubSettings:Alarm:DelayMilliseconds"]),
+						TargetClients = configuration["HubSettings:Alarm:TargetClients"],
+						HubMethod = configuration["HubSettings:Alarm:HubMethod"],
+					}
+				},
+
+				ServerKafka = new KafkaSettings
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = configuration["Kafka:Consumer:BootstrapServers"]
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = configuration["Kafka:Producer:BootstrapServers"]
+					}
+				}
+			};
+			string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+
+			if (new FileInfo(filePath).Length == 0)
+			{
+				File.WriteAllText(filePath, json);
+				Log.Information($"The default configuration is used.");
+			}
+			LoadConfigFile();
+		}
+	}
 }
 
-
+	
 

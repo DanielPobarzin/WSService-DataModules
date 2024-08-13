@@ -55,7 +55,18 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 					Mode = command.Mode
 				}
 			};
-			
+
+			config.KafkaSettings = new KafkaSettings
+			{
+				Consumer = new ConsumerConnection
+				{
+					BootstrapServers = command.ConsumerBootstrapServer
+				},
+				Producer = new ProducerConnection
+				{
+					BootstrapServers = command.ProducerBootstrapServer
+				}
+			};
 			await _repository.UpdateAsync(config);
 			return new Response<Guid>(config.SystemId, true);
 		}

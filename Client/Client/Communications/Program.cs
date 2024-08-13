@@ -1,6 +1,7 @@
 ﻿using Communications.DTO;
 using Communications.Helpers;
 using Communications.UoW;
+using Entities.Enums;
 using Interactors.Enums;
 using Interactors.Helpers;
 using Microsoft.AspNetCore.Connections;
@@ -43,7 +44,7 @@ namespace Client
 		{
 			GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Close;
 			GlobalSingletonParameters.Instance.ConnectionCommandChanged += OnConnectionCommandChanged;
-
+			KafkaMessageMetrics.Instance.WorkStatus = WorkStatus.Active;
 			// --- Logging --- //
 			{
 				Log.Logger = new LoggerConfiguration()
@@ -88,8 +89,13 @@ namespace Client
 			notificationExchangeThread = new Thread(ExchangeBetweenServerAndClient);
 			alarmExchangeThread = new Thread(ExchangeBetweenServerAndClient);
 
-			// --- Initialize Producer & Consumer and run consumer --- //
+			// --- Initialize Producer (and send current config) & Consumer and run consumer --- //
 			producerService = new ProducerService(unitOfWorkConfig.Configuration);
+			Task.Run(async () =>
+			{
+				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
+			(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
+			});
 			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
 			consumerService.StartAsync(CancellationToken.None);
 
@@ -119,8 +125,11 @@ namespace Client
 			{
 				while (!cancellationToken.Token.IsCancellationRequested)
 				{
-					await producerService.PutMessageProducerProcessAsync("client-metric-topic",
-						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "metric");
+					if (KafkaMessageMetrics.Instance.ClientId != Guid.Empty)
+					{
+						await producerService.PutMessageProducerProcessAsync("metric-topic",
+						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "client-metric");
+					}
 					await Task.Delay(100, cancellationToken.Token);
 				}
 			});
@@ -142,10 +151,10 @@ namespace Client
 			GlobalSingletonParameters.Instance.ConnectionMode = (ConnectionMode)Enum.
 			Parse(typeof(ConnectionMode), unitOfWorkConfig.Configuration["ClientSettings:Mode"]);
 			clientId = Guid.Parse(unitOfWorkConfig.Configuration["ClientSettings:ClientId"]);
+			KafkaMessageMetrics.Instance.ClientId = clientId;
 
 			Log.Information($"Client started. Id: {clientId}");
 			Log.Information($"Mode working by client ({Hub}): {GlobalSingletonParameters.Instance.ConnectionMode}");
-
 
 			switch (GlobalSingletonParameters.Instance.ConnectionMode)
 			{
@@ -162,7 +171,7 @@ namespace Client
 					{
 						//--------------- Notify Hub -----------------//
 						case TypeHub.Notify:
-							string url = unitOfWorkConfig.Configuration["ConnectionSettings:NotifyUrl"];
+							string url = unitOfWorkConfig.Configuration["ConnectionSettings:Notify:Url"];
 							connectionNotify = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
 							StartHubConnectionAsync(url, connectionNotify); //---- Start Hub Connection ----//
 							EventWithConnectionHandler(connectionNotify); //--- Connection Event Triggers -----//
@@ -171,7 +180,7 @@ namespace Client
 
 						//--------------- Alarm Hub -----------------//
 						case TypeHub.Alarm:
-							url = unitOfWorkConfig.Configuration["ConnectionSettings:AlarmUrl"];
+							url = unitOfWorkConfig.Configuration["ConnectionSettings:Alarm:Url"];
 							connectionAlarm = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
 							StartHubConnectionAsync(url, connectionAlarm); //---- Start Hub Connection ----//
 							EventWithConnectionHandler(connectionAlarm); //--- Connection Event Triggers -----//
@@ -194,14 +203,14 @@ namespace Client
 			var connection = new HubConnectionBuilder()
 									.WithUrl(Url, options =>
 									{
-										options.AccessTokenProvider = null; // Required!
+										options.AccessTokenProvider = null; // TODO: Required!
 										options.SkipNegotiation = false;
 										options.Cookies = new CookieContainer();
 										options.CloseTimeout = TimeSpan.FromSeconds(15);
 										options.Headers["Notification"] = "Content";
 										options.ClientCertificates = new System.Security.Cryptography.X509Certificates.X509CertificateCollection();
 										options.DefaultTransferFormat = TransferFormat.Text;
-										options.Credentials = null; // Required!
+										options.Credentials = null; // TODO: Required!
 										options.UseDefaultCredentials = true;
 									})
 									.WithKeepAliveInterval(TimeSpan.FromSeconds(80))
@@ -226,6 +235,7 @@ namespace Client
 			};
 			connection.Reconnecting += (error) =>
 			{
+				KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Closed;
 				var messageError = (error != null) ? $"An exception has occurred :{error.Message}" : "";
 				Log.Information($"Connection lost. {messageError}. Reconnecting...");
 				return Task.CompletedTask;
@@ -314,6 +324,7 @@ namespace Client
 						var messageNotify = await TransformToDOHelper.TransformToDomainObjectNotification(message, clientId);
 						
 						{
+							KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Opened;
 							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
 							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(messageNotify)).Length;
 							KafkaMessageMetrics.Instance.CountNotifications += 1;
@@ -345,6 +356,7 @@ namespace Client
 						var messageAlarm = await TransformToDOHelper.TransformToDomainObjectAlarm(message, clientId);
 
 						{
+							KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Opened;
 							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
 							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(messageAlarm)).Length;
 							KafkaMessageMetrics.Instance.CountAlarms += 1;
@@ -389,12 +401,12 @@ namespace Client
 					RestartAsync(TypeHub.Alarm, alarmExchangeThread);
 				}
 				if(hashConfigs.ContainsKey("DbConnection:DataBase") ||
-							hashConfigs.ContainsKey("DbConnection:NotifyConnectionString") ||
-							hashConfigs.ContainsKey("ConnectionSettings:NotifyUrl"))
+							hashConfigs.ContainsKey("DbConnection:Notify") ||
+							hashConfigs.ContainsKey("ConnectionSettings:Notify"))
 				{
 					var comment = (hashConfigs.ContainsKey("DbConnection:DataBase") ||
-								   hashConfigs.ContainsKey("DbConnection:NotifyConnectionString")) ?
-								   ((hashConfigs.ContainsKey("ConnectionSettings:NotifyUrl")) ?
+								   hashConfigs.ContainsKey("DbConnection:Notify")) ?
+								   ((hashConfigs.ContainsKey("ConnectionSettings:Notify")) ?
 								   "database & connection to NotifyHub" : "database")
 								   : "NotifyHub";
 					Log.Information($"{clientId}: Changing the configuration {comment}. Reconnecting ... ");
@@ -408,12 +420,12 @@ namespace Client
 				}
 				
 				else if (hashConfigs.ContainsKey("DbConnection:DataBase") ||
-							hashConfigs.ContainsKey("DbConnection:AlarmConnectionString") ||
-							hashConfigs.ContainsKey("ConnectionSettings:AlarmUrl"))
+							hashConfigs.ContainsKey("DbConnection:Alarm") ||
+							hashConfigs.ContainsKey("ConnectionSettings:Alarm"))
 				{
 					var comment = (hashConfigs.ContainsKey("DbConnection:DataBase") ||
-								   hashConfigs.ContainsKey("DbConnection:AlarmConnectionString")) ?
-								   ((hashConfigs.ContainsKey("ConnectionSettings:AlarmUrl")) ?
+								   hashConfigs.ContainsKey("DbConnection:AlarmConnection")) ?
+								   ((hashConfigs.ContainsKey("ConnectionSettings:Alarm")) ?
 								   "database & connection to AlarmHub" : "database")
 								   : "AlarmHub";
 					Log.Information($"{clientId}: Changing the configuration {comment}. Reconnecting ... ");

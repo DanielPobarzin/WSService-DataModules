@@ -2,6 +2,7 @@
 using Communications.Helpers;
 using Communications.Hubs;
 using Communications.UoW;
+using Entities.Enums;
 using Interactors.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,6 +63,12 @@ namespace Communications
 
 			// --- Initialize Producer & Consumer and run consumer --- //
 			producerService = new ProducerService(unitOfWorkConfig.Configuration);
+			
+			Task.Run(async () =>
+			{
+				await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonSerializer.Serialize
+			(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
+			});
 			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
 			consumerService.StartAsync(CancellationToken.None);
 
@@ -70,7 +77,7 @@ namespace Communications
 
 			// --- On configuration changed --- //
 			GetEventChangeConfiguration();
-
+			KafkaMessageMetrics.Instance.WorkStatus = WorkStatus.Active;
 			// --- Start adding threads --- //
 			hostThread.Start();
 			UoWNotifyThread.Start();
@@ -103,8 +110,10 @@ namespace Communications
 			{
 				while (!cancellationToken.Token.IsCancellationRequested)
 				{
-					await producerService.PutMessageProducerProcessAsync("metric-topic",
+					if (KafkaMessageMetrics.Instance.ServerId != Guid.Empty) {
+						await producerService.PutMessageProducerProcessAsync("metric-topic",
 						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "server-metric");
+					}
 					await Task.Delay(100, cancellationToken.Token);
 				}
 			});
@@ -232,6 +241,7 @@ namespace Communications
 		/// </remarks>
 		public static void CreateAndRunHostServer()    
 		{
+			KafkaMessageMetrics.Instance.ServerId = Guid.Parse(unitOfWorkConfig.Configuration["HubSettings:ServerId"]);
 			host = Host.CreateDefaultBuilder()
 		   .ConfigureWebHostDefaults(webBuilder =>
 		   {
@@ -250,6 +260,11 @@ namespace Communications
 				   services.AddSingleton(provider =>
 				   {
 					   return unitOfWorkNotify.ReceivedNotificationsList;
+				   });
+
+				   services.AddSingleton(provider =>
+				   {
+					   return producerService;
 				   });
 				   // --- Alarm provider --- //
 				   services.AddSingleton(provider =>
@@ -302,8 +317,8 @@ namespace Communications
 				   services.AddSwaggerGenNewtonsoftSupport();
 
 				   // --- Connections --- //
-				   services.AddSingleton(typeof(Connections<AlarmHub>));
-				   services.AddSingleton(typeof(Connections<NotificationHub>));
+				   services.AddSingleton(typeof(ConcurrentConnections<AlarmHub>));
+				   services.AddSingleton(typeof(ConcurrentConnections<NotificationHub>));
 
 
 				   // --- SignalR --- //

@@ -19,5 +19,7 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 		public string AlarmUrl { get; set; }
 		public bool UseCache { get; set; }
 		public ConnectionMode Mode { get; set; }
+		public string ConsumerBootstrapServer { get; set; }
+		public string ProducerBootstrapServer { get; set; }
 	}
 }

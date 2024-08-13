@@ -2,17 +2,21 @@
 using Communications.DTO;
 using Communications.Helpers;
 using Entities.Entities;
+using Interactors.Helpers;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using NSwag.Annotations;
 using Serilog;
+using Shared.Common;
+using Shared.Services;
 using Shared.Share.KafkaMessage;
 using SignalRSwaggerGen.Attributes;
 using System.Net;
 using System.Text;
 using System.Text.Json;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Communications.Hubs
 {
@@ -23,11 +27,12 @@ namespace Communications.Hubs
 	[SignalRHub]
 	public class AlarmHub : Hub
 	{
-		private Connections<AlarmHub> connections;
+		private ConcurrentConnections<AlarmHub> connections;
 		private readonly List<Alarm>? _alarms;
 		private readonly IConfiguration _configuration;
 		private IMemoryCache memoryCache;
 		private TransformToDTOHelper transformToDTOHelper;
+		private ProducerService producerService;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AlarmHub"/> class.
@@ -37,9 +42,11 @@ namespace Communications.Hubs
 		/// <param name="transformToDTOHelper">Helper for transforming alarms to DTOs.</param>
 		/// <param name="configuration">Application configuration settings.</param>
 		/// <param name="memoryCache">Memory cache for storing alarm states.</param>
+		/// <param name="producerService">Producer for Kafka.</param>
 		public AlarmHub(List<Alarm>? alarms,
-		   Connections<AlarmHub> connections,
+		   ConcurrentConnections<AlarmHub> connections,
 		   TransformToDTOHelper transformToDTOHelper,
+		   ProducerService producerService,
 		   IConfiguration configuration,
 		   IMemoryCache memoryCache)
 		{
@@ -48,6 +55,7 @@ namespace Communications.Hubs
 			this.memoryCache = memoryCache;
 			this.connections = connections;
 			this.transformToDTOHelper = transformToDTOHelper;
+			this.producerService = producerService;
 		}
 
 		/// <summary>
@@ -62,12 +70,20 @@ namespace Communications.Hubs
 		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest), Description = "The request was invalid.")]
 		[SwaggerResponse(HttpStatusCode.InternalServerError, typeof(string), Description = "An error occurred while processing the request.")]
 		public async Task Send(Guid clientId)
-		{
+		{	
 			var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
+			
 			while (connections.GetConnection(Context.ConnectionId) != null)
 			{
 				try
 				{
+					ConnectionsHandler.Instance.AddConnection(connections.GetConnection(Context.ConnectionId), serverid, clientId);
+					var connection = ConnectionsHandler.Instance.GetConnection(Context.ConnectionId);
+
+					await producerService.PutMessageProducerProcessAsync("connections", JsonSerializer.Serialize(connection, new JsonSerializerOptions
+					{
+						WriteIndented = true
+					}), "new-connection");
 					foreach (var alarm in _alarms)
 					{
 						var CompositKey = $"{clientId}_{alarm.Id}";
@@ -145,6 +161,7 @@ namespace Communications.Hubs
 		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override async Task OnConnectedAsync()
 		{
+			KafkaMessageMetrics.Instance.ConnectionStatus = Interactors.Enums.ConnectionStatus.Opened;
 			connections.AddConnection(Context.ConnectionId, Context.ConnectionId);
 			Log.Information("New connection: {@userId}", Context.ConnectionId);
 			await Groups.AddToGroupAsync(Context.ConnectionId, "Alarm");
@@ -163,6 +180,15 @@ namespace Communications.Hubs
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
 			connections.RemoveConnection(Context.ConnectionId);
+			KafkaMessageMetrics.Instance.ConnectionStatus = Interactors.Enums.ConnectionStatus.Closed;
+			ConnectionsHandler.Instance.RemoveConnection(connections.GetConnection(Context.ConnectionId));
+
+			var connection = ConnectionsHandler.Instance.GetConnection(Context.ConnectionId);
+			await producerService.PutMessageProducerProcessAsync("connections", JsonSerializer.Serialize(connection, new JsonSerializerOptions
+			{
+				WriteIndented = true
+			}), "close-connection");
+			
 			Log.Information("Disconnecting: {ConnectionId}", Context.ConnectionId);
 			await Groups.RemoveFromGroupAsync(Context.ConnectionId, "User");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the alarm hub.");

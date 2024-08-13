@@ -10,6 +10,8 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using NSwag.Annotations;
 using Serilog;
+using Shared.Common;
+using Shared.Services;
 using Shared.Share.KafkaMessage;
 using SignalRSwaggerGen.Attributes;
 using System.Diagnostics;
@@ -26,11 +28,12 @@ namespace Communications.Hubs
 	[SignalRHub]
 	public class NotificationHub : Hub
 	{
-		private Connections<NotificationHub> connections;
+		private ConcurrentConnections<NotificationHub> connections;
 		private readonly List<Notification>? _notifications;
 		private readonly IConfiguration _configuration;
 		private TransformToDTOHelper transformToDTOHelper;
 		private IMemoryCache memoryCache;
+		private ProducerService producerService;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="NotificationHub"/> class.
@@ -40,11 +43,13 @@ namespace Communications.Hubs
 		/// <param name="transformToDTOHelper">Helper for transforming notifications to DTOs.</param>
 		/// <param name="configuration">Application configuration settings.</param>
 		/// <param name="memoryCache">Memory cache for storing alarm states.</param>
-		public NotificationHub (List<Notification>? notifications, 
-			   Connections<NotificationHub> connections,
+		/// <param name="producerService">Producer for Kafka.</param>
+		public NotificationHub (List<Notification>? notifications,
+			   ConcurrentConnections<NotificationHub> connections,
 			   IMemoryCache memoryCache,
 			   TransformToDTOHelper transformToDTOHelper,
-			   IConfiguration configuration)
+			   IConfiguration configuration,
+				ProducerService producerService)
 		{
 			_configuration = configuration;
 			_notifications = notifications;
@@ -72,6 +77,14 @@ namespace Communications.Hubs
 			{
 				try
 				{
+					ConnectionsHandler.Instance.AddConnection(connections.GetConnection(Context.ConnectionId), serverid, clientId);
+					var connection = ConnectionsHandler.Instance.GetConnection(Context.ConnectionId);
+
+					await producerService.PutMessageProducerProcessAsync("connections", JsonSerializer.Serialize(connection, new JsonSerializerOptions
+					{
+						WriteIndented = true
+					}), "new-connection");
+
 					foreach (var notification in _notifications)
 					{
 						var CompositKey = $"{clientId}_{notification.Id}";
@@ -150,6 +163,8 @@ namespace Communications.Hubs
 		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override async Task OnConnectedAsync()
 		{
+			KafkaMessageMetrics.Instance.ConnectionStatus = Interactors.Enums.ConnectionStatus.Opened;
+			KafkaMessageMetrics.Instance.CountListeners += 1;
 			connections.AddConnection(Context.ConnectionId, Context.ConnectionId);
 			Log.Information("New connection: {@userId}", Context.ConnectionId);
 			await Groups.AddToGroupAsync(Context.ConnectionId, "Notify");
@@ -167,7 +182,15 @@ namespace Communications.Hubs
 		/// <returns>A task that represents the asynchronous operation.</returns>
 		public override async Task OnDisconnectedAsync(Exception exception)
 		{
+			KafkaMessageMetrics.Instance.ConnectionStatus = Interactors.Enums.ConnectionStatus.Opened;
+			KafkaMessageMetrics.Instance.CountListeners -= 1;
 			connections.RemoveConnection(Context.ConnectionId);
+			ConnectionsHandler.Instance.RemoveConnection(connections.GetConnection(Context.ConnectionId));
+			var connection = ConnectionsHandler.Instance.GetConnection(Context.ConnectionId);
+			await producerService.PutMessageProducerProcessAsync("connections", JsonSerializer.Serialize(connection, new JsonSerializerOptions
+			{
+				WriteIndented = true
+			}), "close-connection");
 			Log.Information("Disconnecting: {ConnectionId}", Context.ConnectionId);
 			await Groups.RemoveFromGroupAsync(Context.ConnectionId, "User");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is disconnected from the notify hub.");
@@ -182,6 +205,7 @@ namespace Communications.Hubs
 		/// <returns>A task that represents the asynchronous operation.</returns>
 		public async Task OnReconnectedAsync(Guid clientId)
 		{
+			KafkaMessageMetrics.Instance.CountListeners += 1;
 			Log.Information($"Reconnecting client {clientId}: {Context.ConnectionId}");
 			await Clients.Others.SendAsync("Notify", $"{Context.ConnectionId} is reconnected.");
 			await Send(clientId);

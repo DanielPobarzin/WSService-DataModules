@@ -69,15 +69,16 @@ try
 				if (env != null && env.IsDevelopment())
 				{
 					app.UseDeveloperExceptionPage();
-					using (var scope = app.ApplicationServices.CreateScope())
-					{
-						var dbConnectionContext = scope.ServiceProvider.GetRequiredService<ConnectionDbContext>();
-						dbConnectionContext.Database.EnsureCreated();
-						var dbClientConfigContext = scope.ServiceProvider.GetRequiredService<ClientConfigDbContext>();
-						dbClientConfigContext.Database.EnsureCreated();
-						var dbServerConfigContext = scope.ServiceProvider.GetRequiredService<ServerConfigDbContext>();
-						dbServerConfigContext.Database.EnsureCreated();
-					}
+
+					//using (var scope = app.ApplicationServices.CreateScope())
+					//{
+					//	var dbConnectionContext = scope.ServiceProvider.GetRequiredService<ConnectionDbContext>();
+					//	dbConnectionContext.Database.EnsureCreated();
+					//	var dbClientConfigContext = scope.ServiceProvider.GetRequiredService<ClientConfigDbContext>();
+					//	dbClientConfigContext.Database.EnsureCreated();
+					//	var dbServerConfigContext = scope.ServiceProvider.GetRequiredService<ServerConfigDbContext>();
+					//	dbServerConfigContext.Database.EnsureCreated();
+					//}
 				}
 				else
 				{

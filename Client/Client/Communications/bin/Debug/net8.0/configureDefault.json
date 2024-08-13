@@ -1,18 +1,29 @@
 {
   "DbConnection": {
     "DataBase": "PostgreSQL",
-    "NotifyConnectionString": "host=localhost;port=5432;Database=NotificationsExchangeClients;Username=postgres;Password=19346jaidj",
-    "AlarmConnectionString": "host=localhost;port=5432;Database=AlarmsExchangeClients;Username=postgres;Password=19346jaidj"
+    "Notify": {
+      "ConnectionString": "host=localhost;port=5432;Database=NotificationsExchangeClients;Username=postgres;Password=19346jaidj"
+    },
+    "Alarm": {
+      "ConnectionString": "host=localhost;port=5432;Database=AlarmsExchangeClients;Username=postgres;Password=19346jaidj"
+    }
   },
+
   "ClientSettings": {
-    "ClientId": "13146fac-13e9-8d0c-aa4c-cfcf5246a153",
+    "ClientId": "GENERATE",
     "UseCache": true,
     "Mode": "Automatic"
   },
+
   "ConnectionSettings": {
-    "NotifyUrl": "https://localhost:8080/hubs/NotificationHub/Send",
-    "AlarmUrl": "https://localhost:8080/hubs/AlarmHub/Send"
+    "Notify": {
+      "Url": "https://localhost:8080/hubs/NotificationHub/Send"
+    },
+    "Alarm": {
+      "Url": "https://localhost:8080/hubs/AlarmHub/Send"
+    }
   },
+
   "Kafka": {
     "Producer": {
       "BootstrapServers": "localhost:9092"

@@ -10,6 +10,19 @@ namespace Domain.Settings.SignalRClient
 		public AlarmDataBase Alarm { get; set; }
 		public NotifyDataBase Notify { get; set; }
 	}
+	public class KafkaSettings : BaseConfig
+	{
+		public ConsumerConnection Consumer { get; set; }
+		public ProducerConnection Producer { get; set; }
+	}
+	public class ConsumerConnection : Entity
+	{
+		public string BootstrapServers { get; set; }
+	}
+	public class ProducerConnection : Entity
+	{
+		public string BootstrapServers { get; set; }
+	}
 
 	public class AlarmDataBase : Entity
 	{

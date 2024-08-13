@@ -1,7 +1,6 @@
 ﻿using Domain.Settings.SignalRServer;
 using Microsoft.EntityFrameworkCore;
 using Persistance.DbContexts.EntityTypeConfiguration.SignalRServerEFC;
-using System.Data.Common;
 
 namespace Persistance.DbContexts
 {
@@ -10,6 +9,7 @@ namespace Persistance.DbContexts
 		public DbSet<DBSettings> DbSettings { get; set; }
 		public DbSet<HubSettings> HubSettings { get; set; }
 		public DbSet<HostSettings> HostSettings { get; set; }
+		public DbSet<KafkaSettings> KafkaSettings { get; set; }
 		private string connectionString;
 
 		public ServerConfigDbContext(DbContextOptions<ServerConfigDbContext> options) :
@@ -20,8 +20,9 @@ namespace Persistance.DbContexts
 				modelBuilder.ApplyConfiguration(new DbConnectionConfiguration());
 				modelBuilder.ApplyConfiguration(new HostSettingsConfiguration());
 				modelBuilder.ApplyConfiguration(new HubSettingsConfiguration());
+				modelBuilder.ApplyConfiguration(new KafkaSettingsConfiguration());
 
-				base.OnModelCreating(modelBuilder);
+			base.OnModelCreating(modelBuilder);
 		}
 
 		//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

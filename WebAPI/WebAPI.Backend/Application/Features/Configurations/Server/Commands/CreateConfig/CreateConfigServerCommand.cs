@@ -25,5 +25,7 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 		public string DB { get; set; }
 		public string AlarmDB { get; set; }
 		public string NotificationDB { get; set; }
+		public string ConsumerBootstrapServer { get; set; }
+		public string ProducerBootstrapServer { get; set; }
 	}
 }

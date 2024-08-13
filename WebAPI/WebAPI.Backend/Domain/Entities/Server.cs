@@ -18,5 +18,7 @@ namespace Domain.Entities
 		public ConnectionStatus ConnectionStatus { get; set; }
 		public string? ConnectionId { get; set; }
 		public int CountListeners { get; set; }
+
+		public ICollection<Connection> Connections { get; set; }
 	}
 }

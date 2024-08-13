@@ -1,4 +1,5 @@
 ﻿
+using Entities.Enums;
 using Interactors.Enums;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace Shared.Common
 {
-	/// <summary>
-	/// Represents a singleton class that holds global parameters for connection commands and modes.
-	/// </summary>
-	public class GlobalSingletonParameters
+    /// <summary>
+    /// Represents a singleton class that holds global parameters for connection commands and modes.
+    /// </summary>
+    public class GlobalSingletonParameters
 	{
 		// Private constructor to prevent instantiation from outside.
 		private GlobalSingletonParameters() { }

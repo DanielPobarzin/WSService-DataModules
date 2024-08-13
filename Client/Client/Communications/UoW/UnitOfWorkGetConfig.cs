@@ -1,9 +1,10 @@
-﻿using Interactors.Enums;
+﻿using Entities.Enums;
+using Entities.Settings;
 using Interactors.Helpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
-using Shared.Common;
-using System;
+using Newtonsoft.Json;
+using Serilog;
 
 namespace Communications.UoW
 {
@@ -40,10 +41,11 @@ namespace Communications.UoW
 		/// </remarks>
 		public UnitOfWorkGetConfig()
 		{
-			filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "configure.json");
-			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 			sectionHashes = new Dictionary<string, string>();
+			EnsureConfigurationFile("configure.json");
+			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 			LoadConfigFile();
+
 			ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
 			{
 				if (isInitialized)
@@ -66,37 +68,129 @@ namespace Communications.UoW
 		/// </remarks>
 		public void LoadConfigFile()
 		{
-			configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+			try
+			{
+				configuration = new ConfigurationBuilder()
+				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
 				.AddJsonFile("configure.json", optional: false, reloadOnChange: true)
 				.Build();
-			var schema = File.ReadAllText(schemaPath);
-			var config = File.ReadAllText(filePath);
+				var schema = File.ReadAllText(schemaPath);
+				var config = File.ReadAllText(filePath);
 
-			if (ConfigValidHelper.ValidateConfigurationJson(schema, config))
-			{
-				sectionHashes["DbConnection:DataBase"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:DataBase");
-				sectionHashes["DbConnection:NotifyConnectionString"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:NotifyConnectionString");
-				sectionHashes["DbConnection:AlarmConnectionString"] = HashHelper.CalculateJsonSectionMd5(filePath, "DbConnection:AlarmConnectionString");
-				sectionHashes["ClientSettings:ClientId"] = HashHelper.CalculateJsonSectionMd5(filePath, "ClientSettings:ClientId");
-				sectionHashes["ClientSettings:UseCache"] = HashHelper.CalculateJsonSectionMd5(filePath, "ClientSettings:UseCache");
-				sectionHashes["ClientSettings:Mode"] = HashHelper.CalculateJsonSectionMd5(filePath, "ClientSettings:Mode");
-				sectionHashes["ConnectionSettings:AlarmUrl"] = HashHelper.CalculateJsonSectionMd5(filePath, "ConnectionSettings:AlarmUrl");
-				sectionHashes["ConnectionSettings:NotifyUrl"] = HashHelper.CalculateJsonSectionMd5(filePath, "ConnectionSettings:NotifyUrl");
-				sectionHashes["Kafka:Producer"] = HashHelper.CalculateJsonSectionMd5(filePath, "Kafka:Producer");
-				sectionHashes["Kafka:Consumer"] = HashHelper.CalculateJsonSectionMd5(filePath, "Kafka:Consumer");
+				if (ConfigValidHelper.ValidateConfigurationJson(schema, config))
+				{
+					var keysToHash = new[]
+					{
+						"DbConnection:DataBase",
+						"DbConnection:Notify",
+						"DbConnection:Alarm",
+						"ClientSettings:ClientId",
+						"ClientSettings:UseCache",
+						"ClientSettings:Mode",
+						"ConnectionSettings:Alarm",
+						"ConnectionSettings:Notify",
+						"Kafka:Producer",
+						"Kafka:Consumer"
+					};
 
-				this.Configuration = configuration;
+					foreach (var key in keysToHash)
+					{
+						sectionHashes[key] = HashHelper.CalculateJsonSectionMd5(filePath, key);
+					}
+
+					this.Configuration = configuration;
+				}
+				else
+				{
+					LoadDefaultConfiguration();
+				}			
 			}
-			else
+			catch (Exception ex) {
+				Log.Error($"Exception with configuration: {ex.Message}");
+				LoadDefaultConfiguration();
+			}
+
+		}
+		private void LoadDefaultConfiguration()
+		{
+			var configuration = new ConfigurationBuilder()
+				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+				.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
+				.Build();
+
+			var config = new Settings
 			{
-				configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-					.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
-					.Build();
-				this.Configuration = configuration;
+				DBSettings = new DBSettings
+				{
+					DataBase = configuration["DbConnection:DataBase"],
+					Alarm = new AlarmDataBase
+					{
+						ConnectionString = configuration["DbConnection:Notify:ConnectionString"]
+					},
+					Notify = new NotifyDataBase
+					{
+						ConnectionString = configuration["DbConnection:Alarm:ConnectionString"]
+					}
+				},
+
+				CLientSettings = new CLientSettings
+				{
+					Id = (Guid.Parse(configuration["ClientSettings:ClientId"]) == Guid.Empty) ? Guid.Parse(configuration["ClientSettings:ClientId"]) :
+					Guid.Parse(configuration["ClientSettings:ClientId"]),
+					UseCache = bool.Parse(configuration["ClientSettings:UseCache"]),
+					Mode = (ConnectionMode)Enum.Parse(typeof(ConnectionMode), configuration["ClientSettings:Mode"])
+				},
+
+				ConnectSettings = new ConnectSettings
+				{
+					Notify = new NotifyConnection
+					{
+						Url = configuration["ConnectionSettings:Notify:Url"]
+					},
+					Alarm = new AlarmConnection
+					{
+						Url = configuration["ConnectionSettings:Alarm:Url"]
+					}
+				},
+
+				Kafka = new Kafka
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = configuration["Kafka:Consumer:BootstrapServers"]
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = configuration["Kafka:Producer:BootstrapServers"]
+					}
+				}
+			};
+			string json = JsonConvert.SerializeObject(config, Formatting.Indented);
+
+			if (new FileInfo(filePath).Length == 0)
+			{
+				File.WriteAllText(filePath, json);
+				Log.Information($"The default configuration is used.");
+			}
+			LoadConfigFile();
+		}
+		private void EnsureConfigurationFile(string configFile)
+		{
+			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile);
+
+			if (!File.Exists(filePath))
+			{
+				try
+				{
+					using (File.Create(filePath)) { }
+				}
+				catch (Exception ex)
+				{
+					Log.Error($"Exception with creating configuration file: {ex.Message}");
+				}
 			}
 		}
+
 	}
 
 }
-
-

@@ -16,10 +16,11 @@ namespace Application.Features.Configurations.Client.Queries.GetConfigClientDeta
 		public string AlarmUrl { get; set; }
 		public bool UseCache { get; set; }
 		public ConnectionMode Mode { get; set; }
+		public string ConsumerBootstrapServer { get; set; }
+		public string ProducerBootstrapServer { get; set; }
 
 		public void Mapping(Profile profile)
 		{
-
 			profile.CreateMap<ClientSettings, ClientConfigDetailsViewModel>()
 					.ForMember(configVm => configVm.SystemId,
 							   opt => opt.MapFrom(config => config.SystemId))
@@ -36,7 +37,11 @@ namespace Application.Features.Configurations.Client.Queries.GetConfigClientDeta
 					.ForMember(configVm => configVm.UseCache,
 							   opt => opt.MapFrom(config => config.ModeSettings.UseCache))
 					.ForMember(configVm => configVm.Mode,
-							   opt => opt.MapFrom(config => config.ModeSettings.Mode));
+							   opt => opt.MapFrom(config => config.ModeSettings.Mode))
+					.ForMember(configVm => configVm.ConsumerBootstrapServer,
+							   opt => opt.MapFrom(config => config.KafkaSettings.Consumer.BootstrapServers))
+					.ForMember(configVm => configVm.ProducerBootstrapServer,
+							   opt => opt.MapFrom(config => config.KafkaSettings.Producer.BootstrapServers));
 		}
 	}
 }

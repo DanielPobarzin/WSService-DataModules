@@ -1,12 +1,6 @@
 ﻿using Domain.Settings.SignalRClient;
 using Microsoft.EntityFrameworkCore;
 using Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistance.DbContexts
 {
@@ -15,6 +9,7 @@ namespace Persistance.DbContexts
 		public DbSet<DBSettings> DbSettings { get; set; }
 		public DbSet<ConnectSettings> ConnectSettings { get; set; }
 		public DbSet<ModeSettings> ModeSettings { get; set; }
+		public DbSet<KafkaSettings> KafkaSettings { get; set; }
 		private string connectionString;
 
 		public ClientConfigDbContext(DbContextOptions<ServerConfigDbContext> options) :
@@ -26,6 +21,7 @@ namespace Persistance.DbContexts
 			modelBuilder.ApplyConfiguration(new DbConnectionConfiguration());
 			modelBuilder.ApplyConfiguration(new ConnectionSettingsConfiguration());
 			modelBuilder.ApplyConfiguration(new ClientSettingsConfiguration());
+			modelBuilder.ApplyConfiguration(new KafkaSettingsConfiguration());
 
 			base.OnModelCreating(modelBuilder);
 		}

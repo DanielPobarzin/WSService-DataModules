@@ -22,6 +22,8 @@ namespace Application.Features.Configurations.Server.Queries.GetConfigServerDeta
 		public string DB { get; set; }
 		public string AlarmDB { get; set; }
 		public string NotificationDB { get; set; }
+		public string ConsumerBootstrapServer { get; set; }
+		public string ProducerBootstrapServer { get; set; }
 
 		public void Mapping(Profile profile)
 		{
@@ -58,7 +60,11 @@ namespace Application.Features.Configurations.Server.Queries.GetConfigServerDeta
 					.ForMember(configVm => configVm.AlarmDB,
 							   opt => opt.MapFrom(config => config.ServerDB.AlarmDB))
 					.ForMember(configVm => configVm.NotificationDB,
-							   opt => opt.MapFrom(config => config.ServerDB.NotificationDB));
+							   opt => opt.MapFrom(config => config.ServerDB.NotificationDB))
+					.ForMember(configVm => configVm.ConsumerBootstrapServer,
+							   opt => opt.MapFrom(config => config.ServerKafka.Consumer.BootstrapServers))
+					.ForMember(configVm => configVm.ProducerBootstrapServer,
+							   opt => opt.MapFrom(config => config.ServerKafka.Producer.BootstrapServers));
 		}
 	}
 }

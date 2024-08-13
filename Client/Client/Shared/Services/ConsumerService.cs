@@ -1,11 +1,8 @@
 ﻿using Confluent.Kafka;
-using Interactors.Enums;
 using Interactors.Helpers;
 using Interactors.Interfaces;
-using Interactors.Settings.ClientConfig;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using Serilog;
 using Shared.Common;

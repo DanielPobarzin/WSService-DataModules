@@ -22,12 +22,12 @@ namespace Application.Features.Connections.Commands.OpenConnection
 {
 	public class OpenConnectionCommandHandler : IRequestHandler<OpenConnectionCommand, Response<ConnectionCommand>>
 	{
-		private readonly IConnectionRepositoryAsync _repository;
+		private readonly IClientRepositoryAsync _repository;
 		private readonly IProducerService _producerService;
 		private readonly IConfiguration _configuration;
 		private readonly IMapper _mapper;
 		private readonly string _topicProduce;
-		public OpenConnectionCommandHandler(IConfiguration configuration, IConnectionRepositoryAsync Repository, IProducerService producerService)
+		public OpenConnectionCommandHandler(IConfiguration configuration, IClientRepositoryAsync Repository, IProducerService producerService)
 		{
 			_repository = Repository;
 			_producerService = producerService;
@@ -37,8 +37,9 @@ namespace Application.Features.Connections.Commands.OpenConnection
 		public async Task<Response<ConnectionCommand>> Handle(OpenConnectionCommand command, CancellationToken cancellationToken)
 		{
 			var client = await _repository.GetByIdAsync(command.Id);
-			if (client.Client.WorkStatus == WorkStatus.NoNActive) throw new APIException($"Client not active.");
-			if (client.Client.ConnectionStatus == ConnectionStatus.Opened) throw new APIException($"Client is already connected.");
+			if (client.WorkStatus == WorkStatus.NoNActive) throw new APIException($"Client not active.");
+			if (client.ConnectionStatus == ConnectionStatus.Opened) throw new APIException($"Client is already connected.");
+
 			var message = JsonSerializer.Serialize(command);
 
 			await _producerService.ProduceMessageProcessAsync(_topicProduce, message);

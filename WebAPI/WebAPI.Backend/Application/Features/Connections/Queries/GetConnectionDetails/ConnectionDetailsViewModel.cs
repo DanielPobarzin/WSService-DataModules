@@ -25,9 +25,9 @@ namespace Application.Features.Connections.Queries.GetConnectionDetails
 
 			profile.CreateMap<Connection, ConnectionDetailsViewModel>()
 					.ForMember(connectionVm => connectionVm.ClientId,
-							   opt => opt.MapFrom(connection => connection.Client.Id))
+							   opt => opt.MapFrom(connection => connection.ClientId))
 					.ForMember(connectionVm => connectionVm.ServerId,
-							   opt => opt.MapFrom(connection => connection.Server.Id))
+							   opt => opt.MapFrom(connection => connection.ServerId))
 					.ForMember(connectionVm => connectionVm.ConnectionId,
 							   opt => opt.MapFrom(connection => connection.ConnectionId))
 					.ForMember(connectionVm => connectionVm.Session,

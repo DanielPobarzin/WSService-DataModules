@@ -17,10 +17,10 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRServerEFC
 				builder.Property(e => e.DB)
 					.HasColumnName("database_type")
 					.HasColumnType("varchar(20)");
-				builder.Property(e => e.AlarmDB)
+				builder.Property(e => e.AlarmDB.ConnectionString)
 					.HasColumnName("alarm_connection_string")
 					.HasColumnType("text");
-				builder.Property(e => e.NotificationDB)
+				builder.Property(e => e.NotificationDB.ConnectionString)
 					.HasColumnName("notify_connection_string")
 					.HasColumnType("text");
 				builder.HasOne<DBSettings>()

@@ -58,6 +58,18 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 				{
 					UseCache = config.ModeSettings.UseCache,
 					Mode = config.ModeSettings.Mode
+				},
+
+				KafkaSettings = new KafkaSettings
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = config.KafkaSettings.Consumer.BootstrapServers
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = config.KafkaSettings.Producer.BootstrapServers
+					}
 				}
 			};
 			string json = JsonConvert.SerializeObject(configDto, Formatting.Indented);

@@ -8,7 +8,7 @@ namespace Communications.Connections
 	/// </summary>
 	/// <typeparam name="T">The type of the hub that this connection manager is associated with. 
 	/// Must be derived from <see cref="Hub"/>.</typeparam>
-	public class Connections<T> where T : Hub
+	public class ConcurrentConnections<T> where T : Hub
 	{
 		private readonly ConcurrentDictionary<string, string> _all = new();
 
