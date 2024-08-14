@@ -1,38 +1,43 @@
 ﻿using Application.Features.Configurations.Server.Commands.CreateConfig;
+using Application.Mappings;
 using AutoMapper;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models.Config
 {
-    public class CreateServerConfigDTO
+    public class CreateServerConfigDTO : IMapWith<CreateConfigServerCommand>
     {
-        [Required]
-        public Guid SystemId { get; set; }
-        [Required]
-        public int Port { get; set; }
-        [Required]
-        public string Urls { get; set; }
+		[Required]
+		public Guid SystemId { get; set; }
+		[Required]
+		public int Port { get; set; }
+		[Required]
+		public string Urls { get; set; }
         public string PolicyName { get; set; }
         public string AllowedOrigins { get; set; }
-        [Required]
-        public string RouteNotify { get; set; }
-        [Required]
-        public string RouteAlarm { get; set; }
-        [Required]
+		[Required]
+		public string RouteNotify { get; set; }
+		[Required]
+		public string RouteAlarm { get; set; }
         public int AlarmDelayMilliseconds { get; set; }
-        [Required]
         public int NotifyDelayMilliseconds { get; set; }
-        public string NotifyHubMethod { get; set; }
-        public string AlarmHubMethod { get; set; }
+		[Required]
+		public string NotifyHubMethod { get; set; }
+		[Required]
+		public string AlarmHubMethod { get; set; }
         public string NotifyTargetClients { get; set; }
         public string AlarmTargetClients { get; set; }
-        [Required]
-        public string DB { get; set; }
-        [Required]
-        public string AlarmDB { get; set; }
-        [Required]
-        public string NotificationDB { get; set; }
-        public void Mapping(Profile profile)
+		[Required]
+		public string DB { get; set; }
+		[Required]
+		public string AlarmDB { get; set; }
+		[Required]
+		public string NotificationDB { get; set; }
+		[Required]
+		public string ConsumerBootstrapServer { get; set; }
+		[Required]
+		public string ProducerBootstrapServer { get; set; }
+		public void Mapping(Profile profile)
         {
             profile.CreateMap<CreateServerConfigDTO, CreateConfigServerCommand>()
                 .ForMember(configCommand => configCommand.SystemId,
@@ -64,7 +69,11 @@ namespace WebAPI.Models.Config
                 .ForMember(configCommand => configCommand.NotifyTargetClients,
                      opt => opt.MapFrom(config => config.NotifyTargetClients))
                 .ForMember(configCommand => configCommand.AlarmTargetClients,
-                     opt => opt.MapFrom(config => config.AlarmTargetClients));
-        }
+                     opt => opt.MapFrom(config => config.AlarmTargetClients))
+				 .ForMember(configCommand => configCommand.ConsumerBootstrapServer,
+					 opt => opt.MapFrom(config => config.ConsumerBootstrapServer))
+				.ForMember(configCommand => configCommand.ProducerBootstrapServer,
+					 opt => opt.MapFrom(config => config.ProducerBootstrapServer));
+		}
     }
 }

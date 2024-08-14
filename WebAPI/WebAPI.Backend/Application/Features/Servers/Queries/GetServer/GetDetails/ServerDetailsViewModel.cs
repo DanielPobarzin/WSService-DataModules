@@ -1,10 +1,11 @@
-﻿using AutoMapper;
+﻿using Application.Mappings;
+using AutoMapper;
 using Domain.Entities;
 using Domain.Enums;
 
 namespace Application.Features.Servers.Queries.GetServer.GetDetails
 {
-	public class ServerDetailsViewModel
+	public class ServerDetailsViewModel : IMapWith<Server>
 	{
 		public Guid ServerId { get; set; }
 		public WorkStatus WorkStatus { get; set; }

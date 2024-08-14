@@ -1,10 +1,12 @@
 ﻿using Application.Features.Configurations.Client.Commands.UpdateConfig;
+using Application.Mappings;
 using AutoMapper;
 using Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAPI.Models.Config
 {
-    public class UpdateClientConfigDTO
+    public class UpdateClientConfigDTO : IMapWith<UpdateConfigClientCommand>
     {
         public Guid SystemId { get; set; }
         public string DB { get; set; }
@@ -14,7 +16,9 @@ namespace WebAPI.Models.Config
         public string AlarmUrl { get; set; }
         public bool UseCache { get; set; }
         public ConnectionMode Mode { get; set; }
-        public void Mapping(Profile profile)
+		public string ConsumerBootstrapServer { get; set; }
+		public string ProducerBootstrapServer { get; set; }
+		public void Mapping(Profile profile)
         {
             profile.CreateMap<UpdateClientConfigDTO, UpdateConfigClientCommand>()
                 .ForMember(configCommand => configCommand.SystemId,
@@ -32,7 +36,11 @@ namespace WebAPI.Models.Config
                 .ForMember(configCommand => configCommand.UseCache,
                      opt => opt.MapFrom(config => config.UseCache))
                 .ForMember(configCommand => configCommand.Mode,
-                     opt => opt.MapFrom(config => config.Mode));
-        }
+                     opt => opt.MapFrom(config => config.Mode))
+				.ForMember(configCommand => configCommand.ProducerBootstrapServer,
+					 opt => opt.MapFrom(config => config.ProducerBootstrapServer))
+				.ForMember(configCommand => configCommand.ConsumerBootstrapServer,
+					 opt => opt.MapFrom(config => config.ConsumerBootstrapServer));
+		}
     }
 }

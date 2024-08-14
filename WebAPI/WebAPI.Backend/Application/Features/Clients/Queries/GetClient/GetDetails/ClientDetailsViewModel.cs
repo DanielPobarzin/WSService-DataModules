@@ -1,4 +1,5 @@
 ﻿using Application.Features.Servers.Queries.GetServer.GetAll;
+using Application.Mappings;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Enums;
@@ -10,27 +11,24 @@ using System.Threading.Tasks;
 
 namespace Application.Features.CLients.Queries.GetClient.GetDetails
 {
-	public class ClientDetailsViewModel
+	public class ClientDetailsViewModel : IMapWith<Client>
 	{
-		public Guid ServerId { get; set; }
+		public Guid ClientId { get; set; }
 		public WorkStatus WorkStatus { get; set; }
 		public ConnectionStatus ConnectionStatus { get; set; }
 		public string? ConnectionId { get; set; }
-		public int CountListeners { get; set; }
 
 		public void Mapping(Profile profile)
 		{
-			profile.CreateMap<Server, ClientDetailsViewModel>()
-				.ForMember(serverDto => serverDto.ServerId,
-					 opt => opt.MapFrom(server => server.Id))
-				.ForMember(serverDto => serverDto.WorkStatus,
-					 opt => opt.MapFrom(server => server.WorkStatus))
-				.ForMember(serverDto => serverDto.ConnectionStatus,
-					 opt => opt.MapFrom(server => server.ConnectionStatus))
-				.ForMember(serverDto => serverDto.ConnectionId,
-					 opt => opt.MapFrom(server => server.ConnectionId))
-				.ForMember(serverDto => serverDto.CountListeners,
-					 opt => opt.MapFrom(server => server.CountListeners));
+			profile.CreateMap<Client, ClientDetailsViewModel>()
+				.ForMember(clientDto => clientDto.ClientId,
+					 opt => opt.MapFrom(client => client.Id))
+				.ForMember(clientDto => clientDto.WorkStatus,
+					 opt => opt.MapFrom(client => client.WorkStatus))
+				.ForMember(clientDto => clientDto.ConnectionStatus,
+					 opt => opt.MapFrom(client => client.ConnectionStatus))
+				.ForMember(clientDto => clientDto.ConnectionId,
+					 opt => opt.MapFrom(client => client.ConnectionId));
 		}
 	}
 }

@@ -7,6 +7,9 @@ using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using WebAPI.Extensions;
 using Microsoft.Extensions.Hosting;
+using AutoMapper;
+using Application.Mappings;
+using System.Reflection;
 
 try
 {
@@ -38,7 +41,7 @@ try
 			restrictedToMinimumLevel: LogEventLevel.Information)
 	.CreateLogger();
 
-
+	
 	Log.Information("Application startup services registration");
 
 	var builder = Host.CreateDefaultBuilder().UseSerilog(Log.Logger)
@@ -49,6 +52,10 @@ try
 				services.AddAplication();
 				services.AddPersistance(context.Configuration);
 				services.AddShared(context.Configuration);
+				services.AddAutoMapper(config =>
+				{
+					config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+				});
 				services.AddSwaggerExtension();
 				services.AddControllersExtension();
 				services.AddCorsExtension();
@@ -70,15 +77,15 @@ try
 				{
 					app.UseDeveloperExceptionPage();
 
-					//using (var scope = app.ApplicationServices.CreateScope())
-					//{
-					//	var dbConnectionContext = scope.ServiceProvider.GetRequiredService<ConnectionDbContext>();
-					//	dbConnectionContext.Database.EnsureCreated();
-					//	var dbClientConfigContext = scope.ServiceProvider.GetRequiredService<ClientConfigDbContext>();
-					//	dbClientConfigContext.Database.EnsureCreated();
-					//	var dbServerConfigContext = scope.ServiceProvider.GetRequiredService<ServerConfigDbContext>();
-					//	dbServerConfigContext.Database.EnsureCreated();
-					//}
+					using (var scope = app.ApplicationServices.CreateScope())
+					{
+						var dbConnectionContext = scope.ServiceProvider.GetRequiredService<ConnectionDbContext>();
+						dbConnectionContext.Database.EnsureCreated();
+						var dbClientConfigContext = scope.ServiceProvider.GetRequiredService<ClientConfigDbContext>();
+						dbClientConfigContext.Database.EnsureCreated();
+						var dbServerConfigContext = scope.ServiceProvider.GetRequiredService<ServerConfigDbContext>();
+						dbServerConfigContext.Database.EnsureCreated();
+					}
 				}
 				else
 				{

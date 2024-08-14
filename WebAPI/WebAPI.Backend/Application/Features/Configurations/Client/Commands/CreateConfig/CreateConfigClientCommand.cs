@@ -1,4 +1,5 @@
-﻿using Application.Wrappers;
+﻿using Application.Mappings;
+using Application.Wrappers;
 using Domain.Enums;
 using Domain.Settings.SignalRServer;
 using MediatR;

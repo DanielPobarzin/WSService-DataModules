@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 using System.Text.Json;
-using static System.Net.WebRequestMethods;
 
 namespace WebAPI.Extensions
 {
@@ -13,10 +12,14 @@ namespace WebAPI.Extensions
 		{
 			services.AddSwaggerGen(c =>
 			{
+				var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+				var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
+				c.IncludeXmlComments(xmlCommentsFullPath, true);
+
 				c.SwaggerDoc("v1", new OpenApiInfo
 				{
 					Version = "v1",
-					Title = "Managment & Monitoring - WebApi",
+					Title = "Managment & Monitoring - WebService",
 					Description = "This API will be responsible for receiving data (metrics, configurations, states, etc.) and distributing them, as well as for authorization.",
 					
 					Contact = new OpenApiContact
@@ -51,6 +54,10 @@ namespace WebAPI.Extensions
 						}, new List<string>()
 					},
 				});
+				c.CustomOperationIds(apiDescription =>
+					   apiDescription.TryGetMethodInfo(out MethodInfo methodInfo)
+					   ? methodInfo.Name
+					   : null);
 			});
 			return services;
 		}
@@ -93,9 +100,9 @@ namespace WebAPI.Extensions
 		}
 		public static IServiceCollection AddAuthorizationPolicies(this IServiceCollection services, IConfiguration configuration)
 		{
-			string superAdmin = configuration["ApiRoles:AdminRole"],
-			admin = configuration["ApiRoles:ManagerRole"],
-			user = configuration["ApiRoles:EmployeeRole"];
+			string superAdmin = configuration["ApiRoles:SuperAdminRole"],
+			admin = configuration["ApiRoles:AdminRole"],
+			user = configuration["ApiRoles:UserRole"];
 
 			services.AddAuthorization(options =>
 			{

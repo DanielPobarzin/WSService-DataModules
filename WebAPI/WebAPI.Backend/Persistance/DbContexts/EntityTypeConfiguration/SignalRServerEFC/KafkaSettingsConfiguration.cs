@@ -18,12 +18,19 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRServerEFC
 			builder.Property(e => e.SystemId)
 				.HasColumnName("server_id")
 				.ValueGeneratedOnAdd();
-			builder.Property(e => e.Producer.BootstrapServers)
-				.HasColumnName("producer_bootstrap_server")
-				.HasColumnType("varchar(255)");
-			builder.Property(e => e.Consumer.BootstrapServers)
-				.HasColumnName("consumer_bootstrap_server")
-				.HasColumnType("varchar(255)");
+			builder.OwnsOne(e => e.Producer, alarmBuilder =>
+			{
+				alarmBuilder.Property(a => a.BootstrapServers)
+					.HasColumnName("producer_bootstrap_server")
+					.HasColumnType("varchar(255)");
+			});
+
+			builder.OwnsOne(e => e.Consumer, notifyBuilder =>
+			{
+				notifyBuilder.Property(n => n.BootstrapServers)
+					.HasColumnName("consumer_bootstrap_server")
+					.HasColumnType("varchar(255)");
+			});
 			builder.HasOne<KafkaSettings>()
 				   .WithMany()
 				   .HasForeignKey(e => e.SystemId)

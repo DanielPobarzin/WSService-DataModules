@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<NoWarn>$(NoWarn);1591</NoWarn>
     <ImplicitUsings>enable</ImplicitUsings>
 	<Authors>Daniel</Authors>
 	<RepositoryUrl>https://github.com/DanielPobarzin/WSService-DataModules.git</RepositoryUrl>
@@ -22,6 +24,7 @@
 	 <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
 	 <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
 	 <PackageReference Include="Serilog.Sinks.Trace" Version="4.0.0" />
+	 <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.7.0" />
   </ItemGroup>
 
   <ItemGroup>

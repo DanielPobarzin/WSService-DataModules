@@ -1,0 +1,1229 @@
+2024-08-14 13:38:43.180 +03:00 [ERR] The DbContextOptions passed to the ClientConfigDbContext constructor must be a DbContextOptions<ClientConfigDbContext>. When registering multiple DbContext types, make sure that the constructor for each context type has a DbContextOptions<TContext> parameter rather than a non-generic DbContextOptions parameter.
+2024-08-14 13:38:43.205 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 2234.0363 ms
+2024-08-14 14:54:46.926 +03:00 [ERR] Cannot create a DbSet for 'ClientSettings' because this type is not included in the model for the context.
+2024-08-14 14:54:46.946 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 703.5896 ms
+2024-08-14 14:56:44.411 +03:00 [ERR] Cannot create a DbSet for 'ClientSettings' because this type is not included in the model for the context.
+2024-08-14 14:56:44.424 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 398.2951 ms
+2024-08-14 14:57:59.227 +03:00 [ERR] Failed executing DbCommand (64ms) [Parameters=[@__status_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM connections AS c
+WHERE c.connection_status = @__status_0
+2024-08-14 14:57:59.245 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ConnectionDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: отношение "connections" не существует
+
+POSITION: 28
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42P01
+    MessageText: отношение "connections" не существует
+    Position: 28
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: отношение "connections" не существует
+
+POSITION: 28
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at bool Npgsql.NpgsqlDataReader.NextResult()
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at NpgsqlDataReader Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at DbDataReader Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at RelationalDataReader Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.InitializeReader(Enumerator enumerator)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()+(DbContext _, Enumerator enumerator) => { }
+   at TResult Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute<TState, TResult>(TState state, Func<DbContext, TState, TResult> operation, Func<DbContext, TState, ExecutionResult<TResult>> verifySucceeded)
+   at bool Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+Enumerator.MoveNext()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42P01
+    MessageText: отношение "connections" не существует
+    Position: 28
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+2024-08-14 14:57:59.505 +03:00 [ERR] 42P01: отношение "connections" не существует
+
+POSITION: 28
+2024-08-14 14:57:59.508 +03:00 [ERR] HTTP GET /api/v1/connections/Connection/allConnections responded 500 in 1019.8389 ms
+2024-08-14 14:58:19.450 +03:00 [ERR] Clients Not Found.
+2024-08-14 14:58:41.817 +03:00 [ERR] Cannot create a DbSet for 'ClientSettings' because this type is not included in the model for the context.
+2024-08-14 14:58:41.824 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 176.8763 ms
+2024-08-14 15:16:14.556 +03:00 [ERR] Failed executing DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."SystemId", c.client_id
+FROM "ClientSettings" AS c
+2024-08-14 15:16:14.580 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: отношение "ClientSettings" не существует
+
+POSITION: 40
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42P01
+    MessageText: отношение "ClientSettings" не существует
+    Position: 40
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: отношение "ClientSettings" не существует
+
+POSITION: 40
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42P01
+    MessageText: отношение "ClientSettings" не существует
+    Position: 40
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+2024-08-14 15:16:14.941 +03:00 [ERR] 42P01: отношение "ClientSettings" не существует
+
+POSITION: 40
+2024-08-14 15:16:14.950 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 1214.9913 ms
+2024-08-14 15:22:14.623 +03:00 [ERR] Failed executing DbCommand (29ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."SystemId", c.client_id
+FROM "ClientSettings" AS c
+WHERE c."SystemId" = @__get_Item_0
+LIMIT 1
+2024-08-14 15:22:14.646 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: отношение "ClientSettings" не существует
+
+POSITION: 40
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42P01
+    MessageText: отношение "ClientSettings" не существует
+    Position: 40
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: отношение "ClientSettings" не существует
+
+POSITION: 40
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42P01
+    MessageText: отношение "ClientSettings" не существует
+    Position: 40
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+2024-08-14 15:22:15.038 +03:00 [ERR] 42P01: отношение "ClientSettings" не существует
+
+POSITION: 40
+2024-08-14 15:22:15.044 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig/11341fac-11e6-8b0c-aa4c-cfcf5346a113 responded 500 in 1201.2488 ms
+2024-08-14 15:52:23.167 +03:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.client_id1
+FROM client_configuration AS c
+2024-08-14 15:52:23.199 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: столбец c.client_id1 не существует
+
+POSITION: 21
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.client_id1 не существует
+    Hint: Возможно, предполагалась ссылка на столбец "c.client_id".
+    Position: 21
+    File: parse_relation.c
+    Line: 3738
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: столбец c.client_id1 не существует
+
+POSITION: 21
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.client_id1 не существует
+    Hint: Возможно, предполагалась ссылка на столбец "c.client_id".
+    Position: 21
+    File: parse_relation.c
+    Line: 3738
+    Routine: errorMissingColumn
+2024-08-14 15:52:23.546 +03:00 [ERR] 42703: столбец c.client_id1 не существует
+
+POSITION: 21
+2024-08-14 15:52:23.553 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 1108.3885 ms
+2024-08-14 15:55:10.048 +03:00 [ERR] Failed executing DbCommand (43ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.client_id1
+FROM client_configuration AS c
+WHERE c.client_id = @__get_Item_0
+LIMIT 1
+2024-08-14 15:55:10.070 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: столбец c.client_id1 не существует
+
+POSITION: 21
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.client_id1 не существует
+    Hint: Возможно, предполагалась ссылка на столбец "c.client_id".
+    Position: 21
+    File: parse_relation.c
+    Line: 3738
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: столбец c.client_id1 не существует
+
+POSITION: 21
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.client_id1 не существует
+    Hint: Возможно, предполагалась ссылка на столбец "c.client_id".
+    Position: 21
+    File: parse_relation.c
+    Line: 3738
+    Routine: errorMissingColumn
+2024-08-14 15:55:10.412 +03:00 [ERR] 42703: столбец c.client_id1 не существует
+
+POSITION: 21
+2024-08-14 15:55:10.420 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig/11341fac-11e6-8b0c-aa4c-cfcf5346a113 responded 500 in 1524.1664 ms
+2024-08-14 16:00:55.485 +03:00 [ERR] Failed executing DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c."ConnectSettingsSystemId", c."DBSettingsSystemId", c."KafkaSettingsSystemId", c."ModeSettingsSystemId"
+FROM client_configuration AS c
+2024-08-14 16:00:55.512 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: столбец c.ConnectSettingsSystemId не существует
+
+POSITION: 21
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.ConnectSettingsSystemId не существует
+    Position: 21
+    File: parse_relation.c
+    Line: 3727
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: столбец c.ConnectSettingsSystemId не существует
+
+POSITION: 21
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.ConnectSettingsSystemId не существует
+    Position: 21
+    File: parse_relation.c
+    Line: 3727
+    Routine: errorMissingColumn
+2024-08-14 16:00:55.724 +03:00 [ERR] 42703: столбец c.ConnectSettingsSystemId не существует
+
+POSITION: 21
+2024-08-14 16:00:55.736 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 796.0146 ms
+2024-08-14 16:14:57.715 +03:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c."ConnectSettings_ClientId", c."ConnectSettings_SystemId", c.address_to_alarm, c.address_to_notify, c.database_type, c."DBSettings_SystemId", c.alarm_connection_string, c.notify_connection_string, c."KafkaSettings_SystemId", c.consumer_bootstrap_server, c.producer_bootstrap_server, c.mode, c."ModeSettings_SystemId", c.caching
+FROM client_configuration AS c
+2024-08-14 16:14:57.740 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: столбец c.ConnectSettings_ClientId не существует
+
+POSITION: 21
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.ConnectSettings_ClientId не существует
+    Position: 21
+    File: parse_relation.c
+    Line: 3727
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: столбец c.ConnectSettings_ClientId не существует
+
+POSITION: 21
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.ConnectSettings_ClientId не существует
+    Position: 21
+    File: parse_relation.c
+    Line: 3727
+    Routine: errorMissingColumn
+2024-08-14 16:14:57.977 +03:00 [ERR] 42703: столбец c.ConnectSettings_ClientId не существует
+
+POSITION: 21
+2024-08-14 16:14:57.983 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 837.2052 ms
+2024-08-14 16:17:33.306 +03:00 [ERR] Failed executing DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c."ConnectSettings_ClientId", c.address_to_alarm, c.address_to_notify, c.database_type, c.alarm_connection_string, c.notify_connection_string, c.consumer_bootstrap_server, c.producer_bootstrap_server, c.mode, c.caching
+FROM client_configuration AS c
+2024-08-14 16:17:33.331 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Npgsql.PostgresException (0x80004005): 42703: столбец c.ConnectSettings_ClientId не существует
+
+POSITION: 21
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.ConnectSettings_ClientId не существует
+    Position: 21
+    File: parse_relation.c
+    Line: 3727
+    Routine: errorMissingColumn
+Npgsql.PostgresException (0x80004005): 42703: столбец c.ConnectSettings_ClientId не существует
+
+POSITION: 21
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 42703
+    MessageText: столбец c.ConnectSettings_ClientId не существует
+    Position: 21
+    File: parse_relation.c
+    Line: 3727
+    Routine: errorMissingColumn
+2024-08-14 16:17:33.525 +03:00 [ERR] 42703: столбец c.ConnectSettings_ClientId не существует
+
+POSITION: 21
+2024-08-14 16:17:33.534 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 899.3219 ms
+2024-08-14 16:19:21.491 +03:00 [ERR] Missing map from Domain.Settings.SignalRClient.ClientSettings to Application.Features.Configurations.Client.Queries.GetConfigClientList.ConfigClientLookupDTO. Create using CreateMap<ClientSettings, ConfigClientLookupDTO>.
+2024-08-14 16:19:21.515 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 1503.0842 ms
+2024-08-14 16:20:08.628 +03:00 [ERR] Missing map from Domain.Settings.SignalRClient.ClientSettings to Application.Features.Configurations.Client.Queries.GetConfigClientList.ConfigClientLookupDTO. Create using CreateMap<ClientSettings, ConfigClientLookupDTO>.
+2024-08-14 16:20:08.649 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 1193.1250 ms
+2024-08-14 16:24:38.890 +03:00 [ERR] Configuration Not Found.
+2024-08-14 16:27:34.350 +03:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+CreateClientConfigDTO -> CreateConfigClientCommand
+WebAPI.Models.Config.CreateClientConfigDTO -> Application.Features.Configurations.Client.Commands.CreateConfig.CreateConfigClientCommand
+2024-08-14 16:27:34.353 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 120.8833 ms
+2024-08-14 16:36:05.867 +03:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+CreateClientConfigDTO -> CreateConfigClientCommand
+WebAPI.Models.Config.CreateClientConfigDTO -> Application.Features.Configurations.Client.Commands.CreateConfig.CreateConfigClientCommand
+2024-08-14 16:36:05.879 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 408.8637 ms
+2024-08-14 16:39:17.505 +03:00 [ERR] Configuration Not Found.
+2024-08-14 16:40:31.422 +03:00 [ERR] CreateClientConfigDTO does not implement IRequest (Parameter 'request')
+2024-08-14 16:40:31.425 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 107.7649 ms
+2024-08-14 16:44:50.727 +03:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+CreateClientConfigDTO -> CreateConfigClientCommand
+WebAPI.Models.Config.CreateClientConfigDTO -> Application.Features.Configurations.Client.Commands.CreateConfig.CreateConfigClientCommand
+2024-08-14 16:44:50.738 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 196.8624 ms
+2024-08-14 16:48:59.867 +03:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+CreateClientConfigDTO -> CreateConfigClientCommand
+WebAPI.Models.Config.CreateClientConfigDTO -> Application.Features.Configurations.Client.Commands.CreateConfig.CreateConfigClientCommand
+2024-08-14 16:48:59.892 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 6991.4211 ms
+2024-08-14 16:57:19.089 +03:00 [ERR] Missing type map configuration or unsupported mapping.
+
+Mapping types:
+UpdateClientConfigDTO -> UpdateConfigClientCommand
+WebAPI.Models.Config.UpdateClientConfigDTO -> Application.Features.Configurations.Client.Commands.UpdateConfig.UpdateConfigClientCommand
+2024-08-14 16:57:19.098 +03:00 [ERR] HTTP PUT /api/v1/client/configure/ClientConfig responded 500 in 216.9520 ms
+2024-08-14 17:10:22.684 +03:00 [ERR] Cannot dynamically create an instance of type 'Application.Mappings.AssemblyMappingProfile'. Reason: No parameterless constructor defined.
+2024-08-14 17:10:22.706 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 260.3329 ms
+2024-08-14 17:10:54.255 +03:00 [ERR] Cannot dynamically create an instance of type 'Application.Mappings.AssemblyMappingProfile'. Reason: No parameterless constructor defined.
+2024-08-14 17:10:54.257 +03:00 [ERR] HTTP GET /api/v1/client/configure/ClientConfig responded 500 in 28.2718 ms
+2024-08-14 17:15:06.317 +03:00 [ERR] Cannot create a DbSet for 'ServerSettings' because this type is not included in the model for the context.
+2024-08-14 17:15:06.333 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 688.5997 ms
+2024-08-14 17:17:37.757 +03:00 [ERR] One or more validation failures have occurred.
+2024-08-14 17:18:10.296 +03:00 [ERR] Failed executing DbCommand (29ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:18:10.314 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:18:10.707 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:18:10.709 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 672.0054 ms
+2024-08-14 17:20:22.060 +03:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:20:22.088 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:20:22.324 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:20:22.328 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 19424.0955 ms
+2024-08-14 17:26:34.864 +03:00 [ERR] The instance of entity type 'ClientSettings' cannot be tracked because another instance with the same key value for {'SystemId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2024-08-14 17:26:34.877 +03:00 [ERR] HTTP PUT /api/v1/client/configure/ClientConfig responded 500 in 607.6459 ms
+2024-08-14 17:35:47.581 +03:00 [ERR] Failed executing DbCommand (25ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:35:47.648 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:35:47.981 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:35:47.986 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 7287.4610 ms
+2024-08-14 17:41:27.356 +03:00 [ERR] One or more validation failures have occurred.
+2024-08-14 17:41:30.168 +03:00 [ERR] One or more validation failures have occurred.
+2024-08-14 17:41:40.333 +03:00 [ERR] Failed executing DbCommand (15ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:41:40.351 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_configuration" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:41:40.557 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:41:40.559 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 3075.6970 ms
+2024-08-14 17:44:07.757 +03:00 [ERR] Failed executing DbCommand (10ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:44:07.772 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23505
+    MessageText: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (client_id, database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.client_id, NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ConstraintName: client_configuration_pkey
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23505
+    MessageText: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (client_id, database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.client_id, NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ConstraintName: client_configuration_pkey
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:44:08.036 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:44:08.038 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 2193.3379 ms
+2024-08-14 17:46:19.983 +03:00 [ERR] One or more validation failures have occurred.
+2024-08-14 17:46:29.092 +03:00 [ERR] Failed executing DbCommand (22ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:46:29.123 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23505
+    MessageText: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (client_id, database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.client_id, NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ConstraintName: client_configuration_pkey
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23505
+    MessageText: повторяющееся значение ключа нарушает ограничение уникальности "client_configuration_pkey"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_configuration (client_id, database_type, alarm_connection_string,notify_connection_string,
+	caching,mode,address_to_alarm,address_to_notify,consumer_bootstrap_server,producer_bootstrap_server)
+    VALUES  (NEW.client_id, NEW.database_type, NEW.alarm_connection_string,NEW.notify_connection_string,
+	NEW.caching,NEW.mode,NEW.address_to_alarm,NEW.address_to_notify,NEW.consumer_bootstrap_server,NEW.producer_bootstrap_server)"
+функция PL/pgSQL update_client_configuration(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_configuration
+    ConstraintName: client_configuration_pkey
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:46:29.646 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:46:29.648 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 1786.4087 ms
+2024-08-14 17:48:05.317 +03:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:48:05.329 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:48:05.676 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:48:05.678 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 429.2489 ms
+2024-08-14 17:48:07.844 +03:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:48:07.866 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:48:08.213 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:48:08.218 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 412.2378 ms
+2024-08-14 17:48:55.652 +03:00 [ERR] One or more validation failures have occurred.
+2024-08-14 17:49:03.808 +03:00 [ERR] Failed executing DbCommand (73ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?' (DbType = Boolean), @p7='?', @p8='?', @p9='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2024-08-14 17:49:03.898 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:49:04.221 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:49:04.225 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 1607.8507 ms
+2024-08-14 17:52:10.756 +03:00 [ERR] One or more validation failures have occurred.
+2024-08-14 17:52:14.814 +03:00 [ERR] Failed executing DbCommand (35ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?', @p3='?' (DbType = Guid), @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client_configuration (client_id, address_to_alarm, alarm_connection_string, system_id, consumer_bootstrap_server, database_type, mode, caching, address_to_notify, notify_connection_string, producer_bootstrap_server)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2024-08-14 17:52:14.831 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistance.DbContexts.ClientConfigDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at async ValueTask<IBackendMessage> Npgsql.Internal.NpgsqlConnector.ReadMessageLong(bool async, DataRowLoadingMode dataRowLoadingMode, bool readingNotifications, bool isReadingPrependedMessage)
+   at async Task<bool> Npgsql.NpgsqlDataReader.NextResult(bool async, bool isConsuming, CancellationToken cancellationToken) x 2
+   at async ValueTask<NpgsqlDataReader> Npgsql.NpgsqlCommand.ExecuteReader(bool async, CommandBehavior behavior, CancellationToken cancellationToken) x 2
+   at async Task<DbDataReader> Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken) x 2
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "client_id" отношения "client_settings" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    Where: SQL-оператор: "INSERT INTO client_settings (caching, mode)
+    VALUES  (NEW.caching, NEW.mode)"
+функция PL/pgSQL update_client_settings(), строка 3, оператор SQL-оператор
+    SchemaName: public
+    TableName: client_settings
+    ColumnName: client_id
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at async Task Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable<ModificationCommandBatch> commandBatches, IRelationalConnection connection, CancellationToken cancellationToken) x 3
+   at async Task<int> Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList<IUpdateEntry> entriesToSave, CancellationToken cancellationToken) x 2
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async Task<int> Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-14 17:52:15.175 +03:00 [ERR] An error occurred while saving the entity changes. See the inner exception for details.
+2024-08-14 17:52:15.177 +03:00 [ERR] HTTP POST /api/v1/client/configure/ClientConfig responded 500 in 1328.1708 ms

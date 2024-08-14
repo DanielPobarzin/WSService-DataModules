@@ -5,13 +5,12 @@ using Application.Features.Configurations.Server.Commands.UpdateConfig;
 using Application.Features.Configurations.Server.Queries.GetConfigServerDetails;
 using Application.Features.Configurations.Server.Queries.GetConfigServerList;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models.Config;
 
 namespace WebAPI.Controllers
 {
-    [Produces("application/json")]
+	[Produces("application/json")]
 	[Route("api/v1/server/configure/[controller]")]
 	public class ServerConfigController : BaseController
 	{

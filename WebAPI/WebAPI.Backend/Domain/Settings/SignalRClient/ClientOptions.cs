@@ -4,13 +4,13 @@ using Domain.Enums;
 
 namespace Domain.Settings.SignalRClient
 {
-	public class DBSettings : BaseConfig
+	public class DBSettings 
 	{
 		public string DataBase { get; set; }
 		public AlarmDataBase Alarm { get; set; }
 		public NotifyDataBase Notify { get; set; }
 	}
-	public class KafkaSettings : BaseConfig
+	public class KafkaSettings 
 	{
 		public ConsumerConnection Consumer { get; set; }
 		public ProducerConnection Producer { get; set; }
@@ -34,7 +34,7 @@ namespace Domain.Settings.SignalRClient
 		public string ConnectionString { get; set; }
 	}
 
-	public class ConnectSettings : BaseConfig
+	public class ConnectSettings 
 	{
 		public Guid ClientId { get; set; }
 		public NotifyConnection Notify { get; set; }
@@ -51,7 +51,7 @@ namespace Domain.Settings.SignalRClient
 		public string Url { get; set; }
 	}
 
-	public class ModeSettings : BaseConfig
+	public class ModeSettings 
 	{
 		public bool UseCache { get; set; }
 		public ConnectionMode Mode { get; set; }

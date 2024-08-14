@@ -18,7 +18,6 @@ namespace Persistance.DbContexts
 			modelBuilder.ApplyConfiguration(new ConnectionConfiguration());
 			modelBuilder.ApplyConfiguration(new ServerConfiguration());
 			modelBuilder.ApplyConfiguration(new ClientConfiguration());
-			modelBuilder.ApplyConfiguration(new ClientConfiguration());
 
 			base.OnModelCreating(modelBuilder);
 		}

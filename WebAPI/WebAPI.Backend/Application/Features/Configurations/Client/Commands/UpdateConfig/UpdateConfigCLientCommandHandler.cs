@@ -20,40 +20,37 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 		{
 			var config = await _repository.GetByIdAsync(command.SystemId);
 			if (config == null) throw new APIException($"Config Not Found.");
-			
-			config = new ClientSettings
+
+			config.SystemId = command.SystemId;
+			config.DBSettings = new DBSettings
 			{
-				SystemId = command.SystemId,
-				DBSettings = new DBSettings
+				DataBase = command.DB,
+				Alarm = new AlarmDataBase
 				{
-					DataBase = command.DB,
-					Alarm = new AlarmDataBase
-					{
-						ConnectionString = command.AlarmDB
-					},
-					Notify = new NotifyDataBase
-					{
-						ConnectionString = command.NotificationDB
-					}
+					ConnectionString = command.AlarmDB
 				},
-
-				ConnectSettings = new ConnectSettings
+				Notify = new NotifyDataBase
 				{
-					Notify = new NotifyConnection
-					{
-						Url = command.NotifyUrl
-					},
-					Alarm = new AlarmConnection
-					{
-						Url = command.AlarmUrl
-					}
-				},
-
-				ModeSettings = new ModeSettings
-				{
-					UseCache = command.UseCache,
-					Mode = command.Mode
+					ConnectionString = command.NotificationDB
 				}
+			};
+
+			config.ConnectSettings = new ConnectSettings
+			{
+				Notify = new NotifyConnection
+				{
+					Url = command.NotifyUrl
+				},
+				Alarm = new AlarmConnection
+				{
+					Url = command.AlarmUrl
+				}
+			};
+
+			config.ModeSettings = new ModeSettings
+			{
+				UseCache = command.UseCache,
+				Mode = command.Mode
 			};
 
 			config.KafkaSettings = new KafkaSettings

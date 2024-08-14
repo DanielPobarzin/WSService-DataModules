@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.ClientConfigController.GetAll">
+            <summary>
+            Gets the list of available client configurations.
+            </summary>
+            <returns>Returns ConfigClientListViewModel <see cref="T:Application.Features.Configurations.Client.Queries.GetConfigClientList.ConfigClientListViewModel"/></returns>
+            <response code="200">Success</response>
+            <response code="401">If the user is  unauthorized</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientConfigController.Get(System.Guid)">
+            <summary>
+            Gets the details of available client configuration by id.
+            </summary>
+            <returns>Returns ClientConfigDetailsViewModel <see cref="T:Application.Features.Configurations.Client.Queries.GetConfigClientDetails.ClientConfigDetailsViewModel"/></returns>
+            <response code="200">Success</response>
+            <response code="401">If the user is  unauthorized</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientConfigController.Create(WebAPI.Models.Config.CreateClientConfigDTO)">
+            <summary>
+            Creates the client configuration
+            </summary>
+            <param name="createConfigDto">CreateClientConfigDTO object. See <see cref="T:WebAPI.Models.Config.CreateClientConfigDTO"/> for details.</param>
+            <returns>Returns id (guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">If the user unauthorized</response>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientConfigController.Update(WebAPI.Models.Config.UpdateClientConfigDTO)">
+            <summary>
+            Updates the client configuration
+            </summary>
+            <param name="updateConfigDto"> UpdateClientConfigDTO object. See <see cref="T:WebAPI.Models.Config.UpdateClientConfigDTO"/> for details.</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">If the user is unauthorized</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientConfigController.Delete(System.Guid)">
+            <summary>
+            Deletes the client configuration by id
+            </summary>
+            <param name="id"> Id of the client configuration (guid) </param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">If the user is unauthorized</response>
+        </member>
+        <member name="M:WebAPI.Controllers.ClientConfigController.Send(System.Guid)">
+            <summary>
+            Sends the configuration to the client by id
+            </summary>
+            <param name="id"> Id of the client configuration (guid) </param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">If the user is unauthorized</response>
+        </member>
+    </members>
+</doc>

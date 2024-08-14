@@ -10,13 +10,10 @@ using Application.Features.Connections.Commands.OpenConnection;
 using Application.Features.Connections.Commands.UpdateConnection;
 using Application.Features.Connections.Queries.GetConnectionDetails;
 using Application.Features.Connections.Queries.GetConnectionsList;
-using Application.Features.Servers.Commands.AddServer;
 using Application.Features.Servers.Commands.DeleteServer;
-using Application.Features.Servers.Commands.UpdateServer;
 using Application.Features.Servers.Queries.GetServer.GetAll;
 using Application.Features.Servers.Queries.GetServer.GetDetails;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models.Client;
 using WebAPI.Models.Connection;
@@ -116,7 +113,7 @@ namespace WebAPI.Controllers
 		//[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 		public async Task<ActionResult<Guid>> Create([FromBody] AddServerDTO addServerDto)
 		{
-			var command = _mapper.Map<AddServerCommand>(addServerDto);
+			var command = _mapper.Map<Application.Features.Servers.Commands.AddServer.AddServerCommand>(addServerDto);
 			var serverId = await Mediator.Send(command);
 			return Ok(serverId);
 		}
@@ -146,7 +143,7 @@ namespace WebAPI.Controllers
 		//[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 		public async Task<IActionResult> Update([FromBody] UpdateServerDTO updateServerDto)
 		{
-			var command = _mapper.Map<UpdateServerCommand>(updateServerDto);
+			var command = _mapper.Map<Application.Features.Servers.Commands.UpdateServer.UpdateServerCommand>(updateServerDto);
 			await Mediator.Send(command);
 			return NoContent();
 		}

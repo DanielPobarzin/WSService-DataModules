@@ -6,8 +6,8 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 {
 	public class CreateConfigClientCommandValidator : AbstractValidator<CreateConfigClientCommand>
 	{
-		private readonly IServerConfigRepositoryAsync _repository;
-		public CreateConfigClientCommandValidator(IServerConfigRepositoryAsync repository)
+		private readonly IClientConfigRepositoryAsync _repository;
+		public CreateConfigClientCommandValidator(IClientConfigRepositoryAsync repository)
 		{
 			_repository = repository;
 
@@ -28,9 +28,6 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 			.NotNull();
 			RuleFor(p => p.Mode)
 			.NotEmpty().WithMessage("{PropertyName} is required.").NotNull();
-			RuleFor(p => p.SystemId).NotEmpty().WithMessage("{PropertyName} is required.")
-			.NotEqual(Guid.Empty).WithMessage("{PropertyName} must be a valid GUID.")
-			.MustAsync(IsUniqueNumber).WithMessage("{PropertyName} already exists.").NotNull();
 			RuleFor(p => p.ConsumerBootstrapServer).NotEmpty().WithMessage("{PropertyName} is required.")
 			.NotNull();
 			RuleFor(p => p.ProducerBootstrapServer).NotEmpty().WithMessage("{PropertyName} is required.")

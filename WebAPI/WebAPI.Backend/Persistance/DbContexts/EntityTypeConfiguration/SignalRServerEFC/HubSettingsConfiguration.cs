@@ -19,22 +19,32 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRServerEFC
 			builder.Property(e => e.SystemId)
 				   .HasColumnName("server_id")
 				   .HasColumnType("uuid");
-				builder.Property(e => e.Notify.DelayMilliseconds)
-					.HasColumnName("notify_delay_milliseconds");
-				builder.Property(e => e.Notify.HubMethod)
-					.HasColumnName("notify_hub_method")
-					.HasColumnType("varchar(255)");
-				builder.Property(e => e.Notify.TargetClients)
-					.HasColumnName("notify_target_clients")
-					.HasColumnType("varchar(255)");
-				builder.Property(e => e.Alarm.DelayMilliseconds)
-					.HasColumnName("alarm_delay_milliseconds");
-				builder.Property(e => e.Alarm.HubMethod)
-					.HasColumnName("alarm_hub_method")
-					.HasColumnType("varchar(255)");
-				builder.Property(e => e.Alarm.TargetClients)
+			builder.OwnsOne(e => e.Alarm, alarmBuilder =>
+			{
+				alarmBuilder.Property(a => a.DelayMilliseconds)
+					.HasColumnName("alarm_delay_milliseconds")
+					.HasColumnType("int");
+				alarmBuilder.Property(a => a.TargetClients)
 					.HasColumnName("alarm_target_clients")
 					.HasColumnType("varchar(255)");
+				alarmBuilder.Property(a => a.HubMethod)
+					.HasColumnName("alarm_hub_method")
+					.HasColumnType("varchar(255)");
+			});
+			
+			builder.OwnsOne(e => e.Notify, notifyBuilder =>
+			{
+				notifyBuilder.Property(e => e.DelayMilliseconds)
+					.HasColumnName("notify_delay_milliseconds")
+					.HasColumnType("int");
+				notifyBuilder.Property(e => e.HubMethod)
+					.HasColumnName("notify_hub_method")
+					.HasColumnType("varchar(255)");
+				notifyBuilder.Property(e => e.TargetClients)
+					.HasColumnName("notify_target_clients")
+					.HasColumnType("varchar(255)");
+			});
+			
 				builder.HasOne<HubSettings>()
 					.WithMany()
 					.HasForeignKey(e => e.SystemId)

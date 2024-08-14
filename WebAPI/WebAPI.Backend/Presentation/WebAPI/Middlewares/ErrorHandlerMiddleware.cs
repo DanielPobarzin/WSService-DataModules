@@ -2,6 +2,7 @@
 using Application.Wrappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System.Net;
 using System.Text.Json;
 
@@ -10,12 +11,10 @@ namespace WebAPI.Middlewares
 	public class ErrorHandlerMiddleware
 	{
 		private readonly RequestDelegate _next;
-		private readonly ILogger<ErrorHandlerMiddleware> _logger;
 
-		public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
+		public ErrorHandlerMiddleware(RequestDelegate next)
 		{
 			_next = next;
-			_logger = logger;
 		}
 
 		public async Task Invoke(HttpContext context)
@@ -42,7 +41,7 @@ namespace WebAPI.Middlewares
 						code = HttpStatusCode.NotFound;
 						break;
 				}
-				_logger.LogError(error.Message);
+				Log.Error(error.Message);
 				context.Response.ContentType = "application/json";
 				context.Response.StatusCode = (int)code;
 				var result = JsonSerializer.Serialize(responseModel);
