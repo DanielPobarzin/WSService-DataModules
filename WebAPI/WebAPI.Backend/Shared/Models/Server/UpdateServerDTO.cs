@@ -3,7 +3,7 @@ using Application.Mappings;
 using AutoMapper;
 using Domain.Enums;
 
-namespace WebAPI.Models.Server
+namespace Shared.Models.Server
 {
 	public class UpdateServerDTO : IMapWith<UpdateServerCommand>
 	{

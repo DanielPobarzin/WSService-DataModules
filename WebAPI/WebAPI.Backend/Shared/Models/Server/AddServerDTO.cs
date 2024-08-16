@@ -5,7 +5,7 @@ using AutoMapper;
 using Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Models.Server
+namespace Shared.Models.Server
 {
 	public class AddServerDTO : IMapWith<AddServerCommand>
     {

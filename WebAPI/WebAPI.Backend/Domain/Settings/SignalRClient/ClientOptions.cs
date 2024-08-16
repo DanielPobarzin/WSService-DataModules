@@ -36,7 +36,6 @@ namespace Domain.Settings.SignalRClient
 
 	public class ConnectSettings 
 	{
-		public Guid ClientId { get; set; }
 		public NotifyConnection Notify { get; set; }
 		public AlarmConnection Alarm { get; set; }
 	}
@@ -53,6 +52,7 @@ namespace Domain.Settings.SignalRClient
 
 	public class ModeSettings 
 	{
+		public Guid ClientId { get; set; }
 		public bool UseCache { get; set; }
 		public ConnectionMode Mode { get; set; }
 	}

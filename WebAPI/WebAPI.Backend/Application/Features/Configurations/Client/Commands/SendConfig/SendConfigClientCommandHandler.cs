@@ -1,4 +1,5 @@
-﻿using Application.Exceptions;
+﻿using Application.DTOs.Message;
+using Application.Exceptions;
 using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
@@ -20,12 +21,13 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 			_repository = repository;
 			_producer = producer;
 			_configuration = configuration;
-			_topicProduce = _configuration["Kafka:Topic"];
+			_topicProduce = _configuration["Kafka:Topics:Send:NewClientConfiguration"];
 		}
 		public async Task<Response<Guid>> Handle(SendConfigClientCommand command, CancellationToken cancellationToken)
 		{
 			var config = await _repository.GetByIdAsync(command.Id);
 			if (config == null) throw new APIException($"Configuration Not Found.");
+
 			var configDto = new ClientSettings
 			{
 				SystemId = config.SystemId,
@@ -42,6 +44,13 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 					}
 				},
 
+				ModeSettings = new ModeSettings
+				{
+					ClientId = command.Id,
+					UseCache = config.ModeSettings.UseCache,
+					Mode = config.ModeSettings.Mode
+				},
+
 				ConnectSettings = new ConnectSettings
 				{
 					Notify = new NotifyConnection
@@ -52,12 +61,6 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 					{
 						Url = config.ConnectSettings.Alarm.Url,
 					}
-				},
-
-				ModeSettings = new ModeSettings
-				{
-					UseCache = config.ModeSettings.UseCache,
-					Mode = config.ModeSettings.Mode
 				},
 
 				KafkaSettings = new KafkaSettings
@@ -72,8 +75,14 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 					}
 				}
 			};
-			string json = JsonConvert.SerializeObject(configDto, Formatting.Indented);
-			await _producer.ProduceMessageProcessAsync(_topicProduce, json);
+			
+			var message = new MessageRequest
+			{
+				To = config.SystemId,
+				Body = JsonConvert.SerializeObject(configDto, Formatting.Indented)
+			};
+			string json = JsonConvert.SerializeObject(message, Formatting.Indented);
+			await _producer.ProduceMessageProcessAsync(_topicProduce, json, "config");
 			return new Response<Guid>(config.SystemId, true);
 		}
 	}

@@ -17,8 +17,6 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 
 			builder.OwnsOne(e => e.ConnectSettings, connectBuilder =>
 			{
-				connectBuilder.Property(c => c.ClientId).HasColumnName("system_id")
-				.HasColumnType("uuid");
 				connectBuilder.OwnsOne(m => m.Alarm, alarmBuilder =>
 				{
 					alarmBuilder.Property(c => c.Url)
@@ -69,6 +67,8 @@ namespace Persistance.DbContexts.EntityTypeConfiguration.SignalRClientEFC
 			});
 			builder.OwnsOne(e => e.ModeSettings, modeBuilder =>
 			{
+				modeBuilder.Property(c => c.ClientId).HasColumnName("system_id")
+				.HasColumnType("uuid");
 				modeBuilder.Property(c => c.Mode).HasColumnName("mode")
 					.HasColumnType("varchar(20)");
 				modeBuilder.Property(c => c.UseCache).HasColumnName("caching")

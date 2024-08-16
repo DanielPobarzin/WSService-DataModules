@@ -7,7 +7,7 @@ using Application.Features.Configurations.Client.Queries.GetConfigClientList;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using WebAPI.Models.Config;
+using Shared.Models.Config;
 
 namespace WebAPI.Controllers
 {
@@ -101,8 +101,6 @@ namespace WebAPI.Controllers
 				
 				Console.WriteLine(ex.Message);
 			}
-		
-			
 			return NoContent();
 		}
 

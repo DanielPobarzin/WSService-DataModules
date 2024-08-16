@@ -20,21 +20,21 @@
             <response code="200">Success</response>
             <response code="401">If the user is  unauthorized</response>
         </member>
-        <member name="M:WebAPI.Controllers.ClientConfigController.Create(WebAPI.Models.Config.CreateClientConfigDTO)">
+        <member name="M:WebAPI.Controllers.ClientConfigController.Create(Shared.Models.Config.CreateClientConfigDTO)">
             <summary>
             Creates the client configuration
             </summary>
-            <param name="createConfigDto">CreateClientConfigDTO object. See <see cref="T:WebAPI.Models.Config.CreateClientConfigDTO"/> for details.</param>
+            <param name="createConfigDto">CreateClientConfigDTO object. See <see cref="T:Shared.Models.Config.CreateClientConfigDTO"/> for details.</param>
             <returns>Returns id (guid)</returns>
             <response code="201">Success</response>
             <response code="401">If the user unauthorized</response>
             <returns></returns>
         </member>
-        <member name="M:WebAPI.Controllers.ClientConfigController.Update(WebAPI.Models.Config.UpdateClientConfigDTO)">
+        <member name="M:WebAPI.Controllers.ClientConfigController.Update(Shared.Models.Config.UpdateClientConfigDTO)">
             <summary>
             Updates the client configuration
             </summary>
-            <param name="updateConfigDto"> UpdateClientConfigDTO object. See <see cref="T:WebAPI.Models.Config.UpdateClientConfigDTO"/> for details.</param>
+            <param name="updateConfigDto"> UpdateClientConfigDTO object. See <see cref="T:Shared.Models.Config.UpdateClientConfigDTO"/> for details.</param>
             <returns>Returns NoContent</returns>
             <response code="204">Success</response>
             <response code="401">If the user is unauthorized</response>

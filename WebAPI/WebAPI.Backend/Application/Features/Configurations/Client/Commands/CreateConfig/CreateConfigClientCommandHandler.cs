@@ -34,10 +34,16 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 				}
 			};
 
-			newconfig.ConnectSettings = new ConnectSettings
+			newconfig.ModeSettings = new ModeSettings
 			{
 				ClientId = newconfig.SystemId,
+				UseCache = command.UseCache,
+				Mode = command.Mode
+			};
 
+			newconfig.ConnectSettings = new ConnectSettings
+			{
+				
 				Notify = new NotifyConnection
 				{
 					Url = command.NotifyUrl
@@ -46,12 +52,6 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 				{
 					Url = command.AlarmUrl
 				}
-			};
-
-			newconfig.ModeSettings = new ModeSettings
-			{
-				UseCache = command.UseCache,
-				Mode = command.Mode
 			};
 
 			newconfig.KafkaSettings = new KafkaSettings

@@ -101,3 +101,14 @@ D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\o
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\WebAPI.xml
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\obj\Debug\net8.0\WebAPI.xml
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Api.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Api.ProviderBuilderExtensions.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Exporter.Console.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Extensions.Hosting.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Instrumentation.AspNetCore.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Instrumentation.Http.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Instrumentation.Runtime.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Exporter.Prometheus.AspNetCore.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Prometheus.NetStandard.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Prometheus.AspNetCore.dll

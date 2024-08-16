@@ -5,7 +5,7 @@ using AutoMapper;
 using Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Models.Connection
+namespace Shared.Models.Connection
 {
     public class AddConnectionDTO : IMapWith<AddConnectionCommand>
 	{

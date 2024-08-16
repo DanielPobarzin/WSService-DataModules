@@ -1,4 +1,5 @@
-﻿using Application.Exceptions;
+﻿using Application.DTOs.Message;
+using Application.Exceptions;
 using Application.Interfaces;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
@@ -20,7 +21,7 @@ namespace Application.Features.Configurations.Server.Commands.SendConfig
 			_repository = repository;
 			_producer = producer;
 			_configuration = configuration;
-			_topicProduce = _configuration["Kafka:Topic"];
+			_topicProduce = _configuration["Kafka:Topic:Send:NewServerConfiguration"];
 		}
 		public async Task<Response<Guid>> Handle(SendConfigServerCommand command, CancellationToken cancellationToken)
 		{
@@ -84,8 +85,15 @@ namespace Application.Features.Configurations.Server.Commands.SendConfig
 					}
 				}
 			};
-			string json = JsonConvert.SerializeObject(configDto, Formatting.Indented);
-			await _producer.ProduceMessageProcessAsync(_topicProduce, json);
+
+			var message = new MessageRequest
+			{
+				To = config.SystemId,
+				Body = JsonConvert.SerializeObject(configDto, Formatting.Indented)
+			};
+
+			string json = JsonConvert.SerializeObject(message, Formatting.Indented);
+			await _producer.ProduceMessageProcessAsync(_topicProduce, json, "config");
 			return new Response<Guid>(config.SystemId, true);
 		}
 	}

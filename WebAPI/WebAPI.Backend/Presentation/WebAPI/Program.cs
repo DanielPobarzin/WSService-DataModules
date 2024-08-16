@@ -1,15 +1,17 @@
 ﻿using Application;
+using Application.Mappings;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using Persistance;
-using Shared;
 using Persistance.DbContexts;
+using Prometheus;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
-using WebAPI.Extensions;
-using Microsoft.Extensions.Hosting;
-using AutoMapper;
-using Application.Mappings;
+using Shared;
 using System.Reflection;
+using WebAPI.Extensions;
 
 try
 {
@@ -49,6 +51,7 @@ try
 		{
 			webBuilder.ConfigureServices((context, services) =>
 			{
+				services.AddMemoryCache();
 				services.AddAplication();
 				services.AddPersistance(context.Configuration);
 				services.AddShared(context.Configuration);
@@ -59,7 +62,32 @@ try
 				services.AddSwaggerExtension();
 				services.AddControllersExtension();
 				services.AddCorsExtension();
-				services.AddHealthChecks();
+				services.AddOpenTelemetry()
+						.WithMetrics(metricBuilder =>
+						{
+							metricBuilder
+								.AddConsoleExporter()
+								.AddAspNetCoreInstrumentation()
+								.AddHttpClientInstrumentation()
+								.AddRuntimeInstrumentation()
+								.AddPrometheusExporter()
+								.AddMeter("ServerComponents","ClientComponents", "WebAPIComponents");
+						})
+						.WithTracing(traceBuilder =>
+						{
+							traceBuilder
+								.AddSource("webapi")
+								.SetErrorStatusOnException(true)
+								.SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("webapi"))
+								.AddAspNetCoreInstrumentation(opts =>
+								{
+									opts.Filter = req => !req.Request.Path.Value.Contains("/metrics");
+								})
+								.AddHttpClientInstrumentation()
+								.AddEntityFrameworkCoreInstrumentation();
+								});
+
+			services.AddHealthChecks();
 				services.AddJWTAuthentication(context.Configuration);
 				services.AddAuthorizationPolicies(context.Configuration);
 				services.AddMvcCore()
@@ -92,6 +120,7 @@ try
 					app.UseExceptionHandler("/Error");
 					app.UseHsts();
 				}
+				
 				app.UseSerilogRequestLogging();
 				app.UseHttpsRedirection();
 				app.UseRouting();
@@ -101,7 +130,9 @@ try
 				app.UseSwaggerExtension();
 				app.UseErrorHandlingMiddleware();
 				app.UseHealthChecks("/health");
-
+				app.UseOpenTelemetryPrometheusScrapingEndpoint();
+				app.UseMetricServer();
+				app.UseHttpMetrics();
 				app.UseEndpoints(endpoints =>
 				{
 					endpoints.MapControllers();

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\shared\\share\\kafkamessage\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|solutionrelative:client\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\shared\\share\\kafkamessage\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\share\\kafkamessage\\kafkamessagemetrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AEBF637-E2EF-4C98-8E4C-C7378DEBA128}|Client\\Entities\\Entities.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\entities\\enums\\workstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -141,10 +145,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A35E170-A986-4089-AEBE-6D1F0DCCBD1C}|Client\\Interactors\\Interactors.csproj|solutionrelative:client\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D69F3FF9-C0DA-44D2-B03F-BDAB39D21404}|Client\\Shared\\Shared.csproj|solutionrelative:client\\shared\\common\\globalsingletonparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCD41583-DA7E-4850-AD20-40D7C22215BF}|Client\\Communications\\Communications.csproj|d:\\develop\\app\\wsservice-datamodules\\client\\client\\communications\\common\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -263,7 +263,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "configureDefault.json",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\configureDefault.json",
@@ -276,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "configure.json",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\configure.json",
@@ -289,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "schema.json",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\bin\\Debug\\net8.0\\schema.json",
               "RelativeDocumentMoniker": "Client\\Communications\\bin\\Debug\\net8.0\\schema.json",
@@ -318,19 +318,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConsumerService.cs",
-              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Services\\ConsumerService.cs",
-              "RelativeDocumentMoniker": "Client\\Shared\\Services\\ConsumerService.cs",
-              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Services\\ConsumerService.cs",
-              "RelativeToolTip": "Client\\Shared\\Services\\ConsumerService.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAzwHsAAABFAAAA",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Program.cs",
+              "RelativeDocumentMoniker": "Client\\Communications\\Program.cs",
+              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Program.cs",
+              "RelativeToolTip": "Client\\Communications\\Program.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAswIUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T11:37:47.333Z"
+              "WhenOpened": "2024-07-01T09:54:51.435Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "GlobalSingletonParameters.cs",
+              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "RelativeToolTip": "Client\\Shared\\Common\\GlobalSingletonParameters.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAkwB8AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T12:10:22.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KafkaMessageMetrics.cs",
+              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAwCgAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-01T11:36:41.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ProducerService.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Services\\ProducerService.cs",
               "RelativeDocumentMoniker": "Client\\Shared\\Services\\ProducerService.cs",
@@ -342,20 +369,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Program.cs",
-              "RelativeDocumentMoniker": "Client\\Communications\\Program.cs",
-              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Program.cs",
-              "RelativeToolTip": "Client\\Communications\\Program.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAQwIUAAAAFAAAA",
+              "DocumentIndex": 3,
+              "Title": "ConsumerService.cs",
+              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Services\\ConsumerService.cs",
+              "RelativeDocumentMoniker": "Client\\Shared\\Services\\ConsumerService.cs",
+              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Services\\ConsumerService.cs",
+              "RelativeToolTip": "Client\\Shared\\Services\\ConsumerService.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAzwHsAAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-01T09:54:51.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-31T11:37:47.333Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "KafkaMessageCommand.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageCommand.cs",
               "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageCommand.cs",
@@ -367,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "KafkaMessageBase.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
               "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageBase.cs",
@@ -379,7 +405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "KafkaMessageConfig.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
               "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageConfig.cs",
@@ -391,19 +417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "KafkaMessageMetrics.cs",
-              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
-              "RelativeDocumentMoniker": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
-              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
-              "RelativeToolTip": "Client\\Shared\\Share\\KafkaMessage\\KafkaMessageMetrics.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAIwCgAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T11:36:41.659Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "WorkStatus.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Enums\\WorkStatus.cs",
               "RelativeDocumentMoniker": "Client\\Entities\\Enums\\WorkStatus.cs",
@@ -415,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ConnectionMode.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Enums\\ConnectionMode.cs",
               "RelativeDocumentMoniker": "Client\\Entities\\Enums\\ConnectionMode.cs",
@@ -427,7 +441,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "RecievedNotificationsDbContext.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
               "RelativeDocumentMoniker": "Client\\Repositories\\Notifications\\RecievedNotificationsDbContext.cs",
@@ -439,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "Client\\Repositories\\GenericRepository.cs",
@@ -451,7 +465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ConnectionStatus.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Enums\\ConnectionStatus.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionStatus.cs",
@@ -463,7 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\DbInitializer.cs",
               "RelativeDocumentMoniker": "Client\\Repositories\\DbInitializer.cs",
@@ -475,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "RecievedAlarmsDbContext.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
               "RelativeDocumentMoniker": "Client\\Repositories\\Alarms\\RecievedAlarmsDbContext.cs",
@@ -487,7 +501,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "RecievedAlarmRepository.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
               "RelativeDocumentMoniker": "Client\\Repositories\\Alarms\\RecievedAlarmRepository.cs",
@@ -499,7 +513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ServerDTO.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\DTO\\ServerDTO.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\DTO\\ServerDTO.cs",
@@ -511,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "MessageServerDTO.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\DTO\\MessageServerDTO.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\DTO\\MessageServerDTO.cs",
@@ -523,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "AlarmServerDTO.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\DTO\\AlarmServerDTO.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\DTO\\AlarmServerDTO.cs",
@@ -535,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "UnitOfWorkPublishNotifications.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkPublishNotifications.cs",
@@ -547,7 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "UnitOfWorkPublishAlarms.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkPublishAlarms.cs",
@@ -559,7 +573,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "UnitOfWorkGetConfig.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
               "RelativeDocumentMoniker": "Client\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
@@ -571,7 +585,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Settings.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Settings\\Settings.cs",
               "RelativeDocumentMoniker": "Client\\Entities\\Settings\\Settings.cs",
@@ -583,7 +597,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "OptionSettings.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Settings\\OptionSettings.cs",
               "RelativeDocumentMoniker": "Client\\Entities\\Settings\\OptionSettings.cs",
@@ -595,7 +609,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "ConfigValidHelper.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Helpers\\ConfigValidHelper.cs",
@@ -607,7 +621,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Connection.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Models\\Connection.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Models\\Connection.cs",
@@ -619,7 +633,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "TypeMessage.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Enums\\TypeMessage.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\TypeMessage.cs",
@@ -631,7 +645,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "TypeHub.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Enums\\TypeHub.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\TypeHub.cs",
@@ -655,7 +669,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ConnectionCommand.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Enums\\ConnectionCommand.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Enums\\ConnectionCommand.cs",
@@ -667,7 +681,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "IProducerService.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interfaces\\IProducerService.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IProducerService.cs",
@@ -679,7 +693,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "IConsumerService.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interfaces\\IConsumerService.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IConsumerService.cs",
@@ -691,7 +705,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "RecievedNotificationRepository.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
               "RelativeDocumentMoniker": "Client\\Repositories\\Notifications\\RecievedNotificationRepository.cs",
@@ -703,7 +717,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "IRepository.cs",
               "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interfaces\\IRepository.cs",
               "RelativeDocumentMoniker": "Client\\Interactors\\Interfaces\\IRepository.cs",
@@ -712,18 +726,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-24T14:19:11.963Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "GlobalSingletonParameters.cs",
-              "DocumentMoniker": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
-              "RelativeDocumentMoniker": "Client\\Shared\\Common\\GlobalSingletonParameters.cs",
-              "ToolTip": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Common\\GlobalSingletonParameters.cs",
-              "RelativeToolTip": "Client\\Shared\\Common\\GlobalSingletonParameters.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB8AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T12:10:22.013Z"
             },
             {
               "$type": "Document",

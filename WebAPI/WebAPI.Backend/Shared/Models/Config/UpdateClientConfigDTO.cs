@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Models.Config
+namespace Shared.Models.Config
 {
     public class UpdateClientConfigDTO : IMapWith<UpdateConfigClientCommand>
     {

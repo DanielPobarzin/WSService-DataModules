@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Models.Client
+namespace Shared.Models.Client
 {
 	public class AddClientDTO : IMapWith<AddClientCommand>
     {

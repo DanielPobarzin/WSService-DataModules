@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Clients.Queries.GetClient.GetAll
 {
+	/// <summary>
+	/// Data Transfer Object (DTO) for looking up client information.
+	/// </summary>
 	public class ClientLookupDTO
 	{
 		public Guid ClientId { get; set; }
@@ -17,7 +20,7 @@ namespace Application.Features.Clients.Queries.GetClient.GetAll
 		{
 			profile.CreateMap<Client, ClientLookupDTO>()
 				.ForMember(clientDto => clientDto.ClientId,
-					 opt => opt.MapFrom(client => client.Id));
+					opt => opt.MapFrom(client => client.Id));
 		}
 	}
 }

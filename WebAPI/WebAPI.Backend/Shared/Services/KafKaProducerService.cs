@@ -2,45 +2,44 @@
 using Confluent.Kafka;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Shared.Services
 {
 	public class ProducerService : IProducerService
     {
         private readonly IConfiguration _configuration;
-        private readonly IProducer<Null, string> _producer;
-        private readonly ILogger<ProducerService> _logger;
+        private readonly IProducer<string, string> _producer;
+		private readonly string[] _bootstrapServers;
 
-        // KafKa configuration
-        private readonly string _bootstrapServers;
-
-		public ProducerService(IConfiguration configuration, ILogger<ProducerService> logger)
+		public ProducerService(IConfiguration configuration)
         {
             _configuration = configuration;
-            _logger = logger;
-
-            _bootstrapServers = configuration["Kafka:BootstrapServers"];
+			_bootstrapServers = configuration["Kafka:Producer:BootstrapServers"].Split(';');
 
             var producerconfig = new ProducerConfig
             {
-                BootstrapServers = _bootstrapServers
-            };
-            _producer = new ProducerBuilder<Null, string>(producerconfig).Build();
+                BootstrapServers = string.Join(",", _bootstrapServers)
+			};
+            _producer = new ProducerBuilder<string, string>(producerconfig).Build();
         }
 
-        public async Task ProduceMessageProcessAsync(string topic, string message)
+        public async Task ProduceMessageProcessAsync(string topic, string message, string key)
         {
-            var kafkaMessage = new Message<Null, string> { Value = message };
+            var kafkaMessage = new Message<string, string> { Value = message, Key = key };
             try
             {
                 var result = await _producer.ProduceAsync(topic, kafkaMessage);
-                _logger.LogInformation($"Message sent to {result.TopicPartitionOffset}");
+                Log.Information($"Message sent to {result.TopicPartitionOffset}");
             }
-            catch (ProduceException<Null, string> e)
+            catch (ProduceException<string, string> e)
             {
-                _logger.LogError($"Failed to deliver message: {e.Message} [{e.Error.Code}]");
-                // Optionally, implement retry logic here
+				Log.Error($"Failed to deliver message: {e.Message} [{e.Error.Code}]");
             }
         }
-    }
+		public void Dispose()
+		{
+			_producer?.Dispose();
+		}
+	}
 }

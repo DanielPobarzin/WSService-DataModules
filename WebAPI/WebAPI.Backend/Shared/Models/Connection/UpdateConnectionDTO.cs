@@ -3,7 +3,7 @@ using Application.Mappings;
 using AutoMapper;
 using Domain.Enums;
 
-namespace WebAPI.Models.Connection
+namespace Shared.Models.Connection
 {
 	public class UpdateConnectionDTO : IMapWith<UpdateConnectionCommand>
 	{

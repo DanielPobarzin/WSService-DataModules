@@ -9,6 +9,6 @@ namespace Application.Interfaces
 {
 	public interface IConsumerService : IHostedService
 	{
-		void KafkaPullMessageProcess(CancellationToken cancellationToken);
+		Task KafkaPullMessageProcess(CancellationToken cancellationToken);
 	}
 }

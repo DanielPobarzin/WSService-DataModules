@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 
 namespace Application.Helpers
 {
 	public class ModelHelper : IModelHelper
 	{
+		/// <summary>
+		/// Validates the specified fields against the properties of the given model type.
+		/// </summary>
+		/// <typeparam name="T">The type of the model to validate against.</typeparam>
+		/// <param name="fields">A comma-separated string of field names to validate.</param>
+		/// <returns>
+		/// A comma-separated string of valid field names that exist in the model type.
+		/// If no valid fields are found, an empty string is returned.
+		/// </returns>
 		public string ValidateModelFields<T>(string fields)
 		{
 			string retString = string.Empty;
@@ -25,6 +29,15 @@ namespace Application.Helpers
 			};
 			return retString;
 		}
+
+		/// <summary>
+		/// Retrieves all property names of the specified model type as a comma-separated string.
+		/// </summary>
+		/// <typeparam name="T">The type of the model to retrieve fields from.</typeparam>
+		/// <returns>
+		/// A comma-separated string containing all property names of the model type.
+		/// If there are no properties, an empty string is returned.
+		/// </returns>
 		public string GetModelFields<T>()
 		{
 			string retString = string.Empty;

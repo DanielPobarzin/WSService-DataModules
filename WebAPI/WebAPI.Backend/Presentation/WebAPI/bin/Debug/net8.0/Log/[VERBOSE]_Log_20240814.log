@@ -18396,3 +18396,303 @@ VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
 2024-08-14 17:56:48.671 +03:00 [DBG] Disposed connection to database 'ClientConfigs' on server 'tcp://localhost:5432' (0ms).
 2024-08-14 17:56:48.672 +03:00 [VRB] Connection id "0HN5SE2K3DSF4" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
 2024-08-14 17:56:48.671 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7098/api/v1/client/configure/ClientConfig - 200 null application/json; charset=utf-8 120.6142ms
+2024-08-14 18:05:21.640 +03:00 [INF] Application startup services registration
+2024-08-14 18:05:22.653 +03:00 [DBG] Hosting starting
+2024-08-14 18:05:22.680 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-14 18:05:22.705 +03:00 [DBG] Reading data from file 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys\key-8c7a4670-0c2a-4669-a306-cd103a65102a.xml'.
+2024-08-14 18:05:22.717 +03:00 [DBG] Found key {8c7a4670-0c2a-4669-a306-cd103a65102a}.
+2024-08-14 18:05:22.730 +03:00 [DBG] Considering key {8c7a4670-0c2a-4669-a306-cd103a65102a} with expiration date 2024-11-07 23:25:49Z as default key.
+2024-08-14 18:05:22.733 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-08-14 18:05:22.735 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-08-14 18:05:22.736 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-08-14 18:05:22.741 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-08-14 18:05:22.743 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-08-14 18:05:22.744 +03:00 [DBG] Using key {8c7a4670-0c2a-4669-a306-cd103a65102a} as the default key.
+2024-08-14 18:05:22.745 +03:00 [DBG] Key ring with default key {8c7a4670-0c2a-4669-a306-cd103a65102a} was loaded during application startup.
+2024-08-14 18:05:22.793 +03:00 [INF] Application startup middleware registration
+2024-08-14 18:05:22.894 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-08-14 18:05:23.395 +03:00 [DBG] Entity Framework Core 8.0.4 initialized 'ConnectionDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:8.0.4+51faf6e9c9c7ef99c3e98d98a96adb8fa8ae4553' with options: MigrationsAssembly=Persistance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2024-08-14 18:05:23.404 +03:00 [DBG] Creating DbConnection.
+2024-08-14 18:05:23.440 +03:00 [DBG] Created DbConnection. (34ms).
+2024-08-14 18:05:23.443 +03:00 [DBG] Opening connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.585 +03:00 [DBG] Opened connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.586 +03:00 [DBG] Closing connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.592 +03:00 [DBG] Closed connection to database 'Connection' on server 'tcp://localhost:5432' (4ms).
+2024-08-14 18:05:23.596 +03:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-08-14 18:05:23.600 +03:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2024-08-14 18:05:23.601 +03:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (5ms).
+2024-08-14 18:05:23.602 +03:00 [DBG] Opening connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.663 +03:00 [DBG] Opened connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.670 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-14 18:05:23.728 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-14 18:05:23.735 +03:00 [DBG] Closing connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.736 +03:00 [DBG] Closed connection to database 'Connection' on server 'tcp://localhost:5432' (1ms).
+2024-08-14 18:05:23.847 +03:00 [DBG] The property 'AlarmConnection.ConnectSettingsClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.847 +03:00 [DBG] The property 'AlarmDataBase.DBSettingsClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.847 +03:00 [DBG] The property 'ConnectSettings.ClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.847 +03:00 [DBG] The property 'ConsumerConnection.KafkaSettingsClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.847 +03:00 [DBG] The property 'DBSettings.ClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.848 +03:00 [DBG] The property 'KafkaSettings.ClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.848 +03:00 [DBG] The property 'ModeSettings.ClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.848 +03:00 [DBG] The property 'NotifyConnection.ConnectSettingsClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.848 +03:00 [DBG] The property 'NotifyDataBase.DBSettingsClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.848 +03:00 [DBG] The property 'ProducerConnection.KafkaSettingsClientSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:23.916 +03:00 [DBG] Entity Framework Core 8.0.4 initialized 'ClientConfigDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:8.0.4+51faf6e9c9c7ef99c3e98d98a96adb8fa8ae4553' with options: MigrationsAssembly=Persistance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2024-08-14 18:05:23.917 +03:00 [DBG] Creating DbConnection.
+2024-08-14 18:05:23.917 +03:00 [DBG] Created DbConnection. (0ms).
+2024-08-14 18:05:23.917 +03:00 [DBG] Opening connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.980 +03:00 [DBG] Opened connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.980 +03:00 [DBG] Closing connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:23.981 +03:00 [DBG] Closed connection to database 'ClientConfigs' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:23.981 +03:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-08-14 18:05:23.981 +03:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2024-08-14 18:05:23.982 +03:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2024-08-14 18:05:23.982 +03:00 [DBG] Opening connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.047 +03:00 [DBG] Opened connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.047 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-14 18:05:24.049 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-14 18:05:24.052 +03:00 [DBG] Closing connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.052 +03:00 [DBG] Closed connection to database 'ClientConfigs' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:24.107 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-14 18:05:24.109 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-14 18:05:24.111 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-14 18:05:24.112 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-14 18:05:24.115 +03:00 [DBG] The property 'AlarmConnection.DBSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:24.115 +03:00 [DBG] The property 'AlarmHubSettings.HubSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:24.115 +03:00 [DBG] The property 'ConsumerConnection.KafkaSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:24.115 +03:00 [DBG] The property 'NotifyConnection.DBSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:24.115 +03:00 [DBG] The property 'NotifyHubSettings.HubSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:24.115 +03:00 [DBG] The property 'ProducerConnection.KafkaSettingsSystemId' was created in shadow state because there are no eligible CLR members with a matching name.
+2024-08-14 18:05:24.171 +03:00 [DBG] Entity Framework Core 8.0.4 initialized 'ServerConfigDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:8.0.4+51faf6e9c9c7ef99c3e98d98a96adb8fa8ae4553' with options: MigrationsAssembly=Persistance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2024-08-14 18:05:24.176 +03:00 [DBG] Creating DbConnection.
+2024-08-14 18:05:24.176 +03:00 [DBG] Created DbConnection. (0ms).
+2024-08-14 18:05:24.176 +03:00 [DBG] Opening connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.236 +03:00 [DBG] Opened connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.236 +03:00 [DBG] Closing connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.236 +03:00 [DBG] Closed connection to database 'ServerConfigs' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:24.236 +03:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2024-08-14 18:05:24.236 +03:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2024-08-14 18:05:24.236 +03:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2024-08-14 18:05:24.236 +03:00 [DBG] Opening connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.295 +03:00 [DBG] Opened connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.295 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-14 18:05:24.297 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-14 18:05:24.301 +03:00 [DBG] Closing connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.301 +03:00 [DBG] Closed connection to database 'ServerConfigs' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:24.302 +03:00 [DBG] 'ServerConfigDbContext' disposed.
+2024-08-14 18:05:24.303 +03:00 [DBG] Disposing connection to database 'ServerConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.303 +03:00 [DBG] Disposed connection to database 'ServerConfigs' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:24.303 +03:00 [DBG] 'ClientConfigDbContext' disposed.
+2024-08-14 18:05:24.303 +03:00 [DBG] Disposing connection to database 'ClientConfigs' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.304 +03:00 [DBG] Disposed connection to database 'ClientConfigs' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:24.304 +03:00 [DBG] 'ConnectionDbContext' disposed.
+2024-08-14 18:05:24.304 +03:00 [DBG] Disposing connection to database 'Connection' on server 'tcp://localhost:5432'.
+2024-08-14 18:05:24.304 +03:00 [DBG] Disposed connection to database 'Connection' on server 'tcp://localhost:5432' (0ms).
+2024-08-14 18:05:24.358 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-08-14 18:05:24.397 +03:00 [INF] Application Starting
+2024-08-14 18:05:24.558 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-14 18:05:24.561 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-14 18:05:24.562 +03:00 [DBG] Loaded hosting startup assembly WebAPI
+2024-08-14 18:05:24.562 +03:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-08-14 18:05:24.562 +03:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-08-14 18:05:24.562 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-14 18:05:24.564 +03:00 [INF] Hosting environment: Development
+2024-08-14 18:05:24.566 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-14 18:05:24.567 +03:00 [DBG] Hosting started
+2024-08-14 18:05:24.862 +03:00 [DBG] Connection id "0HN5SEA380K2P" accepted.
+2024-08-14 18:05:24.862 +03:00 [DBG] Connection id "0HN5SEA380K2P" started.
+2024-08-14 18:05:24.871 +03:00 [DBG] Connection id "0HN5SEA380K2Q" accepted.
+2024-08-14 18:05:24.871 +03:00 [DBG] Connection id "0HN5SEA380K2Q" started.
+2024-08-14 18:05:24.891 +03:00 [DBG] Connection id "0HN5SEA380K2Q" received FIN.
+2024-08-14 18:05:24.891 +03:00 [DBG] Connection id "0HN5SEA380K2P" received FIN.
+2024-08-14 18:05:24.925 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at async ValueTask<int> System.Net.Security.SslStream.ReceiveHandshakeFrameAsync<TIOAdapter>(CancellationToken cancellationToken)
+   at async Task System.Net.Security.SslStream.ForceAuthenticationAsync<TIOAdapter>(bool receiveFirst, byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at async Task System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(bool isAsync, CancellationToken cancellationToken)
+   at async Task Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-08-14 18:05:24.925 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at async ValueTask<int> System.Net.Security.SslStream.ReceiveHandshakeFrameAsync<TIOAdapter>(CancellationToken cancellationToken)
+   at async Task System.Net.Security.SslStream.ForceAuthenticationAsync<TIOAdapter>(bool receiveFirst, byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at async Task System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(bool isAsync, CancellationToken cancellationToken)
+   at async Task Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-08-14 18:05:24.985 +03:00 [DBG] Connection id "0HN5SEA380K2Q" stopped.
+2024-08-14 18:05:24.985 +03:00 [DBG] Connection id "0HN5SEA380K2P" stopped.
+2024-08-14 18:05:24.987 +03:00 [DBG] Connection id "0HN5SEA380K2Q" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-14 18:05:24.987 +03:00 [DBG] Connection id "0HN5SEA380K2P" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-08-14 18:05:25.252 +03:00 [DBG] Connection id "0HN5SEA380K2R" accepted.
+2024-08-14 18:05:25.253 +03:00 [DBG] Connection id "0HN5SEA380K2R" started.
+2024-08-14 18:05:25.286 +03:00 [DBG] Connection 0HN5SEA380K2R established using the following protocol: "Tls13"
+2024-08-14 18:05:25.300 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-08-14 18:05:25.302 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-08-14 18:05:25.303 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-08-14 18:05:25.303 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-08-14 18:05:25.303 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-08-14 18:05:25.303 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "HEADERS" frame for stream ID 1 with length 569 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-08-14 18:05:25.314 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-08-14 18:05:25.330 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-14 18:05:25.431 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-08-14 18:05:25.431 +03:00 [VRB] All hosts are allowed.
+2024-08-14 18:05:25.463 +03:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-08-14 18:05:25.464 +03:00 [DBG] Request did not match any endpoints
+2024-08-14 18:05:25.521 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-08-14 18:05:25.587 +03:00 [DBG] Response markup is scheduled to include Browser Link script injection.
+2024-08-14 18:05:25.588 +03:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-08-14 18:05:25.591 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "HEADERS" frame for stream ID 1 with length 66 and flags "END_HEADERS".
+2024-08-14 18:05:25.596 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 1 with length 4096 and flags "NONE".
+2024-08-14 18:05:25.600 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 1 with length 1010 and flags "NONE".
+2024-08-14 18:05:25.600 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 1 with length 81 and flags "NONE".
+2024-08-14 18:05:25.602 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 167.4865 ms
+2024-08-14 18:05:25.605 +03:00 [DBG] Response markup was updated to include Browser Link script injection.
+2024-08-14 18:05:25.606 +03:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-08-14 18:05:25.608 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 1 with length 0 and flags "END_STREAM".
+2024-08-14 18:05:25.612 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 283.827ms
+2024-08-14 18:05:25.619 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "HEADERS" frame for stream ID 3 with length 118 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-08-14 18:05:25.620 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "HEADERS" frame for stream ID 5 with length 60 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-08-14 18:05:25.621 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-14 18:05:25.621 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-14 18:05:25.628 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "HEADERS" frame for stream ID 3 with length 60 and flags "END_HEADERS".
+2024-08-14 18:05:25.628 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 3 with length 13748 and flags "NONE".
+2024-08-14 18:05:25.630 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 3 with length 0 and flags "END_STREAM".
+2024-08-14 18:05:25.630 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.5326ms
+2024-08-14 18:05:25.668 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "HEADERS" frame for stream ID 5 with length 119 and flags "END_HEADERS".
+2024-08-14 18:05:25.668 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 9986 and flags "NONE".
+2024-08-14 18:05:25.671 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.672 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.673 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.673 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.674 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.675 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.675 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.676 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.677 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.677 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.678 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.679 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.679 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.680 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 10240 and flags "NONE".
+2024-08-14 18:05:25.680 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 160 and flags "NONE".
+2024-08-14 18:05:25.681 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 5 with length 0 and flags "END_STREAM".
+2024-08-14 18:05:25.681 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.3312ms
+2024-08-14 18:05:25.735 +03:00 [VRB] Connection id "0HN5SEA380K2R" received "HEADERS" frame for stream ID 7 with length 77 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-08-14 18:05:25.736 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-14 18:05:25.739 +03:00 [VRB] All hosts are allowed.
+2024-08-14 18:05:25.739 +03:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-08-14 18:05:25.739 +03:00 [DBG] Request did not match any endpoints
+2024-08-14 18:05:25.740 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-08-14 18:05:25.932 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "HEADERS" frame for stream ID 7 with length 35 and flags "END_HEADERS".
+2024-08-14 18:05:25.932 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 7 with length 16384 and flags "NONE".
+2024-08-14 18:05:25.933 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 7 with length 16384 and flags "NONE".
+2024-08-14 18:05:25.933 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 7 with length 7462 and flags "NONE".
+2024-08-14 18:05:25.940 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 201.1175 ms
+2024-08-14 18:05:25.947 +03:00 [VRB] Connection id "0HN5SEA380K2R" sending "DATA" frame for stream ID 7 with length 0 and flags "END_STREAM".
+2024-08-14 18:05:25.947 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 211.6153ms

@@ -15,9 +15,9 @@ using Application.Features.Servers.Queries.GetServer.GetAll;
 using Application.Features.Servers.Queries.GetServer.GetDetails;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Models.Client;
-using WebAPI.Models.Connection;
-using WebAPI.Models.Server;
+using Shared.Models.Client;
+using Shared.Models.Connection;
+using Shared.Models.Server;
 
 namespace WebAPI.Controllers
 {
