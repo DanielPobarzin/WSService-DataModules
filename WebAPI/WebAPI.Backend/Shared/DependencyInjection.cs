@@ -2,7 +2,9 @@
 using Application.Mappings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Monitoring;
 using Shared.Services;
+using System.Diagnostics.Metrics;
 using System.Reflection;
 
 namespace Shared
@@ -18,6 +20,10 @@ namespace Shared
 			services.AddTransient<IDateTimeService, DateTimeService>();
 			services.AddSingleton<IProducerService, ProducerService>();
 			services.AddSingleton<IConsumerService, ConsumerService>();
+			services.AddSingleton<TelemetryClientUsingPrometheus>(provider =>
+				new TelemetryClientUsingPrometheus(new Meter("ClientComponents")));
+			services.AddSingleton<TelemetryServerUsingPrometheus>(provider =>
+			new TelemetryServerUsingPrometheus(new Meter("ServerComponents")));
 
 			return services;
 		}

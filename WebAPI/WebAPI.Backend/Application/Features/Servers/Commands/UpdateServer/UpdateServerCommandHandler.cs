@@ -18,17 +18,22 @@ namespace Application.Features.Servers.Commands.UpdateServer
 		}
 		public async Task<Response<Server>> Handle(UpdateServerCommand command, CancellationToken cancellationToken)
 		{
-			var server = await _repository.GetByIdAsync(command.ServerId);
-			if (server == null) throw new APIException($"Server Not Found.");
+			var server = await _repository.GetByIdAsync(command.ServerId) ?? 
+				throw new APIException($"Server Not Found.");
+			if (IsEqual(server, command))
+			{
+				return new Response<Server>(server, true); 
+			}
 			server = _mapper.Map<Server>(command);
-
-			server.CountListeners = command.CountListeners;
-			server.ConnectionId = command.ConnectionId;
-			server.ConnectionStatus = command.ConnectionStatus;
-			server.WorkStatus = command.WorkStatus;
-
 			await _repository.UpdateAsync(server);
 			return new Response<Server>(server, true);
+		}
+		private bool IsEqual(Server server, UpdateServerCommand command)
+		{
+			return server.CountListeners == command.CountListeners &&
+				   server.ConnectionId == command.ConnectionId &&
+				   server.ConnectionStatus == command.ConnectionStatus &&
+				   server.WorkStatus == command.WorkStatus;
 		}
 	}
 }

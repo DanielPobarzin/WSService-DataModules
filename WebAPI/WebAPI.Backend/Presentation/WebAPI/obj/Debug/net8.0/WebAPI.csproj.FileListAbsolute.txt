@@ -112,3 +112,10 @@ D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\b
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Exporter.Prometheus.AspNetCore.dll
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Prometheus.NetStandard.dll
 D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Prometheus.AspNetCore.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Google.Protobuf.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Grpc.Core.Api.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Grpc.Net.Client.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Grpc.Net.Common.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Exporter.OpenTelemetryProtocol.dll
+D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI\bin\Debug\net8.0\OpenTelemetry.Instrumentation.EntityFrameworkCore.dll

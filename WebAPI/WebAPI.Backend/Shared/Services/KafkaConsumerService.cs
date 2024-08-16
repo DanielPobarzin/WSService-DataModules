@@ -2,23 +2,28 @@
 using Application.Features.Configurations.Client.Commands.UpdateConfig;
 using Application.Features.Configurations.Server.Commands.CreateConfig;
 using Application.Features.Configurations.Server.Commands.UpdateConfig;
-using Application.Features.Connections.Commands.AddConnection;
 using Application.Features.Connections.Commands.UpdateConnection;
+using Application.Features.Servers.Commands.AddServer;
+using Application.Features.Servers.Commands.UpdateServer;
 using Application.Interfaces;
 using Application.Wrappers;
 using AutoMapper;
 using Confluent.Kafka;
+using Domain.Entities;
+using Domain.Enums;
 using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Serilog;
 using Shared.Models.Config;
 using Shared.Models.Connection;
 using Shared.Models.Server;
+using Shared.Monitoring;
+using Shared.Monitoring.ServerMetrics;
+using System.Text;
 using System.Threading;
-using static Confluent.Kafka.ConfigPropertyNames;
 
 namespace Shared.Services
 {
@@ -31,12 +36,22 @@ namespace Shared.Services
 		private readonly Dictionary<string, string> _topics;
         private readonly string _groupId;
 		private readonly IMapper _mapper;
-
-		public ConsumerService(IConfiguration configuration, IMapper mapper, IMediator mediator)
+		private readonly IMemoryCache memory;
+		private readonly TelemetryClientUsingPrometheus _clientTelemetryMetrics;
+		private readonly TelemetryServerUsingPrometheus _serverTelemetryMetrics;
+		public ConsumerService(IConfiguration configuration, 
+							   IMapper mapper, 
+							   IMediator mediator, 
+							   IMemoryCache memory, 
+							   TelemetryClientUsingPrometheus clientMetrics, 
+							   TelemetryServerUsingPrometheus serverMetrics)
 		{
 			_configuration = configuration;
 			_mediator = mediator;
 			_mapper = mapper;
+			this.memory = memory;
+			_clientTelemetryMetrics = clientMetrics;
+			_serverTelemetryMetrics = serverMetrics;
 			_bootstrapServers = _configuration["Kafka:Producer:BootstrapServers"].Split(';');
 			_groupId = "ManagmentMonitorServiceGroup";
 			var topicsSection = _configuration.GetSection("Kafka:Topics:Recieve");
@@ -80,7 +95,52 @@ namespace Shared.Services
 				switch (message.Key)
 				{
 					case ("server-metric"):
-						
+
+						var serverMetrics = JsonConvert.DeserializeObject<ServerMetrics>(message.Value);
+						if (serverMetrics != null)
+						{
+							_serverTelemetryMetrics.AddTotalCountMessages(serverMetrics.TotalCountMessages, serverMetrics.ServerId);
+							_serverTelemetryMetrics.AddTotalCountAlarms(serverMetrics.CountAlarms, serverMetrics.ServerId);
+							_serverTelemetryMetrics.AddTotalCountNotifications(serverMetrics.CountNotifications, serverMetrics.ServerId);
+							_serverTelemetryMetrics.RecordTotalMessagesSize(serverMetrics.TotalMessagesSize);
+							_serverTelemetryMetrics.RecordLatency(serverMetrics.Latency);
+							_serverTelemetryMetrics.RecordWorkingMemoryUsage(serverMetrics.WorkingMemoryUsage);
+							_serverTelemetryMetrics.RecordPrivateMemoryUsage(serverMetrics.PrivateMemoryUsage);
+							_serverTelemetryMetrics.ChangeAverageMessageSize(serverMetrics.AverageMessageSize);
+							_serverTelemetryMetrics.ChangeCountListeners(serverMetrics.CountListeners);
+							var server = new AddServerDTO
+							{
+								 ServerId = serverMetrics.ServerId,
+								 WorkStatus = serverMetrics.WorkStatus,
+								 ConnectionStatus = serverMetrics.ConnectionStatus,
+								 CountListeners = serverMetrics.CountListeners
+							};
+							if (!memory.TryGetValue(server.ServerId, out Server? Server))
+							{
+								var commandDTO = _mapper.Map<AddServerCommand>(server);
+								Response<Server> responses = (Response<Server>)await _mediator.Send(commandDTO);
+								Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
+								memory.Set(server.ServerId, server);
+							}
+							else
+							{
+								var updateServer = new UpdateServerDTO
+								{
+									ServerId = serverMetrics.ServerId,
+									WorkStatus = serverMetrics.WorkStatus,
+									ConnectionStatus = serverMetrics.ConnectionStatus,
+									CountListeners = serverMetrics.CountListeners
+								};
+								if (!IsEqual(Server, server))
+								{
+									var commandDTO = _mapper.Map<UpdateServerCommand>(updateServer);
+									Response<Server> responses = (Response<Server>)await _mediator.Send(commandDTO);
+									Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
+								}
+							}
+
+
+						}
 						break;
 
 					case ("client-metric"):
@@ -153,6 +213,13 @@ namespace Shared.Services
 				Response<TResponse> response = (Response<TResponse>) await _mediator.Send(commandDTO, cancellationToken);
 				Log.Information($"Response Consumer command: {response.Data}; Successed: {response.Succeeded}");
 			}
+		}
+		private bool IsEqual(Server server, AddServerDTO dto)
+		{
+			return server.CountListeners == dto.CountListeners &&
+				   server.ConnectionId == dto.ConnectionId &&
+				   server.ConnectionStatus == dto.ConnectionStatus &&
+				   server.WorkStatus == dto.WorkStatus;
 		}
 	}
 }

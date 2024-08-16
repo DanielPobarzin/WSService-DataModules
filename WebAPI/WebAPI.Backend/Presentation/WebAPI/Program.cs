@@ -85,9 +85,10 @@ try
 								})
 								.AddHttpClientInstrumentation()
 								.AddEntityFrameworkCoreInstrumentation();
-								});
+						});
+				
 
-			services.AddHealthChecks();
+				services.AddHealthChecks();
 				services.AddJWTAuthentication(context.Configuration);
 				services.AddAuthorizationPolicies(context.Configuration);
 				services.AddMvcCore()

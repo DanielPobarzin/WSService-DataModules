@@ -1,6 +1,6 @@
 ﻿using Domain.Enums;
 
-namespace Application.Parameters.ClientMetrics
+namespace Shared.Monitoring.ClientMetrics
 {
 	public class ClientMetrics
 	{

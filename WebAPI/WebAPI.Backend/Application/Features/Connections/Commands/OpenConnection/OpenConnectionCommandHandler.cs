@@ -16,7 +16,6 @@ namespace Application.Features.Connections.Commands.OpenConnection
 		private readonly IClientRepositoryAsync _repository;
 		private readonly IProducerService _producerService;
 		private readonly IConfiguration _configuration;
-		private readonly IMapper _mapper;
 		private readonly string _topicProduce;
 		public OpenConnectionCommandHandler(IConfiguration configuration, IClientRepositoryAsync Repository, IProducerService producerService)
 		{
