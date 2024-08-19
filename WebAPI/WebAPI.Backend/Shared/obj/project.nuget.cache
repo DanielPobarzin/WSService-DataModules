@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "csnnEY5VhNIypAEy0dzUljBxofbuvh9SZ0xdcytmekBrc8aW7BkWZfpP4+/1IL9ca21hWGe0+Qocd562XF3Wzg==",
+  "dgSpecHash": "0pooAShLo8A=",
   "success": true,
-  "projectFilePath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Shared.csproj",
+  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\WebAPI\\WebAPI.Backend\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.1\\confluent.kafka.2.5.1.nupkg.sha512",

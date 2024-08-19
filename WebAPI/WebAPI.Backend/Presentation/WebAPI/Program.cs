@@ -1,6 +1,7 @@
 ﻿using Application;
 using Application.Interfaces;
 using Application.Mappings;
+using Microsoft.Extensions.Hosting;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
@@ -11,6 +12,7 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using Shared;
+using Shared.Services;
 using System.Reflection;
 using WebAPI.Extensions;
 
@@ -88,7 +90,7 @@ try
 								.AddHttpClientInstrumentation()
 								.AddEntityFrameworkCoreInstrumentation();
 						});
-				
+				services.AddHostedService<ConsumerService>();
 				services.AddHealthChecks();
 				services.AddJWTAuthentication(context.Configuration);
 				services.AddAuthorizationPolicies(context.Configuration);
@@ -106,7 +108,7 @@ try
 				if (env != null && env.IsDevelopment())
 				{
 					app.UseDeveloperExceptionPage();
-
+					
 					using (var scope = app.ApplicationServices.CreateScope())
 					{
 						var dbConnectionContext = scope.ServiceProvider.GetRequiredService<ConnectionDbContext>();

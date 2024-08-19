@@ -1,0 +1,223 @@
+2024-08-20 00:03:07.987 +03:00 [INF] Application startup services registration
+2024-08-20 00:03:09.100 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:11:10.454 +03:00 [INF] Application startup services registration
+2024-08-20 00:11:16.141 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:12:05.083 +03:00 [INF] Application startup services registration
+2024-08-20 00:12:06.166 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:14:41.467 +03:00 [INF] Application startup services registration
+2024-08-20 00:14:42.783 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:18:21.587 +03:00 [INF] Application startup services registration
+2024-08-20 00:18:22.821 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:18:42.689 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:02.271 +03:00 [INF] Application startup services registration
+2024-08-20 00:32:03.414 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:32:12.794 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:21.230 +03:00 [INF] Application startup middleware registration
+2024-08-20 00:32:23.398 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:27.883 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:28.950 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:32.901 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:35.500 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:35:45.930 +03:00 [INF] Application startup services registration
+2024-08-20 00:35:52.411 +03:00 [INF] Application startup services registration
+2024-08-20 00:35:53.649 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:35:53.909 +03:00 [INF] Application startup middleware registration
+2024-08-20 00:35:54.868 +03:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-20 00:35:55.088 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-20 00:35:55.153 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:35:55.156 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:35:55.158 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:35:55.160 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:35:55.322 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-20 00:35:55.474 +03:00 [INF] Application Starting
+2024-08-20 00:35:55.649 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-20 00:35:55.650 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-20 00:35:55.652 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-20 00:35:55.654 +03:00 [INF] Hosting environment: Development
+2024-08-20 00:35:55.655 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-20 00:35:56.274 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-20 00:35:58.392 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 2039.9024 ms
+2024-08-20 00:35:58.400 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 2141.8683ms
+2024-08-20 00:35:58.421 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-20 00:35:58.421 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-20 00:35:58.437 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 17.4368ms
+2024-08-20 00:35:58.472 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.0329ms
+2024-08-20 00:35:58.511 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-20 00:35:58.672 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 158.0572 ms
+2024-08-20 00:35:58.680 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 169.3166ms
+2024-08-20 00:36:16.970 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7098/api/Order/test?orderDetails=fdd - null 0
+2024-08-20 00:36:17.010 +03:00 [INF] CORS policy execution successful.
+2024-08-20 00:36:17.042 +03:00 [INF] Executing endpoint 'WebAPI.Controllers.OrderController.PlaceOrder (WebAPI)'
+2024-08-20 00:36:17.103 +03:00 [INF] Route matched with {action = "PlaceOrder", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PlaceOrder(System.String) on controller WebAPI.Controllers.OrderController (WebAPI).
+2024-08-20 00:36:41.035 +03:00 [INF] Application startup services registration
+2024-08-20 00:36:42.271 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-20 00:36:42.542 +03:00 [INF] Application startup middleware registration
+2024-08-20 00:36:43.588 +03:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-20 00:36:43.994 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-20 00:36:44.068 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:36:44.071 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:36:44.073 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:36:44.075 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-20 00:36:44.258 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-20 00:36:44.459 +03:00 [INF] Application Starting
+2024-08-20 00:36:44.699 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-20 00:36:44.701 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-20 00:36:44.702 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-20 00:36:44.703 +03:00 [INF] Hosting environment: Development
+2024-08-20 00:36:44.705 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-20 00:36:45.518 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-20 00:36:45.744 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 142.5139 ms
+2024-08-20 00:36:45.752 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-20 00:36:45.752 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 245.0883ms
+2024-08-20 00:36:45.752 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-20 00:36:45.774 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 22.3039ms
+2024-08-20 00:36:45.805 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.9174ms
+2024-08-20 00:36:45.852 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-20 00:36:45.998 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 141.8279 ms
+2024-08-20 00:36:46.000 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 148.3284ms
+2024-08-20 00:36:56.575 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7098/api/Order/test?orderDetails=cvfg - null 0
+2024-08-20 00:36:56.602 +03:00 [INF] CORS policy execution successful.
+2024-08-20 00:36:56.626 +03:00 [INF] Executing endpoint 'WebAPI.Controllers.OrderController.PlaceOrder (WebAPI)'
+2024-08-20 00:36:56.650 +03:00 [INF] Route matched with {action = "PlaceOrder", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PlaceOrder(System.String) on controller WebAPI.Controllers.OrderController (WebAPI).
+2024-08-20 00:36:56.748 +03:00 [INF] Executing action method WebAPI.Controllers.OrderController.PlaceOrder (WebAPI) - Validation state: "Valid"
+2024-08-20 00:37:07.677 +03:00 [INF] Message sent to test [[1]] @0
+2024-08-20 00:37:16.327 +03:00 [INF] Executed action method WebAPI.Controllers.OrderController.PlaceOrder (WebAPI), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 19570.866ms.
+2024-08-20 00:37:16.345 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-08-20 00:37:16.358 +03:00 [INF] Executed action WebAPI.Controllers.OrderController.PlaceOrder (WebAPI) in 19696.1741ms
+2024-08-20 00:37:16.362 +03:00 [INF] Executed endpoint 'WebAPI.Controllers.OrderController.PlaceOrder (WebAPI)'
+2024-08-20 00:37:16.380 +03:00 [INF] HTTP POST /api/Order/test responded 200 in 19799.8457 ms
+2024-08-20 00:37:16.382 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7098/api/Order/test?orderDetails=cvfg - 200 null text/plain; charset=utf-8 19809.1906ms
+2024-08-20 00:37:22.205 +03:00 [ERR] Error processing Kafka message.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: c. Path '', line 0, position 0.
+   at bool Newtonsoft.Json.JsonTextReader.ParseValue()
+   at bool Newtonsoft.Json.JsonTextReader.Read()
+   at bool Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at bool Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, bool hasConverter)
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, bool checkAdditionalContent)
+   at object Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at object Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at object Newtonsoft.Json.JsonConvert.DeserializeObject(string value, Type type, JsonSerializerSettings settings)
+   at T Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string value, JsonSerializerSettings settings) x 2
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 107

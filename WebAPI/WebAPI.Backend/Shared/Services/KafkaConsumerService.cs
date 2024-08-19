@@ -25,6 +25,7 @@ using Shared.Models.Server;
 using Shared.Monitoring;
 using Shared.Monitoring.ClientMetrics;
 using Shared.Monitoring.ServerMetrics;
+using System.Net;
 
 namespace Shared.Services
 {
@@ -71,8 +72,9 @@ namespace Shared.Services
 			//}
 			var consumerConfig = new ConsumerConfig
 			{
+				//ClientId = Dns.GetHostEntry(Environment.MachineName).HostName,
 				BootstrapServers = string.Join(',', _bootstrapServers),
-				//SecurityProtocol = SecurityProtocol.Plaintext,
+				//SecurityProtocol = SecurityProtocol.SaslPlaintext,
 				//EnableSslCertificateVerification = false,
 				GroupId = _groupId,
 				AutoOffsetReset = AutoOffsetReset.Earliest
@@ -80,14 +82,10 @@ namespace Shared.Services
 			_consumer = new ConsumerBuilder<string, string>(consumerConfig).Build();
 			_mediator = mediator;
 		}
-		public override Task StartAsync(CancellationToken stoppingToken)
-		{
-			_consumer.Subscribe(_topics);
-			return Task.CompletedTask;
-		}
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
+			_consumer.Subscribe(_topics);
+			while (!stoppingToken.IsCancellationRequested)
             {
 				await KafkaPullMessageProcess(stoppingToken);
                 await Task.Delay(100, stoppingToken);
@@ -98,9 +96,10 @@ namespace Shared.Services
         {
             try
             {
-                var consumeResult = _consumer.Consume(stoppingToken);
-                var message = consumeResult.Message;
-				if (message is null) { return; }
+				//var consumeResult = await _consumer.ConsumeAsync(stoppingToken);
+				var consumeResult = _consumer.Consume(TimeSpan.FromMilliseconds(100));
+				//if (consumeResult.Message is null) {  }
+				var message = (consumeResult == null) ? new Message<string, string>() : consumeResult.Message;
 				switch (message.Key)
 				{
 					case ("server-metric"):

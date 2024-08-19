@@ -2,6 +2,7 @@
 using Application.Mappings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Shared.Monitoring;
 using Shared.Services;
 using System.Diagnostics.Metrics;
@@ -25,7 +26,7 @@ namespace Shared
 			services.AddTransient<IDateTimeService, DateTimeService>();
 			services.AddSingleton<IProducerService, ProducerService>();
 			services.AddSingleton<IConsumerService, ConsumerService>();
-			services.AddHostedService<ConsumerService>();
+	
 			return services;
 		}
 	}

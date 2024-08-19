@@ -2002,3 +2002,1458 @@ WHERE
 2024-08-19 18:19:01.108 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
 2024-08-19 18:19:01.456 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 342.5745 ms
 2024-08-19 18:19:01.461 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 352.7425ms
+2024-08-19 21:09:45.408 +03:00 [INF] Application startup services registration
+2024-08-19 21:09:53.191 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:09:53.708 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:09:56.484 +03:00 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:09:56.832 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:09:56.887 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:09:56.890 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:09:56.892 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:09:56.893 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:09:57.179 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:09:57.607 +03:00 [INF] Application Starting
+2024-08-19 21:09:57.955 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:09:57.958 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:09:57.960 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:09:57.961 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:09:57.963 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:09:59.266 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger - null null
+2024-08-19 21:10:01.397 +03:00 [INF] HTTP GET /swagger responded 301 in 1820.5529 ms
+2024-08-19 21:10:01.418 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger - 301 0 null 2165.098ms
+2024-08-19 21:10:01.439 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:10:01.711 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 247.9078 ms
+2024-08-19 21:10:01.721 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/swagger-ui-standalone-preset.js - null null
+2024-08-19 21:10:01.714 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:10:01.713 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/swagger-ui-bundle.js - null null
+2024-08-19 21:10:01.738 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 300.1519ms
+2024-08-19 21:10:01.712 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/swagger-ui.css - null null
+2024-08-19 21:10:01.728 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:10:01.760 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 46.5063ms
+2024-08-19 21:10:01.792 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-08-19 21:10:01.794 +03:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 27.4554 ms
+2024-08-19 21:10:01.797 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/swagger-ui.css - 200 143943 text/css 85.3767ms
+2024-08-19 21:10:01.797 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-08-19 21:10:01.802 +03:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 61.9043 ms
+2024-08-19 21:10:01.804 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 89.6772ms
+2024-08-19 21:10:01.827 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-08-19 21:10:01.829 +03:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 68.9129 ms
+2024-08-19 21:10:01.831 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 117.9056ms
+2024-08-19 21:10:01.843 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.2805ms
+2024-08-19 21:10:02.021 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:10:02.383 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 357.7006 ms
+2024-08-19 21:10:02.386 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 365.1943ms
+2024-08-19 21:11:54.737 +03:00 [INF] Application startup services registration
+2024-08-19 21:11:55.783 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:11:56.066 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:11:57.416 +03:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:11:57.680 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:11:57.740 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:11:57.742 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:11:57.744 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:11:57.746 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:11:57.920 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:11:58.049 +03:00 [INF] Application Starting
+2024-08-19 21:11:58.179 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:11:58.180 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:11:58.182 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:11:58.183 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:11:58.184 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:11:58.999 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:11:59.475 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 289.9985 ms
+2024-08-19 21:11:59.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 495.6136ms
+2024-08-19 21:11:59.490 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:11:59.490 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:11:59.513 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 23.7725ms
+2024-08-19 21:11:59.539 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.041ms
+2024-08-19 21:11:59.689 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:11:59.922 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 229.6113 ms
+2024-08-19 21:11:59.927 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 237.8404ms
+2024-08-19 21:12:23.659 +03:00 [INF] Application startup services registration
+2024-08-19 21:12:24.906 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:12:25.058 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:12:26.004 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:12:26.354 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:12:26.407 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:12:26.410 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:12:26.411 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:12:26.413 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:12:26.576 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:12:26.687 +03:00 [INF] Application Starting
+2024-08-19 21:12:26.812 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:12:26.813 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:12:26.815 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:12:26.816 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:12:26.817 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:12:27.294 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:12:27.563 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 166.3284 ms
+2024-08-19 21:12:27.570 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 289.6285ms
+2024-08-19 21:12:27.581 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:12:27.581 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:12:27.590 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.6172ms
+2024-08-19 21:12:27.621 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.5925ms
+2024-08-19 21:12:27.661 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:12:27.839 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 174.5020 ms
+2024-08-19 21:12:27.844 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 182.8179ms
+2024-08-19 21:13:12.658 +03:00 [INF] Application startup services registration
+2024-08-19 21:13:14.550 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:13:14.787 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:13:16.047 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:13:16.364 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:13:16.432 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:16.434 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:16.436 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:16.438 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:16.632 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:13:16.823 +03:00 [INF] Application Starting
+2024-08-19 21:13:17.124 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:13:17.127 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:13:17.129 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:13:17.131 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:13:17.133 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:13:17.581 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:13:17.959 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 270.5762 ms
+2024-08-19 21:13:17.966 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 404.9705ms
+2024-08-19 21:13:17.977 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:13:17.977 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:13:18.005 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 28.17ms
+2024-08-19 21:13:18.038 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 61.307ms
+2024-08-19 21:13:18.086 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:13:18.239 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 149.6424 ms
+2024-08-19 21:13:18.242 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 156.3899ms
+2024-08-19 21:13:41.983 +03:00 [INF] Application startup services registration
+2024-08-19 21:13:47.655 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:13:48.138 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:13:50.807 +03:00 [INF] Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:13:51.214 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:13:51.331 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:51.336 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:51.339 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:51.343 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:13:51.606 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:13:51.781 +03:00 [INF] Application Starting
+2024-08-19 21:13:51.975 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:13:51.977 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:13:51.978 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:13:51.979 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:13:51.981 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:13:52.369 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:13:53.912 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 1427.7411 ms
+2024-08-19 21:13:53.922 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 1568.556ms
+2024-08-19 21:13:53.939 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:13:53.947 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.8022ms
+2024-08-19 21:13:53.953 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:13:53.992 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.588ms
+2024-08-19 21:13:54.106 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:13:54.288 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 176.9468 ms
+2024-08-19 21:13:54.291 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 185.4777ms
+2024-08-19 21:14:21.455 +03:00 [INF] Application startup services registration
+2024-08-19 21:14:22.671 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:14:22.820 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:14:23.820 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:14:24.144 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:14:24.231 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:14:24.234 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:14:24.235 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:14:24.237 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:14:24.403 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:14:24.591 +03:00 [INF] Application Starting
+2024-08-19 21:14:24.733 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:14:24.735 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:14:24.737 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:14:24.738 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:14:24.739 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:14:25.219 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:14:25.470 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 144.8489 ms
+2024-08-19 21:14:25.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:14:25.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:14:25.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 290.8158ms
+2024-08-19 21:14:25.490 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 10.7694ms
+2024-08-19 21:14:25.532 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.7922ms
+2024-08-19 21:14:25.580 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:14:25.761 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 177.2806 ms
+2024-08-19 21:14:25.767 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 187.6354ms
+2024-08-19 21:15:21.802 +03:00 [INF] Application startup services registration
+2024-08-19 21:15:22.871 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:15:23.016 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:15:24.026 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:15:24.351 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:15:24.404 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:15:24.406 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:15:24.407 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:15:24.409 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:15:24.565 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:15:24.669 +03:00 [INF] Application Starting
+2024-08-19 21:15:24.891 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:15:24.893 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:15:24.897 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:15:24.900 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:15:24.903 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:15:25.265 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:15:25.591 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 202.2796 ms
+2024-08-19 21:15:25.604 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:15:25.604 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:15:25.612 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 356.9443ms
+2024-08-19 21:15:25.615 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 11.7471ms
+2024-08-19 21:15:25.665 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 61.2289ms
+2024-08-19 21:15:25.707 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:15:25.877 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 167.3637 ms
+2024-08-19 21:15:25.881 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 174.4974ms
+2024-08-19 21:19:57.422 +03:00 [INF] Application startup services registration
+2024-08-19 21:19:58.615 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:19:58.750 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:19:59.656 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:19:59.916 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:19:59.981 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:19:59.983 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:19:59.985 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:19:59.987 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:20:00.196 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:20:00.304 +03:00 [INF] Application Starting
+2024-08-19 21:20:00.488 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:20:00.494 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:20:00.498 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:20:00.500 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:20:00.502 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:20:01.209 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:20:01.512 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 156.7551 ms
+2024-08-19 21:20:01.520 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 321.0288ms
+2024-08-19 21:20:01.521 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:20:01.521 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:20:01.546 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 25.1709ms
+2024-08-19 21:20:01.574 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.4274ms
+2024-08-19 21:20:01.628 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:20:01.788 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 157.5664 ms
+2024-08-19 21:20:01.791 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 162.9758ms
+2024-08-19 21:25:33.652 +03:00 [INF] Application startup services registration
+2024-08-19 21:25:34.678 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:25:34.820 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:25:35.690 +03:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:25:35.938 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:25:35.994 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:25:36.001 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:25:36.004 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:25:36.006 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:25:36.285 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:25:36.390 +03:00 [INF] Application Starting
+2024-08-19 21:25:36.547 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:25:36.549 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:25:36.552 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:25:36.558 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:25:36.560 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:25:37.112 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:25:37.500 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 170.8972 ms
+2024-08-19 21:25:37.505 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 426.3027ms
+2024-08-19 21:25:37.710 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:25:37.710 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:25:37.730 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 21.2792ms
+2024-08-19 21:25:37.778 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 68.5873ms
+2024-08-19 21:25:37.816 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:25:37.956 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 137.4660 ms
+2024-08-19 21:25:37.958 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 143.1734ms
+2024-08-19 21:56:07.365 +03:00 [INF] Application startup services registration
+2024-08-19 21:56:08.434 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:56:08.593 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:56:09.671 +03:00 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:56:10.000 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:56:10.058 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:10.061 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:10.063 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:10.067 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:10.272 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:56:10.435 +03:00 [INF] Application Starting
+2024-08-19 21:56:10.612 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:56:10.616 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:56:10.618 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:56:10.619 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:56:10.621 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:56:11.135 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:56:11.412 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 169.7185 ms
+2024-08-19 21:56:11.420 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 310.5191ms
+2024-08-19 21:56:11.426 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:56:11.426 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:56:11.434 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 8.7428ms
+2024-08-19 21:56:11.471 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.4255ms
+2024-08-19 21:56:11.510 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:56:11.656 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 142.4509 ms
+2024-08-19 21:56:11.659 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 150.3868ms
+2024-08-19 21:56:55.536 +03:00 [INF] Application startup services registration
+2024-08-19 21:56:56.646 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:56:56.821 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:56:57.894 +03:00 [INF] Executed DbCommand (89ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:56:58.301 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:56:58.394 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:58.396 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:58.398 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:58.400 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:56:58.556 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:56:58.708 +03:00 [INF] Application Starting
+2024-08-19 21:56:58.872 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:56:58.873 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:56:58.875 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:56:58.876 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:56:58.877 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:56:59.578 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:56:59.813 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 143.3371 ms
+2024-08-19 21:56:59.826 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 261.9677ms
+2024-08-19 21:56:59.842 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:56:59.842 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:56:59.860 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 20.3363ms
+2024-08-19 21:56:59.906 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 65.8776ms
+2024-08-19 21:56:59.963 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:57:00.095 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 126.1980 ms
+2024-08-19 21:57:00.099 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 136.7535ms
+2024-08-19 21:58:05.530 +03:00 [INF] Application startup services registration
+2024-08-19 21:58:06.678 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:58:06.808 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:58:07.888 +03:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:58:08.169 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:58:08.219 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:58:08.221 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:58:08.223 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:58:08.224 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:58:08.391 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:58:08.540 +03:00 [INF] Application Starting
+2024-08-19 21:58:08.708 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:58:08.710 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:58:08.712 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:58:08.713 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:58:08.714 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:58:09.397 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:58:09.705 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 215.4898 ms
+2024-08-19 21:58:09.712 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:58:09.712 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:58:09.713 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 327.1052ms
+2024-08-19 21:58:09.723 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 11.251ms
+2024-08-19 21:58:09.766 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.8008ms
+2024-08-19 21:58:09.819 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:58:09.983 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 160.4481 ms
+2024-08-19 21:58:09.987 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 167.9036ms
+2024-08-19 21:59:45.879 +03:00 [INF] Application startup services registration
+2024-08-19 21:59:47.107 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 21:59:47.246 +03:00 [INF] Application startup middleware registration
+2024-08-19 21:59:48.257 +03:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:59:48.525 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:59:48.651 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:59:48.656 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:59:48.660 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:59:48.662 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 21:59:48.848 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 21:59:48.993 +03:00 [INF] Application Starting
+2024-08-19 21:59:49.196 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 21:59:49.198 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 21:59:49.200 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 21:59:49.201 +03:00 [INF] Hosting environment: Development
+2024-08-19 21:59:49.204 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 21:59:49.901 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 21:59:50.214 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 209.5740 ms
+2024-08-19 21:59:50.229 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 21:59:50.230 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 21:59:50.230 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 340.1933ms
+2024-08-19 21:59:50.243 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 14.521ms
+2024-08-19 21:59:50.290 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.9435ms
+2024-08-19 21:59:50.349 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 21:59:50.503 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 150.4081 ms
+2024-08-19 21:59:50.516 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 167.3618ms
+2024-08-19 23:08:15.824 +03:00 [INF] Application startup services registration
+2024-08-19 23:08:22.478 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 23:08:22.955 +03:00 [INF] Application startup middleware registration
+2024-08-19 23:08:25.689 +03:00 [INF] Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:08:25.933 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:08:25.984 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:08:25.987 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:08:25.990 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:08:25.993 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:08:26.184 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:08:26.377 +03:00 [INF] Application Starting
+2024-08-19 23:08:26.632 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 23:08:26.634 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 23:08:26.635 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 23:08:26.636 +03:00 [INF] Hosting environment: Development
+2024-08-19 23:08:26.637 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 23:08:27.286 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 23:08:29.298 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 1915.3575 ms
+2024-08-19 23:08:29.305 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 23:08:29.305 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 23:08:29.314 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 2046.2462ms
+2024-08-19 23:08:29.333 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 29.1424ms
+2024-08-19 23:08:29.358 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.4169ms
+2024-08-19 23:08:29.398 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 23:08:29.558 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 156.6059 ms
+2024-08-19 23:08:29.561 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 163.6102ms
+2024-08-19 23:09:24.850 +03:00 [INF] Application startup services registration
+2024-08-19 23:09:26.129 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 23:09:26.269 +03:00 [INF] Application startup middleware registration
+2024-08-19 23:09:27.220 +03:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:09:27.436 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:09:27.486 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:09:27.489 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:09:27.490 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:09:27.492 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:09:27.656 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:09:27.747 +03:00 [INF] Application Starting
+2024-08-19 23:09:27.862 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 23:09:27.863 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 23:09:27.864 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 23:09:27.866 +03:00 [INF] Hosting environment: Development
+2024-08-19 23:09:27.867 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 23:09:28.348 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 23:09:28.585 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 151.5480 ms
+2024-08-19 23:09:28.591 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 254.6239ms
+2024-08-19 23:09:28.592 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 23:09:28.592 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 23:09:28.608 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 15.6464ms
+2024-08-19 23:09:28.632 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.4185ms
+2024-08-19 23:09:28.674 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 23:09:28.820 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 140.6095 ms
+2024-08-19 23:09:28.822 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 148.4547ms
+2024-08-19 23:10:09.489 +03:00 [INF] Application startup services registration
+2024-08-19 23:10:13.035 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 23:10:14.174 +03:00 [INF] Application startup middleware registration
+2024-08-19 23:10:15.137 +03:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:10:15.391 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:10:15.476 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:15.479 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:15.481 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:15.483 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:15.624 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:10:15.769 +03:00 [INF] Application Starting
+2024-08-19 23:10:15.976 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 23:10:15.978 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 23:10:15.980 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 23:10:15.981 +03:00 [INF] Hosting environment: Development
+2024-08-19 23:10:15.983 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 23:10:16.400 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 23:10:16.644 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 148.2769 ms
+2024-08-19 23:10:16.649 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 262.6222ms
+2024-08-19 23:10:16.653 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 23:10:16.653 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 23:10:16.670 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 17.0447ms
+2024-08-19 23:10:16.697 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.8855ms
+2024-08-19 23:10:16.747 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 23:10:16.876 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 125.1209 ms
+2024-08-19 23:10:16.879 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 132.003ms
+2024-08-19 23:10:34.123 +03:00 [INF] Application startup services registration
+2024-08-19 23:10:37.559 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 23:10:38.567 +03:00 [INF] Application startup middleware registration
+2024-08-19 23:10:39.560 +03:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:10:39.820 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:10:39.885 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:39.887 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:39.888 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:39.889 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:10:40.112 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:10:40.280 +03:00 [INF] Application Starting
+2024-08-19 23:10:40.399 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 23:10:40.401 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 23:10:40.402 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 23:10:40.403 +03:00 [INF] Hosting environment: Development
+2024-08-19 23:10:40.405 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 23:10:41.170 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 23:10:41.426 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 165.4484 ms
+2024-08-19 23:10:41.434 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 276.3097ms
+2024-08-19 23:10:41.441 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 23:10:41.442 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 23:10:41.458 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 17.3506ms
+2024-08-19 23:10:41.501 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.8969ms
+2024-08-19 23:10:41.631 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 23:10:41.809 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 169.9927 ms
+2024-08-19 23:10:41.813 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 183.3001ms
+2024-08-19 23:59:11.797 +03:00 [INF] Application startup services registration
+2024-08-19 23:59:12.743 +03:00 [INF] User profile is available. Using 'C:\Users\Даниил\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-19 23:59:17.464 +03:00 [INF] Application startup middleware registration
+2024-08-19 23:59:18.437 +03:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:59:18.689 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:59:18.745 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'DBSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:59:18.747 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HostSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:59:18.749 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'HubSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:59:18.750 +03:00 [WRN] The foreign key {'SystemId'} on entity type 'KafkaSettings' targets itself. Consider removing it since it serves no purpose.
+2024-08-19 23:59:18.918 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+FROM pg_class AS cls
+JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+WHERE
+        cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+        ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+        -- Exclude tables which are members of PG extensions
+        NOT EXISTS (
+            SELECT 1 FROM pg_depend WHERE
+                classid=(
+                    SELECT cls.oid
+                    FROM pg_class AS cls
+                             JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                    WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                ) AND
+                objid=cls.oid AND
+                deptype IN ('e', 'x')
+        )
+2024-08-19 23:59:19.051 +03:00 [INF] Application Starting
+2024-08-19 23:59:19.186 +03:00 [INF] Now listening on: https://localhost:7098
+2024-08-19 23:59:19.187 +03:00 [INF] Now listening on: http://localhost:5139
+2024-08-19 23:59:19.189 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-19 23:59:19.190 +03:00 [INF] Hosting environment: Development
+2024-08-19 23:59:19.191 +03:00 [INF] Content root path: D:\Develop\App\WSService-DataModules\WebAPI\WebAPI.Backend\Presentation\WebAPI
+2024-08-19 23:59:19.747 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/index.html - null null
+2024-08-19 23:59:20.026 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 143.7075 ms
+2024-08-19 23:59:20.034 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_vs/browserLink - null null
+2024-08-19 23:59:20.034 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-19 23:59:20.036 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/index.html - 200 null text/html;charset=utf-8 298.7435ms
+2024-08-19 23:59:20.065 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 31.594ms
+2024-08-19 23:59:20.089 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.5204ms
+2024-08-19 23:59:20.192 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - null null
+2024-08-19 23:59:20.371 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 168.1517 ms
+2024-08-19 23:59:20.375 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7098/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 182.7642ms

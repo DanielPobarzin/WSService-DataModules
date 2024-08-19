@@ -1,0 +1,33 @@
+2024-08-20 00:18:42.689 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:12.794 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:23.398 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:27.883 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:28.950 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:32.901 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:32:35.500 +03:00 [ERR] Error processing Kafka message.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 101
+2024-08-20 00:37:22.205 +03:00 [ERR] Error processing Kafka message.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: c. Path '', line 0, position 0.
+   at bool Newtonsoft.Json.JsonTextReader.ParseValue()
+   at bool Newtonsoft.Json.JsonTextReader.Read()
+   at bool Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at bool Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, bool hasConverter)
+   at object Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, bool checkAdditionalContent)
+   at object Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at object Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at object Newtonsoft.Json.JsonConvert.DeserializeObject(string value, Type type, JsonSerializerSettings settings)
+   at T Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string value, JsonSerializerSettings settings) x 2
+   at async Task Shared.Services.ConsumerService.KafkaPullMessageProcess(CancellationToken stoppingToken) in D:/Develop/App/WSService-DataModules/WebAPI/WebAPI.Backend/Shared/Services/KafkaConsumerService.cs:line 107
