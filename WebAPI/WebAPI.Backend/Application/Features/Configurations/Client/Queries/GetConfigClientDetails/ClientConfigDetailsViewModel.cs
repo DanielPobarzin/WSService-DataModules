@@ -6,6 +6,9 @@ using Domain.Settings.SignalRClient;
 
 namespace Application.Features.Configurations.Client.Queries.GetConfigClientDetails
 {
+	/// <summary>
+	/// Represents the view model for client configuration details, mapping from <see cref="ClientSettings"/>.
+	/// </summary>
 	public class ClientConfigDetailsViewModel : IMapWith<ClientSettings>
 	{
 		public Guid SystemId { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Application;
+using Application.Interfaces;
 using Application.Mappings;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
@@ -51,6 +52,7 @@ try
 		{
 			webBuilder.ConfigureServices((context, services) =>
 			{
+				services.AddSingleton<IConfiguration>(context.Configuration);
 				services.AddMemoryCache();
 				services.AddAplication();
 				services.AddPersistance(context.Configuration);
@@ -66,7 +68,7 @@ try
 						.WithMetrics(metricBuilder =>
 						{
 							metricBuilder
-								.AddConsoleExporter()
+								//.AddConsoleExporter()
 								.AddAspNetCoreInstrumentation()
 								.AddHttpClientInstrumentation()
 								.AddRuntimeInstrumentation()
@@ -87,7 +89,6 @@ try
 								.AddEntityFrameworkCoreInstrumentation();
 						});
 				
-
 				services.AddHealthChecks();
 				services.AddJWTAuthentication(context.Configuration);
 				services.AddAuthorizationPolicies(context.Configuration);

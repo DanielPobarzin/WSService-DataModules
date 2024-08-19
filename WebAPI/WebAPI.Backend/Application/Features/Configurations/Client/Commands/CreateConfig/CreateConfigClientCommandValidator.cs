@@ -1,5 +1,4 @@
 ﻿using Application.Interfaces.Repositories;
-using Domain.Enums;
 using FluentValidation;
 
 namespace Application.Features.Configurations.Client.Commands.CreateConfig

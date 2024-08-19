@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0FL+n7Ysov0=",
+  "dgSpecHash": "EElmzzIUHDsi01IlWrdlUO+DFl4loMSy24rEMh1PafJi5Ccb7x2LZU+SZ6W78B9mXDwGxTkmXRhaxuTWYydxXg==",
   "success": true,
-  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\Server\\Server\\Interactors\\Interactors.csproj",
+  "projectFilePath": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interactors.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\ben.demystifier\\0.4.1\\ben.demystifier.0.4.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",

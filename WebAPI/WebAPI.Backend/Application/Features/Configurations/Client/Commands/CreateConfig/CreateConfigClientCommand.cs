@@ -1,11 +1,27 @@
-﻿using Application.Mappings;
-using Application.Wrappers;
+﻿using Application.Wrappers;
 using Domain.Enums;
-using Domain.Settings.SignalRServer;
 using MediatR;
 
 namespace Application.Features.Configurations.Client.Commands.CreateConfig
 {
+	/// <summary>
+	/// CreateConfigClientCommand - handles IRequest
+	/// BaseRequestParameter - contains the entity of the client configuration
+	/// BaseResponseParameter - contains the Id of the client configuration and the result of the execution (successful/unsuccessful)
+	/// Тo create a new client configuration, use the properties from the body of this class
+	/// </summary>
+	/// <remarks>
+	/// System Id - unique identifier for the client configuration (& client)
+	/// DB - the data storage environment or the DBMS used
+	/// AlarmDB - connection string to the database with alarm messages 
+	/// NotificationDB - connection string to the database with notification messages 
+	/// AlarmUrl - The URL of the connection to the alarm hub on the server
+	/// NotifyUrl - The URL of the connection to the notification hub on the server
+	/// UseCache - the option to use local caching on the client side
+	/// Mode - the option of the client's connection mode <see cref="ConnectionMode"/>
+	/// ConsumerBootstrapServer - the address and port of connection to Kafka brokers for the consumer
+	/// ProducerBootstrapServer - the address and port of connection to Kafka brokers for the producer
+	/// </remarks>
 	public class CreateConfigClientCommand : IRequest<Response<Guid>>
 	{
 		public Guid SystemId { get; set; }

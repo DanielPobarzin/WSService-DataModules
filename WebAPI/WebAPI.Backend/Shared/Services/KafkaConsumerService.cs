@@ -1,4 +1,6 @@
-﻿using Application.Features.Configurations.Client.Commands.CreateConfig;
+﻿using Application.Features.Clients.Commands.AddClient;
+using Application.Features.Clients.Commands.UpdateClient;
+using Application.Features.Configurations.Client.Commands.CreateConfig;
 using Application.Features.Configurations.Client.Commands.UpdateConfig;
 using Application.Features.Configurations.Server.Commands.CreateConfig;
 using Application.Features.Configurations.Server.Commands.UpdateConfig;
@@ -10,20 +12,19 @@ using Application.Wrappers;
 using AutoMapper;
 using Confluent.Kafka;
 using Domain.Entities;
-using Domain.Enums;
 using MediatR;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Serilog;
+using Shared.Models.Client;
 using Shared.Models.Config;
 using Shared.Models.Connection;
 using Shared.Models.Server;
 using Shared.Monitoring;
+using Shared.Monitoring.ClientMetrics;
 using Shared.Monitoring.ServerMetrics;
-using System.Text;
-using System.Threading;
 
 namespace Shared.Services
 {
@@ -33,8 +34,9 @@ namespace Shared.Services
 		private readonly IMediator _mediator;
 		private readonly IConfiguration _configuration;
 		private readonly string[] _bootstrapServers;
-		private readonly Dictionary<string, string> _topics;
-        private readonly string _groupId;
+		private readonly string _topics = "test";
+		//private readonly Dictionary<string, string> _topics = new();
+		private readonly string _groupId;
 		private readonly IMapper _mapper;
 		private readonly IMemoryCache memory;
 		private readonly TelemetryClientUsingPrometheus _clientTelemetryMetrics;
@@ -52,18 +54,26 @@ namespace Shared.Services
 			this.memory = memory;
 			_clientTelemetryMetrics = clientMetrics;
 			_serverTelemetryMetrics = serverMetrics;
-			_bootstrapServers = _configuration["Kafka:Producer:BootstrapServers"].Split(';');
+			_bootstrapServers = _configuration["Kafka:BootstrapServers"].Split(';');
 			_groupId = "ManagmentMonitorServiceGroup";
-			var topicsSection = _configuration.GetSection("Kafka:Topics:Recieve");
+			//Console.WriteLine(JsonConvert.SerializeObject(_configuration.AsEnumerable(), Formatting.Indented));
+			//var receiveSection = _configuration.GetSection("Kafka:Topics:Recieve");
 
-			foreach (var child in topicsSection.GetChildren())
-			{
-				_topics[child.Key] = child.Value;
-			}
-
+			//if (receiveSection.Exists())
+			//{
+			//	foreach (var child in receiveSection.GetChildren())
+			//	{
+			//		if (!string.IsNullOrEmpty(child.Value))
+			//		{
+			//			_topics[child.Key] = child.Value;
+			//		}
+			//	}
+			//}
 			var consumerConfig = new ConsumerConfig
 			{
 				BootstrapServers = string.Join(',', _bootstrapServers),
+				//SecurityProtocol = SecurityProtocol.Plaintext,
+				//EnableSslCertificateVerification = false,
 				GroupId = _groupId,
 				AutoOffsetReset = AutoOffsetReset.Earliest
 			};
@@ -72,12 +82,11 @@ namespace Shared.Services
 		}
 		public override Task StartAsync(CancellationToken stoppingToken)
 		{
-			_consumer.Subscribe(_topics.Values);
+			_consumer.Subscribe(_topics);
 			return Task.CompletedTask;
 		}
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
- 
             while (!stoppingToken.IsCancellationRequested)
             {
 				await KafkaPullMessageProcess(stoppingToken);
@@ -99,52 +108,19 @@ namespace Shared.Services
 						var serverMetrics = JsonConvert.DeserializeObject<ServerMetrics>(message.Value);
 						if (serverMetrics != null)
 						{
-							_serverTelemetryMetrics.AddTotalCountMessages(serverMetrics.TotalCountMessages, serverMetrics.ServerId);
-							_serverTelemetryMetrics.AddTotalCountAlarms(serverMetrics.CountAlarms, serverMetrics.ServerId);
-							_serverTelemetryMetrics.AddTotalCountNotifications(serverMetrics.CountNotifications, serverMetrics.ServerId);
-							_serverTelemetryMetrics.RecordTotalMessagesSize(serverMetrics.TotalMessagesSize);
-							_serverTelemetryMetrics.RecordLatency(serverMetrics.Latency);
-							_serverTelemetryMetrics.RecordWorkingMemoryUsage(serverMetrics.WorkingMemoryUsage);
-							_serverTelemetryMetrics.RecordPrivateMemoryUsage(serverMetrics.PrivateMemoryUsage);
-							_serverTelemetryMetrics.ChangeAverageMessageSize(serverMetrics.AverageMessageSize);
-							_serverTelemetryMetrics.ChangeCountListeners(serverMetrics.CountListeners);
-							var server = new AddServerDTO
-							{
-								 ServerId = serverMetrics.ServerId,
-								 WorkStatus = serverMetrics.WorkStatus,
-								 ConnectionStatus = serverMetrics.ConnectionStatus,
-								 CountListeners = serverMetrics.CountListeners
-							};
-							if (!memory.TryGetValue(server.ServerId, out Server? Server))
-							{
-								var commandDTO = _mapper.Map<AddServerCommand>(server);
-								Response<Server> responses = (Response<Server>)await _mediator.Send(commandDTO);
-								Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
-								memory.Set(server.ServerId, server);
-							}
-							else
-							{
-								var updateServer = new UpdateServerDTO
-								{
-									ServerId = serverMetrics.ServerId,
-									WorkStatus = serverMetrics.WorkStatus,
-									ConnectionStatus = serverMetrics.ConnectionStatus,
-									CountListeners = serverMetrics.CountListeners
-								};
-								if (!IsEqual(Server, server))
-								{
-									var commandDTO = _mapper.Map<UpdateServerCommand>(updateServer);
-									Response<Server> responses = (Response<Server>)await _mediator.Send(commandDTO);
-									Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
-								}
-							}
-
-
+							TelemetryServerConsumerHandler(serverMetrics);
+							await StateServerConsumerHandler(serverMetrics, stoppingToken);
 						}
 						break;
 
 					case ("client-metric"):
-						
+
+						var clientMetrics = JsonConvert.DeserializeObject<ClientMetrics>(message.Value);
+						if (clientMetrics != null)
+						{
+							TelemetryClientConsumerHandler(clientMetrics);
+							await StateClientConsumerHandler(clientMetrics, stoppingToken);
+						}
 						break;
 					case ("new-connection"):
 						await ConsumerCommandHandler<string, AddConnectionDTO, UpdateConnectionCommand>(message.Value, stoppingToken);
@@ -214,12 +190,117 @@ namespace Shared.Services
 				Log.Information($"Response Consumer command: {response.Data}; Successed: {response.Succeeded}");
 			}
 		}
-		private bool IsEqual(Server server, AddServerDTO dto)
+		public async Task StateServerConsumerHandler (ServerMetrics serverMetrics, CancellationToken cancellationToken)
 		{
-			return server.CountListeners == dto.CountListeners &&
-				   server.ConnectionId == dto.ConnectionId &&
-				   server.ConnectionStatus == dto.ConnectionStatus &&
-				   server.WorkStatus == dto.WorkStatus;
+			if (!memory.TryGetValue(serverMetrics.ServerId, out Server? Server))
+			{
+				var server = new AddServerDTO
+				{
+					ServerId = serverMetrics.ServerId,
+					WorkStatus = serverMetrics.WorkStatus,
+					ConnectionStatus = serverMetrics.ConnectionStatus,
+					CountListeners = serverMetrics.CountListeners
+				};
+				var commandDTO = _mapper.Map<AddServerCommand>(server);
+				var responses = await _mediator.Send(commandDTO, cancellationToken);
+				Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
+				memory.Set(server.ServerId, server);
+			}
+			else
+			{
+				var updateServer = new UpdateServerDTO
+				{
+					Id = serverMetrics.ServerId,
+					WorkStatus = serverMetrics.WorkStatus,
+					ConnectionStatus = serverMetrics.ConnectionStatus,
+					CountListeners = serverMetrics.CountListeners
+				};
+				if (!IsEqual(Server, updateServer))
+				{
+					var commandDTO = _mapper.Map<UpdateServerCommand>(updateServer);
+					var responses = await _mediator.Send(commandDTO, cancellationToken);
+					Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
+				}
+			}
 		}
+		public void TelemetryServerConsumerHandler(ServerMetrics serverMetrics)
+		{
+				_serverTelemetryMetrics.AddTotalCountMessages(serverMetrics.TotalCountMessages, serverMetrics.ServerId);
+				_serverTelemetryMetrics.AddTotalCountAlarms(serverMetrics.CountAlarms, serverMetrics.ServerId);
+				_serverTelemetryMetrics.AddTotalCountNotifications(serverMetrics.CountNotifications, serverMetrics.ServerId);
+				_serverTelemetryMetrics.RecordTotalMessagesSize(serverMetrics.TotalMessagesSize);
+				_serverTelemetryMetrics.RecordLatency(serverMetrics.Latency);
+				_serverTelemetryMetrics.RecordWorkingMemoryUsage(serverMetrics.WorkingMemoryUsage);
+				_serverTelemetryMetrics.RecordPrivateMemoryUsage(serverMetrics.PrivateMemoryUsage);
+				_serverTelemetryMetrics.ChangeAverageMessageSize(serverMetrics.AverageMessageSize);
+				_serverTelemetryMetrics.ChangeCountListeners(serverMetrics.CountListeners);
+		}
+
+		public void TelemetryClientConsumerHandler(ClientMetrics clientMetrics)
+		{
+				_clientTelemetryMetrics.AddTotalCountMessages(clientMetrics.TotalCountMessages, clientMetrics.ClientId);
+				_clientTelemetryMetrics.AddTotalCountAlarms(clientMetrics.CountAlarms, clientMetrics.ClientId);
+				_clientTelemetryMetrics.AddTotalCountNotifications(clientMetrics.CountNotifications, clientMetrics.ClientId);
+				_clientTelemetryMetrics.RecordTotalMessagesSize(clientMetrics.TotalMessagesSize);
+				_clientTelemetryMetrics.RecordLatency(clientMetrics.Latency);
+				_clientTelemetryMetrics.RecordWorkingMemoryUsage(clientMetrics.WorkingMemoryUsage);
+				_clientTelemetryMetrics.RecordPrivateMemoryUsage(clientMetrics.PrivateMemoryUsage);
+				_clientTelemetryMetrics.ChangeAverageMessageSize(clientMetrics.AverageMessageSize);
+		}
+		public async Task StateClientConsumerHandler(ClientMetrics clientMetrics, CancellationToken cancellationToken)
+		{
+			if (!memory.TryGetValue(clientMetrics.ClientId, out Client? Client))
+			{
+				var client = new AddClientDTO
+				{
+					Id = clientMetrics.ClientId,
+					WorkStatus = clientMetrics.WorkStatus,
+					ConnectionStatus = clientMetrics.ConnectionStatus
+				};
+				var commandDTO = _mapper.Map<AddClientCommand>(client);
+				var responses = await _mediator.Send(commandDTO, cancellationToken);
+				Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
+				memory.Set(client.Id, client);
+			}
+			else
+			{
+				var updateClient = new UpdateClientDTO
+				{
+					Id = clientMetrics.ClientId,
+					WorkStatus = clientMetrics.WorkStatus,
+					ConnectionStatus = clientMetrics.ConnectionStatus
+				};
+				if (!IsEqual(Client, updateClient))
+				{
+					var commandDTO = _mapper.Map<UpdateClientCommand>(updateClient);
+					var responses = await _mediator.Send(commandDTO, cancellationToken);
+					Log.Information($"Response Consumer command: {responses.Data}; Successed: {responses.Succeeded}");
+				}
+			}
+		}
+		private bool IsEqual(object current, object update)
+		{
+			foreach (var property in current.GetType().GetProperties())
+			{
+				var property2 = update.GetType().GetProperty(property.Name);
+
+				if (property2 != null)
+				{
+					var value1 = property.GetValue(current);
+					var value2 = property2.GetValue(update);
+
+					if (!Equals(value1, value2))
+					{
+						return false;
+					}
+				}
+				else
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
 	}
 }

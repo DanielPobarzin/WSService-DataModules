@@ -1,18 +1,13 @@
-﻿using Application.Features.Connections.Queries.GetConnectionsList;
+﻿using Application.Mappings;
 using AutoMapper;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Clients.Queries.GetClient.GetAll
 {
 	/// <summary>
 	/// Data Transfer Object (DTO) for looking up client information.
 	/// </summary>
-	public class ClientLookupDTO
+	public class ClientLookupDTO : IMapWith<Client>
 	{
 		public Guid ClientId { get; set; }
 

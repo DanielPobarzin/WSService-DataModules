@@ -1,7 +1,6 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
-using AutoMapper;
 using Domain.Settings.SignalRClient;
 using MediatR;
 
@@ -10,12 +9,27 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 	public class UpdateConfigCLientCommandHandler : IRequestHandler<UpdateConfigClientCommand, Response<Guid>>
 	{
 		private readonly IClientConfigRepositoryAsync _repository;
-		private readonly IMapper _mapper;
-		public UpdateConfigCLientCommandHandler(IClientConfigRepositoryAsync repository, IMapper mapper)
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="UpdateConfigCLientCommandHandler"/> class.
+		/// </summary>
+		/// <param name="repository">The repository for working with clients.</param>
+		public UpdateConfigCLientCommandHandler(IClientConfigRepositoryAsync repository)
 		{
 			_repository = repository;
-			_mapper = mapper;
 		}
+
+		/// <summary>
+		/// Handles the client config update command.
+		/// </summary>
+		/// <param name="command">The update command containing the data to be updated.</param>
+		/// <param name="cancellationToken">The cancellation token for the asynchronous operation.</param>
+		/// <returns>
+		/// An object of type <see cref="Response{Guid}"/> containing the updated client config and the status of the operation.
+		/// </returns>
+		/// <exception cref="APIException">
+		/// Thrown if a client config with the specified identifier is not found.
+		/// </exception>
 		public async Task<Response<Guid>> Handle(UpdateConfigClientCommand command, CancellationToken cancellationToken)
 		{
 			var config = await _repository.GetByIdAsync(command.SystemId);

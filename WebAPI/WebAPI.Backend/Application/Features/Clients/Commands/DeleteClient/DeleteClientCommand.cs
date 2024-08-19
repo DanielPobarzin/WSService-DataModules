@@ -1,15 +1,17 @@
 ﻿using Application.Wrappers;
-using Domain.Entities;
-using Domain.Enums;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Clients.Commands.DeleteClient
 {
+	/// <summary>
+	/// DeleteClientCommand - handles IRequest
+	/// BaseRequestParameter - contains the client Id
+	/// BaseResponseParameter - contains the client Id and the result of the execution (successful/unsuccessful)
+	/// To delete an existing client, use its Id from the body of this class
+	/// </summary>
+	/// <remarks>
+	/// Client Id - unique identifier for the client. 
+	/// </remarks>
 	public class DeleteClientCommand : IRequest<Response<Guid>>
 	{
 		public Guid ClientId { get; set; }

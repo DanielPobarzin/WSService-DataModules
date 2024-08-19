@@ -3,7 +3,6 @@ using Application.Interfaces.Repositories;
 using Application.Wrappers;
 using AutoMapper;
 using Domain.Entities;
-using Domain.Enums;
 using MediatR;
 
 namespace Application.Features.Clients.Commands.AddClient
@@ -14,6 +13,7 @@ namespace Application.Features.Clients.Commands.AddClient
 		private readonly IMapper _mapper;
 
 		/// <summary>
+		/// Constructor for AddClientCommandHandler class. 
 		/// Initializes a new instance of the <see cref="AddClientCommandHandler"/> class.
 		/// </summary>
 		/// <param name="repository">The repository interface for working with clients.</param>

@@ -3,7 +3,6 @@ using Application.Interfaces.Repositories;
 using Application.Wrappers;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Clients.Queries.GetClient.GetAll

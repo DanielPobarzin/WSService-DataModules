@@ -18,7 +18,7 @@ namespace Application.Features.Servers.Commands.UpdateServer
 		}
 		public async Task<Response<Server>> Handle(UpdateServerCommand command, CancellationToken cancellationToken)
 		{
-			var server = await _repository.GetByIdAsync(command.ServerId) ?? 
+			var server = await _repository.GetByIdAsync(command.Id) ?? 
 				throw new APIException($"Server Not Found.");
 			if (IsEqual(server, command))
 			{

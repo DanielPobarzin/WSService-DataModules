@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m+7y3dyUXQs=",
+  "dgSpecHash": "9xpJASQn2cM17pP3O0YIVgcRZekdaAB971Tr/E1JOQ4sm3e2O2UkayPMcgr12KCnA/BH7Qdop4noBzzxatT5YQ==",
   "success": true,
-  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\WebAPI\\WebAPI.Backend\\Persistance\\Persistance.csproj",
+  "projectFilePath": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\Persistance.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\confluent.kafka\\2.5.1\\confluent.kafka.2.5.1.nupkg.sha512",

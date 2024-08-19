@@ -7,7 +7,7 @@ namespace Shared.Models.Server
 {
 	public class UpdateServerDTO : IMapWith<UpdateServerCommand>
 	{
-		public Guid ServerId { get; set; }
+		public Guid Id { get; set; }
 		public WorkStatus WorkStatus { get; set; }
 		public ConnectionStatus ConnectionStatus { get; set; }
 		public string? ConnectionId { get; set; }
@@ -15,9 +15,9 @@ namespace Shared.Models.Server
 
 		public void Mapping(Profile profile)
 		{
-			profile.CreateMap<AddServerDTO, UpdateServerCommand>()
-				.ForMember(serverDto => serverDto.ServerId,
-					 opt => opt.MapFrom(server => server.ServerId))
+			profile.CreateMap<UpdateServerDTO, UpdateServerCommand>()
+				.ForMember(serverDto => serverDto.Id,
+					 opt => opt.MapFrom(server => server.Id))
 				.ForMember(serverDto => serverDto.WorkStatus,
 					 opt => opt.MapFrom(server => server.WorkStatus))
 				.ForMember(serverDto => serverDto.ConnectionStatus,

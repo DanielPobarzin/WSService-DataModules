@@ -17,14 +17,15 @@ namespace Shared
 			{
 				config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
 			});
+			services.AddSingleton(provider =>
+			new TelemetryClientUsingPrometheus(new Meter("ClientComponents")));
+			services.AddSingleton(provider =>
+			new TelemetryServerUsingPrometheus(new Meter("ServerComponents")));
+
 			services.AddTransient<IDateTimeService, DateTimeService>();
 			services.AddSingleton<IProducerService, ProducerService>();
 			services.AddSingleton<IConsumerService, ConsumerService>();
-			services.AddSingleton<TelemetryClientUsingPrometheus>(provider =>
-				new TelemetryClientUsingPrometheus(new Meter("ClientComponents")));
-			services.AddSingleton<TelemetryServerUsingPrometheus>(provider =>
-			new TelemetryServerUsingPrometheus(new Meter("ServerComponents")));
-
+			services.AddHostedService<ConsumerService>();
 			return services;
 		}
 	}

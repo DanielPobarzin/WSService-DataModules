@@ -16,6 +16,14 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 		private readonly IProducerService _producer;
 		private readonly IConfiguration _configuration;
 		private readonly string _topicProduce;
+
+		/// <summary>
+		/// Constructor for SendConfigClientCommandHandler class. 
+		/// Initializes a new instance of the <see cref="SendConfigClientCommandHandler"/> class.
+		/// </summary>
+		/// <param name="repository">The repository interface for working with client configurations.</param>
+		/// <param name="producer">Kafka's service is a producer for sending messages.</param>
+		/// <param name="configuration">Getting the current application configuration.</param>
 		public SendConfigClientCommandHandler(IClientConfigRepositoryAsync repository, IProducerService producer, IConfiguration configuration)
 		{
 			_repository = repository;
@@ -23,6 +31,13 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 			_configuration = configuration;
 			_topicProduce = _configuration["Kafka:Topics:Send:NewClientConfiguration"];
 		}
+		/// <summary>
+		/// Handles the <see cref="SendConfigClientCommand"/> command to send configuration settings.
+		/// </summary>
+		/// <param name="command">The command containing the configuration ID.</param>
+		/// <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>
+		/// <returns>A task that represents the asynchronous operation. The task result contains a <see cref="Response{Guid}"/> with the system ID.</returns>
+		/// <exception cref="APIException">Thrown when the configuration is not found.</exception>
 		public async Task<Response<Guid>> Handle(SendConfigClientCommand command, CancellationToken cancellationToken)
 		{
 			var config = await _repository.GetByIdAsync(command.Id);

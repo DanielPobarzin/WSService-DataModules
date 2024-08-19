@@ -15,7 +15,7 @@ namespace Shared.Services
 		public ProducerService(IConfiguration configuration)
         {
             _configuration = configuration;
-			_bootstrapServers = configuration["Kafka:Producer:BootstrapServers"].Split(';');
+			_bootstrapServers = _configuration["Kafka:Producer:BootstrapServers"].Split(';');
 
             var producerconfig = new ProducerConfig
             {
