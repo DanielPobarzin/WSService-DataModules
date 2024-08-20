@@ -90,7 +90,7 @@ try
 								.AddHttpClientInstrumentation()
 								.AddEntityFrameworkCoreInstrumentation();
 						});
-				services.AddHostedService<ConsumerService>();
+				//services.AddHostedService<ConsumerService>();
 				services.AddHealthChecks();
 				services.AddJWTAuthentication(context.Configuration);
 				services.AddAuthorizationPolicies(context.Configuration);

@@ -35,8 +35,7 @@ namespace Shared.Services
 		private readonly IMediator _mediator;
 		private readonly IConfiguration _configuration;
 		private readonly string[] _bootstrapServers;
-		private readonly string _topics = "test";
-		//private readonly Dictionary<string, string> _topics = new();
+		private readonly Dictionary<string, string> _topics = new();
 		private readonly string _groupId;
 		private readonly IMapper _mapper;
 		private readonly IMemoryCache memory;
@@ -58,24 +57,22 @@ namespace Shared.Services
 			_bootstrapServers = _configuration["Kafka:BootstrapServers"].Split(';');
 			_groupId = "ManagmentMonitorServiceGroup";
 			//Console.WriteLine(JsonConvert.SerializeObject(_configuration.AsEnumerable(), Formatting.Indented));
-			//var receiveSection = _configuration.GetSection("Kafka:Topics:Recieve");
+			var receiveSection = _configuration.GetSection("Kafka:Topics:Recieve");
 
-			//if (receiveSection.Exists())
-			//{
-			//	foreach (var child in receiveSection.GetChildren())
-			//	{
-			//		if (!string.IsNullOrEmpty(child.Value))
-			//		{
-			//			_topics[child.Key] = child.Value;
-			//		}
-			//	}
-			//}
+			if (receiveSection.Exists())
+			{
+				foreach (var child in receiveSection.GetChildren())
+				{
+					if (!string.IsNullOrEmpty(child.Value))
+					{
+						_topics[child.Key] = child.Value;
+					}
+				}
+			}
 			var consumerConfig = new ConsumerConfig
 			{
-				//ClientId = Dns.GetHostEntry(Environment.MachineName).HostName,
+				ClientId = Dns.GetHostEntry(Environment.MachineName).HostName,
 				BootstrapServers = string.Join(',', _bootstrapServers),
-				//SecurityProtocol = SecurityProtocol.SaslPlaintext,
-				//EnableSslCertificateVerification = false,
 				GroupId = _groupId,
 				AutoOffsetReset = AutoOffsetReset.Earliest
 			};
@@ -84,7 +81,8 @@ namespace Shared.Services
 		}
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-			_consumer.Subscribe(_topics);
+			_consumer.Subscribe(_topics.Values);
+
 			while (!stoppingToken.IsCancellationRequested)
             {
 				await KafkaPullMessageProcess(stoppingToken);
@@ -96,10 +94,10 @@ namespace Shared.Services
         {
             try
             {
-				//var consumeResult = await _consumer.ConsumeAsync(stoppingToken);
 				var consumeResult = _consumer.Consume(TimeSpan.FromMilliseconds(100));
-				//if (consumeResult.Message is null) {  }
-				var message = (consumeResult == null) ? new Message<string, string>() : consumeResult.Message;
+				if (consumeResult == null) return;
+
+				var message = consumeResult.Message;
 				switch (message.Key)
 				{
 					case ("server-metric"):
@@ -170,14 +168,14 @@ namespace Shared.Services
 		public override Task StopAsync(CancellationToken stoppingToken)
 		{
 			_consumer.Close();
-			Dispose();
 			return Task.CompletedTask;
 		}
 
-		public override void Dispose()
-		{
-			_consumer?.Dispose();
-		}
+		public override void Dispose() {
+
+			_consumer?.Dispose(); 
+			GC.SuppressFinalize(this);
+		} 
 		public async Task ConsumerCommandHandler<TResponse, TMessage, TCommand> (string message, CancellationToken cancellationToken)
 		{
 			Log.Information($"Received message: {message}");
