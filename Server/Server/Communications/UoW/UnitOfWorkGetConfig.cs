@@ -60,7 +60,7 @@ namespace Communications.UoW
 			try
 			{
 				configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-					.AddJsonFile("configure.json", optional: false, reloadOnChange: true)
+					.AddJsonFile("configure.json", optional: false, reloadOnChange: true).AddEnvironmentVariables()
 					.Build();
 				var schema = File.ReadAllText(schemaPath);
 				var config = File.ReadAllText(filePath);
@@ -99,7 +99,7 @@ namespace Communications.UoW
 		}
 		private void EnsureConfigurationFile(string configFile)
 		{
-			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile);
+			filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile);
 
 			if (!File.Exists(filePath))
 			{
@@ -121,20 +121,22 @@ namespace Communications.UoW
 			.Build();
 			var config = new ServerSettings
 			{
-				ServerDB = new DBSettings
+				DbConnection = new DBSettings
 				{
-					DB = configuration["DbConnection:DataBase"],
-					AlarmDB = new AlarmConnection
+					DataBase = configuration["DbConnection:DataBase"],
+					Alarm = new AlarmConnection
 					{
-						ConnectionString = configuration["DbConnection:Alarm:ConnectionString"]
+						ConnectionString = configuration["DbConnection:Alarm:ConnectionString"] ?? 
+						"host=localhost;port=5432;Database=AlarmsExchange;Username=postgres;Password=19346jaidj"
 					},
-					NotificationDB = new NotifyConnection
+					Notify = new NotifyConnection
 					{
-						ConnectionString = configuration["DbConnection:Notify:ConnectionString"]
+						ConnectionString = configuration["DbConnection:Notify:ConnectionString"] ?? 
+						"host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
 					}
 				},
 
-				ServerHost = new HostSettings
+				HostSettings = new HostSettings
 				{
 					Port = int.Parse(configuration["HostSettings:Port"]),
 					Urls = configuration["HostSettings:Urls"],
@@ -144,33 +146,33 @@ namespace Communications.UoW
 					RouteAlarm = configuration["HostSettings:RouteAlarm"]
 				},
 
-				ServerHub = new HubSettings
+				HubSettings = new HubSettings
 				{
-					ServerId = (Guid.Parse(configuration["HubSettings:ServerId"]) == Guid.Empty) ? Guid.NewGuid() : 
+					ServerId = (configuration["HubSettings:ServerId"] == "GENERATE") ? Guid.NewGuid() : 
 					Guid.Parse(configuration["HubSettings:ServerId"]),
 					Notify = new NotifyHubSettings
 					{
-						DelayMilliseconds = int.Parse(configuration["HubSettings:Notify:DelayMilliseconds"]),
-						TargetClients = configuration["HubSettings:Notify:TargetClients"],
-						HubMethod = configuration["HubSettings:Notify:HubMethod"],
+						DelayMilliseconds = int.Parse(configuration["HubSettings:Notify:DelayMilliseconds"] ?? "1000"),
+						TargetClients = configuration["HubSettings:Notify:TargetClients"] ?? "ContextClient",
+						HubMethod = configuration["HubSettings:Notify:HubMethod"] ?? "ReceiveAlarmHandler"
 					},
 					Alarm = new AlarmHubSettings
 					{
-						DelayMilliseconds = int.Parse(configuration["HubSettings:Alarm:DelayMilliseconds"]),
-						TargetClients = configuration["HubSettings:Alarm:TargetClients"],
-						HubMethod = configuration["HubSettings:Alarm:HubMethod"],
+						DelayMilliseconds = int.Parse(configuration["HubSettings:Alarm:DelayMilliseconds"] ?? "1000"),
+						TargetClients = configuration["HubSettings:Alarm:TargetClients"] ?? "ContextClient",
+						HubMethod = configuration["HubSettings:Alarm:HubMethod"] ?? "ReceiveAlarmHandler",
 					}
 				},
 
-				ServerKafka = new KafkaSettings
+				Kafka = new KafkaSettings
 				{
 					Consumer = new ConsumerConnection
 					{
-						BootstrapServers = configuration["Kafka:Consumer:BootstrapServers"]
+						BootstrapServers = configuration["Kafka:Consumer:BootstrapServers"] ?? "localhost:9092"
 					},
 					Producer = new ProducerConnection
 					{
-						BootstrapServers = configuration["Kafka:Producer:BootstrapServers"]
+						BootstrapServers = configuration["Kafka:Producer:BootstrapServers"] ?? "localhost:9092"
 					}
 				}
 			};

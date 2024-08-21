@@ -4,34 +4,34 @@
         <name>Communications</name>
     </assembly>
     <members>
-        <member name="T:Communications.Connections.Connections`1">
+        <member name="T:Communications.Connections.ConcurrentConnections`1">
             <summary>
             Represents a connection manager for SignalR hubs, allowing to add, remove, and retrieve connections.
             </summary>
             <typeparam name="T">The type of the hub that this connection manager is associated with. 
             Must be derived from <see cref="T:Microsoft.AspNetCore.SignalR.Hub"/>.</typeparam>
         </member>
-        <member name="M:Communications.Connections.Connections`1.AddConnection(System.String,System.String)">
+        <member name="M:Communications.Connections.ConcurrentConnections`1.AddConnection(System.String,System.String)">
             <summary>
             Adds a new connection to the manager.
             </summary>
             <param name="connectionId">The unique identifier for the connection.</param>
             <param name="userId">The unique identifier for the user associated with the connection.</param>
         </member>
-        <member name="M:Communications.Connections.Connections`1.RemoveConnection(System.String)">
+        <member name="M:Communications.Connections.ConcurrentConnections`1.RemoveConnection(System.String)">
             <summary>
             Removes a connection from the manager.
             </summary>
             <param name="connectionId">The unique identifier for the connection to be removed.</param>
         </member>
-        <member name="M:Communications.Connections.Connections`1.GetConnection(System.String)">
+        <member name="M:Communications.Connections.ConcurrentConnections`1.GetConnection(System.String)">
             <summary>
             Retrieves the user ID associated with a specific connection ID.
             </summary>
             <param name="connectionId">The unique identifier for the connection.</param>
             <returns>The user ID associated with the connection, or null if the connection does not exist.</returns>
         </member>
-        <member name="M:Communications.Connections.Connections`1.GetConnections">
+        <member name="M:Communications.Connections.ConcurrentConnections`1.GetConnections">
             <summary>
             Gets a list of all active connection IDs.
             </summary>
@@ -43,7 +43,7 @@
             This hub is responsible for sending alarm messages to connected clients.
             </summary>
         </member>
-        <member name="M:Communications.Hubs.AlarmHub.#ctor(System.Collections.Generic.List{Entities.Entities.Alarm},Communications.Connections.Connections{Communications.Hubs.AlarmHub},Communications.Helpers.TransformToDTOHelper,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+        <member name="M:Communications.Hubs.AlarmHub.#ctor(System.Collections.Generic.List{Entities.Entities.Alarm},Communications.Connections.ConcurrentConnections{Communications.Hubs.AlarmHub},Communications.Helpers.TransformToDTOHelper,Shared.Services.ProducerService,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
             <summary>
             Initializes a new instance of the <see cref="T:Communications.Hubs.AlarmHub"/> class.
             </summary>
@@ -52,6 +52,7 @@
             <param name="transformToDTOHelper">Helper for transforming alarms to DTOs.</param>
             <param name="configuration">Application configuration settings.</param>
             <param name="memoryCache">Memory cache for storing alarm states.</param>
+            <param name="producerService">Producer for Kafka.</param>
         </member>
         <member name="M:Communications.Hubs.AlarmHub.Send(System.Guid)">
             <summary>
@@ -98,7 +99,7 @@
             This hub is responsible for sending notifications messages to connected clients.
             </summary>
         </member>
-        <member name="M:Communications.Hubs.NotificationHub.#ctor(System.Collections.Generic.List{Entities.Entities.Notification},Communications.Connections.Connections{Communications.Hubs.NotificationHub},Microsoft.Extensions.Caching.Memory.IMemoryCache,Communications.Helpers.TransformToDTOHelper,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Communications.Hubs.NotificationHub.#ctor(System.Collections.Generic.List{Entities.Entities.Notification},Communications.Connections.ConcurrentConnections{Communications.Hubs.NotificationHub},Microsoft.Extensions.Caching.Memory.IMemoryCache,Communications.Helpers.TransformToDTOHelper,Microsoft.Extensions.Configuration.IConfiguration,Shared.Services.ProducerService)">
             <summary>
             Initializes a new instance of the <see cref="T:Communications.Hubs.NotificationHub"/> class.
             </summary>
@@ -107,6 +108,7 @@
             <param name="transformToDTOHelper">Helper for transforming notifications to DTOs.</param>
             <param name="configuration">Application configuration settings.</param>
             <param name="memoryCache">Memory cache for storing alarm states.</param>
+            <param name="producerService">Producer for Kafka.</param>
         </member>
         <member name="M:Communications.Hubs.NotificationHub.Send(System.Guid)">
             <summary>

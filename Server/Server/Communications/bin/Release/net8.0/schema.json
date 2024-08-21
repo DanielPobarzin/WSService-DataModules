@@ -30,66 +30,91 @@
         "ConnectionString": { "type": "string" }
       }
     },
-        "HubSettings": {
+    "HubSettings": {
+      "type": "object",
+      "required": [ "ServerId", "Notify", "Alarm" ],
+      "properties": {
+        "ServerId": { "type": "string" },
+        "Notify": {
           "type": "object",
-          "required": [ "ServerId", "Notify", "Alarm" ],
+          "required": [ "HubMethod", "TargetClients" ],
           "properties": {
-            "ServerId": { "type": "string" },
-            "Notify": {
-              "type": "object",
-              "required": [ "UseCache", "HubMethod", "TargetClients" ],
-              "properties": {
-                "DelayMilliseconds": { "type": "integer" },
-                "UseCache": { "type": "boolean" },
-                "HubMethod": { "type": "string" },
-                "TargetClients": { "type": "string" }
-              }
+            "DelayMilliseconds": {
+              "type": "integer",
+              "minimum": 50
             },
-            "Alarm": {
-              "type": "object",
-              "required": [ "UseCache", "HubMethod", "TargetClients" ],
-              "properties": {
-                "DelayMilliseconds": { "type": "integer" },
-                "UseCache": { "type": "boolean" },
-                "HubMethod": { "type": "string" },
-                "TargetClients": { "type": "string" }
-              }
-            }
+            "UseCache": { "type": "boolean" },
+            "HubMethod": { "type": "string" },
+            "TargetClients": { "type": "string" }
           }
         },
-        "HostSettings": {
+        "Alarm": {
           "type": "object",
-          "required": [
-            "Port",
-            "urls",
-            "KeepAliveInterval",
-            "EnableDetailedErrors",
-            "PolicyName",
-            "AllowedHeaders",
-            "AllowedMethods",
-            "AllowedOrigins",
-            "RouteNotify",
-            "RouteAlarm",
-            "TransportMaxBufferSize",
-            "Transports",
-            "CloseTimeout"
-          ],
+          "required": [ "HubMethod", "TargetClients" ],
           "properties": {
-            "Port": { "type": "integer" },
-            "urls": { "type": "string" },
-            "KeepAliveInterval": { "type": "string" },
-            "EnableDetailedErrors": { "type": "boolean" },
-            "PolicyName": { "type": "string" },
-            "AllowedHeaders": { "type": "string" },
-            "AllowedMethods": { "type": "string" },
-            "AllowedOrigins": { "type": "string" },
-            "RouteNotify": { "type": "string" },
-            "RouteAlarm": { "type": "string" },
-            "TransportMaxBufferSize": { "type": "integer" },
-            "Transports": { "type": "string" },
-            "CloseTimeout": { "type": "string" }
+            "DelayMilliseconds": {
+              "type": "integer",
+              "minimum": 50
+            },
+            "UseCache": { "type": "boolean" },
+            "HubMethod": { "type": "string" },
+            "TargetClients": { "type": "string" }
           }
         }
+      }
+    },
+    "HostSettings": {
+      "type": "object",
+      "required": [
+        "Port",
+        "Urls",
+        "PolicyName",
+        "AllowedOrigins",
+        "RouteNotify",
+        "RouteAlarm"
+      ],
+      "properties": {
+        "Port": { "type": "integer" },
+        "Urls": { "type": "string" },
+        "KeepAliveInterval": { "type": "string" },
+        "EnableDetailedErrors": { "type": "boolean" },
+        "PolicyName": { "type": "string" },
+        "AllowedHeaders": { "type": "string" },
+        "AllowedMethods": { "type": "string" },
+        "AllowedOrigins": { "type": "string" },
+        "RouteNotify": { "type": "string" },
+        "RouteAlarm": { "type": "string" },
+        "TransportMaxBufferSize": { "type": "integer" },
+        "Transports": { "type": "string" },
+        "CloseTimeout": { "type": "string" }
+      }
+    },
+    "Kafka": {
+      "type": "object",
+      "properties": {
+        "Producer": {
+          "type": "object",
+          "properties": {
+            "BootstrapServers": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [ "BootstrapServers" ]
+        },
+        "Consumer": {
+          "type": "object",
+          "properties": {
+            "BootstrapServers": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [ "BootstrapServers" ]
+        }
       },
-  "required": [ "DbConnection", "DbContextConnection", "HubSettings", "HostSettings" ]
-    }
+      "required": [ "Producer", "Consumer" ]
+     }
+   },
+  "required": [ "DbConnection", "HubSettings", "HostSettings", "Kafka" ]
+}

@@ -67,7 +67,7 @@
       "type": "object",
       "required": [
         "Port",
-        "urls",
+        "Urls",
         "PolicyName",
         "AllowedOrigins",
         "RouteNotify",
@@ -75,7 +75,7 @@
       ],
       "properties": {
         "Port": { "type": "integer" },
-        "urls": { "type": "string" },
+        "Urls": { "type": "string" },
         "KeepAliveInterval": { "type": "string" },
         "EnableDetailedErrors": { "type": "boolean" },
         "PolicyName": { "type": "string" },

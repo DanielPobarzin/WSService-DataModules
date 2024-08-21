@@ -4,29 +4,29 @@ namespace Entities.Settings
 {
 	public class DBSettings 
 	{
-		public string DB { get; set; }
-		public AlarmConnection AlarmDB { get; set; }
-		public NotifyConnection NotificationDB { get; set; }
+		public string DataBase { get; set; }
+		public AlarmConnection Alarm { get; set; }
+		public NotifyConnection Notify { get; set; }
 	}
 	public class KafkaSettings
 	{
 		public ConsumerConnection Consumer { get; set; }
 		public ProducerConnection Producer { get; set; }
 	}
-	public class AlarmConnection : Entity
+	public class AlarmConnection 
 	{
 		public string ConnectionString { get; set; }
 	}
-	public class ConsumerConnection : Entity
+	public class ConsumerConnection 
 	{
 		public string BootstrapServers { get; set; }
 	}
-	public class ProducerConnection : Entity
+	public class ProducerConnection 
 	{
 		public string BootstrapServers { get; set; }
 	}
 
-	public class NotifyConnection : Entity
+	public class NotifyConnection 
 	{
 		public string ConnectionString { get; set; }
 	}
@@ -36,13 +36,13 @@ namespace Entities.Settings
 		public NotifyHubSettings Notify { get; set; }
 		public AlarmHubSettings Alarm { get; set; }
 	}
-	public class NotifyHubSettings : Entity
+	public class NotifyHubSettings 
 	{
 		public int DelayMilliseconds { get; set; }
 		public string HubMethod { get; set; }
 		public string TargetClients { get; set; }
 	}
-	public class AlarmHubSettings : Entity
+	public class AlarmHubSettings 
 	{
 		public int DelayMilliseconds { get; set; }
 		public string HubMethod { get; set; }

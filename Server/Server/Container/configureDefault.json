@@ -1,0 +1,41 @@
+{
+  "DbConnection": {
+    "DataBase": "PostgreSQL",
+    "Alarm": {
+      "ConnectionString": "host=host.docker.internal;port=5432;Database=AlarmsExchange;Username=postgres;Password=19346jaidj"
+    },
+    "Notify": {
+      "ConnectionString": "host=host.docker.internal;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
+    }
+  },
+  "HubSettings": {
+    "ServerId": "GENERATE",
+    "Notify": {
+      "DelayMilliseconds": 1000,
+      "HubMethod": "ReceiveMessageHandler",
+      "TargetClients": "ContextClient"
+    },
+    "Alarm": {
+      "DelayMilliseconds": 1000,
+      "HubMethod": "ReceiveAlarmHandler",
+      "TargetClients": "ContextClient"
+    }
+  },
+  "HostSettings": {
+    "Port": 5000,
+    "Urls": "http://localhost:5050;https://localhost:8080",
+    "PolicyName": "Security",
+    "AllowedOrigins": "http://127.0.0.1:8080;https://127.0.0.1:443;http://127.0.0.1;http://localhost:8080;https://localhost:443;http://192.168.1.100:8080;http://127.0.0.1:5000",
+    "RouteNotify": "/hubs/NotificationHub/Send",
+    "RouteAlarm": "/hubs/AlarmHub/Send"
+  },
+  "Kafka": {
+    "Producer": {
+      "BootstrapServers": "localhost:9092"
+    },
+    "Consumer": {
+      "BootstrapServers": "localhost:9092"
+    }
+  }
+}
+

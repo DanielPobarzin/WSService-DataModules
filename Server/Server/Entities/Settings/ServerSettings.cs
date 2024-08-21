@@ -2,9 +2,9 @@
 {
 	public class ServerSettings 
 	{
-		public DBSettings ServerDB { get; set; }
-		public HostSettings ServerHost { get; set; }
-		public HubSettings ServerHub { get; set; }
-		public KafkaSettings ServerKafka { get; set; }
+		public DBSettings DbConnection { get; set; }
+		public HostSettings HostSettings { get; set; }
+		public HubSettings HubSettings { get; set; }
+		public KafkaSettings Kafka { get; set; }
 	}
 }

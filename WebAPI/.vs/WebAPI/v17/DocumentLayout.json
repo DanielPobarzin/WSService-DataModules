@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3401E2FF-4064-461D-BDA7-733EDE1C44EA}|WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\presentation\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF597CBE-6BA6-47D2-BF03-4B05091E4A7C}|WebAPI.Backend\\Shared\\Shared.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\shared\\monitoring\\dashboard_serverhub.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BF597CBE-6BA6-47D2-BF03-4B05091E4A7C}|WebAPI.Backend\\Shared\\Shared.csproj|solutionrelative:webapi.backend\\shared\\monitoring\\dashboard_serverhub.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3401E2FF-4064-461D-BDA7-733EDE1C44EA}|WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\presentation\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3401E2FF-4064-461D-BDA7-733EDE1C44EA}|WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj|solutionrelative:webapi.backend\\presentation\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{BF597CBE-6BA6-47D2-BF03-4B05091E4A7C}|WebAPI.Backend\\Shared\\Shared.csproj|solutionrelative:webapi.backend\\shared\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF597CBE-6BA6-47D2-BF03-4B05091E4A7C}|WebAPI.Backend\\Shared\\Shared.csproj|c:\\all\\notificationsexchange\\webapi\\webapi.backend\\shared\\services\\kafkaconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF597CBE-6BA6-47D2-BF03-4B05091E4A7C}|WebAPI.Backend\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\WebAPI\\webapi.backend\\shared\\services\\kafkaconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF597CBE-6BA6-47D2-BF03-4B05091E4A7C}|WebAPI.Backend\\Shared\\Shared.csproj|solutionrelative:webapi.backend\\shared\\services\\kafkaconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -346,11 +350,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 112,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ServerConfigDetailsViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Server\\Queries\\GetConfigServerDetails\\ServerConfigDetailsViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Server\\Queries\\GetConfigServerDetails\\ServerConfigDetailsViewModel.cs",
@@ -363,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\appsettings.json",
@@ -372,12 +376,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-08-14T11:32:12.994Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\Program.cs",
@@ -387,6 +390,19 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-09T22:56:59.681Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dashboard_serverHub.json",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Monitoring\\dashboard_serverHub.json",
+              "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Monitoring\\dashboard_serverHub.json",
+              "ToolTip": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Monitoring\\dashboard_serverHub.json",
+              "RelativeToolTip": "WebAPI.Backend\\Shared\\Monitoring\\dashboard_serverHub.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-21T07:47:08.405Z",
               "EditorCaption": ""
             },
             {
@@ -402,8 +418,12 @@
               "Name": "ST:0:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "OrderController.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\Controllers\\OrderController.cs",
@@ -415,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "KafkaConsumerService.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Services\\KafkaConsumerService.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Services\\KafkaConsumerService.cs",
@@ -423,12 +443,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Shared\\Services\\KafkaConsumerService.cs",
               "ViewState": "AQIAAFEAAAAAAAAAAAA1wKoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T18:49:55.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-16T18:49:55.236Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "KafKaProducerService.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Services\\KafKaProducerService.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Services\\KafKaProducerService.cs",
@@ -440,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\DependencyInjection.cs",
@@ -448,16 +467,11 @@
               "RelativeToolTip": "WebAPI.Backend\\Shared\\DependencyInjection.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAywBwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T19:02:01.457Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2024-08-16T19:02:01.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ClientConfigController.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\Controllers\\ClientConfigController.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\Controllers\\ClientConfigController.cs",
@@ -469,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "OpenConnectionCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Commands\\OpenConnection\\OpenConnectionCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Commands\\OpenConnection\\OpenConnectionCommand.cs",
@@ -481,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "OpenConnectionCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Commands\\OpenConnection\\OpenConnectionCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Commands\\OpenConnection\\OpenConnectionCommandHandler.cs",
@@ -493,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\DependencyInjection.cs",
@@ -505,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Persistance\\DependencyInjection.cs",
@@ -517,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UpdateServerCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Servers\\Commands\\UpdateServer\\UpdateServerCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Servers\\Commands\\UpdateServer\\UpdateServerCommand.cs",
@@ -529,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "TelemetryUsingPrometheus.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Monitoring\\TelemetryUsingPrometheus.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Monitoring\\TelemetryUsingPrometheus.cs",
@@ -541,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UpdateServerDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Server\\UpdateServerDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Server\\UpdateServerDTO.cs",
@@ -553,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "UpdateServerCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Servers\\Commands\\UpdateServer\\UpdateServerCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Servers\\Commands\\UpdateServer\\UpdateServerCommandHandler.cs",
@@ -565,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "GetConnectionsListQueryHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQueryHandler.cs",
@@ -577,7 +591,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "GetConnectionsListQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\GetConnectionsListQuery.cs",
@@ -589,7 +603,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "ConnectionLookupDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionLookupDTO.cs",
@@ -601,7 +615,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "ConnectionListViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionsList\\ConnectionListViewModel.cs",
@@ -613,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "GetConnectionDetailsQueryHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionDetails\\GetConnectionDetailsQueryHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionDetails\\GetConnectionDetailsQueryHandler.cs",
@@ -625,7 +639,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "ConnectionDetailsViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionDetails\\ConnectionDetailsViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionDetails\\ConnectionDetailsViewModel.cs",
@@ -637,7 +651,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "GetConnectionDetalisQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionDetails\\GetConnectionDetalisQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Connections\\Queries\\GetConnectionDetails\\GetConnectionDetalisQuery.cs",
@@ -649,7 +663,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "GetConfigClientListQueryHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\GetConfigClientListQueryHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\GetConfigClientListQueryHandler.cs",
@@ -661,7 +675,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "GetConfigClientListQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\GetConfigClientListQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\GetConfigClientListQuery.cs",
@@ -673,7 +687,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "ConfigClientLookupDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\ConfigClientLookupDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\ConfigClientLookupDTO.cs",
@@ -685,7 +699,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "ConfigClientListViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\ConfigClientListViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientList\\ConfigClientListViewModel.cs",
@@ -697,7 +711,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "GetClientConfigDetailsQueryHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientDetails\\GetClientConfigDetailsQueryHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientDetails\\GetClientConfigDetailsQueryHandler.cs",
@@ -709,7 +723,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "GetClientConfigDetailsQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientDetails\\GetClientConfigDetailsQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientDetails\\GetClientConfigDetailsQuery.cs",
@@ -721,7 +735,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "ClientConfigDetailsViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientDetails\\ClientConfigDetailsViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Queries\\GetConfigClientDetails\\ClientConfigDetailsViewModel.cs",
@@ -733,7 +747,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "UpdateConfigClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\UpdateConfig\\UpdateConfigClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\UpdateConfig\\UpdateConfigClientCommand.cs",
@@ -745,7 +759,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "UpdateConfigCLientCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\UpdateConfig\\UpdateConfigCLientCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\UpdateConfig\\UpdateConfigCLientCommandHandler.cs",
@@ -757,7 +771,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "UpdateConfigClientCommandValidator.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\UpdateConfig\\UpdateConfigClientCommandValidator.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\UpdateConfig\\UpdateConfigClientCommandValidator.cs",
@@ -769,7 +783,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "CreateConfigClientCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\CreateConfig\\CreateConfigClientCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\CreateConfig\\CreateConfigClientCommandHandler.cs",
@@ -781,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "CreateConfigClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\CreateConfig\\CreateConfigClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\CreateConfig\\CreateConfigClientCommand.cs",
@@ -793,7 +807,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "UpdateClientCommandValidator.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\UpdateClient\\UpdateClientCommandValidator.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\UpdateClient\\UpdateClientCommandValidator.cs",
@@ -805,7 +819,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "CreateConfigClientCommandValidator.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\CreateConfig\\CreateConfigClientCommandValidator.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\CreateConfig\\CreateConfigClientCommandValidator.cs",
@@ -817,7 +831,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "UpdateClientCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\UpdateClient\\UpdateClientCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\UpdateClient\\UpdateClientCommandHandler.cs",
@@ -829,7 +843,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "UpdateClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\UpdateClient\\UpdateClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\UpdateClient\\UpdateClientCommand.cs",
@@ -841,7 +855,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "SendConfigClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\SendConfig\\SendConfigClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\SendConfig\\SendConfigClientCommand.cs",
@@ -853,7 +867,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "SendConfigClientCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\SendConfig\\SendConfigClientCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\SendConfig\\SendConfigClientCommandHandler.cs",
@@ -865,7 +879,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "DeleteConfigClientCommandValidator.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\DeleteConfig\\DeleteConfigClientCommandValidator.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\DeleteConfig\\DeleteConfigClientCommandValidator.cs",
@@ -877,7 +891,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "DeleteConfigClientCommandHanlder.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\DeleteConfig\\DeleteConfigClientCommandHanlder.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\DeleteConfig\\DeleteConfigClientCommandHanlder.cs",
@@ -889,7 +903,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "DeleteConfigClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\DeleteConfig\\DeleteConfigClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Configurations\\Client\\Commands\\DeleteConfig\\DeleteConfigClientCommand.cs",
@@ -901,7 +915,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "ClientLookupDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\ClientLookupDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\ClientLookupDTO.cs",
@@ -913,7 +927,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "ClientListViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\ClientListViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\ClientListViewModel.cs",
@@ -925,7 +939,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "GetClientListQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\GetClientListQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\GetClientListQuery.cs",
@@ -937,7 +951,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "GetClientListQueryHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\GetClientListQueryHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetAll\\GetClientListQueryHandler.cs",
@@ -949,7 +963,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "AddClientCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\AddClient\\AddClientCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\AddClient\\AddClientCommandHandler.cs",
@@ -961,7 +975,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "AddClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\AddClient\\AddClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\AddClient\\AddClientCommand.cs",
@@ -973,7 +987,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "BaseController.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\Controllers\\BaseController.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\Controllers\\BaseController.cs",
@@ -985,7 +999,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "UpdateClientDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Client\\UpdateClientDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Client\\UpdateClientDTO.cs",
@@ -997,7 +1011,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "CreateClientDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Client\\CreateClientDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Client\\CreateClientDTO.cs",
@@ -1009,7 +1023,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "UpdateServerConfigDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Config\\UpdateServerConfigDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Config\\UpdateServerConfigDTO.cs",
@@ -1021,7 +1035,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "UpdateClientConfigDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Config\\UpdateClientConfigDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Config\\UpdateClientConfigDTO.cs",
@@ -1033,7 +1047,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "CreateServerConfigDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Config\\CreateServerConfigDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Config\\CreateServerConfigDTO.cs",
@@ -1045,7 +1059,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 57,
               "Title": "CreateClientConfigDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Config\\CreateClientConfigDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Config\\CreateClientConfigDTO.cs",
@@ -1057,7 +1071,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 58,
               "Title": "DeleteClientCommandValidator.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\DeleteClient\\DeleteClientCommandValidator.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\DeleteClient\\DeleteClientCommandValidator.cs",
@@ -1069,7 +1083,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "DeleteClientCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\DeleteClient\\DeleteClientCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\DeleteClient\\DeleteClientCommandHandler.cs",
@@ -1081,7 +1095,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 60,
               "Title": "DeleteClientCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\DeleteClient\\DeleteClientCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\DeleteClient\\DeleteClientCommand.cs",
@@ -1093,7 +1107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 63,
               "Title": "ClientDetailsViewModel.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetDetails\\ClientDetailsViewModel.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetDetails\\ClientDetailsViewModel.cs",
@@ -1105,7 +1119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 61,
               "Title": "ClientDetailsQuery.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetDetails\\ClientDetailsQuery.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetDetails\\ClientDetailsQuery.cs",
@@ -1117,7 +1131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 62,
               "Title": "ClientDetailsQueryHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetDetails\\ClientDetailsQueryHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Queries\\GetClient\\GetDetails\\ClientDetailsQueryHandler.cs",
@@ -1129,7 +1143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 64,
               "Title": "AddClientCommandValidator.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Clients\\Commands\\AddClient\\AddClientCommandValidator.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Clients\\Commands\\AddClient\\AddClientCommandValidator.cs",
@@ -1141,7 +1155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 65,
               "Title": "ValidationBehavior.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Behaviorus\\ValidationBehavior.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Behaviorus\\ValidationBehavior.cs",
@@ -1153,7 +1167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 66,
               "Title": "Entity.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Entity.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Entity.cs",
@@ -1165,7 +1179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 67,
               "Title": "Connection.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Connection.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Connection.cs",
@@ -1177,7 +1191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 68,
               "Title": "Client.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Client.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Client.cs",
@@ -1189,7 +1203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 70,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Common\\BaseEntity.cs",
@@ -1201,7 +1215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 69,
               "Title": "BaseConfig.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Common\\BaseConfig.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Common\\BaseConfig.cs",
@@ -1213,7 +1227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 72,
               "Title": "WebAPI",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj",
@@ -1224,7 +1238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 71,
               "Title": "WebAPI.csproj",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\WebAPI.csproj",
@@ -1236,7 +1250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 73,
               "Title": "ClientConfigDbContext.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\DbContexts\\ClientConfigDbContext.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Persistance\\DbContexts\\ClientConfigDbContext.cs",
@@ -1248,7 +1262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 74,
               "Title": "ClientMetrics.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Monitoring\\ClientMetrics\\ClientMetrics.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Monitoring\\ClientMetrics\\ClientMetrics.cs",
@@ -1260,7 +1274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 75,
               "Title": "ServerConfigDbContext.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\DbContexts\\ServerConfigDbContext.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Persistance\\DbContexts\\ServerConfigDbContext.cs",
@@ -1272,7 +1286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 76,
               "Title": "ConnectionDbContext.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\DbContexts\\ConnectionDbContext.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Persistance\\DbContexts\\ConnectionDbContext.cs",
@@ -1284,7 +1298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 77,
               "Title": "AddServerDTO.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Models\\Server\\AddServerDTO.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Models\\Server\\AddServerDTO.cs",
@@ -1296,7 +1310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 78,
               "Title": "AddServerCommandHandler.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Servers\\Commands\\AddServer\\AddServerCommandHandler.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Servers\\Commands\\AddServer\\AddServerCommandHandler.cs",
@@ -1308,7 +1322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 79,
               "Title": "AddServerCommand.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Application\\Features\\Servers\\Commands\\AddServer\\AddServerCommand.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Application\\Features\\Servers\\Commands\\AddServer\\AddServerCommand.cs",
@@ -1320,7 +1334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 80,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Domain\\Entities\\Server.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Domain\\Entities\\Server.cs",
@@ -1332,7 +1346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 81,
               "Title": "ServerMetrics.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Monitoring\\ServerMetrics\\ServerMetrics.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Monitoring\\ServerMetrics\\ServerMetrics.cs",
@@ -1344,7 +1358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 82,
               "Title": "Shared.csproj",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Shared\\Shared.csproj",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Shared\\Shared.csproj",
@@ -1356,7 +1370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 83,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Presentation\\WebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Presentation\\WebAPI\\Properties\\launchSettings.json",
@@ -1368,7 +1382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 84,
               "Title": "ClientSettingsConfiguration.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\WebAPI\\WebAPI.Backend\\Persistance\\DbContexts\\EntityTypeConfiguration\\SignalRClientEFC\\ClientSettingsConfiguration.cs",
               "RelativeDocumentMoniker": "WebAPI.Backend\\Persistance\\DbContexts\\EntityTypeConfiguration\\SignalRClientEFC\\ClientSettingsConfiguration.cs",
