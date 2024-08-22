@@ -1,43 +1,44 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Communications.csproj": {}
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj": {}
   },
   "projects": {
-    "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Communications.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Communications.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
         "projectName": "Communications",
-        "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\Communications.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\Communications.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Communications\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Communications\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj"
               },
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Shared.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Shared.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj"
               }
             }
           }
@@ -141,33 +142,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -206,41 +208,42 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
         "projectName": "Interactors",
-        "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               }
             }
           }
@@ -293,44 +296,45 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Entities\\Entities.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Entities\\Entities.csproj"
               },
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj"
               }
             }
           }
@@ -379,44 +383,45 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Shared.csproj": {
+    "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\Shared.csproj",
+        "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-        "outputPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Shared\\obj\\",
+        "outputPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Interactors\\Interactors.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Interactors\\Interactors.csproj"
               },
-              "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj": {
-                "projectPath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj"
+              "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -492,7 +497,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

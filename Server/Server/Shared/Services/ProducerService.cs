@@ -2,11 +2,6 @@
 using Interactors.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.Services
 {
@@ -18,7 +13,7 @@ namespace Shared.Services
 	{
 		private readonly IConfiguration _configuration;
 		private readonly IProducer<string, string> _producer;
-		private readonly string _bootstrapServers;
+		private readonly string[] _bootstrapServers;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ProducerService"/> class.
@@ -27,11 +22,12 @@ namespace Shared.Services
 		public ProducerService(IConfiguration configuration)
 		{
 			_configuration = configuration;
-			_bootstrapServers = _configuration["Kafka:Producer:BootstrapServers"];
+			_bootstrapServers = _configuration["Kafka:Producer:BootstrapServers"].Split(';');
 
 			var producerConfig = new ProducerConfig
 			{
-				BootstrapServers = _bootstrapServers
+				SecurityProtocol = SecurityProtocol.Plaintext,
+				BootstrapServers = string.Join(",", _bootstrapServers)
 			};
 			_producer = new ProducerBuilder<string, string>(producerConfig).Build();
 		}
@@ -51,7 +47,7 @@ namespace Shared.Services
 				var result = await _producer.ProduceAsync(topic, kafkaMessage);
 				if (key != "metric")
 				{
-					Log.Information($"Message sent to {result.TopicPartitionOffset}");
+					Log.Information($"Message sent to {result.TopicPartitionOffset} with Key : {key}");
 				}
 			}
 			catch (ProduceException<Null, string> e)
@@ -66,6 +62,7 @@ namespace Shared.Services
 		public void Dispose()
 		{
 			_producer?.Dispose();
+			GC.SuppressFinalize(this);
 		}
 	}
 }

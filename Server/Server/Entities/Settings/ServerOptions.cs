@@ -1,6 +1,4 @@
-﻿using Entities.Entities;
-
-namespace Entities.Settings
+﻿namespace Entities.Settings
 {
 	public class DBSettings 
 	{

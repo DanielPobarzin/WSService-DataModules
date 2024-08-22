@@ -46,7 +46,7 @@ namespace Communications.UoW
 			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 			LoadConfigFile();
 
-			ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
+			ChangeToken.OnChange(configuration.GetReloadToken, () =>
 			{
 				if (isInitialized)
 				{
@@ -73,6 +73,7 @@ namespace Communications.UoW
 				configuration = new ConfigurationBuilder()
 				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
 				.AddJsonFile("configure.json", optional: false, reloadOnChange: true)
+				.AddEnvironmentVariables()
 				.Build();
 				var schema = File.ReadAllText(schemaPath);
 				var config = File.ReadAllText(filePath);
@@ -118,7 +119,7 @@ namespace Communications.UoW
 				.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
 				.Build();
 
-			var config = new Settings
+			var config = new ClientSettings
 			{
 				DBSettings = new DBSettings
 				{

@@ -10,7 +10,7 @@ namespace Repositories.Alarms
 	public class RecievedAlarmsDbContext : DbContext
     {
 		public DbSet<DomainObjectAlarm> Alarms { get; set; }
-		private IConfiguration configuration;
+		private readonly IConfiguration configuration;
 		private string connectionString;
 		public RecievedAlarmsDbContext(IConfiguration configuration)
 		{
@@ -18,15 +18,22 @@ namespace Repositories.Alarms
 		}
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-			switch (configuration["DbConnection:DataBase"])
+			try
 			{
-				case ("PostgreSQL"): 
-					connectionString = configuration["DbConnection:Alarm:ConnectionString"];
-					optionsBuilder.UseNpgsql(connectionString);
-					break;
-					default: Log.Error("The database is not defined."); throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);
+				switch (configuration["DbConnection:DataBase"])
+				{
+					case ("PostgreSQL"):
+						connectionString = configuration["DbConnection:Alarm:ConnectionString"];
+						optionsBuilder.UseNpgsql(connectionString);
+						break;
+					default: throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);
+				}
+			}catch (Exception ex)
+			{
+				Log.Error($"Error Type: {ex.GetType()}. Message: {ex.Message}");
 			}
         }
+
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
@@ -53,19 +60,19 @@ namespace Repositories.Alarms
 			builder.Entity<Alarm>().HasKey(n => n.Id);
 			builder.Ignore<Alarm>();
 			builder.Entity<DomainObjectAlarm>()
-				   .OwnsOne(e => e.Alarm,
-							owned =>
-								{
-									owned.ToTable("alarmsclient");
-									owned.Property(n => n.Id).ValueGeneratedNever().HasColumnName("id");
-									owned.Property(n => n.Value).HasColumnName("value");
-									owned.Property(n => n.Quality).HasColumnName("quality");
-									owned.Property(n => n.Content).HasColumnName("content");
-									owned.Property(n => n.CreationDateTime)
-										 .ValueGeneratedNever()
-										 .HasColumnType("timestamp without time zone")
-										 .HasColumnName("creation_date");
-								});
+				   .OwnsOne(e => e.Alarm, 
+				   owned =>
+				   {
+						owned.ToTable("alarmsclient");
+						owned.Property(n => n.Id).ValueGeneratedNever().HasColumnName("id");
+						owned.Property(n => n.Value).HasColumnName("value");
+						owned.Property(n => n.Quality).HasColumnName("quality");
+						owned.Property(n => n.Content).HasColumnName("content");
+						owned.Property(n => n.CreationDateTime)
+							 .ValueGeneratedNever()
+							 .HasColumnType("timestamp without time zone")
+							 .HasColumnName("creation_date");
+				   });
 		}
 	}
 }

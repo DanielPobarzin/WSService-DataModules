@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json.Schema;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using Serilog;
 
 namespace Interactors.Helpers
 {
-    public class ConfigValidHelper
+	public class ConfigValidHelper
     {
         public static bool ValidateConfigurationJson(string Schema, string Config)
         {

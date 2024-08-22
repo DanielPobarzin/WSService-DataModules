@@ -1,15 +1,10 @@
 ﻿using Entities.Enums;
 using Interactors.Enums;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.Share.KafkaMessage
 {
-    public class KafkaMessageMetrics : KafkaMessageBase
+	public class KafkaMessageMetrics : KafkaMessageBase
     {
 		private KafkaMessageMetrics() { }
 		private WorkStatus _workStatus;

@@ -1,9 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Interactors.Helpers
 {
@@ -19,7 +14,7 @@ namespace Interactors.Helpers
 			}
 			if (dict.Count == 0)
 			{
-				return configuration != null ? new Dictionary<string, object> { { "", configuration } } : new Dictionary<string, object>();
+				return configuration != null ? new Dictionary<string, object> { { "", configuration } } : [];
 			}
 			return dict;
 		}

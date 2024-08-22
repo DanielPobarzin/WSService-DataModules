@@ -2,7 +2,6 @@
 using Communications.DTO;
 using Communications.Helpers;
 using Entities.Entities;
-using Interactors.Helpers;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Memory;
@@ -16,7 +15,6 @@ using SignalRSwaggerGen.Attributes;
 using System.Net;
 using System.Text;
 using System.Text.Json;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Communications.Hubs
 {
@@ -31,7 +29,6 @@ namespace Communications.Hubs
 		private readonly List<Alarm>? _alarms;
 		private readonly IConfiguration _configuration;
 		private IMemoryCache memoryCache;
-		private TransformToDTOHelper transformToDTOHelper;
 		private ProducerService producerService;
 
 		/// <summary>
@@ -39,13 +36,11 @@ namespace Communications.Hubs
 		/// </summary>
 		/// <param name="alarms">The list of alarms to be monitored.</param>
 		/// <param name="connections">The connection manager for handling client connections.</param>
-		/// <param name="transformToDTOHelper">Helper for transforming alarms to DTOs.</param>
 		/// <param name="configuration">Application configuration settings.</param>
 		/// <param name="memoryCache">Memory cache for storing alarm states.</param>
 		/// <param name="producerService">Producer for Kafka.</param>
 		public AlarmHub(List<Alarm>? alarms,
 		   ConcurrentConnections<AlarmHub> connections,
-		   TransformToDTOHelper transformToDTOHelper,
 		   ProducerService producerService,
 		   IConfiguration configuration,
 		   IMemoryCache memoryCache)
@@ -54,7 +49,6 @@ namespace Communications.Hubs
 			_configuration = configuration;
 			this.memoryCache = memoryCache;
 			this.connections = connections;
-			this.transformToDTOHelper = transformToDTOHelper;
 			this.producerService = producerService;
 		}
 
@@ -79,17 +73,17 @@ namespace Communications.Hubs
 				{
 					ConnectionsHandler.Instance.AddConnection(connections.GetConnection(Context.ConnectionId), serverid, clientId);
 					var connection = ConnectionsHandler.Instance.GetConnection(Context.ConnectionId);
-
 					await producerService.PutMessageProducerProcessAsync("connections", JsonSerializer.Serialize(connection, new JsonSerializerOptions
 					{
 						WriteIndented = true
-					}), "new-connection");
+					}), "open-connection");
+
 					foreach (var alarm in _alarms)
 					{
 						var CompositKey = $"{clientId}_{alarm.Id}";
 						if (!memoryCache.TryGetValue(CompositKey, out Alarm? Alarm))
 						{
-							var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
+							var alarmDTO = await TransformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
 							{
 								KafkaMessageMetrics.Instance.TotalCountMessages += 1;
 								KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(alarmDTO)).Length;
@@ -111,46 +105,6 @@ namespace Communications.Hubs
 					Log.Error($"Exception with data: {ex.Message}");
 				}
 				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Alarm:DelayMilliseconds"]));
-			}
-		}
-
-		/// <summary>
-		/// Sends the message with alarms to all connected clients.
-		/// This method continuously checks for new alarms and broadcasts them to all clients until there are no active connections.
-		/// </summary>
-		/// <returns>A task that represents the asynchronous operation.</returns>
-		[SignalRMethod("SendAll")]
-		[SwaggerResponse(HttpStatusCode.OK, typeof(AlarmServerDTO), Description = "Alarms sent successfully.")]
-		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest), Description = "Invalid request.")]
-		public async Task SendAll()
-		{
-			while (connections.GetConnections().Any())
-			{
-				var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
-				try
-				{
-					foreach (var alarm in _alarms)
-					{
-						var alarmDTO = await transformToDTOHelper.TransformToAlarmDTO(alarm, serverid);
-
-						{
-							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
-							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(alarmDTO)).Length;
-							KafkaMessageMetrics.Instance.CountAlarms += 1;
-							KafkaMessageMetrics.Instance.Latency = alarmDTO.DateAndTimeSendDataByServer - alarmDTO.Alarm.CreationDateTime;
-						}
-
-						await Clients.All.SendAsync(_configuration["HubSettings:Alarm:HubMethod"], alarmDTO);
-
-						Log.Information($"Alarm {alarmDTO.Alarm.Id} has been sent."
-											+ "\nSender:   " + $" Server - {alarmDTO.ServerId}");
-					}
-				}
-				catch (Exception ex)
-				{
-					Log.Error($"Exception with data: {ex.Message}");
-				}
-				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
 			}
 		}
 

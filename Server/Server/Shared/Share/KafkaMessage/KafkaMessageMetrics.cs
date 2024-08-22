@@ -1,15 +1,10 @@
 ﻿using Entities.Enums;
 using Interactors.Enums;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.Share.KafkaMessage
 {
-    public class KafkaMessageMetrics : KafkaMessageBase
+	public class KafkaMessageMetrics : KafkaMessageBase
     {
 		private KafkaMessageMetrics() { }
 		private WorkStatus _workStatus;
@@ -70,12 +65,12 @@ namespace Shared.Share.KafkaMessage
 		public long WorkingMemoryUsage
 		{
 			get { return _workingMemoryUsage; }
-			set { _workingMemoryUsage = Process.GetCurrentProcess().WorkingSet64; }
+			set { _workingMemoryUsage = value; }
 		}
 		public long PrivateMemoryUsage
 		{
 			get { return _privateMemoryUsage; }
-			set { _privateMemoryUsage = Process.GetCurrentProcess().PrivateMemorySize64; }
+			set { _privateMemoryUsage = value; }
 		}
 
 		public TimeSpan Latency

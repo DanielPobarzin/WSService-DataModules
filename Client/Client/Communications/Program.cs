@@ -321,7 +321,7 @@ namespace Client
 											+ "\nSender:   " + $" Server - {message.ServerId}"
 											+ "\nRecipient:" + $" Client - {clientId}");
 						
-						var messageNotify = await TransformToDOHelper.TransformToDomainObjectNotification(message, clientId);
+						var messageNotify = await Communications.Helpers.TransformToDOHelper.TransformToDomainObjectNotification(message, clientId);
 						
 						{
 							KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Opened;
@@ -353,7 +353,7 @@ namespace Client
 											+ "\nSender:   " + $" Server - {message.ServerId}"
 											+ "\nRecipient:" + $" Client - {clientId}");
 
-						var messageAlarm = await TransformToDOHelper.TransformToDomainObjectAlarm(message, clientId);
+						var messageAlarm = await Communications.Helpers.TransformToDOHelper.TransformToDomainObjectAlarm(message, clientId);
 
 						{
 							KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Opened;

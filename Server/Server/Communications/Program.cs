@@ -13,13 +13,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Serilog;
 using Shared.Services;
 using Shared.Share.KafkaMessage;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using System.Diagnostics;
 using System.Reflection;
-using System.Text.Json;
 
 namespace Communications
 {
@@ -47,53 +48,67 @@ namespace Communications
 		/// </remarks>
 		public static void Main()
 		{
-			// --- Logger Build --- //
-			LoggerSetupHelper.ConfigureLogging();
-
-			// --- Initialize get and check configuration --- //
-			unitOfWorkConfig = new UnitOfWorkGetConfig();
-			checkHashHalper = new CheckHashHalper();
-
-			// --- Host thread --- //
-			hostThread = new Thread(CreateAndRunHostServer);
-
-			// --- Units of Work threads --- //
-			UoWNotifyThread = new Thread(StartListenNotifications);
-			UoWAlarmThread = new Thread(StartListenAlarms);
-
-			// --- Initialize Producer & Consumer and run consumer --- //
-			producerService = new ProducerService(unitOfWorkConfig.Configuration);
-			
-			Task.Run(async () =>
+			try
 			{
-				await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonSerializer.Serialize
-			(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
-			});
-			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
-			consumerService.StartAsync(CancellationToken.None);
+				// --- Logger Build --- //
+				LoggerSetupHelper.ConfigureLogging();
 
-			// --- Kafka Producer thread --- //
-			kafkaProducerThread = new Thread(StartKafkaProducer);
+				// --- Initialize get and check configuration --- //
+				unitOfWorkConfig = new UnitOfWorkGetConfig();
+				checkHashHalper = new CheckHashHalper();
 
-			// --- On configuration changed --- //
-			GetEventChangeConfiguration();
-			KafkaMessageMetrics.Instance.WorkStatus = WorkStatus.Active;
-			// --- Start adding threads --- //
-			hostThread.Start();
-			UoWNotifyThread.Start();
-			UoWAlarmThread.Start();
-			kafkaProducerThread.Start();
+				// --- Host thread --- //
+				hostThread = new Thread(CreateAndRunHostServer);
 
-			Task.Delay(Timeout.Infinite).Wait();
-			Log.CloseAndFlush();
+				// --- Units of Work threads --- //
+				UoWNotifyThread = new Thread(StartListenNotifications);
+				UoWAlarmThread = new Thread(StartListenAlarms);
+
+				// --- Initialize Producer & Consumer and run consumer thread --- //
+				producerService = new ProducerService(unitOfWorkConfig.Configuration);
+
+				Task.Run(async () =>
+				{
+					await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonConvert.SerializeObject
+							(unitOfWorkConfig.BracingServerSettings((Microsoft.Extensions.Configuration.IConfigurationRoot)
+							unitOfWorkConfig.Configuration), Formatting.Indented), "config");
+				});
+
+				consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
+				consumerService.StartAsync(CancellationToken.None);
+
+				// --- Kafka Producer thread --- //
+				kafkaProducerThread = new Thread(StartKafkaProducer);
+
+				// --- On configuration changed --- //
+				GetEventChangeConfiguration();
+
+				// --- Start adding threads --- //
+				KafkaMessageMetrics.Instance.WorkStatus = WorkStatus.Active;
+
+				hostThread.Start();
+				UoWNotifyThread.Start();
+				UoWAlarmThread.Start();
+				kafkaProducerThread.Start();
+				Task.Delay(Timeout.Infinite).Wait();
+
+			}catch(Exception ex)
+			{
+				KafkaMessageMetrics.Instance.WorkStatus = WorkStatus.NoNActive;
+				Log.Error($"Error with run application. Error: {ex.Message}");
+			}
+			finally
+			{
+				hostThread.Join();
+				UoWAlarmThread.Join();
+				UoWNotifyThread.Join();
+				kafkaProducerThread.Join();
+				Log.CloseAndFlush();
+			}
 		}
 		private static CancellationTokenSource cancellationTokenNotifySource;
 		private static CancellationTokenSource cancellationTokenAlarmSource;
 		private static CancellationTokenSource cancellationToken;
-		private static readonly JsonSerializerOptions DefaultOptions = new JsonSerializerOptions
-		{
-			WriteIndented = true
-		};
 
 		/// <summary>
 		/// Starts the Kafka producer to send messages to Kafka.
@@ -110,9 +125,12 @@ namespace Communications
 			{
 				while (!cancellationToken.Token.IsCancellationRequested)
 				{
-					if (KafkaMessageMetrics.Instance.ServerId != Guid.Empty) {
+					if (KafkaMessageMetrics.Instance.ServerId != Guid.Empty)
+					{
+						KafkaMessageMetrics.Instance.WorkingMemoryUsage = Process.GetCurrentProcess().WorkingSet64;
+						KafkaMessageMetrics.Instance.WorkingMemoryUsage = Process.GetCurrentProcess().PrivateMemorySize64;
 						await producerService.PutMessageProducerProcessAsync("metric-topic",
-						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "server-metric");
+						JsonConvert.SerializeObject((KafkaMessageMetrics.Instance), Formatting.Indented), "server-metric");
 					}
 					await Task.Delay(100, cancellationToken.Token);
 				}
@@ -221,11 +239,12 @@ namespace Communications
 						await consumerService.StartAsync(CancellationToken.None);
 					}
 
-				await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonSerializer.Serialize
-						(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
+				await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonConvert.SerializeObject
+							(unitOfWorkConfig.BracingServerSettings((Microsoft.Extensions.Configuration.IConfigurationRoot)
+							unitOfWorkConfig.Configuration), Formatting.Indented), "config");
 			}
 		}
-		public static IHost host;
+		private static IHost host;
 		/// <summary>
 		/// Creates and starts a host server with the web application's settings.
 		/// </summary>

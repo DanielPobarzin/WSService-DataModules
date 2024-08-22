@@ -1,12 +1,9 @@
-﻿using Entities.Entities;
-using Interactors.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Interactors.Interfaces;
 using Repositories.DO;
-using Repositories.Notifications;
 
 namespace Repositories.Alarms
 {
-    public class RecievedAlarmsRepository : GenericRepository<DomainObjectAlarm, RecievedAlarmsDbContext>, IRepository<DomainObjectAlarm>
+	public class RecievedAlarmsRepository : GenericRepository<DomainObjectAlarm, RecievedAlarmsDbContext>, IRepository<DomainObjectAlarm>
 	{
 		public RecievedAlarmsRepository(RecievedAlarmsDbContext context) : base(context)
 		{

@@ -13,7 +13,6 @@ namespace Communications.Common.Helpers
 			if (!Directory.Exists(directoryPath))
 			{
 				Directory.CreateDirectory(directoryPath);
-				DestroyFileCache(filePath);
 			}
 			string jsonNewData = JsonConvert.SerializeObject(messages, Formatting.Indented);
 			await Task.Run(() => File.WriteAllText(filePath, jsonNewData));
@@ -33,14 +32,6 @@ namespace Communications.Common.Helpers
 				Log.Information($"The file cache for the client {clientid} was not detected.");
 			return await Task.FromResult(Enumerable.Empty<T>());
 
-		}
-		private void DestroyFileCache(string filePath)
-		{
-			Task.Run(async () =>
-			{
-				await Task.Delay(TimeSpan.FromDays(10));
-				File.Delete(filePath);
-			});
 		}
 	}
 }

@@ -31,7 +31,6 @@ namespace Communications.Hubs
 		private ConcurrentConnections<NotificationHub> connections;
 		private readonly List<Notification>? _notifications;
 		private readonly IConfiguration _configuration;
-		private TransformToDTOHelper transformToDTOHelper;
 		private IMemoryCache memoryCache;
 		private ProducerService producerService;
 
@@ -40,22 +39,20 @@ namespace Communications.Hubs
 		/// </summary>
 		/// <param name="notifications">The list of notifications to be monitored.</param>
 		/// <param name="connections">The connection manager for handling client connections.</param>
-		/// <param name="transformToDTOHelper">Helper for transforming notifications to DTOs.</param>
 		/// <param name="configuration">Application configuration settings.</param>
 		/// <param name="memoryCache">Memory cache for storing alarm states.</param>
 		/// <param name="producerService">Producer for Kafka.</param>
 		public NotificationHub (List<Notification>? notifications,
 			   ConcurrentConnections<NotificationHub> connections,
 			   IMemoryCache memoryCache,
-			   TransformToDTOHelper transformToDTOHelper,
 			   IConfiguration configuration,
 				ProducerService producerService)
 		{
 			_configuration = configuration;
 			_notifications = notifications;
 			this.connections = connections;
-			this.transformToDTOHelper = transformToDTOHelper;
 			this.memoryCache = memoryCache;
+			this.producerService = producerService;
 		}
 
 		/// <summary>
@@ -79,11 +76,10 @@ namespace Communications.Hubs
 				{
 					ConnectionsHandler.Instance.AddConnection(connections.GetConnection(Context.ConnectionId), serverid, clientId);
 					var connection = ConnectionsHandler.Instance.GetConnection(Context.ConnectionId);
-
 					await producerService.PutMessageProducerProcessAsync("connections", JsonSerializer.Serialize(connection, new JsonSerializerOptions
 					{
 						WriteIndented = true
-					}), "new-connection");
+					}), "open-connection");
 
 					foreach (var notification in _notifications)
 					{
@@ -91,7 +87,7 @@ namespace Communications.Hubs
 						
 						if (!memoryCache.TryGetValue(CompositKey, out Notification? Notification))
 						{
-							var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
+							var notificationDTO = await TransformToDTOHelper.TransformToNotificationDTO(notification, serverid);
 
 							{
 								KafkaMessageMetrics.Instance.TotalCountMessages += 1;
@@ -108,44 +104,6 @@ namespace Communications.Hubs
 
 							memoryCache.Set(CompositKey, notification);
 						}
-					}
-				}
-				catch (Exception ex)
-				{
-					Log.Error($"Exception with data: {ex.Message}");
-				}
-				await Task.Delay(Convert.ToInt32(_configuration["HubSettings:Notify:DelayMilliseconds"]));
-			}
-		}
-
-		/// <summary>
-		/// Sends the message with notification to all connected clients.
-		/// This method continuously checks for new notification and broadcasts them to all clients until there are no active connections.
-		/// </summary>
-		/// <returns>A task that represents the asynchronous operation.</returns>
-		[SignalRMethod("SendAll")]
-		[SwaggerResponse(HttpStatusCode.OK, typeof(MessageServerDTO), Description = "Notifications sent successfully.")]
-		[SwaggerResponse(HttpStatusCode.BadRequest, typeof(BadRequest), Description = "Invalid request.")]
-		public async Task SendAll()
-		{
-			while (connections.GetConnections().Any())
-			{
-				var serverid = Guid.Parse(_configuration["HubSettings:ServerId"]);
-				try
-				{
-					foreach (var notification in _notifications)
-					{
-						var notificationDTO = await transformToDTOHelper.TransformToNotificationDTO(notification, serverid);
-						{
-							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
-							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(notificationDTO)).Length;
-							KafkaMessageMetrics.Instance.CountAlarms += 1;
-							KafkaMessageMetrics.Instance.Latency = notificationDTO.DateAndTimeSendDataByServer - notificationDTO.Notification.CreationDateTime;
-						}
-						await Clients.All.SendAsync(_configuration["HubSettings:Notify:HubMethod"], notificationDTO);
-
-						Log.Information($"Notification {notificationDTO.Notification.Id} has been sent."
-											+ "\nSender:\t" + $" Server - {notificationDTO.ServerId}");
 					}
 				}
 				catch (Exception ex)

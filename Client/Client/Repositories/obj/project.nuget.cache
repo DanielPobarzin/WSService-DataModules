@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f2QMGPfxlzE=",
+  "dgSpecHash": "gNlbEd0w+u87P2Yux4MHi7cOvItu2rX/W5HhVKWrt3e3etmbTIZBD+wZiIVbjHRJ35oOcu1R1wassJ/trum38A==",
   "success": true,
-  "projectFilePath": "D:\\Develop\\App\\WSService-DataModules\\Client\\Client\\Repositories\\Repositories.csproj",
+  "projectFilePath": "C:\\All\\NotificationsExchange\\Client\\Client\\Repositories\\Repositories.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\8.0.6\\microsoft.aspnetcore.connections.abstractions.8.0.6.nupkg.sha512",
     "C:\\Users\\Даниил\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\8.0.6\\microsoft.aspnetcore.signalr.client.core.8.0.6.nupkg.sha512",

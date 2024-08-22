@@ -43,13 +43,12 @@
             This hub is responsible for sending alarm messages to connected clients.
             </summary>
         </member>
-        <member name="M:Communications.Hubs.AlarmHub.#ctor(System.Collections.Generic.List{Entities.Entities.Alarm},Communications.Connections.ConcurrentConnections{Communications.Hubs.AlarmHub},Communications.Helpers.TransformToDTOHelper,Shared.Services.ProducerService,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+        <member name="M:Communications.Hubs.AlarmHub.#ctor(System.Collections.Generic.List{Entities.Entities.Alarm},Communications.Connections.ConcurrentConnections{Communications.Hubs.AlarmHub},Shared.Services.ProducerService,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
             <summary>
             Initializes a new instance of the <see cref="T:Communications.Hubs.AlarmHub"/> class.
             </summary>
             <param name="alarms">The list of alarms to be monitored.</param>
             <param name="connections">The connection manager for handling client connections.</param>
-            <param name="transformToDTOHelper">Helper for transforming alarms to DTOs.</param>
             <param name="configuration">Application configuration settings.</param>
             <param name="memoryCache">Memory cache for storing alarm states.</param>
             <param name="producerService">Producer for Kafka.</param>
@@ -62,13 +61,6 @@
             <param name="clientId">The ID (GUID) of the client that accesses the method.</param>
             <returns>A task that represents the asynchronous operation. 
             The task result contains an <see cref="T:Communications.DTO.AlarmServerDTO"/> object.</returns>
-        </member>
-        <member name="M:Communications.Hubs.AlarmHub.SendAll">
-            <summary>
-            Sends the message with alarms to all connected clients.
-            This method continuously checks for new alarms and broadcasts them to all clients until there are no active connections.
-            </summary>
-            <returns>A task that represents the asynchronous operation.</returns>
         </member>
         <member name="M:Communications.Hubs.AlarmHub.OnConnectedAsync">
             <summary>
@@ -99,13 +91,12 @@
             This hub is responsible for sending notifications messages to connected clients.
             </summary>
         </member>
-        <member name="M:Communications.Hubs.NotificationHub.#ctor(System.Collections.Generic.List{Entities.Entities.Notification},Communications.Connections.ConcurrentConnections{Communications.Hubs.NotificationHub},Microsoft.Extensions.Caching.Memory.IMemoryCache,Communications.Helpers.TransformToDTOHelper,Microsoft.Extensions.Configuration.IConfiguration,Shared.Services.ProducerService)">
+        <member name="M:Communications.Hubs.NotificationHub.#ctor(System.Collections.Generic.List{Entities.Entities.Notification},Communications.Connections.ConcurrentConnections{Communications.Hubs.NotificationHub},Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Configuration.IConfiguration,Shared.Services.ProducerService)">
             <summary>
             Initializes a new instance of the <see cref="T:Communications.Hubs.NotificationHub"/> class.
             </summary>
             <param name="notifications">The list of notifications to be monitored.</param>
             <param name="connections">The connection manager for handling client connections.</param>
-            <param name="transformToDTOHelper">Helper for transforming notifications to DTOs.</param>
             <param name="configuration">Application configuration settings.</param>
             <param name="memoryCache">Memory cache for storing alarm states.</param>
             <param name="producerService">Producer for Kafka.</param>
@@ -118,13 +109,6 @@
             <param name="clientId">The ID (GUID) of the client that accesses the method.</param>
             <returns>A task that represents the asynchronous operation. 
             The task result contains an <see cref="T:Communications.DTO.MessageServerDTO"/> object.</returns>
-        </member>
-        <member name="M:Communications.Hubs.NotificationHub.SendAll">
-            <summary>
-            Sends the message with notification to all connected clients.
-            This method continuously checks for new notification and broadcasts them to all clients until there are no active connections.
-            </summary>
-            <returns>A task that represents the asynchronous operation.</returns>
         </member>
         <member name="M:Communications.Hubs.NotificationHub.OnConnectedAsync">
             <summary>

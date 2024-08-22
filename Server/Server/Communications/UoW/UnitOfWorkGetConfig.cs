@@ -38,7 +38,7 @@ namespace Communications.UoW
 			schemaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "schema.json");
 
 			LoadConfigFile();
-			ChangeToken.OnChange(() => configuration.GetReloadToken(), () =>
+			ChangeToken.OnChange(configuration.GetReloadToken, () =>
 			{
 				if (isInitialized)
 				{
@@ -78,7 +78,7 @@ namespace Communications.UoW
 						"HostSettings",
 						"Kafka:Producer",
 						"Kafka:Consumer"
-				};
+					};
 
 					foreach (var key in keysToHash)
 					{
@@ -119,37 +119,40 @@ namespace Communications.UoW
 				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
 				.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
 			.Build();
-			var config = new ServerSettings
+
+			string json = JsonConvert.SerializeObject(BracingServerSettings(configuration), Formatting.Indented);
+
+			if (new FileInfo(filePath).Length == 0)
+			{
+				File.WriteAllText(filePath, json);
+				Log.Information($"The default configuration is used.");
+			}
+			LoadConfigFile();
+		}
+
+		public ServerSettings BracingServerSettings(IConfigurationRoot configuration)
+		{
+			return new ServerSettings
 			{
 				DbConnection = new DBSettings
 				{
 					DataBase = configuration["DbConnection:DataBase"],
 					Alarm = new AlarmConnection
 					{
-						ConnectionString = configuration["DbConnection:Alarm:ConnectionString"] ?? 
-						"host=localhost;port=5432;Database=AlarmsExchange;Username=postgres;Password=19346jaidj"
+						ConnectionString = configuration["DbConnection:Alarm:ConnectionString"] ??
+									"host=localhost;port=5432;Database=AlarmsExchange;Username=postgres;Password=19346jaidj"
 					},
 					Notify = new NotifyConnection
 					{
-						ConnectionString = configuration["DbConnection:Notify:ConnectionString"] ?? 
-						"host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
+						ConnectionString = configuration["DbConnection:Notify:ConnectionString"] ??
+									"host=localhost;port=5432;Database=NotificationsExchange;Username=postgres;Password=19346jaidj"
 					}
-				},
-
-				HostSettings = new HostSettings
-				{
-					Port = int.Parse(configuration["HostSettings:Port"]),
-					Urls = configuration["HostSettings:Urls"],
-					PolicyName = configuration["HostSettings:PolicyName"],
-					AllowedOrigins = configuration["HostSettings:AllowedOrigins"],
-					RouteNotify = configuration["HostSettings:RouteNotify"],
-					RouteAlarm = configuration["HostSettings:RouteAlarm"]
 				},
 
 				HubSettings = new HubSettings
 				{
-					ServerId = (configuration["HubSettings:ServerId"] == "GENERATE") ? Guid.NewGuid() : 
-					Guid.Parse(configuration["HubSettings:ServerId"]),
+					ServerId = (configuration["HubSettings:ServerId"] == "GENERATE") ? Guid.NewGuid() :
+								Guid.Parse(configuration["HubSettings:ServerId"]),
 					Notify = new NotifyHubSettings
 					{
 						DelayMilliseconds = int.Parse(configuration["HubSettings:Notify:DelayMilliseconds"] ?? "1000"),
@@ -164,26 +167,28 @@ namespace Communications.UoW
 					}
 				},
 
+				HostSettings = new HostSettings
+				{
+					Port = int.Parse(configuration["HostSettings:Port"]),
+					Urls = configuration["HostSettings:Urls"],
+					PolicyName = configuration["HostSettings:PolicyName"],
+					AllowedOrigins = configuration["HostSettings:AllowedOrigins"],
+					RouteNotify = configuration["HostSettings:RouteNotify"],
+					RouteAlarm = configuration["HostSettings:RouteAlarm"]
+				},
+
 				Kafka = new KafkaSettings
 				{
 					Consumer = new ConsumerConnection
 					{
-						BootstrapServers = configuration["Kafka:Consumer:BootstrapServers"] ?? "localhost:9092"
+						BootstrapServers = configuration["Kafka:Consumer:BootstrapServers"] ?? "localhost:9092;localhost:9093"
 					},
 					Producer = new ProducerConnection
 					{
-						BootstrapServers = configuration["Kafka:Producer:BootstrapServers"] ?? "localhost:9092"
+						BootstrapServers = configuration["Kafka:Producer:BootstrapServers"] ?? "localhost:9092;localhost:9093"
 					}
 				}
 			};
-			string json = JsonConvert.SerializeObject(config, Formatting.Indented);
-
-			if (new FileInfo(filePath).Length == 0)
-			{
-				File.WriteAllText(filePath, json);
-				Log.Information($"The default configuration is used.");
-			}
-			LoadConfigFile();
 		}
 	}
 }

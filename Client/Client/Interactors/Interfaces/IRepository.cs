@@ -1,7 +1,4 @@
-﻿using Entities.Entities;
-
-
-namespace Interactors.Interfaces
+﻿namespace Interactors.Interfaces
 {
     public interface IRepository<T> where T : class
 	{

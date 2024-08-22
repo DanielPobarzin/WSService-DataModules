@@ -77,17 +77,17 @@ services:
       - ./jmx_exporter:/usr/share/jmx_exporter/
       - /var/run/docker.sock:/var/run/docker.sock
   
-  app:
-    image: danielpobarzin/ws-service-data-modules:latest 
-    ports:
-      - "5050:5050" 
-      - "8080:8080"
-      - "5432:5432"     
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.pfx
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
-      - BootstrapServers=kafka:9092 
+  # app:
+  #   image: danielpobarzin/ws-service-data-modules:latest 
+  #   ports:
+  #     - "5050:5050" 
+  #     - "8080:8080"
+  #     - "5432:5432"     
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Production
+  #     - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.pfx
+  #     - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
+  #     - BootstrapServers=kafka:9092 
 
   kafka-ui:
     image: provectuslabs/kafka-ui

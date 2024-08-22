@@ -14,7 +14,7 @@ namespace Communications.Helpers
     /// <param name="Message">The message data transfer object containing notification details.</param>
     /// <param name="ClientId">The unique identifier of the recipient client.</param>
     /// <returns>A task that represents the asynchronous operation, containing the transformed <see cref="DomainObjectNotification"/>.</returns>
-    public async Task<DomainObjectNotification> TransformToDomainObjectNotification(MessageServerDTO Message, Guid ClientId)
+    public static async Task<DomainObjectNotification> TransformToDomainObjectNotification(MessageServerDTO Message, Guid ClientId)
     {
         DomainObjectNotification notification = new DomainObjectNotification
         {
@@ -35,7 +35,7 @@ namespace Communications.Helpers
     /// <param name="Message">The alarm data transfer object containing alarm details.</param>
     /// <param name="ClientId">The unique identifier of the recipient client.</param>
     /// <returns>A task that represents the asynchronous operation, containing the transformed <see cref="DomainObjectAlarm"/>.</returns>
-    public async Task<DomainObjectAlarm> TransformToDomainObjectAlarm(AlarmServerDTO Message, Guid ClientId)
+    public static async Task<DomainObjectAlarm> TransformToDomainObjectAlarm(AlarmServerDTO Message, Guid ClientId)
     {
         DomainObjectAlarm alarm = new DomainObjectAlarm
         {

@@ -18,15 +18,22 @@ namespace Repositories.Notifications
 		}
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-			switch (configuration["DbConnection:DataBase"])
+			try
 			{
-				case ("PostgreSQL"): 
-					connectionString = configuration["DbConnection:Notify:ConnectionString"];
-					optionsBuilder.UseNpgsql(connectionString);
-					break;
-					default: Log.Error("The database is not defined."); throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);
+				switch (configuration["DbConnection:DataBase"])
+				{
+					case ("PostgreSQL"):
+						connectionString = configuration["DbConnection:Notify:ConnectionString"];
+						optionsBuilder.UseNpgsql(connectionString);
+						break;
+					default: throw new NotFoundException(configuration["DbConnection:DataBase"], connectionString);
+				}
 			}
-        }
+			catch (Exception ex)
+			{
+				Log.Error($"Error Type: {ex.GetType()}. Message: {ex.Message}");
+			}
+		}
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
@@ -57,17 +64,17 @@ namespace Repositories.Notifications
 			builder.Entity<DomainObjectNotification>()
 				   .OwnsOne(e => e.Notification,
 							owned =>
-								{
-									owned.ToTable("notificationsclient");
-									owned.Property(n => n.Id).ValueGeneratedNever().HasColumnName("id");
-									owned.Property(n => n.Value).HasColumnName("value");
-									owned.Property(n => n.Quality).HasColumnName("quality");
-									owned.Property(n => n.Content).HasColumnName("content");
-									owned.Property(n => n.CreationDateTime)
-										 .ValueGeneratedNever()
-										 .HasColumnType("timestamp without time zone")
-										 .HasColumnName("creation_date");
-								});
+							{
+								owned.ToTable("notificationsclient");
+								owned.Property(n => n.Id).ValueGeneratedNever().HasColumnName("id");
+								owned.Property(n => n.Value).HasColumnName("value");
+								owned.Property(n => n.Quality).HasColumnName("quality");
+								owned.Property(n => n.Content).HasColumnName("content");
+								owned.Property(n => n.CreationDateTime)
+									 .ValueGeneratedNever()
+									 .HasColumnType("timestamp without time zone")
+									 .HasColumnName("creation_date");
+							});
 		}
 	}
 }

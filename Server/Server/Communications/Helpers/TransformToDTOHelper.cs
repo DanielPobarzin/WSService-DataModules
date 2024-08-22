@@ -5,7 +5,7 @@ namespace Communications.Helpers
 {
 	public class TransformToDTOHelper
 	{
-		public async Task<MessageServerDTO> TransformToNotificationDTO(Notification notification, Guid serverId)
+		public static async Task<MessageServerDTO> TransformToNotificationDTO(Notification notification, Guid serverId)
 		{
 			MessageServerDTO messageServerDTOs = new MessageServerDTO
 			{
@@ -17,7 +17,7 @@ namespace Communications.Helpers
 			return await Task.FromResult(messageServerDTOs);
 		}
 
-		public async Task<AlarmServerDTO> TransformToAlarmDTO(Alarm alarm, Guid serverId)
+		public static async Task<AlarmServerDTO> TransformToAlarmDTO(Alarm alarm, Guid serverId)
 		{
 			AlarmServerDTO alarmServerDTOs = new AlarmServerDTO
 			{
