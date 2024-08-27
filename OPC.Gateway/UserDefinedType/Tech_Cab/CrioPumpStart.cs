@@ -1,18 +1,10 @@
-﻿using Opc.UaFx;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿extern alias UaFx;
+using UaFx::Opc.UaFx;
 
-namespace KVANT_Scada_2.UDT.Tech_cam
+namespace OPC.Gateway.UDT.Tech_Cab
 {
-    [OpcDataType("ns=3;s=DT_\"CP_check\"")]
+	[OpcDataType("ns=3;s=DT_\"CP_check\"")]
     [OpcDataTypeEncoding("ns=3;s=TE_\"CP_check\"")]
-    ///<summaray>
-    ///Класс CrioPumpStart является представлением 
-    ///OPC DataType "ns=3;s=DT_\"CP_check\"""
-    ///</summaray>
     public class CrioPumpStart
     {
         public float Crio_pressure_check_SP { get; set; }

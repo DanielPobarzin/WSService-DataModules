@@ -1,4 +1,6 @@
-﻿using Opc.UaFx;
+﻿extern alias UaFx;
+
+using UaFx::Opc.UaFx;
 
 namespace OPC.Gateway.UDT.cRIO
 {

@@ -1,21 +1,15 @@
-﻿using Opc.UaFx;
-using Opc.UaFx.Client;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿extern alias UaFx;
+using UaFx::Opc.UaFx;
 
-namespace OPC.Gateway.UDT.Valve
+namespace OPC.Gateway.UDT.Valves
 {
-    [OpcDataType("ns=3;s=TD_\"valve\".\"Status\"")]
-    [OpcDataTypeEncoding("ns=3;s=TE_\"valve\".\"Status\"")]
-    ///<summaray>
-    ///Класс ValveStatus является представлением 
-    ///OPC DataType "ns=3;s=DT_\"valve\".\"Status\"
-    ///</summaray>
-    public class ValveStatus
+	///<summaray>
+	///Класс ValveStatus является представлением 
+	///OPC DataType "ns=3;s=DT_\"valve\".\"Status\"
+	///</summaray>
+	[OpcDataType("ns=3;s=TD_\"valve\".\"Status\"")]
+	[OpcDataTypeEncoding("ns=3;s=TE_\"valve\".\"Status\"")]
+	public class ValveStatus
     {
         public bool Auto_mode { get; set; }
         public bool Opened { get; set; }

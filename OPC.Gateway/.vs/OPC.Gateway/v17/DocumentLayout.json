@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\OPC.Gateway\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\valves\\valvestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\valves\\valvestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\valves\\valveinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\valves\\valveinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\uow\\unitofworkopcpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:uow\\unitofworkopcpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\analoginput\\ai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\analoginput\\ai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\uow\\unitofworkopc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:uow\\unitofworkopc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\dtos\\objects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:dtos\\objects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\tech_cam\\camprepare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\tech_cam\\camprepare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\tech_cab\\stopfvp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\tech_cab\\stopfvp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\tech_cab\\stopcrio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\tech_cab\\stopcrio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\tech_cab\\opencam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\tech_cab\\opencam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\tech_cab\\criopumpstart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\tech_cab\\criopumpstart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\tech_cab\\cabprepare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\tech_cab\\cabprepare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\intvalue\\intvalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,32 +51,48 @@
       "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\discreteinput\\divalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\compactreconfigurableinput_output\\criostatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\compactreconfigurableinput_output\\criostatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\compactreconfigurableinput_output\\crioinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\compactreconfigurableinput_output\\crioinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\db\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:db\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\db\\entities\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:db\\entities\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\db\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:db\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\behaviour\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:behaviour\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\analoginput\\ai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\analoginput\\ai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\valves\\valveinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\valves\\valveinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\valves\\valvestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\valves\\valvestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\analoginput\\aivalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\analoginput\\aivalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\userdefinedtype\\compactreconfigurableinput_output\\criostatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:userdefinedtype\\compactreconfigurableinput_output\\criostatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\uow\\unitofworkopc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:uow\\unitofworkopc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\uow\\unitofworkopcpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:uow\\unitofworkopcpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\behaviour\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:behaviour\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|c:\\all\\notificationsexchange\\opc.gateway\\opc.gateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{32D015E4-610E-4E4F-ABDE-5DCD96EAA8B6}|OPC.Gateway.csproj|solutionrelative:opc.gateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +102,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 112,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,132 +118,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ValveStatus.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveStatus.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\Valves\\ValveStatus.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveStatus.cs",
-              "RelativeToolTip": "UserDefinedType\\Valves\\ValveStatus.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
+              "DocumentIndex": 6,
+              "Title": "OpenCam.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\OpenCam.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Tech_Cab\\OpenCam.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\OpenCam.cs",
+              "RelativeToolTip": "UserDefinedType\\Tech_Cab\\OpenCam.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:29:58.951Z",
+              "WhenOpened": "2024-08-27T11:55:07.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ValveInput.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveInput.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\Valves\\ValveInput.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveInput.cs",
-              "RelativeToolTip": "UserDefinedType\\Valves\\ValveInput.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAaAAAA",
+              "Title": "UnitOfWorkOPCPath.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPCPath.cs",
+              "RelativeDocumentMoniker": "UoW\\UnitOfWorkOPCPath.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPCPath.cs",
+              "RelativeToolTip": "UoW\\UnitOfWorkOPCPath.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAAwAgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:29:54.239Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CamPrepare.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_cam\\CamPrepare.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\Tech_cam\\CamPrepare.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_cam\\CamPrepare.cs",
-              "RelativeToolTip": "UserDefinedType\\Tech_cam\\CamPrepare.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:29:27.872Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IntValue.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\IntValue\\IntValue.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\IntValue\\IntValue.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\IntValue\\IntValue.cs",
-              "RelativeToolTip": "UserDefinedType\\IntValue\\IntValue.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:28:36.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FVPStatus.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
-              "RelativeToolTip": "UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:22:20.86Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DIValue.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\DiscreteInput\\DIValue.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\DiscreteInput\\DIValue.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\DiscreteInput\\DIValue.cs",
-              "RelativeToolTip": "UserDefinedType\\DiscreteInput\\DIValue.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:20:48.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CRIOStatus.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
-              "RelativeToolTip": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:18:11.068Z",
+              "WhenOpened": "2024-08-27T11:43:11.539Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "CRIOInput.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
-              "RelativeToolTip": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Title": "CabPrepare.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\CabPrepare.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Tech_Cab\\CabPrepare.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\CabPrepare.cs",
+              "RelativeToolTip": "UserDefinedType\\Tech_Cab\\CabPrepare.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T09:06:59.014Z",
+              "WhenOpened": "2024-08-27T11:34:11.239Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AIValue.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AIValue.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\AnalogInput\\AIValue.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AIValue.cs",
-              "RelativeToolTip": "UserDefinedType\\AnalogInput\\AIValue.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAABAAAA",
+              "DocumentIndex": 7,
+              "Title": "CrioPumpStart.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\CrioPumpStart.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Tech_Cab\\CrioPumpStart.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\CrioPumpStart.cs",
+              "RelativeToolTip": "UserDefinedType\\Tech_Cab\\CrioPumpStart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T08:49:18.922Z",
+              "WhenOpened": "2024-08-27T11:34:08.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StopCrio.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\StopCrio.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Tech_Cab\\StopCrio.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\StopCrio.cs",
+              "RelativeToolTip": "UserDefinedType\\Tech_Cab\\StopCrio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:34:17.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StopFVP.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\StopFVP.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Tech_Cab\\StopFVP.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Tech_Cab\\StopFVP.cs",
+              "RelativeToolTip": "UserDefinedType\\Tech_Cab\\StopFVP.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:34:16.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AI.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AI.cs",
-              "RelativeDocumentMoniker": "UserDefinedType\\AnalogInput\\AI.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AI.cs",
-              "RelativeToolTip": "UserDefinedType\\AnalogInput\\AI.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAaAAAA",
+              "Title": "UnitOfWorkOPC.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPC.cs",
+              "RelativeDocumentMoniker": "UoW\\UnitOfWorkOPC.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPC.cs",
+              "RelativeToolTip": "UoW\\UnitOfWorkOPC.cs",
+              "ViewState": "AQIAAAoCAAAAAAAAAAAswD8BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T08:47:29.812Z",
+              "WhenOpened": "2024-08-27T11:40:34.771Z",
               "EditorCaption": ""
             },
             {
@@ -222,40 +215,131 @@
               "RelativeDocumentMoniker": "DTOs\\Objects.cs",
               "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DTOs\\Objects.cs",
               "RelativeToolTip": "DTOs\\Objects.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAPUBAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T08:35:18.946Z",
+              "WhenOpened": "2024-08-27T10:52:48.274Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UnitOfWorkOPCPath.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPCPath.cs",
-              "RelativeDocumentMoniker": "UoW\\UnitOfWorkOPCPath.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPCPath.cs",
-              "RelativeToolTip": "UoW\\UnitOfWorkOPCPath.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAdAAAA",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAQwD8AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T08:32:14.548Z",
+              "WhenOpened": "2024-08-27T10:03:07.221Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UnitOfWorkOPC.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPC.cs",
-              "RelativeDocumentMoniker": "UoW\\UnitOfWorkOPC.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UoW\\UnitOfWorkOPC.cs",
-              "RelativeToolTip": "UoW\\UnitOfWorkOPC.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB4AAAAWAAAA",
+              "DocumentIndex": 9,
+              "Title": "IntValue.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\IntValue\\IntValue.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\IntValue\\IntValue.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\IntValue\\IntValue.cs",
+              "RelativeToolTip": "UserDefinedType\\IntValue\\IntValue.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T08:31:57.501Z",
+              "WhenOpened": "2024-08-27T11:29:06.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FVPStatus.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
+              "RelativeToolTip": "UserDefinedType\\FunctionalVirtualPoint\\FVPStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:54:31.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CRIOInput.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
+              "RelativeToolTip": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOInput.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:32:25.703Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DB\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "DB\\Entities\\User.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DB\\Entities\\User.cs",
+              "RelativeToolTip": "DB\\Entities\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:39:54.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Alarm.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DB\\Entities\\Alarm.cs",
+              "RelativeDocumentMoniker": "DB\\Entities\\Alarm.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DB\\Entities\\Alarm.cs",
+              "RelativeToolTip": "DB\\Entities\\Alarm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:40:22.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DB\\Entities\\Notification.cs",
+              "RelativeDocumentMoniker": "DB\\Entities\\Notification.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\DB\\Entities\\Notification.cs",
+              "RelativeToolTip": "DB\\Entities\\Notification.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:40:10.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CRIOStatus.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
+              "RelativeToolTip": "UserDefinedType\\CompactReconfigurableInput_Output\\CRIOStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:33:53.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DIValue.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\DiscreteInput\\DIValue.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\DiscreteInput\\DIValue.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\DiscreteInput\\DIValue.cs",
+              "RelativeToolTip": "UserDefinedType\\DiscreteInput\\DIValue.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:14:04.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "Logger.cs",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\Behaviour\\Logger.cs",
               "RelativeDocumentMoniker": "Behaviour\\Logger.cs",
@@ -263,25 +347,77 @@
               "RelativeToolTip": "Behaviour\\Logger.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T08:31:08.51Z",
+              "WhenOpened": "2024-08-27T11:36:35.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ValveInput.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveInput.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Valves\\ValveInput.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveInput.cs",
+              "RelativeToolTip": "UserDefinedType\\Valves\\ValveInput.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:19:17.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ValveStatus.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveStatus.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\Valves\\ValveStatus.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\Valves\\ValveStatus.cs",
+              "RelativeToolTip": "UserDefinedType\\Valves\\ValveStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T11:18:33.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AIValue.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AIValue.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\AnalogInput\\AIValue.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AIValue.cs",
+              "RelativeToolTip": "UserDefinedType\\AnalogInput\\AIValue.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T10:53:35.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AI.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AI.cs",
+              "RelativeDocumentMoniker": "UserDefinedType\\AnalogInput\\AI.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\UserDefinedType\\AnalogInput\\AI.cs",
+              "RelativeToolTip": "UserDefinedType\\AnalogInput\\AI.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T10:53:34.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "OPC.Gateway",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\OPC.Gateway.csproj",
+              "RelativeDocumentMoniker": "OPC.Gateway.csproj",
+              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\OPC.Gateway.csproj",
+              "RelativeToolTip": "OPC.Gateway.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-27T10:36:40.327Z",
               "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\OPC.Gateway\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\OPC.Gateway\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T07:31:05.638Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -8,12 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Opc.UaFx.Client" Version="2.42.0" />
+	  <PackageReference Include="Opc.UaFx.Client" Version="2.42.0">
+		  <Aliases>UaFx</Aliases>
+	  </PackageReference>
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua" Version="1.5.374.78" />
-    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.78" />
+	  <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Client" Version="1.5.374.78">
+			<Aliases>UaCore</Aliases>
+	  </PackageReference>	  
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Configuration" Version="1.5.374.78" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="1.5.375.71-ECC-preview" />
     <PackageReference Include="Serilog" Version="4.0.1" />
+	  <PackageReference Include="Serilog.Enrichers.Demystifier" Version="1.0.2" />
+	  <PackageReference Include="Serilog.Enrichers.ExceptionData" Version="1.0.0" />
+	  <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+	  <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+	  <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+	  <PackageReference Include="Serilog.Sinks.Trace" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,5 +32,7 @@
     <Folder Include="UserDefinedType\UpperBlockLevelSystem\" />
     <Folder Include="UserDefinedType\RelatedSystem\" />
   </ItemGroup>
+
+ 
 
 </Project>

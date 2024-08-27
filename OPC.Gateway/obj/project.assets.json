@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Ben.Demystifier/0.4.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Metadata": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Ben.Demystifier.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Ben.Demystifier.dll": {}
+        }
+      },
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
@@ -110,6 +122,7 @@
         },
         "compile": {
           "lib/netcoreapp3.1/Opc.UaFx.Client.dll": {
+            "aliases": "UaFx",
             "related": ".deps.json;.xml"
           }
         },
@@ -159,6 +172,7 @@
         },
         "compile": {
           "lib/net8.0/Opc.Ua.Client.dll": {
+            "aliases": "UaCore",
             "related": ".xml"
           }
         },
@@ -297,6 +311,99 @@
           }
         }
       },
+      "Serilog.Enrichers.Demystifier/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Ben.Demystifier": "0.4.1",
+          "Serilog": "2.10.0"
+        },
+        "compile": {
+          "lib/net6.0/Serilog.Enrichers.Demystifier.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Serilog.Enrichers.Demystifier.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Serilog.Enrichers.ExceptionData/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "2.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Enrichers.ExceptionData.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Enrichers.ExceptionData.dll": {}
+        }
+      },
+      "Serilog.Enrichers.Thread/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Serilog.Enrichers.Thread.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Enrichers.Thread.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Serilog.Sinks.Console/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Serilog.Sinks.Console.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Sinks.Console.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Serilog.Sinks.File/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Serilog.Sinks.File.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Sinks.File.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Serilog.Sinks.Trace/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Serilog.Sinks.Trace.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Sinks.Trace.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.CodeDom/4.7.0": {
         "type": "package",
         "compile": {
@@ -380,6 +487,19 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/System.Reflection.DispatchProxy.dll": {}
+        }
+      },
+      "System.Reflection.Metadata/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Security.AccessControl/4.7.0": {
@@ -467,6 +587,22 @@
     }
   },
   "libraries": {
+    "Ben.Demystifier/0.4.1": {
+      "sha512": "axFeEMfmEORy3ipAzOXG/lE+KcNptRbei3F0C4kQCdeiQtW+qJW90K5iIovITGrdLt8AjhNCwk5qLSX9/rFpoA==",
+      "type": "package",
+      "path": "ben.demystifier/0.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ben.demystifier.0.4.1.nupkg.sha512",
+        "ben.demystifier.nuspec",
+        "icon.png",
+        "lib/net45/Ben.Demystifier.dll",
+        "lib/netstandard2.0/Ben.Demystifier.dll",
+        "lib/netstandard2.1/Ben.Demystifier.dll",
+        "readme.md"
+      ]
+    },
     "BouncyCastle.Cryptography/2.4.0": {
       "sha512": "SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
       "type": "package",
@@ -967,6 +1103,131 @@
         "serilog.nuspec"
       ]
     },
+    "Serilog.Enrichers.Demystifier/1.0.2": {
+      "sha512": "Og4qXpTvN07jtry8jLAywmFxtIFRTL5eVDStE7pM11tCJMZ2PbSe7MIsI2dUnD42J6r/DOtfMDAsp48b28cZjg==",
+      "type": "package",
+      "path": "serilog.enrichers.demystifier/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Serilog.Enrichers.Demystifier.dll",
+        "lib/net45/Serilog.Enrichers.Demystifier.xml",
+        "lib/net5.0/Serilog.Enrichers.Demystifier.dll",
+        "lib/net5.0/Serilog.Enrichers.Demystifier.xml",
+        "lib/net6.0/Serilog.Enrichers.Demystifier.dll",
+        "lib/net6.0/Serilog.Enrichers.Demystifier.xml",
+        "lib/netstandard2.0/Serilog.Enrichers.Demystifier.dll",
+        "lib/netstandard2.0/Serilog.Enrichers.Demystifier.xml",
+        "serilog-community-nuget.png",
+        "serilog.enrichers.demystifier.1.0.2.nupkg.sha512",
+        "serilog.enrichers.demystifier.nuspec"
+      ]
+    },
+    "Serilog.Enrichers.ExceptionData/1.0.0": {
+      "sha512": "GEVL9CIbHuO0H3UU0gpYTlov6m7Rcolwloj0P04PYHUYBopkzd4GMlKHvv5DMud654DMfY/o29/5FGZ3rnDVAQ==",
+      "type": "package",
+      "path": "serilog.enrichers.exceptiondata/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net46/Serilog.Enrichers.ExceptionData.dll",
+        "lib/netstandard2.0/Serilog.Enrichers.ExceptionData.dll",
+        "serilog.enrichers.exceptiondata.1.0.0.nupkg.sha512",
+        "serilog.enrichers.exceptiondata.nuspec"
+      ]
+    },
+    "Serilog.Enrichers.Thread/4.0.0": {
+      "sha512": "C7BK25a1rhUyr+Tp+1BYcVlBJq7M2VCHlIgnwoIUVJcicM9jYcvQK18+OeHiXw7uLPSjqWxJIp1EfaZ/RGmEwA==",
+      "type": "package",
+      "path": "serilog.enrichers.thread/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/Serilog.Enrichers.Thread.dll",
+        "lib/net462/Serilog.Enrichers.Thread.xml",
+        "lib/net471/Serilog.Enrichers.Thread.dll",
+        "lib/net471/Serilog.Enrichers.Thread.xml",
+        "lib/net6.0/Serilog.Enrichers.Thread.dll",
+        "lib/net6.0/Serilog.Enrichers.Thread.xml",
+        "lib/net8.0/Serilog.Enrichers.Thread.dll",
+        "lib/net8.0/Serilog.Enrichers.Thread.xml",
+        "lib/netstandard2.0/Serilog.Enrichers.Thread.dll",
+        "lib/netstandard2.0/Serilog.Enrichers.Thread.xml",
+        "serilog-enricher-nuget.png",
+        "serilog.enrichers.thread.4.0.0.nupkg.sha512",
+        "serilog.enrichers.thread.nuspec"
+      ]
+    },
+    "Serilog.Sinks.Console/6.0.0": {
+      "sha512": "fQGWqVMClCP2yEyTXPIinSr5c+CBGUvBybPxjAGcf7ctDhadFhrQw03Mv8rJ07/wR5PDfFjewf2LimvXCDzpbA==",
+      "type": "package",
+      "path": "serilog.sinks.console/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net462/Serilog.Sinks.Console.dll",
+        "lib/net462/Serilog.Sinks.Console.xml",
+        "lib/net471/Serilog.Sinks.Console.dll",
+        "lib/net471/Serilog.Sinks.Console.xml",
+        "lib/net6.0/Serilog.Sinks.Console.dll",
+        "lib/net6.0/Serilog.Sinks.Console.xml",
+        "lib/net8.0/Serilog.Sinks.Console.dll",
+        "lib/net8.0/Serilog.Sinks.Console.xml",
+        "lib/netstandard2.0/Serilog.Sinks.Console.dll",
+        "lib/netstandard2.0/Serilog.Sinks.Console.xml",
+        "serilog.sinks.console.6.0.0.nupkg.sha512",
+        "serilog.sinks.console.nuspec"
+      ]
+    },
+    "Serilog.Sinks.File/6.0.0": {
+      "sha512": "lxjg89Y8gJMmFxVkbZ+qDgjl+T4yC5F7WSLTvA+5q0R04tfKVLRL/EHpYoJ/MEQd2EeCKDuylBIVnAYMotmh2A==",
+      "type": "package",
+      "path": "serilog.sinks.file/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/Serilog.Sinks.File.dll",
+        "lib/net462/Serilog.Sinks.File.xml",
+        "lib/net471/Serilog.Sinks.File.dll",
+        "lib/net471/Serilog.Sinks.File.xml",
+        "lib/net6.0/Serilog.Sinks.File.dll",
+        "lib/net6.0/Serilog.Sinks.File.xml",
+        "lib/net8.0/Serilog.Sinks.File.dll",
+        "lib/net8.0/Serilog.Sinks.File.xml",
+        "lib/netstandard2.0/Serilog.Sinks.File.dll",
+        "lib/netstandard2.0/Serilog.Sinks.File.xml",
+        "serilog-sink-nuget.png",
+        "serilog.sinks.file.6.0.0.nupkg.sha512",
+        "serilog.sinks.file.nuspec"
+      ]
+    },
+    "Serilog.Sinks.Trace/4.0.0": {
+      "sha512": "9wILC29WU2t7D4t/KGzKxUEFza+4B2MCfBjn9ouIHbZJDOmL9S1P33pxR9pLhH8fAY80U+8rweNtyjOoDDt9cA==",
+      "type": "package",
+      "path": "serilog.sinks.trace/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/Serilog.Sinks.Trace.dll",
+        "lib/net462/Serilog.Sinks.Trace.xml",
+        "lib/net471/Serilog.Sinks.Trace.dll",
+        "lib/net471/Serilog.Sinks.Trace.xml",
+        "lib/net6.0/Serilog.Sinks.Trace.dll",
+        "lib/net6.0/Serilog.Sinks.Trace.xml",
+        "lib/net8.0/Serilog.Sinks.Trace.dll",
+        "lib/net8.0/Serilog.Sinks.Trace.xml",
+        "lib/netstandard2.0/Serilog.Sinks.Trace.dll",
+        "lib/netstandard2.0/Serilog.Sinks.Trace.xml",
+        "serilog-sink-nuget.png",
+        "serilog.sinks.trace.4.0.0.nupkg.sha512",
+        "serilog.sinks.trace.nuspec"
+      ]
+    },
     "System.CodeDom/4.7.0": {
       "sha512": "Hs9pw/kmvH3lXaZ1LFKj3pLQsiGfj2xo3sxSzwiLlRL6UcMZUTeCfoJ9Udalvn3yq5dLlPEZzYegrTQ1/LhPOQ==",
       "type": "package",
@@ -1111,6 +1372,30 @@
         "runtimes/win/lib/uap10.0.16299/System.Reflection.DispatchProxy.dll",
         "system.reflection.dispatchproxy.4.5.0.nupkg.sha512",
         "system.reflection.dispatchproxy.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Reflection.Metadata/5.0.0": {
+      "sha512": "5NecZgXktdGg34rh1OenY1rFNDCI8xSjFr+Z4OU4cU06AQHUdRnIIEeWENu3Wl4YowbzkymAIMvi3WyK9U53pQ==",
+      "type": "package",
+      "path": "system.reflection.metadata/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Reflection.Metadata.dll",
+        "lib/net461/System.Reflection.Metadata.xml",
+        "lib/netstandard1.1/System.Reflection.Metadata.dll",
+        "lib/netstandard1.1/System.Reflection.Metadata.xml",
+        "lib/netstandard2.0/System.Reflection.Metadata.dll",
+        "lib/netstandard2.0/System.Reflection.Metadata.xml",
+        "lib/portable-net45+win8/System.Reflection.Metadata.dll",
+        "lib/portable-net45+win8/System.Reflection.Metadata.xml",
+        "system.reflection.metadata.5.0.0.nupkg.sha512",
+        "system.reflection.metadata.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -1356,7 +1641,13 @@
       "OPCFoundation.NetStandard.Opc.Ua.Configuration >= 1.5.374.78",
       "OPCFoundation.NetStandard.Opc.Ua.Core >= 1.5.375.71-ECC-preview",
       "Opc.UaFx.Client >= 2.42.0",
-      "Serilog >= 4.0.1"
+      "Serilog >= 4.0.1",
+      "Serilog.Enrichers.Demystifier >= 1.0.2",
+      "Serilog.Enrichers.ExceptionData >= 1.0.0",
+      "Serilog.Enrichers.Thread >= 4.0.0",
+      "Serilog.Sinks.Console >= 6.0.0",
+      "Serilog.Sinks.File >= 6.0.0",
+      "Serilog.Sinks.Trace >= 4.0.0"
     ]
   },
   "packageFolders": {
@@ -1417,7 +1708,8 @@
           },
           "OPCFoundation.NetStandard.Opc.Ua.Client": {
             "target": "Package",
-            "version": "[1.5.374.78, )"
+            "version": "[1.5.374.78, )",
+            "aliases": "UaCore"
           },
           "OPCFoundation.NetStandard.Opc.Ua.Configuration": {
             "target": "Package",
@@ -1429,11 +1721,36 @@
           },
           "Opc.UaFx.Client": {
             "target": "Package",
-            "version": "[2.42.0, )"
+            "version": "[2.42.0, )",
+            "aliases": "UaFx"
           },
           "Serilog": {
             "target": "Package",
             "version": "[4.0.1, )"
+          },
+          "Serilog.Enrichers.Demystifier": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          },
+          "Serilog.Enrichers.ExceptionData": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "Serilog.Enrichers.Thread": {
+            "target": "Package",
+            "version": "[4.0.0, )"
+          },
+          "Serilog.Sinks.Console": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Serilog.Sinks.File": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Serilog.Sinks.Trace": {
+            "target": "Package",
+            "version": "[4.0.0, )"
           }
         },
         "imports": [

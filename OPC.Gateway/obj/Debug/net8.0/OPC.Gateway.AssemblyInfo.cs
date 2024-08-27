@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OPC.Gateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa79cbc403cd7d2608375fdb99efde622b3e9da9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3092f39761e08fc5de15760689dfa5cdc4cdc2e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("OPC.Gateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OPC.Gateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,39 +1,40 @@
-﻿using Opc.UaFx.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿extern alias UaFx;
+
+using Opc.Ua;
+using OPC.Gateway.DB.Entities;
+using OPC.Gateway.UDT.AnalogInput;
+using OPC.Gateway.UDT.cRIO;
+using OPC.Gateway.UDT.DiscreteInput;
+using OPC.Gateway.UDT.IntValue;
+using OPC.Gateway.UDT.Tech_Cab;
+using OPC.Gateway.UDT.Valves;
+using UaFx::Opc.UaFx.Client;
 
 namespace OPC.Gateway.DTOs
 {
-	public class OPCObjects
+	public class OPCObjects 
 	{
-
 		public static OpcClient client;
-		public static ValveStatus BAV_3_status, FVV_S_Status, FVV_B_Status, CPV_Status, SHV_Status;
-		public static ValveInput BAV_3_input, FVV_S_Input, FVV_B_Input, CPV_Input, SHV_Input;
-		public static CamPrepare camPrepare;
-		public static CrioPumpStart CrioPumpStart;
-		public static OpenCam openCam;
-		public static StopCrio StopCrio;
-		public static StopFVP StopFVP;
-		public static IonInputCommand IonInputCommnd;
-		public static IonInputSetPoint IonInputSetPoint;
-		public static IonOutputFeedBack IonOutputFeedBack;
-		public static IonStatus IonStatus;
-		public static FVPStatus FVPStatus;
-		public static CrioInput CrioInput;
-		public static CrioStatus CrioStatus;
-		public static AnalogInput AnalogInput;
+		public static ValveStatus HPCV_1_status, HPCV_2_status, HPCV_3_status, HPCV_4_status,
+								  LPCV_1_status, LPCV_2_status, LPCV_3_status, LPCV_4_status,
+								  LPSV_1_status, LPSV_2_status, LPSV_3_status, LPSV_4_status,
+								  HPSV_1_status, HPSV_2_status, HPSV_3_status, HPSV_4_status;
+		public static ValveInput  HPCV_1_input, HPCV_2_input, HPCV_3_input, HPCV_4_input,
+								  LPCV_1_input, LPCV_2_input, LPCV_3_input, LPCV_4_input,
+								  LPSV_1_input, LPSV_2_input, LPSV_3_input, LPSV_4_input,
+								  HPSV_1_input, HPSV_2_input, HPSV_3_input, HPSV_4_input;
+		public static CRIOInput CrioInput;
+		public static CabPrepare cabPrepare;
+		public static CRIOStatus CrioStatus;
+		public static AI AnalogInput;
 		public static object SQLLocker;
 		public static object OPCLocker;
-		public static List<AnalogValue> AnalogValues;
-		public static List<DiscreteValue> DiscreteValues;
+		public static List<AIValue> AIValues;
+		public static List<DIValue> DIValues;
 		public static List<IntValue> IntValues;
 		public static Dictionary<int, ValveInput> ValvesInput;
 		public static Dictionary<int, ValveStatus> ValvesStatus;
-		public static AnalogValue SFT01_FT, SFT02_FT, SFT03_FT, SFT04_FT,
+		public static AIValue SFT01_FT, SFT02_FT, SFT03_FT, SFT04_FT,
 								   SFT05_FT, SFT06_FT, SFT07_FT, SFT08_FT,
 								   SFT09_FT, SFT10_FT, FT_TT_1, FT_TT_2, FT_TT_3,
 									RRG_9A1_feedback, RRG_9A2_feedback,
@@ -44,7 +45,7 @@ namespace OPC.Gateway.DTOs
 									PreHeat_Timer_SP, HeatAssist_Timer_SP,
 									ManualSetTemp, BLM_Speed, BLM_Speed_SP,
 									K_RRG1, K_RRG2, K_RRG3, K_RRG4, RRG_Pressure_SP, PidHeatMode;
-		public static DiscreteValue PreHeat_Done, HeatAssist_Done, PreHeat_Start,
+		public static DIValue PreHeat_Done, HeatAssist_Done, PreHeat_Start,
 									HeatAssist_Flag, Heat_Done, HeatAssist_TempDone,
 									Heat_Assit_On, BLM_Start, BLM_Stop, BLM_Remote_Control_Done,
 									BLM_Run, Alarm_Open_door, Alarm_Water_CRIO,
@@ -62,105 +63,123 @@ namespace OPC.Gateway.DTOs
 		public static IntValue FullCycleStage;
 		public static User user;
 
-
-
 		#region constructor
 		private static OPCObjects instance;
 		private OPCObjects()
 		{
-			camPrepare = new CamPrepare();
-			AnalogValues = new List<AnalogValue>();
-			DiscreteValues = new List<DiscreteValue>();
+			cabPrepare = new CabPrepare();
+			AIValues = new List<AIValue>();
+			DIValues = new List<DIValue>();
 			ValvesInput = new Dictionary<int, ValveInput>();
 			ValvesStatus = new Dictionary<int, ValveStatus>();
-			SFT01_FT = new AnalogValue();
-			SFT02_FT = new AnalogValue();
-			SFT03_FT = new AnalogValue();
-			SFT04_FT = new AnalogValue();
-			SFT05_FT = new AnalogValue();
-			SFT06_FT = new AnalogValue();
-			SFT07_FT = new AnalogValue();
-			SFT08_FT = new AnalogValue();
-			SFT09_FT = new AnalogValue();
-			SFT10_FT = new AnalogValue();
-			FT_TT_1 = new AnalogValue();
-			FT_TT_2 = new AnalogValue();
-			FT_TT_3 = new AnalogValue();
-			K_RRG1 = new AnalogValue();
-			K_RRG2 = new AnalogValue();
-			K_RRG3 = new AnalogValue();
-			K_RRG4 = new AnalogValue();
-			PidHeatMode = new AnalogValue();
-			RRG_Pressure_SP = new AnalogValue();
-			RRG_9A1_feedback = new AnalogValue();
-			RRG_9A2_feedback = new AnalogValue();
-			RRG_9A3_feedback = new AnalogValue();
-			RRG_9A4_feedback = new AnalogValue();
-			TE_1 = new AnalogValue();
-			Pneumatic_Pressure = new AnalogValue();
-			Crio_Pressure = new AnalogValue();
-			Camera_Pressure = new AnalogValue();
-			Main_Pressure = new AnalogValue();
-			Crio_Temperature = new AnalogValue();
-			PreHeat_Temp_SP = new AnalogValue();
-			HeatAssist_Temp_SP = new AnalogValue();
-			PreHeat_Timer_SP = new AnalogValue();
-			HeatAssist_Timer_SP = new AnalogValue();
-			ManualSetTemp = new AnalogValue();
-			BLM_Speed = new AnalogValue();
-			BLM_Speed_SP = new AnalogValue();
-			PreHeat_Done = new DiscreteValue();
-			HeatAssist_Done = new DiscreteValue();
-			PreHeat_Start = new DiscreteValue();
-			HeatAssist_Flag = new DiscreteValue();
-			Heat_Done = new DiscreteValue();
-			HeatAssist_TempDone = new DiscreteValue();
-			Heat_Assit_On = new DiscreteValue();
-			BLM_Start = new DiscreteValue();
-			BLM_Stop = new DiscreteValue();
-			BLM_Remote_Control_Done = new DiscreteValue();
-			BLM_Run = new DiscreteValue();
-			Alarm_Open_door = new DiscreteValue();
-			Alarm_Water_CRIO = new DiscreteValue();
-			Alarm_Hight_Pne_Press = new DiscreteValue();
-			Alarm_Low_One_Presse = new DiscreteValue();
-			Alarm_Crio_power_failure = new DiscreteValue();
-			Alarm_Qartz_power_failure = new DiscreteValue();
-			Alarm_ELI_Power_failure = new DiscreteValue();
-			Alarm_FloatHeater_power_failure = new DiscreteValue();
-			Alarm_Ion_power_failure = new DiscreteValue();
-			Alarm_FVP_power_failure = new DiscreteValue();
-			Alarm_Indexer_power_failure = new DiscreteValue();
-			Alarm_SSP_power_failure = new DiscreteValue();
-			Alarm_TV1_power_failure = new DiscreteValue();
-			Alarm_Water_SECOND = new DiscreteValue();
-			Alarm_Hight_Crio_Temp = new DiscreteValue();
-			Crio_start_signal = new DiscreteValue();
-			Alarm_manual_stop = new DiscreteValue();
-			StartProcessSignal = new DiscreteValue();
-			StopProcessSignal = new DiscreteValue();
-			ELI_complete = new DiscreteValue();
-			ELI_access = new DiscreteValue();
+			SFT01_FT = new AIValue();
+			SFT02_FT = new AIValue();
+			SFT03_FT = new AIValue();
+			SFT04_FT = new AIValue();
+			SFT05_FT = new AIValue();
+			SFT06_FT = new AIValue();
+			SFT07_FT = new AIValue();
+			SFT08_FT = new AIValue();
+			SFT09_FT = new AIValue();
+			SFT10_FT = new AIValue();
+			FT_TT_1 = new AIValue();
+			FT_TT_2 = new AIValue();
+			FT_TT_3 = new AIValue();
+			K_RRG1 = new AIValue();
+			K_RRG2 = new AIValue();
+			K_RRG3 = new AIValue();
+			K_RRG4 = new AIValue();
+			PidHeatMode = new AIValue();
+			RRG_Pressure_SP = new AIValue();
+			RRG_9A1_feedback = new AIValue();
+			RRG_9A2_feedback = new AIValue();
+			RRG_9A3_feedback = new AIValue();
+			RRG_9A4_feedback = new AIValue();
+			TE_1 = new AIValue();
+			Pneumatic_Pressure = new AIValue();
+			Crio_Pressure = new AIValue();
+			Camera_Pressure = new AIValue();
+			Main_Pressure = new AIValue();
+			Crio_Temperature = new AIValue();
+			PreHeat_Temp_SP = new AIValue();
+			HeatAssist_Temp_SP = new AIValue();
+			PreHeat_Timer_SP = new AIValue();
+			HeatAssist_Timer_SP = new AIValue();
+			ManualSetTemp = new AIValue();
+			BLM_Speed = new AIValue();
+			BLM_Speed_SP = new AIValue();
+			PreHeat_Done = new DIValue();
+			HeatAssist_Done = new DIValue();
+			PreHeat_Start = new DIValue();
+			HeatAssist_Flag = new DIValue();
+			Heat_Done = new DIValue();
+			HeatAssist_TempDone = new DIValue();
+			Heat_Assit_On = new DIValue();
+			BLM_Start = new DIValue();
+			BLM_Stop = new DIValue();
+			BLM_Remote_Control_Done = new DIValue();
+			BLM_Run = new DIValue();
+			Alarm_Open_door = new DIValue();
+			Alarm_Water_CRIO = new DIValue();
+			Alarm_Hight_Pne_Press = new DIValue();
+			Alarm_Low_One_Presse = new DIValue();
+			Alarm_Crio_power_failure = new DIValue();
+			Alarm_Qartz_power_failure = new DIValue();
+			Alarm_ELI_Power_failure = new DIValue();
+			Alarm_FloatHeater_power_failure = new DIValue();
+			Alarm_Ion_power_failure = new DIValue();
+			Alarm_FVP_power_failure = new DIValue();
+			Alarm_Indexer_power_failure = new DIValue();
+			Alarm_SSP_power_failure = new DIValue();
+			Alarm_TV1_power_failure = new DIValue();
+			Alarm_Water_SECOND = new DIValue();
+			Alarm_Hight_Crio_Temp = new DIValue();
+			Crio_start_signal = new DIValue();
+			Alarm_manual_stop = new DIValue();
+			StartProcessSignal = new DIValue();
+			StopProcessSignal = new DIValue();
+			ELI_complete = new DIValue();
+			ELI_access = new DIValue();
 			PreHeat_Stage = new IntValue();
 			HeatAssist_Stage = new IntValue();
 			Tech_cam_STAGE = new IntValue();
 			FullCycleStage = new IntValue();
 			IntValues = new List<IntValue>();
-			FVPStatus = new FVPStatus();
-			IonInputSetPoint = new IonInputSetPoint();
 			OPCLocker = new object();
 			SQLLocker = new object();
-			BAV_3_status = new ValveStatus();
-			FVV_S_Status = new ValveStatus();
-			FVV_B_Status = new ValveStatus();
-			CPV_Status = new ValveStatus();
-			SHV_Status = new ValveStatus();
-			BAV_3_input = new ValveInput();
-			FVV_S_Input = new ValveInput();
-			FVV_B_Input = new ValveInput();
-			CPV_Input = new ValveInput();
-			SHV_Input = new ValveInput();
-			camPrepare = new CamPrepare();
+			HPCV_1_status = new ValveStatus();
+			HPCV_2_status = new ValveStatus();
+			HPCV_3_status = new ValveStatus();
+			HPCV_4_status = new ValveStatus();
+			LPCV_1_status = new ValveStatus();
+			LPCV_2_status = new ValveStatus();
+			LPCV_3_status = new ValveStatus();
+			LPCV_4_status = new ValveStatus();
+			LPSV_1_status = new ValveStatus();
+			LPSV_2_status = new ValveStatus();
+			LPSV_3_status = new ValveStatus();
+			LPSV_4_status = new ValveStatus();
+			HPSV_1_status = new ValveStatus();
+			HPSV_2_status = new ValveStatus();
+			HPSV_3_status = new ValveStatus();
+			HPSV_4_status = new ValveStatus();
+			HPCV_1_input = new ValveInput();
+			HPCV_2_input = new ValveInput();
+			HPCV_3_input = new ValveInput();
+			HPCV_4_input = new ValveInput();
+			LPCV_1_input = new ValveInput();
+			LPCV_2_input = new ValveInput();
+			LPCV_3_input = new ValveInput();
+			LPCV_4_input = new ValveInput();
+			LPSV_1_input = new ValveInput();
+			LPSV_2_input = new ValveInput();
+			LPSV_3_input = new ValveInput();
+			LPSV_4_input = new ValveInput();
+			HPSV_1_input = new ValveInput();
+			HPSV_2_input = new ValveInput();
+			HPSV_3_input = new ValveInput();
+			HPSV_4_input = new ValveInput();
+			cabPrepare = new CabPrepare();
 			CrioPumpStart = new CrioPumpStart();
 			openCam = new OpenCam();
 			StopCrio = new StopCrio();
@@ -413,83 +432,83 @@ namespace OPC.Gateway.DTOs
 		{
 			return SHV_Input;
 		}
-		public void SetFT_TT_1(AnalogValue obj)
+		public void SetFT_TT_1(AIValue obj)
 		{
 			FT_TT_1 = obj;
 		}
-		public AnalogValue GetFT_TT_1()
+		public AIValue GetFT_TT_1()
 		{
 			return FT_TT_1;
 		}
-		public void SetFT_TT_2(AnalogValue obj)
+		public void SetFT_TT_2(AIValue obj)
 		{
 			FT_TT_2 = obj;
 		}
-		public AnalogValue GetFT_TT_2()
+		public AIValue GetFT_TT_2()
 		{
 			return FT_TT_2;
 		}
-		public void SetFT_TT_3(AnalogValue obj)
+		public void SetFT_TT_3(AIValue obj)
 		{
 			FT_TT_3 = obj;
 		}
-		public AnalogValue GetFT_TT_3()
+		public AIValue GetFT_TT_3()
 		{
 			return FT_TT_3;
 		}
-		public void SetHeatAssist_Temp_SP(AnalogValue obj)
+		public void SetHeatAssist_Temp_SP(AIValue obj)
 		{
 			HeatAssist_Temp_SP = obj;
 		}
-		public AnalogValue GetHeatAssist_Temp_SP()
+		public AIValue GetHeatAssist_Temp_SP()
 		{
 			return HeatAssist_Temp_SP;
 		}
-		public void SetHeatAssist_Timer_SP(AnalogValue obj)
+		public void SetHeatAssist_Timer_SP(AIValue obj)
 		{
 			HeatAssist_Timer_SP = obj;
 		}
-		public AnalogValue GetHeatAssist_Timer_SP()
+		public AIValue GetHeatAssist_Timer_SP()
 		{
 			return HeatAssist_Timer_SP;
 		}
-		public void SetMainPres(AnalogValue obj)
+		public void SetMainPres(AIValue obj)
 		{
 			Main_Pressure = obj;
 		}
-		public AnalogValue GetMainPres()
+		public AIValue GetMainPres()
 		{
 			return Main_Pressure;
 		}
-		public void SetManualSetTemp(AnalogValue obj)
+		public void SetManualSetTemp(AIValue obj)
 		{
 			ManualSetTemp = obj;
 		}
-		public AnalogValue GetManualSetTemp()
+		public AIValue GetManualSetTemp()
 		{
 			return ManualSetTemp;
 		}
-		public void SetPneumaticPres(AnalogValue obj)
+		public void SetPneumaticPres(AIValue obj)
 		{
 			Pneumatic_Pressure = obj;
 		}
-		public AnalogValue GetPneumaticPres()
+		public AIValue GetPneumaticPres()
 		{
 			return Pneumatic_Pressure;
 		}
-		public void SetPreHeat_Temp_SP(AnalogValue obj)
+		public void SetPreHeat_Temp_SP(AIValue obj)
 		{
 			PreHeat_Temp_SP = obj;
 		}
-		public AnalogValue GetPreHeat_Temp_SP()
+		public AIValue GetPreHeat_Temp_SP()
 		{
 			return PreHeat_Temp_SP;
 		}
-		public void SetPreHeat_Timer_SP(AnalogValue obj)
+		public void SetPreHeat_Timer_SP(AIValue obj)
 		{
 			PreHeat_Timer_SP = obj;
 		}
-		public AnalogValue GetPreHeat_Timer_SP()
+		public AIValue GetPreHeat_Timer_SP()
 		{
 			return PreHeat_Timer_SP;
 		}
