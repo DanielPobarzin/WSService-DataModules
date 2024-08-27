@@ -1,12 +1,14 @@
 ﻿using Application.Wrappers;
-using Domain.Common;
-using Domain.Entities;
-using Domain.Enums;
-using Domain.Settings.SignalRServer;
 using MediatR;
 
 namespace Application.Features.Configurations.Server.Commands.CreateConfig
 {
+	/// <summary>
+	/// CreateConfigServerCommand - handles IRequest
+	/// BaseRequestParameter - contains the entity of the server configuration
+	/// BaseResponseParameter - contains the Id of the server configuration and the result of the execution (successful/unsuccessful)
+	/// Тo create a new server configuration, use the properties from the body of this class
+	/// </summary>
 	public class CreateConfigServerCommand : IRequest<Response<Guid>>
 	{
 		public Guid SystemId { get; set; }

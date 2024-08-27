@@ -118,10 +118,38 @@ namespace Communications.UoW
 				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
 				.AddJsonFile("configureDefault.json", optional: false, reloadOnChange: true)
 				.Build();
+		
+			string json = JsonConvert.SerializeObject(BracingClientSettings(configuration), Formatting.Indented);
 
-			var config = new ClientSettings
+			if (new FileInfo(filePath).Length == 0)
 			{
-				DBSettings = new DBSettings
+				File.WriteAllText(filePath, json);
+				Log.Information($"The default configuration is used.");
+			}
+			LoadConfigFile();
+		}
+		private void EnsureConfigurationFile(string configFile)
+		{
+			filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile);
+
+			if (!File.Exists(filePath))
+			{
+				try
+				{
+					using (File.Create(filePath)) { }
+				}
+				catch (Exception ex)
+				{
+					Log.Error($"Exception with creating configuration file: {ex.Message}");
+				}
+			}
+		}
+
+		public ClientSettings BracingClientSettings(IConfigurationRoot configuration)
+		{
+			return new ClientSettings
+			{
+				DBConnection = new DBSettings
 				{
 					DataBase = configuration["DbConnection:DataBase"],
 					Alarm = new AlarmDataBase
@@ -136,13 +164,13 @@ namespace Communications.UoW
 
 				CLientSettings = new CLientSettings
 				{
-					Id = (Guid.Parse(configuration["ClientSettings:ClientId"]) == Guid.Empty) ? Guid.Parse(configuration["ClientSettings:ClientId"]) :
-					Guid.Parse(configuration["ClientSettings:ClientId"]),
+					ClientId = (configuration["ClientSettings:ClientId"] == "GENERATE") ? Guid.NewGuid() :
+								Guid.Parse(configuration["ClientSettings:ClientId"]),
 					UseCache = bool.Parse(configuration["ClientSettings:UseCache"]),
 					Mode = (ConnectionMode)Enum.Parse(typeof(ConnectionMode), configuration["ClientSettings:Mode"])
 				},
 
-				ConnectSettings = new ConnectSettings
+				ConnectionSettings = new ConnectSettings
 				{
 					Notify = new NotifyConnection
 					{
@@ -166,32 +194,6 @@ namespace Communications.UoW
 					}
 				}
 			};
-			string json = JsonConvert.SerializeObject(config, Formatting.Indented);
-
-			if (new FileInfo(filePath).Length == 0)
-			{
-				File.WriteAllText(filePath, json);
-				Log.Information($"The default configuration is used.");
-			}
-			LoadConfigFile();
 		}
-		private void EnsureConfigurationFile(string configFile)
-		{
-			string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile);
-
-			if (!File.Exists(filePath))
-			{
-				try
-				{
-					using (File.Create(filePath)) { }
-				}
-				catch (Exception ex)
-				{
-					Log.Error($"Exception with creating configuration file: {ex.Message}");
-				}
-			}
-		}
-
 	}
-
 }

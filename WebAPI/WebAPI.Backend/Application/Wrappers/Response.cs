@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Application.Wrappers
+﻿namespace Application.Wrappers
 {
-    public class Response<T>
+	public class Response<T>
     {
 		public bool Succeeded { get; set; }
 		public string Message { get; set; }

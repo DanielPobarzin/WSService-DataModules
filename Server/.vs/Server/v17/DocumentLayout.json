@@ -3,67 +3,87 @@
   "WorkspaceRootPath": "C:\\All\\NotificationsExchange\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\server\\server\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\server\\server\\communications\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Server\\server\\communications\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\helpers\\transformtodtohelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}|Server\\Repositories\\Repositories.csproj|c:\\all\\notificationsexchange\\server\\server\\repositories\\alarms\\alarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\server\\server\\communications\\connections\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\connections\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|c:\\all\\notificationsexchange\\server\\server\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\services\\consumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\services\\producerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Server\\server\\communications\\uow\\unitofworkgetalarms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\uow\\unitofworkgetalarms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|C:\\All\\NotificationsExchange\\Server\\server\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0D0F65-AE23-487A-A11E-915C3AF8D496}|Server\\Communications\\Communications.csproj|solutionrelative:server\\communications\\uow\\unitofworkgetconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}|Server\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Server\\server\\repositories\\alarms\\alarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}|Server\\Repositories\\Repositories.csproj|solutionrelative:server\\repositories\\alarms\\alarmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}|Server\\Repositories\\Repositories.csproj|c:\\all\\notificationsexchange\\server\\server\\repositories\\alarms\\alarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}|Server\\Repositories\\Repositories.csproj|C:\\All\\NotificationsExchange\\Server\\server\\repositories\\alarms\\alarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1DB99585-042E-4E52-9ECB-423B1FDBB7E7}|Server\\Repositories\\Repositories.csproj|solutionrelative:server\\repositories\\alarms\\alarmrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|c:\\all\\notificationsexchange\\server\\server\\shared\\common\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|C:\\All\\NotificationsExchange\\Server\\server\\shared\\common\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28E80256-93DA-459B-93AD-314944BA6815}|Server\\Shared\\Shared.csproj|solutionrelative:server\\shared\\common\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\interfaces\\iproducerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\interfaces\\iconsumerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\helpers\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\helpers\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\helpers\\serializehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\helpers\\jsoncachehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\helpers\\hashhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\helpers\\configvalidhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|c:\\all\\notificationsexchange\\server\\server\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|C:\\All\\NotificationsExchange\\Server\\server\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1826EB5E-2E40-4325-AB9F-1C8BD4D56FCB}|Server\\Interactors\\Interactors.csproj|solutionrelative:server\\interactors\\helpers\\checkhashhalper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|c:\\all\\notificationsexchange\\server\\server\\entities\\settings\\serversettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|C:\\All\\NotificationsExchange\\Server\\server\\entities\\settings\\serversettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|solutionrelative:server\\entities\\settings\\serversettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|c:\\all\\notificationsexchange\\server\\server\\entities\\settings\\serveroptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|C:\\All\\NotificationsExchange\\Server\\server\\entities\\settings\\serveroptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|solutionrelative:server\\entities\\settings\\serveroptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|c:\\all\\notificationsexchange\\server\\server\\entities\\entities\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|C:\\All\\NotificationsExchange\\Server\\server\\entities\\entities\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3210F3C6-581C-444A-A150-2C3EE4B10F38}|Server\\Entities\\Entities.csproj|solutionrelative:server\\entities\\entities\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -82,11 +102,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 112,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "schema.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\bin\\Release\\net8.0\\schema.json",
               "RelativeDocumentMoniker": "Server\\Communications\\bin\\Release\\net8.0\\schema.json",
@@ -99,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "configureDefault.json",
               "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\bin\\Release\\net8.0\\configureDefault.json",
               "RelativeDocumentMoniker": "Server\\Communications\\bin\\Release\\net8.0\\configureDefault.json",
@@ -108,215 +128,19 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-08-22T13:27:21.887Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UnitOfWorkGetConfig.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
-              "RelativeDocumentMoniker": "Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
-              "RelativeToolTip": "Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAQwD4AAABkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:56:27.438Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TransformToDTOHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
-              "RelativeDocumentMoniker": "Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
-              "RelativeToolTip": "Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:54:44.789Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AlarmsDbContext.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
-              "RelativeDocumentMoniker": "Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
-              "RelativeToolTip": "Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:47:55.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AlarmRepository.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmRepository.cs",
-              "RelativeDocumentMoniker": "Server\\Repositories\\Alarms\\AlarmRepository.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmRepository.cs",
-              "RelativeToolTip": "Server\\Repositories\\Alarms\\AlarmRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:47:05.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Connections.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Common\\Connections.cs",
-              "RelativeDocumentMoniker": "Server\\Shared\\Common\\Connections.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Common\\Connections.cs",
-              "RelativeToolTip": "Server\\Shared\\Common\\Connections.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Connections\\Connections.cs",
+              "RelativeDocumentMoniker": "Server\\Communications\\Connections\\Connections.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Connections\\Connections.cs",
+              "RelativeToolTip": "Server\\Communications\\Connections\\Connections.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:46:18.024Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IRepository.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IRepository.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IRepository.cs",
-              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:45:06.554Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IProducerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IProducerService.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IProducerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IProducerService.cs",
-              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IProducerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:44:52.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IConsumerService.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:44:33.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SerializeHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\SerializeHelper.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\SerializeHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\SerializeHelper.cs",
-              "RelativeToolTip": "Server\\Interactors\\Helpers\\SerializeHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:44:19.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "JsonCacheHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "RelativeToolTip": "Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:43:41.562Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "HashHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\HashHelper.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\HashHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\HashHelper.cs",
-              "RelativeToolTip": "Server\\Interactors\\Helpers\\HashHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:42:50.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ConfigValidHelper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "RelativeToolTip": "Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:42:48.795Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CheckHashHalper.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "RelativeToolTip": "Server\\Interactors\\Helpers\\CheckHashHalper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:42:16.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ServerSettings.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerSettings.cs",
-              "RelativeDocumentMoniker": "Server\\Entities\\Settings\\ServerSettings.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerSettings.cs",
-              "RelativeToolTip": "Server\\Entities\\Settings\\ServerSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:36:53.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ServerOptions.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerOptions.cs",
-              "RelativeDocumentMoniker": "Server\\Entities\\Settings\\ServerOptions.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerOptions.cs",
-              "RelativeToolTip": "Server\\Entities\\Settings\\ServerOptions.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:36:07.211Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Alarm.cs",
-              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Entities\\Alarm.cs",
-              "RelativeDocumentMoniker": "Server\\Entities\\Entities\\Alarm.cs",
-              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Entities\\Alarm.cs",
-              "RelativeToolTip": "Server\\Entities\\Entities\\Alarm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T14:34:46.583Z",
+              "WhenOpened": "2024-08-27T07:00:30.789Z",
               "EditorCaption": ""
             },
             {
@@ -330,6 +154,248 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ConsumerService.cs",
+              "RelativeDocumentMoniker": "Server\\Shared\\Services\\ConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ConsumerService.cs",
+              "RelativeToolTip": "Server\\Shared\\Services\\ConsumerService.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAQwE8AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T07:11:04.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Program.cs",
+              "RelativeDocumentMoniker": "Server\\Communications\\Program.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Program.cs",
+              "RelativeToolTip": "Server\\Communications\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T06:50:42.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitOfWorkGetAlarms.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\UoW\\UnitOfWorkGetAlarms.cs",
+              "RelativeDocumentMoniker": "Server\\Communications\\UoW\\UnitOfWorkGetAlarms.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\UoW\\UnitOfWorkGetAlarms.cs",
+              "RelativeToolTip": "Server\\Communications\\UoW\\UnitOfWorkGetAlarms.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T06:49:23.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UnitOfWorkGetConfig.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
+              "RelativeDocumentMoniker": "Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
+              "RelativeToolTip": "Server\\Communications\\UoW\\UnitOfWorkGetConfig.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAYwIYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:56:27.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TransformToDTOHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeDocumentMoniker": "Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "RelativeToolTip": "Server\\Communications\\Helpers\\TransformToDTOHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:54:44.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProducerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ProducerService.cs",
+              "RelativeDocumentMoniker": "Server\\Shared\\Services\\ProducerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Services\\ProducerService.cs",
+              "RelativeToolTip": "Server\\Shared\\Services\\ProducerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T07:48:36.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AlarmsDbContext.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
+              "RelativeDocumentMoniker": "Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
+              "RelativeToolTip": "Server\\Repositories\\Alarms\\AlarmsDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:47:55.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AlarmRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmRepository.cs",
+              "RelativeDocumentMoniker": "Server\\Repositories\\Alarms\\AlarmRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Repositories\\Alarms\\AlarmRepository.cs",
+              "RelativeToolTip": "Server\\Repositories\\Alarms\\AlarmRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:47:05.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Connections.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Common\\Connections.cs",
+              "RelativeDocumentMoniker": "Server\\Shared\\Common\\Connections.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Shared\\Common\\Connections.cs",
+              "RelativeToolTip": "Server\\Shared\\Common\\Connections.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:46:18.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:45:06.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IProducerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IProducerService.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IProducerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IProducerService.cs",
+              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IProducerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:44:52.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IConsumerService.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "RelativeToolTip": "Server\\Interactors\\Interfaces\\IConsumerService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:44:33.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SerializeHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\SerializeHelper.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\SerializeHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\SerializeHelper.cs",
+              "RelativeToolTip": "Server\\Interactors\\Helpers\\SerializeHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:44:19.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "JsonCacheHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "RelativeToolTip": "Server\\Interactors\\Helpers\\JsonCacheHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:43:41.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HashHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\HashHelper.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\HashHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\HashHelper.cs",
+              "RelativeToolTip": "Server\\Interactors\\Helpers\\HashHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:42:50.402Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ConfigValidHelper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "RelativeToolTip": "Server\\Interactors\\Helpers\\ConfigValidHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:42:48.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CheckHashHalper.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "RelativeDocumentMoniker": "Server\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "RelativeToolTip": "Server\\Interactors\\Helpers\\CheckHashHalper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:42:16.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ServerSettings.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerSettings.cs",
+              "RelativeDocumentMoniker": "Server\\Entities\\Settings\\ServerSettings.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerSettings.cs",
+              "RelativeToolTip": "Server\\Entities\\Settings\\ServerSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:36:53.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServerOptions.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerOptions.cs",
+              "RelativeDocumentMoniker": "Server\\Entities\\Settings\\ServerOptions.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Settings\\ServerOptions.cs",
+              "RelativeToolTip": "Server\\Entities\\Settings\\ServerOptions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:36:07.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Alarm.cs",
+              "DocumentMoniker": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Entities\\Alarm.cs",
+              "RelativeDocumentMoniker": "Server\\Entities\\Entities\\Alarm.cs",
+              "ToolTip": "C:\\All\\NotificationsExchange\\Server\\Server\\Entities\\Entities\\Alarm.cs",
+              "RelativeToolTip": "Server\\Entities\\Entities\\Alarm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:34:46.583Z"
             }
           ]
         }

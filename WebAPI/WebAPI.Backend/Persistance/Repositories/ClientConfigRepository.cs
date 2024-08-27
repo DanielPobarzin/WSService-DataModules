@@ -2,15 +2,10 @@
 using AutoMapper;
 using Domain.Settings.SignalRClient;
 using Persistance.DbContexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-	public class ClientConfigRepository : GenericRepositoryAsync<ClientSettings, ClientConfigDbContext>, IClientConfigRepositoryAsync
+	public class ClientConfigRepository : GenericRepositoryAsync<CLientSettings, ClientConfigDbContext>, IClientConfigRepositoryAsync
 	{
 		private ClientConfigDbContext _dbContext;
 		private IMapper _mapper;

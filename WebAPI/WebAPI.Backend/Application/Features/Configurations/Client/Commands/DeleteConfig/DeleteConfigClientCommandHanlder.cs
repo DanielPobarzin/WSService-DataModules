@@ -30,11 +30,9 @@ namespace Application.Features.Configurations.Client.Commands.DeleteConfig
 		/// <exception cref="APIException">Thrown if a client config with the specified ID  does not exist.</exception>
 		public async Task<Response<Guid>> Handle(DeleteConfigClientCommand command, CancellationToken cancellationToken)
 		{
-			var config = await _repository.GetByIdAsync(command.Id);
-			if (config == null) throw new APIException($"Config Not Found.");
-
+			var config = await _repository.GetByIdAsync(command.Id) ?? throw new APIException($"Config Not Found.");
 			await _repository.DeleteAsync(config);
-			return new Response<Guid>(config.SystemId, true);
+			return new Response<Guid>(config.ClientSettings.ClientId, true);
 		}
 	}
 }

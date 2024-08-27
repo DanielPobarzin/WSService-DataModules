@@ -40,65 +40,63 @@ namespace Application.Features.Configurations.Client.Commands.SendConfig
 		/// <exception cref="APIException">Thrown when the configuration is not found.</exception>
 		public async Task<Response<Guid>> Handle(SendConfigClientCommand command, CancellationToken cancellationToken)
 		{
-			var config = await _repository.GetByIdAsync(command.Id);
-			if (config == null) throw new APIException($"Configuration Not Found.");
-
-			var configDto = new ClientSettings
+			var config = await _repository.GetByIdAsync(command.Id) ?? throw new APIException($"Configuration Not Found.");
+			
+			var configDto = new CLientSettings
 			{
-				SystemId = config.SystemId,
-				DBSettings = new DBSettings
+				DBConnection = new DBSettings
 				{
-					DataBase = config.DBSettings.DataBase,
+					DataBase = config.DBConnection.DataBase,
 					Alarm = new AlarmDataBase
 					{
-						ConnectionString = config.DBSettings.Alarm.ConnectionString,
+						ConnectionString = config.DBConnection.Alarm.ConnectionString,
 					},
 					Notify = new NotifyDataBase
 					{
-						ConnectionString = config.DBSettings.Notify.ConnectionString,
+						ConnectionString = config.DBConnection.Notify.ConnectionString,
 					}
 				},
 
-				ModeSettings = new ModeSettings
+				ClientSettings = new ClientSettings
 				{
-					ClientId = command.Id,
-					UseCache = config.ModeSettings.UseCache,
-					Mode = config.ModeSettings.Mode
+					ClientId = config.ClientSettings.ClientId,
+					UseCache = config.ClientSettings.UseCache,
+					Mode = config.ClientSettings.Mode
 				},
 
-				ConnectSettings = new ConnectSettings
+				ConnectionSettings = new ConnectSettings
 				{
 					Notify = new NotifyConnection
 					{
-						Url = config.ConnectSettings.Notify.Url,
+						Url = config.ConnectionSettings.Notify.Url,
 					},
 					Alarm = new AlarmConnection
 					{
-						Url = config.ConnectSettings.Alarm.Url,
+						Url = config.ConnectionSettings.Alarm.Url,
 					}
 				},
 
-				KafkaSettings = new KafkaSettings
+				Kafka = new KafkaSettings
 				{
 					Consumer = new ConsumerConnection
 					{
-						BootstrapServers = config.KafkaSettings.Consumer.BootstrapServers
+						BootstrapServers = config.Kafka.Consumer.BootstrapServers
 					},
 					Producer = new ProducerConnection
 					{
-						BootstrapServers = config.KafkaSettings.Producer.BootstrapServers
+						BootstrapServers = config.Kafka.Producer.BootstrapServers
 					}
 				}
 			};
 			
 			var message = new MessageRequest
 			{
-				To = config.SystemId,
+				To = config.ClientSettings.ClientId,
 				Body = JsonConvert.SerializeObject(configDto, Formatting.Indented)
 			};
 			string json = JsonConvert.SerializeObject(message, Formatting.Indented);
-			await _producer.ProduceMessageProcessAsync(_topicProduce, json, "config");
-			return new Response<Guid>(config.SystemId, true);
+			await _producer.ProduceMessageProcessAsync(_topicProduce, json, "client-config");
+			return new Response<Guid>(config.ClientSettings.ClientId, true);
 		}
 	}
 }

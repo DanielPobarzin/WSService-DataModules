@@ -1,20 +1,14 @@
-﻿using Domain.Common;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
 
 namespace Domain.Settings.SignalRServer
 {
-	public class DBSettings : BaseConfig
+	public class DBSettings
 	{
-		public string DB { get; set; }
-		public AlarmConnection AlarmDB { get; set; }
-		public NotifyConnection NotificationDB { get; set; }
+		public string DataBase { get; set; }
+		public AlarmConnection Alarm { get; set; }
+		public NotifyConnection Notify { get; set; }
 	}
-	public class KafkaSettings : BaseConfig
+	public class KafkaSettings
 	{
 		public ConsumerConnection Consumer { get; set; }
 		public ProducerConnection Producer { get; set; }
@@ -36,7 +30,7 @@ namespace Domain.Settings.SignalRServer
 	{
 		public string ConnectionString { get; set; }
 	}
-	public class HubSettings : BaseConfig
+	public class HubSettings
 	{
 		public Guid ServerId { get; set; }
 		public NotifyHubSettings Notify { get; set; }
@@ -54,7 +48,7 @@ namespace Domain.Settings.SignalRServer
 		public string HubMethod { get; set; }
 		public string TargetClients { get; set; }
 	}
-	public class HostSettings : BaseConfig
+	public class HostSettings
 	{
 		public int Port { get; set; }
 		public string Urls { get; set; }

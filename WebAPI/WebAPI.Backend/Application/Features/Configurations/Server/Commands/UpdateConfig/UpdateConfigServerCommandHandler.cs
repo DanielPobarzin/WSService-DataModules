@@ -1,7 +1,6 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
-using AutoMapper;
 using Domain.Settings.SignalRServer;
 using MediatR;
 
@@ -14,27 +13,32 @@ namespace Application.Features.Configurations.Server.Commands.UpdateConfig
 		{
 			_repository = repository;
 		}
+
+		/// <summary>
+		/// Handles the updating of a server configuration.
+		/// </summary>
+		/// <param name="command">The command containing the details for updating the server configuration.</param>
+		/// <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>
+		/// <returns>A task that represents the asynchronous operation. The task result contains a <see cref="Response{Guid}"/> with the ID of the updated server configuration.</returns>
+		/// <exception cref="APIException">Thrown when the specified configuration is not found.</exception>
 		public async Task<Response<Guid>> Handle(UpdateConfigServerCommand command, CancellationToken cancellationToken)
 		{
-			var config = await _repository.GetByIdAsync(command.SystemId);
-			if (config == null) throw new APIException($"Config Not Found.");
+			var config = await _repository.GetByIdAsync(command.SystemId) ?? throw new APIException($"Config Not Found.");
 
-			config.SystemId = command.SystemId;
-
-			config.ServerDB = new DBSettings
+			config.DbConnection = new DBSettings
 			{
-				DB = command.DB,
-				AlarmDB = new AlarmConnection
+				DataBase = command.DB,
+				Alarm = new AlarmConnection
 				{
 					ConnectionString = command.AlarmDB
 				},
-				NotificationDB = new NotifyConnection
+				Notify = new NotifyConnection
 				{
 					ConnectionString = command.NotificationDB
 				}
 			};
 
-			config.ServerHost = new HostSettings
+			config.HostSettings = new HostSettings
 			{
 				PolicyName = command.PolicyName,
 				Port = command.Port,
@@ -44,7 +48,7 @@ namespace Application.Features.Configurations.Server.Commands.UpdateConfig
 				RouteAlarm = command.RouteAlarm
 			};
 
-			config.ServerHub = new HubSettings
+			config.HubSettings = new HubSettings
 			{
 				ServerId = command.SystemId,
 
@@ -64,7 +68,7 @@ namespace Application.Features.Configurations.Server.Commands.UpdateConfig
 
 			};
 
-			config.ServerKafka = new KafkaSettings
+			config.Kafka = new KafkaSettings
 			{
 				Consumer = new ConsumerConnection
 				{
@@ -77,7 +81,7 @@ namespace Application.Features.Configurations.Server.Commands.UpdateConfig
 			};
 
 			await _repository.UpdateAsync(config);
-			return new Response<Guid>(config.SystemId, true);
+			return new Response<Guid>(config.HubSettings.ServerId, true);
 		}
 	}
 }

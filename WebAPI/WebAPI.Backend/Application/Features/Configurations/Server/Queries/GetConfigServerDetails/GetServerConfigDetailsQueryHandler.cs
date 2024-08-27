@@ -17,8 +17,7 @@ namespace Application.Features.Configurations.Server.Queries.GetConfigServerDeta
 		}
 		public async Task<Response<ServerConfigDetailsViewModel>> Handle(GetServerConfigDetailsQuery query, CancellationToken cancellationToken)
 		{
-			var config = await _repository.GetByIdAsync(query.Id);
-			if (config == null) throw new APIException($"Configuration Not Found.");
+			var config = await _repository.GetByIdAsync(query.Id) ?? throw new APIException($"Configuration Not Found.");
 			return new Response<ServerConfigDetailsViewModel>(_mapper.Map<ServerConfigDetailsViewModel>(config), true);
 		}
 	}

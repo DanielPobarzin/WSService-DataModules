@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs.Message
+﻿namespace Shared.Share
 {
 	public class MessageRequest
 	{

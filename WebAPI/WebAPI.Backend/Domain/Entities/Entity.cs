@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Dynamic;
 using System.Xml;
 using System.Xml.Schema;
@@ -8,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Domain.Entities
 {
-    public class Entity : DynamicObject, IXmlSerializable, IDictionary<string, object>
+	public class Entity : DynamicObject, IXmlSerializable, IDictionary<string, object>
     {
         private readonly string _root = "Entity";
         private readonly IDictionary<string, object> _expandObject = null;

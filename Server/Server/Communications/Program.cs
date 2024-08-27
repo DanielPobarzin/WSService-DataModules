@@ -43,7 +43,6 @@ namespace Communications
 		/// <remarks>
 		/// <see cref="LoggerSetupHelper"/>
 		/// <see cref="UnitOfWorkGetConfig"/>
-		/// <see cref="UnitOfWorkGetConfig"/>
 		/// <see cref="CheckHashHalper"/>
 		/// </remarks>
 		public static void Main()
@@ -69,9 +68,9 @@ namespace Communications
 
 				Task.Run(async () =>
 				{
-					await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonConvert.SerializeObject
+					await producerService.PutMessageProducerProcessAsync("current-config-topic", JsonConvert.SerializeObject
 							(unitOfWorkConfig.BracingServerSettings((Microsoft.Extensions.Configuration.IConfigurationRoot)
-							unitOfWorkConfig.Configuration), Formatting.Indented), "config");
+							unitOfWorkConfig.Configuration), Formatting.Indented), "server-config");
 				});
 
 				consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
@@ -239,9 +238,9 @@ namespace Communications
 						await consumerService.StartAsync(CancellationToken.None);
 					}
 
-				await producerService.PutMessageProducerProcessAsync("current-server-config-topic", JsonConvert.SerializeObject
+				await producerService.PutMessageProducerProcessAsync("current-config-topic", JsonConvert.SerializeObject
 							(unitOfWorkConfig.BracingServerSettings((Microsoft.Extensions.Configuration.IConfigurationRoot)
-							unitOfWorkConfig.Configuration), Formatting.Indented), "config");
+							unitOfWorkConfig.Configuration), Formatting.Indented), "server-config");
 			}
 		}
 		private static IHost host;

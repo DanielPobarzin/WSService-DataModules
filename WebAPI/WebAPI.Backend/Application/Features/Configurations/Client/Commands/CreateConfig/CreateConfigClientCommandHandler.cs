@@ -34,55 +34,55 @@ namespace Application.Features.Configurations.Client.Commands.CreateConfig
 			var config = await _repository.GetByIdAsync(command.SystemId);
 			if (config != null) throw new APIException($"Config has already been created.");
 
-			var newconfig = new ClientSettings();
-			newconfig.SystemId = command.SystemId;
-
-			newconfig.DBSettings = new DBSettings
+			var newConfig = new CLientSettings()
 			{
-				DataBase = command.DB,
-				Alarm = new AlarmDataBase
+				DBConnection = new DBSettings
 				{
-					ConnectionString = command.AlarmDB
+					DataBase = command.DB,
+					Alarm = new AlarmDataBase
+					{
+						ConnectionString = command.AlarmDB
+					},
+					Notify = new NotifyDataBase
+					{
+						ConnectionString = command.NotificationDB
+					}
 				},
-				Notify = new NotifyDataBase
+
+				ClientSettings = new ClientSettings
 				{
-					ConnectionString = command.NotificationDB
+					ClientId = command.SystemId,
+					UseCache = command.UseCache,
+					Mode = command.Mode
+				},
+
+				ConnectionSettings = new ConnectSettings
+				{
+
+					Notify = new NotifyConnection
+					{
+						Url = command.NotifyUrl
+					},
+					Alarm = new AlarmConnection
+					{
+						Url = command.AlarmUrl
+					}
+				},
+
+				Kafka = new KafkaSettings
+				{
+					Consumer = new ConsumerConnection
+					{
+						BootstrapServers = command.ConsumerBootstrapServer
+					},
+					Producer = new ProducerConnection
+					{
+						BootstrapServers = command.ProducerBootstrapServer
+					}
 				}
 			};
-
-			newconfig.ModeSettings = new ModeSettings
-			{
-				ClientId = newconfig.SystemId,
-				UseCache = command.UseCache,
-				Mode = command.Mode
-			};
-
-			newconfig.ConnectSettings = new ConnectSettings
-			{
-				
-				Notify = new NotifyConnection
-				{
-					Url = command.NotifyUrl
-				},
-				Alarm = new AlarmConnection
-				{
-					Url = command.AlarmUrl
-				}
-			};
-
-			newconfig.KafkaSettings = new KafkaSettings
-			{
-				Consumer = new ConsumerConnection
-				{
-					BootstrapServers = command.ConsumerBootstrapServer
-				},
-				Producer = new ProducerConnection
-				{
-					BootstrapServers = command.ProducerBootstrapServer
-				}
-			};
-			await _repository.AddAsync(newconfig);
-			return new Response<Guid>(newconfig.SystemId, true);
+			await _repository.AddAsync(newConfig);
+			return new Response<Guid>(newConfig.ClientSettings.ClientId, true);
 		}
 	}
 }

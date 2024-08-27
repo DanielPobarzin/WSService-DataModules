@@ -33,7 +33,7 @@ namespace Shared.Services
 			_configuration = configuration;
 			_bootstrapServers = _configuration["Kafka:Consumer:BootstrapServers"].Split(';');
 			_groupId = "ServersGroup";
-			_topicConfig = "new-server-config-topic";
+			_topicConfig = "new-config-topic";
 
 			var consumerConfig = new ConsumerConfig
 			{
@@ -77,7 +77,7 @@ namespace Shared.Services
 
 				switch (message.Key)
 				{
-					case ("config"):
+					case ("server-config"):
 						var newConfig = JsonConvert.DeserializeObject<MessageRequest>(message.Value);
 						if (newConfig == null || newConfig.To != Guid.Parse(_configuration["HubSettings:ServerId"]))
 						{ return; }

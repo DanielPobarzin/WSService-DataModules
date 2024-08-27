@@ -1,5 +1,4 @@
-﻿using Domain.Common;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Enums;
 
 namespace Domain.Settings.SignalRClient
@@ -50,7 +49,7 @@ namespace Domain.Settings.SignalRClient
 		public string Url { get; set; }
 	}
 
-	public class ModeSettings 
+	public class ClientSettings
 	{
 		public Guid ClientId { get; set; }
 		public bool UseCache { get; set; }

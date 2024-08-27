@@ -1,12 +1,10 @@
-﻿using Domain.Common;
-
-namespace Domain.Settings.SignalRClient
+﻿namespace Domain.Settings.SignalRClient
 {
-	public class ClientSettings : BaseConfig
+	public class CLientSettings 
 	{
-		public ConnectSettings ConnectSettings { get; set; }
-		public DBSettings DBSettings { get; set; }
-		public ModeSettings ModeSettings { get; set; }
-		public KafkaSettings KafkaSettings { get; set; }
+		public ConnectSettings ConnectionSettings { get; set; }
+		public DBSettings DBConnection { get; set; }
+		public ClientSettings ClientSettings { get; set; }
+		public KafkaSettings Kafka { get; set; }
 	}
 }

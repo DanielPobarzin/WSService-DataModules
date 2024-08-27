@@ -32,11 +32,9 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 		/// </exception>
 		public async Task<Response<Guid>> Handle(UpdateConfigClientCommand command, CancellationToken cancellationToken)
 		{
-			var config = await _repository.GetByIdAsync(command.SystemId);
-			if (config == null) throw new APIException($"Config Not Found.");
+			var config = await _repository.GetByIdAsync(command.SystemId) ?? throw new APIException($"Config Not Found.");
 
-			config.SystemId = command.SystemId;
-			config.DBSettings = new DBSettings
+			config.DBConnection = new DBSettings
 			{
 				DataBase = command.DB,
 				Alarm = new AlarmDataBase
@@ -49,7 +47,7 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 				}
 			};
 
-			config.ConnectSettings = new ConnectSettings
+			config.ConnectionSettings = new ConnectSettings
 			{
 				Notify = new NotifyConnection
 				{
@@ -61,13 +59,14 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 				}
 			};
 
-			config.ModeSettings = new ModeSettings
+			config.ClientSettings = new ClientSettings
 			{
+				ClientId = command.SystemId,
 				UseCache = command.UseCache,
 				Mode = command.Mode
 			};
 
-			config.KafkaSettings = new KafkaSettings
+			config.Kafka = new KafkaSettings
 			{
 				Consumer = new ConsumerConnection
 				{
@@ -79,7 +78,7 @@ namespace Application.Features.Configurations.Client.Commands.UpdateConfig
 				}
 			};
 			await _repository.UpdateAsync(config);
-			return new Response<Guid>(config.SystemId, true);
+			return new Response<Guid>(config.ClientSettings.ClientId, true);
 		}
 	}
 }

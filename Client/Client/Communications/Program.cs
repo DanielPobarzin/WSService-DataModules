@@ -2,11 +2,11 @@
 using Communications.Helpers;
 using Communications.UoW;
 using Entities.Enums;
-using Interactors.Enums;
 using Interactors.Helpers;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 using Repositories.DO;
 using Serilog;
 using Serilog.Events;
@@ -14,32 +14,31 @@ using Serilog.Sinks.SystemConsole.Themes;
 using Shared.Common;
 using Shared.Services;
 using Shared.Share.KafkaMessage;
+using System.Diagnostics;
 using System.Net;
 using System.Text;
-using System.Text.Json;
 
 namespace Client
 {
 	public class Program
 	{
 		private static ProducerService producerService;
-
 		private static UnitOfWorkGetConfig unitOfWorkConfig;
-
 		private static CheckHashHalper checkHashHalper;
 		private static CancellationTokenSource cancellationToken;
 		private static Thread notificationExchangeThread;
 		private static Thread alarmExchangeThread;
 		private static Thread kafkaProducerThread;
 		private static MemoryCache MemoryCache;
-		private static readonly JsonSerializerOptions DefaultOptions = new JsonSerializerOptions
-		{
-			WriteIndented = true
-		};
 
 		/// <summary>
 		/// The main method defines work threads, creates instances of work units.
 		/// </summary>
+		/// <remarks>
+		/// <see cref="ProducerService"/>
+		/// <see cref="UnitOfWorkGetConfig"/>
+		/// <see cref="CheckHashHalper"/>
+		/// </remarks>
 		public static void Main(string[] args)
 		{
 			GlobalSingletonParameters.Instance.ConnectionCommand = ConnectionCommand.Close;
@@ -93,8 +92,9 @@ namespace Client
 			producerService = new ProducerService(unitOfWorkConfig.Configuration);
 			Task.Run(async () =>
 			{
-				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
-			(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
+				await producerService.PutMessageProducerProcessAsync("current-config-topic", JsonConvert.SerializeObject
+							(unitOfWorkConfig.BracingClientSettings((Microsoft.Extensions.Configuration.IConfigurationRoot)
+							unitOfWorkConfig.Configuration), Formatting.Indented), "client-config");
 			});
 			consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
 			consumerService.StartAsync(CancellationToken.None);
@@ -127,8 +127,10 @@ namespace Client
 				{
 					if (KafkaMessageMetrics.Instance.ClientId != Guid.Empty)
 					{
+						KafkaMessageMetrics.Instance.WorkingMemoryUsage = Process.GetCurrentProcess().WorkingSet64;
+						KafkaMessageMetrics.Instance.WorkingMemoryUsage = Process.GetCurrentProcess().PrivateMemorySize64;
 						await producerService.PutMessageProducerProcessAsync("metric-topic",
-						JsonSerializer.Serialize((KafkaMessageMetrics.Instance), DefaultOptions), "client-metric");
+						JsonConvert.SerializeObject((KafkaMessageMetrics.Instance), Formatting.Indented), "client-metric");
 					}
 					await Task.Delay(100, cancellationToken.Token);
 				}
@@ -172,26 +174,26 @@ namespace Client
 						//--------------- Notify Hub -----------------//
 						case TypeHub.Notify:
 							string url = unitOfWorkConfig.Configuration["ConnectionSettings:Notify:Url"];
-							connectionNotify = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
-							StartHubConnectionAsync(url, connectionNotify); //---- Start Hub Connection ----//
-							EventWithConnectionHandler(connectionNotify); //--- Connection Event Triggers -----//
-							GetHubMessages(type, connectionNotify); //--- Try get messages ----//
+							ConnectionNotify = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
+							StartHubConnectionAsync(url, ConnectionNotify); //---- Start Hub Connection ----//
+							EventWithConnectionHandler(ConnectionNotify); //--- Connection Event Triggers -----//
+							GetHubMessages(type, ConnectionNotify); //--- Try get messages ----//
 							break;
 
 						//--------------- Alarm Hub -----------------//
 						case TypeHub.Alarm:
 							url = unitOfWorkConfig.Configuration["ConnectionSettings:Alarm:Url"];
-							connectionAlarm = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
-							StartHubConnectionAsync(url, connectionAlarm); //---- Start Hub Connection ----//
-							EventWithConnectionHandler(connectionAlarm); //--- Connection Event Triggers -----//
-							GetHubMessages(type, connectionAlarm); //--- Try get messages ----//
+							ConnectionAlarm = ConnectionСonfiguration(url); //---- Setting the connection configuration ------// 
+							StartHubConnectionAsync(url, ConnectionAlarm); //---- Start Hub Connection ----//
+							EventWithConnectionHandler(ConnectionAlarm); //--- Connection Event Triggers -----//
+							GetHubMessages(type, ConnectionAlarm); //--- Try get messages ----//
 							break;
 					}
 				}
 			}
 		}
-		private static HubConnection connectionNotify { get; set; }
-		private static HubConnection connectionAlarm { get; set; }
+		private static HubConnection ConnectionNotify { get; set; }
+		private static HubConnection ConnectionAlarm { get; set; }
 
 		/// <summary>
 		/// Building a connection object depending on the provided address.
@@ -326,7 +328,7 @@ namespace Client
 						{
 							KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Opened;
 							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
-							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(messageNotify)).Length;
+							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messageNotify)).Length;
 							KafkaMessageMetrics.Instance.CountNotifications += 1;
 							KafkaMessageMetrics.Instance.Latency = messageNotify.DateAndTimeRecievedDataFromServer - messageNotify.DateAndTimeSendDataByServer;
 						}
@@ -335,13 +337,11 @@ namespace Client
 						{
 							try
 							{
-								using (var unitOfWorkPublishNotifications = new UnitOfWorkPublishNotifications(unitOfWorkConfig.Configuration))
-								{
-									unitOfWorkPublishNotifications.PublishNotifications(messageNotify).Wait();
-								}
+								using var unitOfWorkPublishNotifications = new UnitOfWorkPublishNotifications(unitOfWorkConfig.Configuration);
+								unitOfWorkPublishNotifications.PublishNotifications(messageNotify).Wait();
+								MemoryCache.Set($"{clientId}_{messageNotify.Notification.Id}", messageNotify);
 							}
 							catch (Exception ex) { Log.Error($"Еrror working with the database: {ex.Message}"); }
-							MemoryCache.Set($"{clientId}_{messageNotify.Notification.Id}", messageNotify);
 						}
 					});
 					break;
@@ -358,7 +358,7 @@ namespace Client
 						{
 							KafkaMessageMetrics.Instance.ConnectionStatus = ConnectionStatus.Opened;
 							KafkaMessageMetrics.Instance.TotalCountMessages += 1;
-							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonSerializer.Serialize(messageAlarm)).Length;
+							KafkaMessageMetrics.Instance.TotalMessagesSize += Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messageAlarm)).Length;
 							KafkaMessageMetrics.Instance.CountAlarms += 1;
 							KafkaMessageMetrics.Instance.Latency = messageAlarm.DateAndTimeRecievedDataFromServer - messageAlarm.DateAndTimeSendDataByServer;
 						}
@@ -367,13 +367,11 @@ namespace Client
 						{
 							try
 							{
-								using (var unitOfWorkPublishAlarms = new UnitOfWorkPublishAlarms(unitOfWorkConfig.Configuration))
-								{
-									unitOfWorkPublishAlarms.PublishAlarms(messageAlarm).Wait();
-								}
+								using var unitOfWorkPublishAlarms = new UnitOfWorkPublishAlarms(unitOfWorkConfig.Configuration);
+								unitOfWorkPublishAlarms.PublishAlarms(messageAlarm).Wait();
+								MemoryCache.Set($"{clientId}_{messageAlarm.Alarm.Id}", messageAlarm);
 							}
 							catch (Exception ex) { Log.Error($"Еrror working with the database : {ex.Message}"); }
-							MemoryCache.Set($"{clientId}_{messageAlarm.Alarm.Id}", messageAlarm);
 						}
 					});
 					break;
@@ -411,10 +409,10 @@ namespace Client
 								   : "NotifyHub";
 					Log.Information($"{clientId}: Changing the configuration {comment}. Reconnecting ... ");
 
-					if (connectionNotify != null && connectionNotify.State == HubConnectionState.Connected)
+					if (ConnectionNotify != null && ConnectionNotify.State == HubConnectionState.Connected)
 					{
-						await connectionNotify.StopAsync();
-						await connectionNotify.DisposeAsync();
+						await ConnectionNotify.StopAsync();
+						await ConnectionNotify.DisposeAsync();
 					}
 					RestartAsync(TypeHub.Notify, notificationExchangeThread);
 				}
@@ -430,10 +428,10 @@ namespace Client
 								   : "AlarmHub";
 					Log.Information($"{clientId}: Changing the configuration {comment}. Reconnecting ... ");
 
-					if (connectionAlarm != null && connectionAlarm.State == HubConnectionState.Connected)
+					if (ConnectionAlarm != null && ConnectionAlarm.State == HubConnectionState.Connected)
 					{
-						await connectionAlarm.StopAsync();
-						await connectionAlarm.DisposeAsync();
+						await ConnectionAlarm.StopAsync();
+						await ConnectionAlarm.DisposeAsync();
 					}
 					RestartAsync(TypeHub.Alarm, alarmExchangeThread);
 				}
@@ -450,8 +448,9 @@ namespace Client
 					consumerService = new ConsumerService(unitOfWorkConfig.Configuration);
 					await consumerService.StartAsync(CancellationToken.None);
 				}
-				await producerService.PutMessageProducerProcessAsync("current-client-config-topic", JsonSerializer.Serialize
-							(SerializeHelper.BuildConfigDictionary(unitOfWorkConfig.Configuration), DefaultOptions), "config");
+				await producerService.PutMessageProducerProcessAsync("current-config-topic", JsonConvert.SerializeObject
+							(unitOfWorkConfig.BracingClientSettings((Microsoft.Extensions.Configuration.IConfigurationRoot)
+							unitOfWorkConfig.Configuration), Formatting.Indented), "client-config");
 			}
 		}
 
@@ -463,15 +462,15 @@ namespace Client
 		/// </remarks>
 		public static async Task AllDisconnectAsync()
 		{
-			if (connectionNotify != null && connectionNotify.State == HubConnectionState.Connected)
+			if (ConnectionNotify != null && ConnectionNotify.State == HubConnectionState.Connected)
 			{
-				await connectionNotify.StopAsync();
-				await connectionNotify.DisposeAsync();
+				await ConnectionNotify.StopAsync();
+				await ConnectionNotify.DisposeAsync();
 			}
-			if (connectionAlarm != null && connectionAlarm.State == HubConnectionState.Connected)
+			if (ConnectionAlarm != null && ConnectionAlarm.State == HubConnectionState.Connected)
 			{
-				await connectionAlarm.StopAsync();
-				await connectionAlarm.DisposeAsync();
+				await ConnectionAlarm.StopAsync();
+				await ConnectionAlarm.DisposeAsync();
 			}
 		}
 
@@ -503,9 +502,9 @@ namespace Client
 		/// </remarks>
 		public static void ConnectAsync(TypeHub hub, Thread thread)
 		{
-			if (thread.ThreadState == ThreadState.Unstarted)
+			if (thread.ThreadState == System.Threading.ThreadState.Unstarted)
 			{
-				Thread newThread = new Thread(ExchangeBetweenServerAndClient);
+				Thread newThread = new(ExchangeBetweenServerAndClient);
 				newThread.Start(hub);
 				thread = newThread;
 			} else

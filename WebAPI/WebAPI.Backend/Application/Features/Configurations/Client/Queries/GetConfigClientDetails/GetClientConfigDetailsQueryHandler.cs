@@ -1,5 +1,4 @@
 ﻿using Application.Exceptions;
-using Application.Features.Configurations.Server.Queries.GetConfigServerDetails;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
 using AutoMapper;
@@ -35,8 +34,7 @@ namespace Application.Features.Configurations.Client.Queries.GetConfigClientDeta
 		/// <exception cref="APIException">Thrown when the configuration is not found.</exception>
 		public async Task<Response<ClientConfigDetailsViewModel>> Handle(GetClientConfigDetailsQuery query, CancellationToken cancellationToken)
 		{
-			var config = await _repository.GetByIdAsync(query.Id);
-			if (config == null) throw new APIException($"Configuration Not Found.");
+			var config = await _repository.GetByIdAsync(query.Id) ?? throw new APIException($"Configuration Not Found.");
 			return new Response<ClientConfigDetailsViewModel>(_mapper.Map<ClientConfigDetailsViewModel>(config), true);
 		}
 	}

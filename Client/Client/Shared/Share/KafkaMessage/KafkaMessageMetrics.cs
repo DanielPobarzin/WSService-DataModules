@@ -1,6 +1,4 @@
 ﻿using Entities.Enums;
-using Interactors.Enums;
-using System.Diagnostics;
 
 namespace Shared.Share.KafkaMessage
 {
@@ -60,12 +58,12 @@ namespace Shared.Share.KafkaMessage
 		public long WorkingMemoryUsage
 		{
 			get { return _workingMemoryUsage; }
-			set { _workingMemoryUsage = Process.GetCurrentProcess().WorkingSet64; }
+			set { _workingMemoryUsage = value; }
 		}
 		public long PrivateMemoryUsage
 		{
 			get { return _privateMemoryUsage; }
-			set { _privateMemoryUsage = Process.GetCurrentProcess().PrivateMemorySize64; }
+			set { _privateMemoryUsage = value; }
 		}
 
 		public TimeSpan Latency

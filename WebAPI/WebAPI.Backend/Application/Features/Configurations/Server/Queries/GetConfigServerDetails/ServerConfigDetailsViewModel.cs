@@ -30,41 +30,41 @@ namespace Application.Features.Configurations.Server.Queries.GetConfigServerDeta
 
 			profile.CreateMap<ServerSettings, ServerConfigDetailsViewModel>()
 					.ForMember(configVm => configVm.SystemId,
-							   opt => opt.MapFrom(config => config.SystemId))
+							   opt => opt.MapFrom(config => config.HubSettings.ServerId))
 					.ForMember(configVm => configVm.Port,
-							   opt => opt.MapFrom(config => config.ServerHost.Port))
+							   opt => opt.MapFrom(config => config.HostSettings.Port))
 					.ForMember(configVm => configVm.Urls,
-							   opt => opt.MapFrom(config => config.ServerHost.Urls))
+							   opt => opt.MapFrom(config => config.HostSettings.Urls))
 					.ForMember(configVm => configVm.PolicyName,
-							   opt => opt.MapFrom(config => config.ServerHost.PolicyName))
+							   opt => opt.MapFrom(config => config.HostSettings.PolicyName))
 					.ForMember(configVm => configVm.AllowedOrigins,
-							   opt => opt.MapFrom(config => config.ServerHost.AllowedOrigins))
+							   opt => opt.MapFrom(config => config.HostSettings.AllowedOrigins))
 					.ForMember(configVm => configVm.RouteNotify,
-							   opt => opt.MapFrom(config => config.ServerHost.RouteNotify))
+							   opt => opt.MapFrom(config => config.HostSettings.RouteNotify))
 					.ForMember(configVm => configVm.RouteAlarm,
-							   opt => opt.MapFrom(config => config.ServerHost.RouteAlarm))
+							   opt => opt.MapFrom(config => config.HostSettings.RouteAlarm))
 					.ForMember(configVm => configVm.AlarmDelayMilliseconds,
-							   opt => opt.MapFrom(config => config.ServerHub.Alarm.DelayMilliseconds))
+							   opt => opt.MapFrom(config => config.HubSettings.Alarm.DelayMilliseconds))
 					.ForMember(configVm => configVm.NotifyDelayMilliseconds,
-							   opt => opt.MapFrom(config => config.ServerHub.Notify.DelayMilliseconds))
+							   opt => opt.MapFrom(config => config.HubSettings.Notify.DelayMilliseconds))
 					.ForMember(configVm => configVm.NotifyHubMethod,
-							   opt => opt.MapFrom(config => config.ServerHub.Notify.HubMethod))
+							   opt => opt.MapFrom(config => config.HubSettings.Notify.HubMethod))
 					.ForMember(configVm => configVm.AlarmHubMethod,
-							   opt => opt.MapFrom(config => config.ServerHub.Alarm.HubMethod))
+							   opt => opt.MapFrom(config => config.HubSettings.Alarm.HubMethod))
 					.ForMember(configVm => configVm.NotifyTargetClients,
-							   opt => opt.MapFrom(config => config.ServerHub.Notify.TargetClients))
+							   opt => opt.MapFrom(config => config.HubSettings.Notify.TargetClients))
 					.ForMember(configVm => configVm.AlarmTargetClients,
-							   opt => opt.MapFrom(config => config.ServerHub.Alarm.TargetClients))
+							   opt => opt.MapFrom(config => config.HubSettings.Alarm.TargetClients))
 					.ForMember(configVm => configVm.DB,
-							   opt => opt.MapFrom(config => config.ServerDB.DB))
+							   opt => opt.MapFrom(config => config.DbConnection.DataBase))
 					.ForMember(configVm => configVm.AlarmDB,
-							   opt => opt.MapFrom(config => config.ServerDB.AlarmDB))
+							   opt => opt.MapFrom(config => config.DbConnection.Alarm.ConnectionString))
 					.ForMember(configVm => configVm.NotificationDB,
-							   opt => opt.MapFrom(config => config.ServerDB.NotificationDB))
+							   opt => opt.MapFrom(config => config.DbConnection.Notify.ConnectionString))
 					.ForMember(configVm => configVm.ConsumerBootstrapServer,
-							   opt => opt.MapFrom(config => config.ServerKafka.Consumer.BootstrapServers))
+							   opt => opt.MapFrom(config => config.Kafka.Consumer.BootstrapServers))
 					.ForMember(configVm => configVm.ProducerBootstrapServer,
-							   opt => opt.MapFrom(config => config.ServerKafka.Producer.BootstrapServers));
+							   opt => opt.MapFrom(config => config.Kafka.Producer.BootstrapServers));
 		}
 	}
 }

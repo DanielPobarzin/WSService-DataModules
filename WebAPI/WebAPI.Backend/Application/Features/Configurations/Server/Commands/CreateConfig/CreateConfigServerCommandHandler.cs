@@ -1,9 +1,6 @@
 ﻿using Application.Exceptions;
 using Application.Interfaces.Repositories;
 using Application.Wrappers;
-using AutoMapper;
-using Domain.Common;
-using Domain.Entities;
 using Domain.Settings.SignalRServer;
 using MediatR;
 
@@ -12,10 +9,23 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 	public class CreateConfigServerCommandHandler : IRequestHandler<CreateConfigServerCommand, Response<Guid>>
 	{
 		private readonly IServerConfigRepositoryAsync _repository;
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CreateConfigServerCommandHandler"/> class.
+		/// </summary>
+		/// <param name="repository">The repository used for accessing server configurations.</param>
 		public CreateConfigServerCommandHandler(IServerConfigRepositoryAsync repository)
 		{
 			_repository = repository;
 		}
+
+		/// <summary>
+		/// Handles the creation of a new server configuration.
+		/// </summary>
+		/// <param name="command">The command containing the details for creating the server configuration.</param>
+		/// <param name="cancellationToken">A cancellation token to observe while waiting for the task to complete.</param>
+		/// <returns>A task that represents the asynchronous operation. The task result contains a <see cref="Response{Guid}"/> with the ID of the created server configuration.</returns>
+		/// <exception cref="APIException">Thrown when the configuration has already been created.</exception>
 		public async Task<Response<Guid>> Handle(CreateConfigServerCommand command, CancellationToken cancellationToken)
 		{
 			var config = await _repository.GetByIdAsync(command.SystemId);
@@ -23,32 +33,20 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 
 			config = new ServerSettings
 			{
-				SystemId = command.SystemId,
-
-				ServerDB = new DBSettings
+				DbConnection = new DBSettings
 				{
-					DB = command.DB,
-					AlarmDB = new AlarmConnection
+					DataBase = command.DB,
+					Alarm = new AlarmConnection
 					{
 						ConnectionString = command.AlarmDB
 					},
-					NotificationDB = new NotifyConnection
+					Notify = new NotifyConnection
 					{
 						ConnectionString = command.NotificationDB
 					}
 				},
 
-				ServerHost = new HostSettings
-				{
-					PolicyName = command.PolicyName,
-					Port = command.Port,
-					Urls = command.Urls,
-					AllowedOrigins = command.AllowedOrigins,
-					RouteNotify = command.RouteNotify,
-					RouteAlarm = command.RouteAlarm
-				},
-
-				ServerHub = new HubSettings
+				HubSettings = new HubSettings
 				{
 					ServerId = command.SystemId,
 
@@ -66,7 +64,18 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 						TargetClients = command.NotifyTargetClients
 					}
 				},
-				ServerKafka = new KafkaSettings
+				HostSettings = new HostSettings
+				{
+					PolicyName = command.PolicyName,
+					Port = command.Port,
+					Urls = command.Urls,
+					AllowedOrigins = command.AllowedOrigins,
+					RouteNotify = command.RouteNotify,
+					RouteAlarm = command.RouteAlarm
+				},
+
+				
+				Kafka = new KafkaSettings
 				{
 					Consumer = new ConsumerConnection
 					{
@@ -78,16 +87,8 @@ namespace Application.Features.Configurations.Server.Commands.CreateConfig
 					}
 				}
 			};
-
-			//var configDb = await _repository.GetByIdDataBaseSettingsAsync(command.SystemId);
-			//var configDbDto = configDb.AsQueryable().ProjectTo<DBSettings>(_mapper.ConfigurationProvider);
-			//var configHost = await _repository.GetByIdHostSettingsAsync(command.SystemId);
-			//var configHostDto = configHost.AsQueryable().ProjectTo<DBSettings>(_mapper.ConfigurationProvider);
-			//var configHub = await _repository.GetByIdHubSettingsAsync(command.SystemId);
-			//var configHubDto = configHub.AsQueryable().ProjectTo<DBSettings>(_mapper.ConfigurationProvider);
-
 			await _repository.AddAsync(config);
-			return new Response<Guid>(config.SystemId, true);
+			return new Response<Guid>(config.HubSettings.ServerId, true);
 		}
 	}
 }

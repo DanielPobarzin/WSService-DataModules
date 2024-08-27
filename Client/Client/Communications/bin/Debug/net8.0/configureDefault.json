@@ -26,10 +26,10 @@
 
   "Kafka": {
     "Producer": {
-      "BootstrapServers": "localhost:9092"
+      "BootstrapServers": "localhost:9092;localhost:9093"
     },
     "Consumer": {
-      "BootstrapServers": "localhost:9092"
+      "BootstrapServers": "localhost:9092;localhost:9093"
     }
   }
 }
